@@ -16,21 +16,21 @@ public class Program
 {
 	public static void Main()
 	{
-    // affichage de la question sur la console
+    		// affichage de la question sur la console
 		Console.WriteLine("Quel est votre âge ?");
     
-    // lecture de l'entrée de l'utilisateur dans la variable line
+    		// lecture de l'entrée de l'utilisateur dans la variable line
 		string line = Console.ReadLine();
     
-    // transformation de la chaîne de caractères en entier
+    		// transformation de la chaîne de caractères en entier
 		int age = int.Parse(line);
     
-    // si l'âge est plus grand ou égal à 18... 
+    		// si l'âge est plus grand ou égal à 18... 
 		if (age >= 18) {
-      // ... on affiche qu'il est majeur
+      			// ... on affiche qu'il est majeur
 			Console.WriteLine("Vous êtes majeur");
 		} else {
-      // ... sinon on affiche qu'il est mineur
+      			// ... sinon on affiche qu'il est mineur
 			Console.WriteLine("Vous êtes mineur");
 		}
 	}
