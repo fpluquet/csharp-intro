@@ -108,7 +108,7 @@ public class Program
 
 ## Exercice 4
 
-Ecrire un programme qui combile les deux premiers :
+Ecrire un programme qui combine les deux premiers :
 
           Bonjour monsieur x
 
@@ -130,6 +130,8 @@ Ecrire un programme qui demande une année. Il doit vous dire si c'est une anné
 
 Vous allez faire vos courses et vous vous rendez compte que la caissière a des problèmes pour rendre la monnaie. Vous décidez de faire un programme pour l'aider. Pour cela, vous allez décomposer la somme d'argent qu'elle doit rendre en un nombre de pièces et/ou de billets le plus petit possible.
 
+> Demande de connaître les boucles
+ 
 ## Exercice 8
 
 Ecrire un programme qui demande à l'utilisateur de taper 5 entiers et qui affiche le plus grand. Le programme ne devra utiliser que 2 variables.
