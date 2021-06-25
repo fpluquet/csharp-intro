@@ -88,6 +88,135 @@ public class Program
 
 Écrire un programme qui lit une date dans deux variables (jj et mm). Il doit alors l'afficher en clair: 12 janvier par exemple.
 
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		// Déclarations des 2 variables pour y mettre la date lue
+		int jj, mm;
+		
+		// Affichage de la question
+		Console.Write("Entrez le jour : ");
+		
+		// Lecture, transformation en entier et assignation du jour
+		jj = int.Parse(Console.ReadLine());
+
+		// Affichage de la question
+		Console.Write("Entrez le mois : ");
+		
+		// Lecture, transformation en entier et assignation du jour
+		mm = int.Parse(Console.ReadLine());
+		
+		Console.Write("{0} ", jj);
+			
+		// sélection du cas en fonction de la valeur de mm
+		switch(mm) {
+			case 1:
+				Console.WriteLine("janvier");
+				break;
+			case 2: 
+				Console.WriteLine("février");
+				break;
+			case 3: 
+				Console.WriteLine("mars");
+				break;
+			case 4: 
+				Console.WriteLine("avril");
+				break;
+			case 5: 
+				Console.WriteLine("mai");
+				break;
+			case 6: 
+				Console.WriteLine("juin");
+				break;
+			case 7: 
+				Console.WriteLine("juillet");
+				break;
+			case 8: 
+				Console.WriteLine("août");
+				break;
+			case 9: 
+				Console.WriteLine("septembre");
+				break;
+			case 10: 
+				Console.WriteLine("octobre");
+				break;
+			case 11: 
+				Console.WriteLine("novembre");
+				break;
+			case 12: 
+				Console.WriteLine("décembre");
+				break;
+			default:
+				// si on est dans aucun cas, on affiche "mois inconnu"
+				Console.WriteLine("mois inconnu");
+				break;
+		}
+	}
+}
+```
+</details>
+## Exercice 
+
+Écrire un programme qui lit un mois en toute lettre ("janvier", "février", ...) et affiche le nombre de jour dans ce mois via un switch.
+
+Conseil: il est possible de regrouper le code pour les mois qui ont le même nombre de jours sans faire de ```break```.
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		// Déclarations de la variable pour y mettre le mois
+		string mois;
+		
+		// Affichage de la question
+		Console.Write("Entrez le mois : ");
+		
+		// Lecture, transformation en entier et assignation du jour
+		mois = Console.ReadLine();
+					
+		// sélection du cas en fonction de la valeur de mois
+		switch(mois) {
+			case "janvier":
+			case "mars":
+			case "mai":
+			case "juillet":
+			case "août":
+			case "octobre":
+			case "décembre":
+				Console.WriteLine("31 jours");
+				break;
+			case "février":
+				Console.WriteLine("28 ou 29 jours");
+				break;
+			case "avril":
+			case "juin":
+			case "septembre":
+			case "novembre":
+				Console.WriteLine("30 jours");
+				break;
+			default:
+				// si on est dans aucun cas, on affiche "mois inconnu"
+				Console.WriteLine("mois inconnu");
+				break;
+		}
+	}
+}
+```
+</details>
+
 ## Exercice 
 
 Un prof décide d'inscrire la note suivante en fonction du résultat obtenu :
