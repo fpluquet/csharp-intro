@@ -6,10 +6,11 @@
 
 ## Exercice 1
 
-Ecrire un programme qui réalise une machine à calculer de base (+ - * /). Le prgramme demande 2 nombres et la fonction souhaitée. Il affiche alors le résultat. (Attention à la division par zéro. voir labo précédent)
+Ecrire un programme qui réalise une machine à calculer de base (+ - * /). Le programme demande 2 nombres et la fonction souhaitée. Il affiche alors le résultat.
+
+Attention à la division par zéro.
 
 ## Exercice 2
-
 
 Ecrire un programme qui lit une date dans deux variables (jj et mm). Il doit alors l'afficher en clair: 12 janvier par exemple.
 
