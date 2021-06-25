@@ -162,6 +162,7 @@ public class Program
 }
 ```
 </details>
+
 ## Exercice 
 
 Écrire un programme qui lit un mois en toute lettre ("janvier", "février", ...) et affiche le nombre de jour dans ce mois via un switch.
