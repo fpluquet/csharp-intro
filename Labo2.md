@@ -37,7 +37,7 @@ D'après le tableau ci-dessous, utiliser un switch pour afficher le nombre de jo
 Exemple de sortie : 
 
 ```
-Entrez le nombre de personnes:3
+Entrez le nombre de personnes: 3
 Entrez la formation: Photoshop
 Le montant est de 2700
 ```
