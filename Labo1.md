@@ -110,7 +110,7 @@ public class Program
 
 ## Exercice 4
 
-Ecrire un programme qui combine les exercices 2 et 3, c'est-à-dire qui vous demande votre nom, puis votre sexe (M,F), votre âge et écrit la bonne phrase en fonction des données :
+Ecrire un programme qui combine les exercices 2 et 3, c'est-à-dire qui vous demande votre nom, puis votre sexe (M,F), puis votre âge et écrit la bonne phrase en fonction des données entrées :
 
 ```
 Bonjour Monsieur x
@@ -122,8 +122,61 @@ Bonjour Jeune Homme x
 Bonjour Mademoiselle x
 ```
 
-où ```x``` est le nom entré.
+où ```x``` est le nom entré, et l'âge pivot est 18 ans.
 
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		// affichage de la question sur la console
+		Console.WriteLine("Quel est votre nom ?");
+		
+		// lecture du nom de l'utilisateur 
+		string nom = Console.ReadLine();
+
+		// affichage de la question sur la console
+		Console.WriteLine("Quel est votre sexe (M/F) ?");
+
+		// lecture du sexe de l'utilisateur 
+		string sexe = Console.ReadLine();
+		
+		// affichage de la question sur la console
+		Console.WriteLine("Quel est votre âge ?");
+
+		// lecture de l'entrée de l'utilisateur dans la variable line
+		string line = Console.ReadLine();
+
+		// transformation de la chaîne de caractères en entier
+		int age = int.Parse(line);
+
+		// si l'âge est plus grand ou égal à 18... 
+		if (age >= 18) {
+			// ... et que c'est un homme
+			if (sexe == "M") {
+				Console.WriteLine("Bonjour Monsieur " + nom);
+			} else {
+				// ... et que c'est une femme
+				Console.WriteLine("Bonjour Madame " + nom);
+			}
+		} else {
+			// ... et que c'est un homme
+			if (sexe == "M") {
+				Console.WriteLine("Bonjour Jeune Homme " + nom);
+			} else {
+				// ... et que c'est une femme
+				Console.WriteLine("Bonjour Mademoiselle " + nom);
+			}
+		}
+	}
+}
+```
+</details>
 
 ## Exercice 5
 
