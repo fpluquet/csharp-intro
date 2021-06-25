@@ -1,6 +1,8 @@
 # C# - Labo 1
 
 ## Buts du labo
+- Découvrir les bases de C#
+- les variables entières et les chaînes de caractères (string)
 
 ## Exercice 1
 
@@ -277,8 +279,62 @@ public class Program
 
 ## Exercice 6
 
-Ecrire un programme qui demande une année. Il doit vous dire si c'est une année bissextile ou pas.
+Ecrire un programme qui demande une année. Il doit vous dire si c'est une année bissextile ou pas. Pour rappel, une année est bissextile :
+- si l'année est divisible par 4 et non divisible par 100
+- ou si l'année est divisible par 400.
+	
+« Divisible » signifie que la division donne un nombre entier, sans reste.
 
+Exemple de sorties :
+	
+```
+Entrez une année : 2021
+L'année 2021 n'est pas bissextile
+```
+```
+Entrez une année : 2022
+L'année 2022 est bissextile
+```
+```
+Entrez une année : 2000
+L'année 2000 est bissextile
+```
+```
+Entrez une année : 2100
+L'année 2100 n'est pas bissextile
+```
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		int annee;
+
+		// affichage de la question sur la console
+		Console.Write("Entrez une année : ");		
+		
+		// lecture, transformation de la chaîne de caractères en entier et assignation dans annee
+		int.TryParse(Console.ReadLine(), out annee);
+		
+		// (si annee est divisible par 4 et pas par 100) ou (si annee est divisible par 400)
+		if ((annee % 4 == 0 && annee % 100 != 0) || (annee % 400 == 0)) {
+			// On affiche que cette année est bissextile
+			Console.WriteLine("L'année {0} est bissextile", annee);
+		} else {
+			// On affiche que cette année n'est pas bissextile
+			Console.WriteLine("L'année {0} n'est pas bissextile", annee);
+		}
+	}
+}
+```
+</details>
+	
 ## Exercice 7
 
 Vous allez faire vos courses et vous vous rendez compte que la caissière a des problèmes pour rendre la monnaie. Vous décidez de faire un programme pour l'aider. Pour cela, vous allez décomposer la somme d'argent qu'elle doit rendre en un nombre de pièces et/ou de billets le plus petit possible.
