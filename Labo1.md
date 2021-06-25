@@ -37,6 +37,8 @@ Ecrire un programme qui vous demande votre nom, puis votre sexe (M,F) et écrit 
    ou 
    ```Bonjour Madame x```
 
+ où ```x``` est le nom entré.
+ 
 <details>
 	<summary>Solution</summary>
 
@@ -108,15 +110,20 @@ public class Program
 
 ## Exercice 4
 
-Ecrire un programme qui combine les deux premiers :
+Ecrire un programme qui combine les exercices 2 et 3, c'est-à-dire qui vous demande votre nom, puis votre sexe (M,F), votre âge et écrit la bonne phrase en fonction des données :
 
-          Bonjour monsieur x
+```
+Bonjour Monsieur x
 
-          Bonjour madame x
+Bonjour Madame x
 
-          Bonjour jeune homme x
+Bonjour Jeune Homme x
 
-          Bonjour Mademoiselle x
+Bonjour Mademoiselle x
+```
+
+où ```x``` est le nom entré.
+
 
 ## Exercice 5
 
