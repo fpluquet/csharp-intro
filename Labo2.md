@@ -28,10 +28,11 @@ Ecrire un programme qui demande une note (un nombre entre 0 et 100 à vérifier)
 
 D'après le tableau ci-dessous, utiliser un switch pour afficher le nombre de jours et le tarif en fonction de la formation.
 
-| Formation |	Nombre de jour |	Tarif journalier |
-| Outlook	 | 1 |	250€ |
-| Photoshop	| 3 |	300€ |
-| PHP | 3	| 350€ |
+| Formation | Nombre de jour | Tarif journalier |
+|-----------|----------------|------------------|
+| Outlook   | 1              | 250€             |
+| Photoshop | 3              | 300€             |
+| PHP       | 3              | 350€             |
 
 Exemple de sortie : 
 
