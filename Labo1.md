@@ -2,7 +2,8 @@
 
 ## Buts du labo
 - Découvrir les bases de C#
-- les variables entières et les chaînes de caractères (string)
+- Utiliser les variables entières et les chaînes de caractères (string)
+- Utiliser le flot conditionnel : if / if-else / if-else-if / ...
 
 ## Exercice 1
 
@@ -344,3 +345,78 @@ Vous allez faire vos courses et vous vous rendez compte que la caissière a des 
 ## Exercice 8
 
 Ecrire un programme qui demande à l'utilisateur de taper 5 entiers et qui affiche le plus grand. Le programme ne devra utiliser que 2 variables.
+
+Exemple de sortie :
+```
+Entrez un nombre : 5
+Entrez un nombre : 2
+Entrez un nombre : 3
+Entrez un nombre : 20
+Entrez un nombre : 1
+La valeur maximale est 20
+```
+	
+<details>
+	<summary>Solution</summary>
+	
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		// Déclaration et initialisation de la variable qui contiendra le maximum
+		int max = int.MinValue;
+
+		// Déclaration de la variable qui contiendra le dernier nombre entré
+		int last;
+		
+		// Affichage de la question
+		Console.Write("Entrez un nombre : ");
+		
+		// Lecture du nombre
+		int.TryParse(Console.ReadLine(), out last);
+		
+		// Si le nombre lu est plus grand que la valeur contenue dans max, alors on remplace...
+		if (last > max) {
+			// ... alors on remplace le max par cette valeur
+			max = last;
+		}
+		
+		// puis idem 4 fois
+
+		Console.Write("Entrez un nombre : ");
+		int.TryParse(Console.ReadLine(), out last);
+		
+		if (last > max) {
+			max = last;
+		}
+		Console.Write("Entrez un nombre : ");
+		int.TryParse(Console.ReadLine(), out last);
+		
+		if (last > max) {
+			max = last;
+		}
+		
+		Console.Write("Entrez un nombre : ");
+		int.TryParse(Console.ReadLine(), out last);
+		
+		if (last > max) {
+			max = last;
+		}
+		
+		Console.Write("Entrez un nombre : ");
+		int.TryParse(Console.ReadLine(), out last);
+		
+		if (last > max) {
+			max = last;
+		}
+		
+		// Affichage de la valeur maximale
+		Console.WriteLine("La valeur maximale est {0}", max);
+		
+	}
+}
+```
+</details>
