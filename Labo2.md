@@ -6,13 +6,13 @@
 
 ## Exercice 1
 
-Ecrire un programme qui réalise une machine à calculer de base (+ - * /). Le programme demande 2 nombres et la fonction souhaitée. Il affiche alors le résultat.
+Écrire un programme qui réalise une machine à calculer de base (+ - * /). Le programme demande 2 nombres et la fonction souhaitée. Il affiche alors le résultat.
 
 Attention à la division par zéro.
 
 ## Exercice 2
 
-Ecrire un programme qui lit une date dans deux variables (jj et mm). Il doit alors l'afficher en clair: 12 janvier par exemple.
+Écrire un programme qui lit une date dans deux variables (jj et mm). Il doit alors l'afficher en clair: 12 janvier par exemple.
 
 ## Exercice 
 
@@ -23,7 +23,7 @@ Un prof décide d'inscrire la note suivante en fonction du résultat obtenu :
 - entre 50 et 59 S
 - entre 0 et 49 I
 
-Ecrire un programme qui demande une note (un nombre entre 0 et 100 à vérifier) et qui affiche l'appréciation.
+Écrire un programme qui demande une note (un nombre entre 0 et 100 à vérifier) et qui affiche l'appréciation.
 
 ## Exercice 
 
