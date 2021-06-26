@@ -277,7 +277,7 @@ public class Program
 		// Affichage de la question
 		Console.Write("Entrez les points (entre 0 et 100 compris) : ");
 		
-		// Lecture, transformation en entier et assignation du jour
+		// Lecture, transformation en entier et assignation des points
 		bool estUnEntier = int.TryParse(Console.ReadLine(), out points);
 		
 		if (estUnEntier == false || points < 0 || points > 100) {
@@ -325,10 +325,80 @@ D'après le tableau ci-dessous, utiliser un switch pour afficher le nombre de jo
 | Photoshop | 3              | 300€             |
 | PHP       | 3              | 350€             |
 
-Exemple de sortie : 
+Exemple de sorties : 
 
 ```
 Entrez le nombre de personnes: 3
 Entrez la formation: Photoshop
-Le montant est de 2700
+Le montant est de 2700 euros
 ```
+```
+Entrez le nombre de personnes: 3
+Entrez la formation: C#
+La formation n'existe pas.
+```
+```
+Entrez le nombre de personnes: un texte
+Le nombre entré de personnes n'est pas valide.
+```
+	
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		// Déclaration des variable nécessaires
+		int prixJournalier, nbJours, nbPersonnes;
+		string nomFormation;
+		
+		// Affichage de la question
+		Console.Write("Entrez le nombre de personnes: ");
+		
+		// Lecture, transformation en entier et assignation du nombre de personnes
+		bool estUnEntier = int.TryParse(Console.ReadLine(), out nbPersonnes);
+		
+		if (estUnEntier == false || nbPersonnes <= 0) {
+			// si le nombre entré n'est pas un nombre ou s'il est nul ou négatif
+			Console.WriteLine("Le nombre entré de personnes n'est pas valide.");
+		} else {
+			// Affichage de la question
+			Console.Write("Entrez la formation: ");
+			
+			// Lecture et assignation du nom de la formation
+			nomFormation = Console.ReadLine();
+			
+			// switch en fonction de la valeur de nomFormation
+			switch (nomFormation) {
+				case "Outlook":
+					prixJournalier = 250;
+					nbJours = 1;
+					break;
+				case "Photoshop":
+					prixJournalier = 300;
+					nbJours = 3;
+					break;
+				case "PHP":
+					prixJournalier = 350;
+					nbJours = 3;
+					break;
+				default:
+					// si nomFormation ne contient pas "Outlook", "Photoshop" ou "PHP"
+					nbJours = -1;
+					prixJournalier = -1;
+					break;
+			}
+			if (nbJours == -1) {
+				Console.WriteLine("Formation inexistante");
+			} else {
+				Console.WriteLine("Le montant est de {0} euros", nbJours * nbPersonnes * prixJournalier);
+			}
+		}
+	}
+}
+```
+</details>
