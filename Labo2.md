@@ -185,7 +185,7 @@ public class Program
 		// Affichage de la question
 		Console.Write("Entrez le mois : ");
 		
-		// Lecture, transformation en entier et assignation du jour
+		// Lecture et assignation du mois
 		mois = Console.ReadLine();
 					
 		// sélection du cas en fonction de la valeur de mois
@@ -220,14 +220,99 @@ public class Program
 
 ## Exercice 
 
-Un prof décide d'inscrire la note suivante en fonction du résultat obtenu :
-- entre 90 et 100 PGD
-- entre 80 et 89 GD
-- entre 60 et 79 D
-- entre 50 et 59 S
-- entre 0 et 49 I
+Un prof décide d'inscrire la mention suivante en fonction des points obtenus :
 
-Écrire un programme qui demande une note (un nombre entre 0 et 100 à vérifier) et qui affiche l'appréciation.
+| Points obtenus  | Signe du grade | Explication             |
+|-----------------|----------------|-------------------------|
+| entre 90 et 100 | PGD            | Plus grande distinction |
+| entre 80 et 89  | GD             | Grande distinction      |
+| entre 70 et 79  | D              | Distinction             |
+| entre 60 et 69  | S              | Satisfaction            |
+| entre 50 et 59  | SM             | Sans mention            |
+| entre 0 et 49   | I              | Insatisfaction          |
+
+
+Écrire un programme qui demande une note (un nombre entre 0 et 100 à vérifier) et qui affiche la mention correspondante.
+
+Exemple de sorties :
+
+```
+Entrez les points (entre 0 et 100 compris) : 100
+La mention obtenue est : PGD
+```
+```
+Entrez les points (entre 0 et 100 compris) : 87
+La mention obtenue est : GD
+```
+```
+Entrez les points (entre 0 et 100 compris) : -1
+Les points entrés sont invalides.
+```
+```
+Entrez les points (entre 0 et 100 compris) : cent
+Les points entrés sont invalides.
+```
+```
+Entrez les points (entre 0 et 100 compris) : 
+Les points entrés sont invalides.
+```
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		// Déclaration de la variable pour y mettre les points obtenus
+		int points;
+		
+		// Déclaration de la variable qui contiendra le grade obtenu
+		string grade = "";
+		
+		// Affichage de la question
+		Console.Write("Entrez les points (entre 0 et 100 compris) : ");
+		
+		// Lecture, transformation en entier et assignation du jour
+		bool estUnEntier = int.TryParse(Console.ReadLine(), out points);
+		
+		if (estUnEntier == false || points < 0 || points > 100) {
+			// si le nombre entré n'est pas un nombre ou s'il n'est pas compris entre les 0 et 100 compris
+			grade = "Erreur";
+		} else if (points >= 90) {
+			// ici, points >= 90 et points <= 100
+			grade = "PGD";
+		} else if (points >= 80) {
+			// ici, points >= 80 et points < 90
+			grade = "GD";
+		} else if (points >= 70) {
+			// ici, points >= 70 et points < 80
+			grade = "D";
+		} else if (points >= 60) {
+			// ici, points >= 60 et points < 70
+			grade = "S";
+		} else if (points >= 50) {
+			// ici, points >= 50 et points < 60
+			grade = "SM";
+		} else if (points < 50) {
+			// ici, points >= 0 et points < 50
+			grade = "I";
+		}
+		
+		if (grade == "Erreur") {
+			// si il y avait une erreur
+			Console.WriteLine("Les points entrés sont invalides.");
+		} else {
+			// sinon on affiche la mention obtenue
+			Console.WriteLine("La mention obtenue est : {0}", grade);
+		}
+	}
+}
+```
+</details>
 
 ## Exercice 
 
