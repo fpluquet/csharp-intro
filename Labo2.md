@@ -179,7 +179,7 @@ public class Program
 {
 	public static void Main()
 	{
-		// Déclarations de la variable pour y mettre le mois
+		// Déclaration de la variable pour y mettre le mois
 		string mois;
 		
 		// Affichage de la question
@@ -222,14 +222,15 @@ public class Program
 
 Un prof décide d'inscrire la mention suivante en fonction des points obtenus :
 
-| Points obtenus  | Signe du grade | Explication             |
-|-----------------|----------------|-------------------------|
-| entre 90 et 100 | PGD            | Plus grande distinction |
-| entre 80 et 89  | GD             | Grande distinction      |
-| entre 70 et 79  | D              | Distinction             |
-| entre 60 et 69  | S              | Satisfaction            |
-| entre 50 et 59  | SM             | Sans mention            |
-| entre 0 et 49   | I              | Insatisfaction          |
+| Points obtenus  | Acronyme de la mention | Explication             |
+|-----------------|------------------------|-------------------------|
+| entre 90 et 100 | PGD                    | Plus grande distinction |
+| entre 80 et 89  | GD                     | Grande distinction      |
+| entre 70 et 79  | D                      | Distinction             |
+| entre 60 et 69  | S                      | Satisfaction            |
+| entre 50 et 59  | SM                     | Sans mention            |
+| entre 0 et 49   | I                      | Insatisfaction          |
+
 
 
 Écrire un programme qui demande une note (un nombre entre 0 et 100 à vérifier) et qui affiche la mention correspondante.
