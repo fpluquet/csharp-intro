@@ -30,7 +30,7 @@ La valeur contenue dans ```age``` sera recopiée dans la variable nommée ```age
 
 ### Exercice 1
 
-Que contient chaque variable à la fin de ce programme :
+Que contient chaque variable à la fin de ce programme ?
 
 ```csharp
 using System;
