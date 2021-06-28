@@ -1,8 +1,10 @@
 # Console
 
+La console est le terminal textuel utilisé pour interagir avec l'utilisateur. On l'utilisera pour les programmes en mode "console" et pour le débogage rapide.
+
 Pour lire un texte depuis la console :
 ```csharp
-string ligne = Console.ReadLine();
+string ligne = Console.ReadLine(); // la variable ligne contiendra le texte lu sur la console
 ```
 
 Pour afficher un texte sur la console :
