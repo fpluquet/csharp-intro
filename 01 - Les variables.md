@@ -1,11 +1,4 @@
-# C# - Labo 1
-
-## Buts du labo
-- Découvrir les bases de C#
-- Utiliser les variables entières et les chaînes de caractères (string)
-- Utiliser le flot conditionnel : if / if-else / if-else-if / ...
-
-## Variables
+# Variables
 
 Une variable est un emplacement mémoire qui a :
 - un type (int, double, string, ...)
@@ -28,7 +21,7 @@ int ageMinimum = age;
 ```
 La valeur contenue dans ```age``` sera alors recopiée dans la variable nommée ```ageMinimum```.
 
-### Exercice 1
+## Exercice 1
 
 Que contient chaque variable à la fin de ce programme ?
 
