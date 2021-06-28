@@ -1,5 +1,11 @@
 # Laborations de C#
 
+## Méthodologie
+
+- Lecture de code
+- Production de code
+- Auto-correction avec la solution
+
 ## Table des matières
 
 - Les variables
@@ -17,8 +23,8 @@
 - Les tableaux à une dimension (vecteur)
   - Les boucles et les tableaux
 - try/catch
-- les fonctions
+- Les fonctions
   - appel
   - définition
   - paramètres
-- fonctions récursives
+- Fonctions récursives
