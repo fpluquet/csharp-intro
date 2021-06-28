@@ -12,6 +12,7 @@
 - Console
 - Transformation d'un string en entier
 - Concaténation de string
+- Swap de variables
 - Les embranchements :
   - if/else
   - if/else imbriqués
