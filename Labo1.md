@@ -88,7 +88,7 @@ public class Program
 
 ## Concatenation de string
 
-**Introduction sur les strings et la concatenation **
+**Introduction sur les strings et la concatenation**
 
 ## Console
 
