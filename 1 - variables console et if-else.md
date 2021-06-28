@@ -26,7 +26,7 @@ On peut aussi lire le contenu d'une variable en indiquant son nom dans une expre
 ```
 int ageMinimum = age;
 ```
-La valeur contenue dans ```age``` sera recopiée dans la variable nommée ```ageMinimum```.
+La valeur contenue dans ```age``` sera alors recopiée dans la variable nommée ```ageMinimum```.
 
 ### Exercice 1
 
