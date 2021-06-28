@@ -5,7 +5,104 @@
 - Utiliser les variables entières et les chaînes de caractères (string)
 - Utiliser le flot conditionnel : if / if-else / if-else-if / ...
 
-## Exercice 1
+## Variables
+
+Une variable est un emplacement mémoire qui a :
+- un type (int, double, string, ...)
+- un nom
+- un valeur courante
+
+Pour déclarer une variable nommée ```age``` qui est un entier et pour valeur initiale 5 :
+```
+int age = 18;
+```
+
+Le type et le nom d'une variable ne peut pas être changés ensuite. Par contre, sa valeur peut être modifiée. On peut par exemple changer la valeur de la variable ```age``` en y mettant 20. 
+```
+age = 20;
+```
+
+On peut aussi lire le contenu d'une variable en indiquant son nom dans une expression :
+```
+int ageMinimum = age;
+```
+La valeur contenue dans ```age``` sera recopiée dans la variable nommée ```ageMinimum```.
+
+### Exercice 1
+
+Que contient chaque variable à la fin de ce programme :
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		int age = 18;
+		int ageMinimum = 0;
+		int ageMaximum = 99;
+		
+		ageMinimum = age;
+		age = age + 20;
+		ageMaximum = age;
+		ageMinimum = ageMaximum - 30; 
+	}
+}
+```
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		int age = 18; 		// age contient 18
+		int ageMinimum = 0; 	// age contient 18, ageMinimum contient 0
+		int ageMaximum = 99; 	// age contient 18, ageMinimum contient 0, ageMaximum contient 0
+		
+		// on va copier la valeur contenue dans age dans la variable ageMinimum
+		// attention : seule la valeur est copiée : ageMinimum n'est pas "liée" à age 
+		ageMinimum = age;	// age contient 18, ageMinimum contient 18, ageMaximum contient 0
+	
+		// la partie à droite de l'égalité va d'abord être évaluée et le résultat sera placé dans age
+		// 	-> age + 20 : on lit la valeur courante de age (18) et on y ajoute 20 : le résultat de l'évaluation de cette partie vaut 38
+		//	-> age = 38 : on assigne à age la valeur 38
+		age = age + 20;		// age contient 38, ageMinimum contient 18, ageMaximum contient 0
+	
+		// on copie la valeur courante de age (38) dans la variable ageMaximum
+		ageMaximum = age;	// age contient 38, ageMinimum contient 18, ageMaximum contient 38
+	
+		// la partie à droite de l'égalité va d'abord être évaluée et le résultat sera placé dans ageMinimum
+		// 	-> ageMaximum - 30 : on lit la valeur courante de ageMaximum (38) et on y retir 30 : le résultat de l'évaluation de cette partie vaut 8
+		//	-> ageMinimum = 8 : on assigne à ageMinimum la valeur 8
+		ageMinimum = ageMaximum - 30; // age contient 38, ageMinimum contient 8, ageMaximum contient 38
+	}
+}
+```
+</details>
+
+## Concatenation de string
+
+**Introduction sur les strings et la concatenation **
+
+## Console
+
+Pour afficher un texte sur la console :
+```
+Console.WriteLine("Bonjour !");
+```
+
+Pour lire un texte depuis la console :
+```
+string ligne = Console.ReadLine();
+```
+
+### Exercice 2
 
 Ecrire un programme qui vous demande votre nom et écrit ```Bonjour x``` où ```x``` est le nom entré. 
 
@@ -32,7 +129,11 @@ public class Program
 ```
 </details>
 
-## Exercice 2
+## Conditions
+
+**Introduction sur les conditions**
+
+### Exercice 2
 
 Ecrire un programme qui vous demande votre nom, puis votre sexe (M,F) et écrit :
    
@@ -74,7 +175,7 @@ public class Program
 </details>
 
 
-## Exercice 3
+### Exercice 3
 
 Écrire un programme qui vous demande votre âge et affiche si vous êtes majeur ou mineur
 
@@ -111,7 +212,7 @@ public class Program
 </details>
 
 
-## Exercice 4
+### Exercice 4
 
 Ecrire un programme qui combine les exercices 2 et 3, c'est-à-dire qui vous demande votre nom, puis votre sexe (M,F), puis votre âge et écrit la bonne phrase en fonction des données entrées :
 
@@ -181,7 +282,7 @@ public class Program
 ```
 </details>
 
-## Exercice 5
+### Exercice 5
 
 Ecrire un programme qui demande 3 nombres à l'utilisateur et les affiche ensuite par ordre croissant.
 
@@ -278,7 +379,7 @@ public class Program
 ```
 </details>
 
-## Exercice 6
+### Exercice 6
 
 Ecrire un programme qui demande une année. Il doit vous dire si c'est une année bissextile ou pas. Pour rappel, une année est bissextile :
 - si l'année est divisible par 4 et non divisible par 100
@@ -336,13 +437,13 @@ public class Program
 ```
 </details>
 	
-## Exercice 7
+### Exercice 7
 
 Vous allez faire vos courses et vous vous rendez compte que la caissière a des problèmes pour rendre la monnaie. Vous décidez de faire un programme pour l'aider. Pour cela, vous allez décomposer la somme d'argent qu'elle doit rendre en un nombre de pièces et/ou de billets le plus petit possible.
 
 > Demande de connaître les boucles
  
-## Exercice 8
+### Exercice 8
 
 Ecrire un programme qui demande à l'utilisateur de taper 5 entiers et qui affiche le plus grand. Le programme ne devra utiliser que 2 variables.
 
