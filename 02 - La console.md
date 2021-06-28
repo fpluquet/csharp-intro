@@ -1,19 +1,27 @@
 # Console
 
-Pour afficher un texte sur la console :
+Pour lire un texte depuis la console :
+```csharp
+string ligne = Console.ReadLine();
 ```
+
+Pour afficher un texte sur la console :
+```csharp
 Console.Write("Bonjour !");
 ```
 
 Pour afficher un texte sur la console et revenir à la ligne :
-```
+```csharp
 Console.WriteLine("Bonjour !");
 ```
 
-Pour lire un texte depuis la console :
+Pour afficher un texte avec des trous à compléter par des paramètres :
+```csharp
+Console.WriteLine("Les paramètres sont : {0}, {1}, {2}", 5, 12, 24); // affichera "Les paramètres sont : 5, 12, 24"
+Console.WriteLine("Les paramètres sont : {1}, {2}, {0}", 5, 12, 24); // affichera "Les paramètres sont : 12, 24, 5"
+Console.WriteLine("Les paramètres sont : {1}, {2}, {0}", "coucou", 12, "hello"); // affichera "Les paramètres sont : 12, hello, coucou"
 ```
-string ligne = Console.ReadLine();
-```
+
 
 ## Exercice 1
 
