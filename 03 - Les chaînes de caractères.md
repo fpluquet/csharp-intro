@@ -1,45 +1,119 @@
 # Les chaînes de caractères (string)
 
-**Introduction sur les strings et la concatenation**
+Un ```string``` en informatique est une chaîne de caractères, c'est-à-dire une suite ordonnée de caractères.
 
-## Exercice
-
-Créez une fonction qui prend un mot et détermine s’il est pluriel ou singulier. Un mot pluriel est celui qui se termine par « s ». S’il est pluriel renvoyer TRUE sinon FALSE.
-
-Exemple:
-```
-check("enfants") ➞ True
-
-check("filles") ➞ True
-
-check("fille") ➞ False
-
-check("enfant") ➞ False
+Exemples :
+```csharp
+"" // la chaîne vide
+"Bonjour à tous !"
+"Hello :D"
 ```
 
+On peut assigner une chaîne de caractères dans une variable de type ```string``` :
+
+```csharp
+string texte = "Bonjour à tous";
+string unAutreTexte = "Hello everybody !";
+```
+
+## Propriétés et méthodes
+
+Il est possible d'obtenir la taille d'une chaîne de caractères via la propriété ```Length```.
+
+```csharp
+int taille1 = "Hello".Length; //  taille1 contient 5
+string texte = "Bonjour";
+int taille2 = texte.Length // taille2 contient 7
+```
+
+Il est possible d'obtenir le caractère à une index précis en suffissant la chaîne de caractères par des crochets et l'index désiré (en partant de 0) :
+
+```csharp
+"Hello"[0] // renvoie le caractère 'H'
+string texte = "Bonjour";
+Console.Write(texte[0]) // affiche 'B'
+Console.Write(texte[6]) // affiche 'r'
+```
+
+Il existe également pas mal de méthodes utiles sur les chaînes de caractères. Pour les retrouver : https://docs.microsoft.com/en-us/dotnet/api/system.string.substring?view=net-5.0
+
+Voici quelques unes des plus intéressantes :
+
+| Nom de la méthode | Utilité | Exemple |
+| - | - | - |
+| CompareTo | Compare cette instance avec un objet String spécifié et indique si cette instance précède, suit ou apparaît à la même position dans l'ordre de tri que la chaîne spécifiée. | ```"Hello".CompareTo("Bonjour"); // renvoie -1``` |
+| IndexOf | Signale l'index de base zéro de la première occurrence de la chaîne spécifiée dans cette instance. | ```"Hello".IndexOf("lo"); // renvoie 3```|
+| Contains | Retourne une valeur qui indique si la sous-chaîne spécifiée apparaît dans cette chaîne. | ```"Hello".Contains("ll"); // renvoie True``` |
+| StartsWith | Détermine si le début de cette instance de chaîne correspond à la chaîne spécifiée. | ```"Hello".StartsWith("Hel"); // renvoie True``` |
+## Concaténation
+
+On peut créer une nouvelle chaîne de caractères en *concaténant* plusieurs chaînes, c'est-à-dire en les collant les unes ou autres. Pour cela, il suffit de mettre un + entre ces chaînes :
+
+```csharp
+string uneChaineComplète = "Hello " + "tout " + "le monde"; // uneChaineComplète contient "Hello tout le monde"
+```
+
+## Convertion
+
+Il arrive souvent que l'on doive passer d'une chaîne de caractères à des entiers et inversément. Pour transformer un ```int``` en ```string```, il suffit d'appeler la méthode ```ToString()``` sur l'entier :
+
+```csharp
+int unNombre = 20;
+string unNombreEnTexte = unNombre.ToString();
+```
+
+Pour passer d'un ```string``` à un ```int```, c'est un peu plus compliqué car la chaîne de caractères ne contient pas forcément un entier. Il faut donc gérer ce cas.
+
+```csharp
+int unNombre = int.Parse("150"); 
+int unAutreNombre;
+```
+
+Parse, TryParse
+
 ## Exercice
 
-Créez une fonction qui renvoie TRUE si une chaîne contient des espaces. Sinon renvoie FALSE.
+Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's', en ajouter un et l'afficher.
 
-Exemple:
-
-containSpaces("Thomas") ➞ False
-
-containSpaces("Hello World!") ➞ True
-
-containSpaces(" ") ➞ True
-
-containSpaces("") ➞ False
-
+Exemple de sortie:
+```
+Quel mot faut-il mettre au pluriel ? Chien
+Le mot "Chien" au pluriel : Chiens
+```
+```
+Quel mot faut-il mettre au pluriel ? Chiens
+Le "Chiens" est déjà au pluriel. 
+```
 
 ## Exercice
 
-Créez une fonction qui compte le nombre de syllabes d’un mot. Chaque syllabe est séparée par un tiret -.
+Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's' ou un 'x', ajouter un 'x' si cela finit par 'ou' ou ajouter un 's' et l'afficher.
 
-Exemple:
+Exemple de sortie:
+```
+Quel mot faut-il mettre au pluriel ? Chien
+Le mot "Chien" au pluriel : Chiens
+```
+```
+Quel mot faut-il mettre au pluriel ? Chiens
+Le "Chiens" est déjà au pluriel. 
+```
+```
+Quel mot faut-il mettre au pluriel ? Hibou
+Le mot "Hibou" au pluriel : Hiboux
+```
 
-nbrOfSlab("prin-temps") ➞ 2
+## Exercice
 
-nbrOfSlab("ar-rê-te") ➞ 3
+Demander 2 chaînes de caractères et les afficher dans l'ordre du dictionnaire (défini par défaut dans la méthode CompareTo).
 
-nbrOfSlab("ther-mo-mè-tre") ➞ 4
+## Exercice
+
+Demander une chaine de caractères et afficher le menu suivant :
+
+1. Tester ce texte commence par...
+2. Tester ce texte finit par...
+3. Afficher sa longueur
+4. Quitter
+
+Lire le choix et afficher les informations en conséquence.
