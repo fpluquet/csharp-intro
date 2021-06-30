@@ -78,3 +78,11 @@ public class Program
 }
 ```
 </details>
+
+## Exercice
+
+Calcul de la surface d'un triangle.
+
+## Exercice
+
+Reste de la division entière

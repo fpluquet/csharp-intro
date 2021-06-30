@@ -27,7 +27,7 @@ Console.WriteLine("Les paramètres sont : {1}, {2}, {0}", "coucou", 12, "hello")
 
 ## Exercice 1
 
-Que fait exactement le programme suivant ? 
+Que fait exactement le programme suivant si on entre le texte "Salut" ? 
 
 ```csharp
 using System;
