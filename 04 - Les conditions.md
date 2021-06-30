@@ -310,7 +310,74 @@ public class Program
 
 Vous allez faire vos courses et vous vous rendez compte que la caissière a des problèmes pour rendre la monnaie. Vous décidez de faire un programme pour l'aider. Pour cela, vous allez décomposer la somme d'argent qu'elle doit rendre en un nombre de pièces et/ou de billets le plus petit possible.
 
-> Demande de connaître les boucles
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+
+public class Program {
+
+    
+    public static void Main(){
+		// Affiche la question
+		Console.WriteLine("Quel est le montant à rendre ?");
+
+		// Lit, transforme le string en entier et assigne cette valeur à la variable aRendre 
+		int aRendre = int.Parse(Console.ReadLine());
+		
+		// Si il y a au moins 200 euros à rendre...
+		if (aRendre >= 200) {
+			// ... on compte le nombre de billets de 200 euros à rendre 
+			int nbBillets = aRendre / 200; // comme nbBillets est un entier, on a une division entière : 312 / 200 = 1
+			
+			// on retire les billets de 200 euros de la somme à rendre
+			aRendre = aRendre - nbBillets * 200;
+			
+			// et on affiche le nombre de billets de 200 euros à rendre
+			Console.WriteLine("{0} billets de 200 euros", nbBillets);
+		}
+		// idem pour les autres billets / pièces...
+		if (aRendre >= 100) {
+			int nbBillets = aRendre / 100;
+			aRendre = aRendre - nbBillets * 100;
+			Console.WriteLine("{0} billets de 100 euros", nbBillets);
+		}
+		if (aRendre >= 50) {
+			int nbBillets = aRendre / 50;
+			aRendre = aRendre - nbBillets * 50;
+			Console.WriteLine("{0} billets de 50 euros", nbBillets);
+		}
+		if (aRendre >= 20) {
+			int nbBillets = aRendre / 20;
+			aRendre = aRendre - nbBillets * 20;
+			Console.WriteLine("{0} billets de 20 euros", nbBillets);
+		}
+		if (aRendre >= 10) {
+			int nbBillets = aRendre / 10;
+			aRendre = aRendre - nbBillets * 10;
+			Console.WriteLine("{0} billets de 10 euros", nbBillets);
+		}
+		if (aRendre >= 5) {
+			int nbBillets = aRendre / 5;
+			aRendre = aRendre - nbBillets * 5;
+			Console.WriteLine("{0} billets de 5 euros", nbBillets);
+		}
+		if (aRendre >= 2) {
+			int nbPieces = aRendre / 2;
+			aRendre = aRendre - nbPieces * 5;
+			Console.WriteLine("{0} pièces de 2 euros", nbPieces);
+		}
+		if (aRendre >= 1) {
+			int nbPieces = aRendre / 1;
+			aRendre = aRendre - nbPieces * 1;
+			Console.WriteLine("{0} pièces de 1 euro", nbPieces);
+		}
+    }
+}
+```
+</details>
+
  
 ## Exercice 8
 
