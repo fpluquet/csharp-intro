@@ -68,6 +68,36 @@ Quel mot faut-il mettre au pluriel ? Chiens
 Le "Chiens" est déjà au pluriel. 
 ```
 
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// affichage de la question
+		Console.Write("Quel mot faut-il mettre au pluriel ?");
+
+		// lecture et assignation du mot de l'utilisateur
+		string mot = Console.ReadLine();
+		
+		// si la dernière lettre est un 's'...
+		if (mot[mot.Length - 1] == 's') {
+			// ... alors on affiche que c'est déjà au pluriel
+			Console.WriteLine("Le \"{0}\" est déjà au pluriel.", mot); 
+		} else {
+			// ... sinon on affiche le mot au pluriel
+			Console.WriteLine("Le mot \"{0}\" au pluriel : {1}", mot, mot + "s");
+		}
+	}
+}
+```
+</details>
+
+
 ## Exercice
 
 Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's' ou un 'x', ajouter un 'x' si cela finit par 'ou' ou ajouter un 's' et l'afficher.
@@ -86,9 +116,25 @@ Quel mot faut-il mettre au pluriel ? Hibou
 Le mot "Hibou" au pluriel : Hiboux
 ```
 
+<details>
+	<summary>Solution</summary>
+
+```csharp
+
+```
+</details>
+
 ## Exercice
 
 Demander 2 chaînes de caractères et les afficher dans l'ordre du dictionnaire (défini par défaut dans la méthode CompareTo).
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+
+```
+</details>
 
 ## Exercice
 
@@ -100,3 +146,11 @@ Demander une chaine de caractères et afficher le menu suivant :
 4. Quitter
 
 Lire le choix et afficher les informations en conséquence.
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+
+```
+</details>
