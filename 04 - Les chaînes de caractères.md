@@ -53,23 +53,6 @@ On peut créer une nouvelle chaîne de caractères en *concaténant* plusieurs c
 string uneChaineComplète = "Hello " + "tout " + "le monde"; // uneChaineComplète contient "Hello tout le monde"
 ```
 
-## Convertion
-
-Il arrive souvent que l'on doive passer d'une chaîne de caractères à des entiers et inversément. Pour transformer un ```int``` en ```string```, il suffit d'appeler la méthode ```ToString()``` sur l'entier :
-
-```csharp
-int unNombre = 20;
-string unNombreEnTexte = unNombre.ToString();
-```
-
-Pour passer d'un ```string``` à un ```int```, c'est un peu plus compliqué car la chaîne de caractères ne contient pas forcément un entier. Il faut donc gérer ce cas.
-
-```csharp
-int unNombre = int.Parse("150"); 
-int unAutreNombre;
-```
-
-Parse, TryParse
 
 ## Exercice
 
