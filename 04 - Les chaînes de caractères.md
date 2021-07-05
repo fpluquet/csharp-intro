@@ -35,7 +35,7 @@ Console.Write(texte[0]) // affiche 'B'
 Console.Write(texte[6]) // affiche 'r'
 ```
 
-Il existe également pas mal de méthodes utiles sur les chaînes de caractères. Pour les retrouver : https://docs.microsoft.com/en-us/dotnet/api/system.string.substring?view=net-5.0
+Il existe également pas mal de méthodes utiles sur les chaînes de caractères. Pour les retrouver : https://docs.microsoft.com/en-us/dotnet/api/system.string?view=net-5.0
 
 Voici quelques unes des plus intéressantes :
 
@@ -45,6 +45,8 @@ Voici quelques unes des plus intéressantes :
 | IndexOf | Signale l'index de base zéro de la première occurrence de la chaîne spécifiée dans cette instance. | ```"Hello".IndexOf("lo"); // renvoie 3```|
 | Contains | Retourne une valeur qui indique si la sous-chaîne spécifiée apparaît dans cette chaîne. | ```"Hello".Contains("ll"); // renvoie True``` |
 | StartsWith | Détermine si le début de cette instance de chaîne correspond à la chaîne spécifiée. | ```"Hello".StartsWith("Hel"); // renvoie True``` |
+| EndsWith | Détermine si la fin de cette instance de chaîne correspond à la chaîne spécifiée. | ```"Hello".StartsWith("llo"); // renvoie True``` |
+| ToLower| Retourne une copie de cette chaîne convertie en minuscules. | ```"HelLo".ToLower(); // renvoie "hello"``` |
 ## Concaténation
 
 On peut créer une nouvelle chaîne de caractères en *concaténant* plusieurs chaînes, c'est-à-dire en les collant les unes ou autres. Pour cela, il suffit de mettre un + entre ces chaînes :
@@ -54,7 +56,7 @@ string uneChaineComplète = "Hello " + "tout " + "le monde"; // uneChaineComplè
 ```
 
 
-## Exercice
+## Exercice 1
 
 Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's', en ajouter un et l'afficher.
 
@@ -98,59 +100,157 @@ public class Program
 </details>
 
 
-## Exercice
 
-Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's' ou un 'x', ajouter un 'x' si cela finit par 'ou' ou ajouter un 's' et l'afficher.
-
-Exemple de sortie:
-```
-Quel mot faut-il mettre au pluriel ? Chien
-Le mot "Chien" au pluriel : Chiens
-```
-```
-Quel mot faut-il mettre au pluriel ? Chiens
-Le "Chiens" est déjà au pluriel. 
-```
-```
-Quel mot faut-il mettre au pluriel ? Hibou
-Le mot "Hibou" au pluriel : Hiboux
-```
-
-<details>
-	<summary>Solution</summary>
-
-```csharp
-
-```
-</details>
-
-## Exercice
+## Exercice 2
 
 Demander 2 chaînes de caractères et les afficher dans l'ordre du dictionnaire (défini par défaut dans la méthode CompareTo).
 
+Exemple de sortie :
+
+```
+Quel est le premier mot ? Bonbon
+Quel est le deuxième mot ? Arbre
+Arbre vient avant Bonbon
+```
+```
+Quel est le premier mot ? Arbre
+Quel est le deuxième mot ? Bonbon
+Arbre vient avant Bonbon
+```
+
 <details>
 	<summary>Solution</summary>
 
 ```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// affichage de la question
+		Console.Write("Quel est le premier mot ?");
 
+		// lecture et assignation du premier mot de l'utilisateur
+		string mot1 = Console.ReadLine();
+
+		// affichage de la question
+		Console.Write("Quel est le deuxième mot ?");
+
+		// lecture et assignation du premier mot de l'utilisateur
+		string mot2 = Console.ReadLine();
+		
+		// on compare les deux mots... 
+		if (mot1.CompareTo(mot2) < 0) {
+			// ... et si le résultat est < 0, alors mot1 est avant mot2
+			Console.WriteLine(mot1 + " vient avant " + mot2);
+		} else {
+			// ... sinon c'est l'inverse
+			Console.WriteLine(mot2 + " vient avant " + mot1);
+		}		
+	}
+}
 ```
 </details>
 
-## Exercice
+## Exercice 3
 
 Demander une chaine de caractères et afficher le menu suivant :
 
-1. Tester ce texte commence par...
-2. Tester ce texte finit par...
+1. Afficher en majuscules
+2. Afficher en miniscules
 3. Afficher sa longueur
 4. Quitter
 
 Lire le choix et afficher les informations en conséquence.
 
+Exemples de sorties :
+
+```
+Quel est le mot ? Hello
+1. Afficher en majuscules
+2. Afficher en miniscules
+3. Afficher sa longueur
+4. Quitter
+Votre choix : 1
+Hello en majuscules : HELLO
+```
+```
+Quel est le mot ? Hello
+1. Afficher en majuscules
+2. Afficher en miniscules
+3. Afficher sa longueur
+4. Quitter
+Votre choix : 2
+Hello en minuscules : hello
+```
+```
+Quel est le mot ? Hello
+1. Afficher en majuscules
+2. Afficher en miniscules
+3. Afficher sa longueur
+4. Quitter
+Votre choix : 3
+Hello a une longueur de 5
+```
+```
+Quel est le mot ? Hello
+1. Afficher en majuscules
+2. Afficher en miniscules
+3. Afficher sa longueur
+4. Quitter
+Votre choix : 4
+```
+```
+Quel est le mot ? Hello
+1. Afficher en majuscules
+2. Afficher en miniscules
+3. Afficher sa longueur
+4. Quitter
+Votre choix : unChoix
+Votre choix est invalide
+```
+
+
 <details>
 	<summary>Solution</summary>
 
 ```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// affichage de la question
+		Console.Write("Quel est le mot ? ");
 
+		// lecture et assignation du mot de l'utilisateur
+		string mot = Console.ReadLine();
+
+		// afficahe du menu
+		Console.WriteLine("1. Afficher en majuscules");
+		Console.WriteLine("2. Afficher en miniscules");
+		Console.WriteLine("3. Afficher sa longueur");
+		Console.WriteLine("4. Quitter");
+		Console.Write("Votre choix : ");
+		
+		// on lit le choix de l'utilisateur
+		int choix;
+		int.TryParse(Console.ReadLine(), out choix);
+		
+		if (choix == 1) {
+			Console.WriteLine("{0} en majuscules : {1}", mot, mot.ToUpper());			
+		} else if (choix == 2) {
+			Console.WriteLine("{0} en minuscules : {1}", mot, mot.ToLower());			
+		} else if (choix == 3) {
+			Console.WriteLine("{0} a une longueur de {1}", mot, mot.Length);
+		} else if (choix == 4) {
+			// ne rien faire
+		} else {
+			Console.WriteLine("Votre choix est invalide");
+		}
+	}
+}
 ```
 </details>

@@ -91,27 +91,7 @@ Lire un vecteur et l'afficher. On demande alors la position d'un élément de ce
 ```
 </details>
 
-## Exercice
 
-Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's' ou un 'x', ajouter un 'x' si c'est une des exceptions (bijou, caillou, chou, genou, hibou, joujou, pou) ou alors ajouter un 's' et l'afficher.
-
-Exemple de sortie:
-```
-Quel mot faut-il mettre au pluriel ? Chien
-Le mot "Chien" au pluriel : Chiens
-```
-```
-Quel mot faut-il mettre au pluriel ? Chiens
-Le "Chiens" est déjà au pluriel. 
-```
-```
-Quel mot faut-il mettre au pluriel ? Hibou
-Le mot "Hibou" au pluriel : Hiboux
-```
-```
-Quel mot faut-il mettre au pluriel ? Caribou
-Le mot "Caribou" au pluriel : Caribous
-```
 ## Exercice
 
 Créez une fonction qui renvoie TRUE si une chaîne contient des espaces. Sinon renvoie FALSE.
