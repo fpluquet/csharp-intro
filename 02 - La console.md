@@ -132,8 +132,97 @@ public class Program
 		string nom = Console.ReadLine();
 
 		// affichage du message sur la console
-		Console.Write("Bonjour ");
-		Console.WriteLine(nom);
+		Console.WriteLine("Bonjour {0}", nom);
+	}
+}
+```
+</details>
+
+## Exercice 3
+
+Ecrire un programme qui demande deux nombres et en affiche la somme et le produit.
+
+Exemple de sortie :
+```
+Premier nombre ? 12
+Deuxième nombre ? 13
+12 + 13 = 25
+12 * 13 = 156
+```
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// affichage de la question sur la console
+		Console.Write("Premier nombre ?");
+		
+		// lecture du premier nombre de l'utilisateur 
+		int nb1 = int.Parse(Console.ReadLine());
+
+		// affichage de la question sur la console
+		Console.Write("Deuxième nombre ?");
+		
+		// lecture du deuxième nombre de l'utilisateur 
+		int nb2 = int.Parse(Console.ReadLine());
+
+		// affichage du message sur la console
+		Console.WriteLine("{0} + {1} = {2}", nb1, nb2, nb1 + nb2);
+
+		// affichage du message sur la console
+		Console.WriteLine("{0} * {1} = {2}", nb1, nb2, nb1 * nb2);
+	}
+}
+```
+</details>
+
+## Exercice 4
+
+Quel est le problème avec le code suivant ?
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// affichage de la question sur la console
+		Console.Write("Votre nombre ?");
+		
+		// lecture du premier nombre de l'utilisateur 
+		string nb1 = int.Parse(Console.ReadLine());
+
+		// affichage du message sur la console
+		Console.WriteLine("{0} * 3 = {1}", nb1, nb1 * 3);
+	}
+}
+```
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.Write("Votre nombre ?");
+		
+		// /------- on essaie de mettre un entier dans un string
+		// |        et le compilateur n'aime pas ça. 
+		// v        Il faut changer le string en int.      
+		string nb1 = int.Parse(Console.ReadLine());
+
+		Console.WriteLine("{0} * 3 = {1}", nb1, nb1 * 3);
 	}
 }
 ```

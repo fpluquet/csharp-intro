@@ -4,6 +4,103 @@
 - Utiliser des conditions imbriquées : if-else-if / if-if-else-else-if / ...
 - Utiliser des switchs
 
+## Exercice 1
+
+Ecrire un programme qui demande 3 nombres à l'utilisateur et les affiche ensuite par ordre croissant.
+
+Exemple de sortie :
+
+```
+Quel est le premier nombre ?
+22
+Premier nombre : 22
+Quel est le deuxième nombre ?
+33
+Deuxième nombre : 33
+Quel est le troisième nombre ?
+11
+Troisième nombre : 11
+Nombres triés : 11 22 33
+```
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		int a, b, c;
+
+		// affichage de la question sur la console
+		Console.WriteLine("Quel est le premier nombre ?");		
+		
+		// lecture, transformation de la chaîne de caractères en entier et assignation dans a
+		int.TryParse(Console.ReadLine(), out a);
+		
+		// affichage de l'entier lu
+		Console.WriteLine("Premier nombre : " + a);		
+
+		// affichage de la question sur la console
+		Console.WriteLine("Quel est le deuxième nombre ?");		
+		
+		// lecture, transformation de la chaîne de caractères en entier et assignation dans b
+		int.TryParse(Console.ReadLine(), out b);
+		
+		// affichage de l'entier lu
+		Console.WriteLine("Deuxième nombre : " + b);		
+		
+		// affichage de la question sur la console
+		Console.WriteLine("Quel est le troisième nombre ?");		
+		
+		// lecture, transformation de la chaîne de caractères en entier et assignation dans c
+		int.TryParse(Console.ReadLine(), out c);
+		
+		// affichage de l'entier lu
+		Console.WriteLine("Troisième nombre : " + c);
+		
+		// affichage du début de la ligne (le Write n'écrit pas de retour à la ligne)
+		Console.Write("Nombres triés : ");
+
+		if (a < b) {
+			// a < b
+			if (b < c) {
+				// a < b && b < c, donc a < b < c
+				Console.WriteLine("{0} {1} {2}", a, b, c); 
+			} else {
+				// b >= c
+				if (a < c) {
+					// a < b && a < c && c <= b, donc a < c <= b
+					Console.WriteLine("{0} {1} {2}", a, c, b); 
+				} else {
+					// a < b && c <= a && c <= b, donc c <= a < b
+					Console.WriteLine("{0} {1} {2}", c, a, b); 
+				}
+			}
+		} else {
+			// b <= a
+			if (c < b) {
+				// b <= a && c < b, donc c < b <= a
+				Console.WriteLine("{0} {1} {2}", c, b, a); 
+			} else {
+				// b <= a && b <= c
+				if (a < c) {
+					// b <= a && b <= c && a < c, donc b <= a < c
+					Console.WriteLine("{0} {1} {2}", b, a, c); 
+				} else {
+					// b <= a && b <= c && a >= c, donc b <= c <= a
+					Console.WriteLine("{0} {1} {2}", b, c, a); 
+				}
+			}
+		}		
+	}
+}
+```
+</details>
+
 ## Exercice 2
 
 Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's' ou un 'x', ajouter un 'x' si cela finit par 'ou' ou ajouter un 's' et l'afficher.
@@ -61,7 +158,7 @@ public class Program
 ```
 </details>
 
-## Exercice
+## Exercice 3
 
 Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's' ou un 'x', ajouter un 'x' si c'est une des exceptions (Bijou, Caillou, Chou, Genou, Hibou, Joujou, Pou) ou alors ajouter un 's' et l'afficher. La casse du mot (majuscules, miniscules, ...) de ne pas avoir d'importance.
 
@@ -138,7 +235,7 @@ public class Program
 ```
 </details>
 
-## Exercice 1
+## Exercice 4
 
 Écrire un programme qui réalise une machine à calculer de base (+ - * /). Le programme demande 2 nombres et la fonction souhaitée. Il affiche alors le résultat. Utilisez un switch quand c'est possible.
 
@@ -218,7 +315,7 @@ public class Program
 ```
 </details>
 
-## Exercice 2
+## Exercice 5
 
 Écrire un programme qui lit une date dans deux variables (jj et mm). Il doit alors l'afficher en clair: 12 janvier par exemple.
 
@@ -297,7 +394,7 @@ public class Program
 ```
 </details>
 
-## Exercice 
+## Exercice 6
 
 Écrire un programme qui lit un mois en toute lettre ("janvier", "février", ...) et affiche le nombre de jour dans ce mois via un switch.
 
@@ -352,7 +449,7 @@ public class Program
 ```
 </details>
 
-## Exercice 
+## Exercice 7
 
 Un prof décide d'inscrire la mention suivante en fonction des points obtenus :
 
@@ -449,7 +546,7 @@ public class Program
 ```
 </details>
 
-## Exercice 
+## Exercice 8
 
 D'après le tableau ci-dessous, utiliser un switch pour afficher le nombre de jours et le tarif en fonction de la formation.
 

@@ -79,10 +79,36 @@ public class Program
 ```
 </details>
 
-## Exercice
+## Exercice 2
 
-Calcul de la surface d'un triangle.
+Créez et initialisez 2 variables ```laBase``` de valeur 5 et ```laHauteur``` de valeur 8. Calculer dans une variable ```laSurface``` la surface du triangle de base ```laBase``` et de hauteur ```laHauteur```.
 
-## Exercice
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// on stocke 5 dans une variable entière nommée laBase
+		int laBase = 5;
+
+		// on stocke 8 dans une variable entière nommée laHauteur
+		int laHauteur = 8;
+
+		// on stocke le résultat du calcul dans une variable entière nommée laSurface
+		int laSurface = laBase * laHauteur / 2;
+
+		// on affiche le contenu de la variable laSurface
+		Console.WriteLine(laSurface);
+	}
+}
+```
+</details>
+
+## Exercice 3
 
 Reste de la division entière
