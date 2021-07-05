@@ -21,6 +21,8 @@ int ageMinimum = age;
 ```
 La valeur contenue dans ```age``` sera alors recopiée dans la variable nommée ```ageMinimum```.
 
+Le code ```Console.WriteLine(age)``` permet d'afficher la valeur de la variable sur la sortie standard du programme (qu'on appelle la console). 
+
 ## Exercice 1
 
 Que contient chaque variable à la fin de ce programme ?
@@ -111,4 +113,65 @@ public class Program
 
 ## Exercice 3
 
-Reste de la division entière
+Écrivez un programme qui affiche le quotient et le reste de la division entière de 57 par 13. Pour y arriver, utilisez les opérateurs / et %.
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Quotient : ");
+		Console.WriteLine(57 / 13); // affiche 4 (car il y a 4 * 13 dans 57)
+		Console.WriteLine("Reste : ");
+		Console.WriteLine(57 % 13); // affiche 5 (car 57 - 4 * 13 = 5)
+	}
+}
+```
+</details>
+
+## Exercice 4
+
+Créez deux variables entières ```a``` et ```b``` avec les valeurs ```6``` et ```7```. Affichez la valeur des deux variables. Écrivez ensuite le code qui permet d'inverser la valeur de ces deux variables en utilisant une troisième variable (on appelle cela un swap de variables). Affichez la valeur des deux variables pour montrer que cela a bien fonctionné.
+
+Sortie attendue :
+```
+Avant le swap : 
+6
+7
+Après le swap : 
+7
+6
+``` 
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int a = 6, b = 7;
+		
+		Console.WriteLine("Avant le swap : ");
+		Console.WriteLine(a);
+		Console.WriteLine(b);
+
+		int tmp = a;
+		a = b;
+		b = tmp;
+		
+		Console.WriteLine("Après le swap : ");
+		Console.WriteLine(a);
+		Console.WriteLine(b);
+	}
+}
+```
+</details>
