@@ -4,6 +4,140 @@
 - Utiliser des conditions imbriquées : if-else-if / if-if-else-else-if / ...
 - Utiliser des switchs
 
+## Exercice 2
+
+Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's' ou un 'x', ajouter un 'x' si cela finit par 'ou' ou ajouter un 's' et l'afficher.
+
+Exemple de sortie:
+```
+Quel mot faut-il mettre au pluriel ? Chien
+Le mot "Chien" au pluriel : Chiens
+```
+```
+Quel mot faut-il mettre au pluriel ? Chiens
+Le "Chiens" est déjà au pluriel. 
+```
+```
+Quel mot faut-il mettre au pluriel ? Hibou
+Le mot "Hibou" au pluriel : Hiboux
+```
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// affichage de la question
+		Console.Write("Quel mot faut-il mettre au pluriel ?");
+
+		// lecture et assignation du mot de l'utilisateur
+		string mot = Console.ReadLine();
+		
+		// on stocke le dernier caractère dans un variable de type caractère (char)
+		char dernierCaractère = mot[mot.Length - 1];
+		
+		// si la dernière lettre est un 's' ou un 'x'...
+		if (dernierCaractère == 's' || dernierCaractère == 'x') {
+			// ... alors on affiche que c'est déjà au pluriel
+			Console.WriteLine("Le \"{0}\" est déjà au pluriel.", mot); 
+		} else {
+			// on sait que le mot ne finit pas par un 's' ou un 'x'
+			// est-ce qu'il finit pour 'ou' ? 
+			if (mot.EndsWith("ou")) {
+				// si oui, on met un x
+				Console.WriteLine("Le mot \"{0}\" au pluriel : {1}", mot, mot + "x");
+			} else {
+				// ... sinon on affiche le mot au pluriel
+				Console.WriteLine("Le mot \"{0}\" au pluriel : {1}", mot, mot + "s");
+			}
+		}
+	}
+}
+```
+</details>
+
+## Exercice
+
+Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's' ou un 'x', ajouter un 'x' si c'est une des exceptions (Bijou, Caillou, Chou, Genou, Hibou, Joujou, Pou) ou alors ajouter un 's' et l'afficher. La casse du mot (majuscules, miniscules, ...) de ne pas avoir d'importance.
+
+Exemple de sortie:
+```
+Quel mot faut-il mettre au pluriel ? Chien
+Le mot "Chien" au pluriel : Chiens
+```
+```
+Quel mot faut-il mettre au pluriel ? Chiens
+Le "Chiens" est déjà au pluriel. 
+```
+```
+Quel mot faut-il mettre au pluriel ? Hibou
+Le mot "Hibou" au pluriel : Hiboux
+```
+```
+Quel mot faut-il mettre au pluriel ? hibou
+Le mot "Hibou" au pluriel : hiboux
+```
+```
+Quel mot faut-il mettre au pluriel ? Caribou
+Le mot "Caribou" au pluriel : Caribous
+```
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// affichage de la question
+		Console.Write("Quel mot faut-il mettre au pluriel ?");
+
+		// lecture et assignation du mot de l'utilisateur
+		string mot = Console.ReadLine();
+		
+		// on stocke le dernier caractère dans un variable de type caractère (char)
+		char dernierCaractère = mot[mot.Length - 1];
+		
+		// si la dernière lettre est un 's' ou un 'x'...
+		if (dernierCaractère == 's' || dernierCaractère == 'x') {
+			// ... alors on affiche que c'est déjà au pluriel
+			Console.WriteLine("Le \"{0}\" est déjà au pluriel.", mot); 
+		} else {
+			// on sait que le mot ne finit pas par un 's' ou un 'x'
+			// est-ce qu'il finit pour 'ou' ? 
+			if (mot.EndsWith("ou")) {
+				// si c'est une exception...
+				if (mot.ToLower() == "bijou" ||
+					mot.ToLower() == "caillou" ||
+					mot.ToLower() == "chou" ||
+					mot.ToLower() == "genou" ||
+					mot.ToLower() == "hibou" ||
+					mot.ToLower() == "joujou" ||
+					mot.ToLower() == "pou") {
+					// on ajoute un 'x'
+					Console.WriteLine("Le mot \"{0}\" au pluriel : {1}", mot, mot + "x");
+				} else {
+					// sinon on ajoute un 's'
+					Console.WriteLine("Le mot \"{0}\" au pluriel : {1}", mot, mot + "s");
+				}
+			} else {
+				// ... sinon on affiche le mot au pluriel
+				Console.WriteLine("Le mot \"{0}\" au pluriel : {1}", mot, mot + "s");
+			}
+		}
+	}
+}
+```
+</details>
+
 ## Exercice 1
 
 Écrire un programme qui réalise une machine à calculer de base (+ - * /). Le programme demande 2 nombres et la fonction souhaitée. Il affiche alors le résultat. Utilisez un switch quand c'est possible.
