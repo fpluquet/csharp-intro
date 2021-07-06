@@ -1,6 +1,6 @@
-# C# - Labo 3
+# while et do-while
 
-## Buts du labo
+**intro**
 - Utiliser des while (tant que) et do-while (faire tant que)
 
 ## Exercice 1

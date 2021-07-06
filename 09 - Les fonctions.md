@@ -1,3 +1,6 @@
+# Les fonctions
+
+**intro**
 
 ## Exercice
 

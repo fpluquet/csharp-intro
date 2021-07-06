@@ -1,6 +1,6 @@
-# C# - Labo 2
+# Conditions imbriquées et switch
+**intro**
 
-## Buts du labo
 - Utiliser des conditions imbriquées : if-else-if / if-if-else-else-if / ...
 - Utiliser des switchs
 

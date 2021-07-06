@@ -1,8 +1,8 @@
-# C# - Labo 4
+# Boucles for
 
-## Buts du labo
+**intro**
+
 - Utiliser des boucles (for, while, do/while, ...)
-- Utiliser des tableaux à une dimension
 
 ## Exercice
 
