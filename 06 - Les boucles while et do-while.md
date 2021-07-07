@@ -235,6 +235,7 @@ public class Program
 
 </details>
 
+
 ## Exercice 5
 
 Ecrire un programme qui vous demande des nombres entiers. Le programme s'arrête lorsque l'on entre 0. Il affiche alors la somme et la moyenne des nombres entrés.
@@ -307,6 +308,10 @@ public class Program
 </details>
 
 ## Exercice 6
+
+Demander un nombre entre 1 et 10 et redemander tant que l'utilisateur entre un texte qui n'est pas un nombre ou entre un nombre non compris entre 1 et 10. 
+
+## Exercice 7
 
 Écrire un programme qui va réaliser une calculatrice de base +, -, \*, / sur ```n``` nombres. Ne tenez pas compte des priorités. 
 
@@ -382,7 +387,7 @@ public class Program
 
 
 
-## Exercice 7
+## Exercice 8
 
 Vous êtes le directeur d'une écurie de Formule 1. Lors des essais, vous allez entrer tour par tour le temps réalisé par votre voiture. Le programme affichera alors à chaque tour quel est le plus petit temps, quel est le plus long et la moyenne. Lorsque vous entrez 0, le programme s'arrêtera.
 
