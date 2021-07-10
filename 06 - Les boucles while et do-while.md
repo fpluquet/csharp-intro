@@ -309,7 +309,50 @@ public class Program
 
 ## Exercice 6
 
-Demander un nombre entre 1 et 10 et redemander tant que l'utilisateur entre un texte qui n'est pas un nombre ou entre un nombre non compris entre 1 et 10. 
+Demander un nombre entre 0 et 10 et redemander tant que l'utilisateur entre un texte qui n'est pas un nombre ou l'utilisateur entre un nombre non compris entre 0 et 10. 
+
+Exemple de sortie :
+```
+Entrez un nombre entre 0 et 10 : -1
+Entrez un nombre entre 0 et 10 : 1001
+Entrez un nombre entre 0 et 10 : un
+Entrez un nombre entre 0 et 10 : 10
+Le nombre entré est 10
+```
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// Déclaration et initialisation de la variable entière qui contiendra le nombre entré
+		int nombre;
+		
+		// Déclaration et initialisation de la variable booléenne qui indiquera si l'entrée est correcte ou non
+		bool resultat;
+		
+		// Faire...
+		do {
+			// Affichage de la question
+			Console.Write("Entrez un nombre entre 0 et 10 : ");
+			
+			// Lecture du nombre de l'utilisateur via TryParse			
+			resultat = int.TryParse(Console.ReadLine(), out nombre);
+			
+		} while(resultat == false || nombre < 0 || nombre > 10); 
+		// ... tant que le resultat est false ou que le nombre n'est pas compris entre 0 et 10 
+		
+		// Affichage du nombre entré correctement
+		Console.WriteLine("Le nombre entré est {0}", nombre); 
+	}
+}
+```
+</details>
 
 ## Exercice 7
 
@@ -389,13 +432,72 @@ public class Program
 
 ## Exercice 8
 
-Vous êtes le directeur d'une écurie de Formule 1. Lors des essais, vous allez entrer tour par tour le temps réalisé par votre voiture. Le programme affichera alors à chaque tour quel est le plus petit temps, quel est le plus long et la moyenne. Lorsque vous entrez 0, le programme s'arrêtera.
+Tirez un nombre aléatoire entre 1 et 6. Répétez l'opération jusqu'à ce que la somme des nombres sortis soit strictement supérieure à 50.
+
+Exemple de sortie :
+```
+Nombre tiré : 3, Somme : 3, Nb de tirages : 1
+Nombre tiré : 2, Somme : 5, Nb de tirages : 2
+Nombre tiré : 3, Somme : 8, Nb de tirages : 3
+Nombre tiré : 5, Somme : 13, Nb de tirages : 4
+Nombre tiré : 1, Somme : 14, Nb de tirages : 5
+Nombre tiré : 5, Somme : 19, Nb de tirages : 6
+Nombre tiré : 6, Somme : 25, Nb de tirages : 7
+Nombre tiré : 6, Somme : 31, Nb de tirages : 8
+Nombre tiré : 4, Somme : 35, Nb de tirages : 9
+Nombre tiré : 5, Somme : 40, Nb de tirages : 10
+Nombre tiré : 1, Somme : 41, Nb de tirages : 11
+Nombre tiré : 2, Somme : 43, Nb de tirages : 12
+Nombre tiré : 3, Somme : 46, Nb de tirages : 13
+Nombre tiré : 3, Somme : 49, Nb de tirages : 14
+Nombre tiré : 3, Somme : 52, Nb de tirages : 15
+```
+
+> Pour tirer des nombres aléatoires, vous pouvez utiliser la classe Random définie par C# : https://docs.microsoft.com/en-us/dotnet/api/system.random?view=net-5.0
+> ```csharp
+>  Random rand = new Random();
+>  rand.Next(50, 101); // renvoit un nombre entier entre 50 compris et 101 non compris
+> ```
+>  
 
 <details>
 	<summary>Solution</summary>
 
 ```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// Déclaration et initialisation de la variable entière qui contiendra la somme des nombres tirés
+		int somme = 0;
+		
+		// Déclaration et initialisation de la variable entière qui contiendra le nombre de tirages aléatoires effectués
+		int nbTirages = 0;
 
+		// Déclaration de la variable entière qui contiendra le dernier nombre aléatoire
+		int nombreAleatoire;
+		
+		// Déclaration et initialisation de la variable qui permettra de tirer un nombre aléatoire
+		Random random = new Random();
+								   
+		// Tant que la somme est plus petite que 50
+		while(somme <= 50) {
+			// Incremente le nombre de tirage
+			nbTirages++;
+			
+			// Tirage d'un nouveau nombre aléatoire
+			nombreAleatoire = random.Next(1,7);
+	
+			// On ajoute à somme le dernier nombre aléatoire tiré (est équivalent à somme = somme + nombreAleatoire)
+			somme += nombreAleatoire;
+			
+			// On affiche les informations de ce tirage
+			Console.WriteLine("Nombre tiré : {0}, Somme : {1}, Nb de tirages : {2}", nombreAleatoire, somme, nbTirages);
+		}
+	}
+}
 ```
 </details>
 
