@@ -4,97 +4,57 @@
 
 - Utiliser des boucles (for, while, do/while, ...)
 
+> Ajouter des exos de lecture
+> Transformer les exos pour retirer les fonctions
+
 ## Exercice
 
 Utilisez des boucles afin de construire un triangle rectangle formé par le caractère étoile (\*). 
-Affichez-en ```n``` lignes, où ```n``` est entré au clavier par l'utilisateur. 
+Affichez-en ```nbLignes``` lignes, où ```nbLignes``` est entré au clavier par l'utilisateur. 
 
-Exemple: pour ```n=3```: 
+Exemple de sortie :
 ```
-* 
+Combien de lignes voulez-vous afficher ? 8
+*
 **
 ***
-```
-
-<details>
-	<summary>Solution</summary>
-
-```csharp
-
-```
-</details>
-
-## Exercice
-
-Utilisez des boucles afin de construire un triangle rectangle formé par le caractère étoile (\*).
-
-Affichez-en n lignes, où n’est entré au clavier par l'utilisateur. 
-
-Exemple: pour n=3: 
-```
-*
-***
+****
 *****
+******
+*******
+********
 ```
 
 <details>
 	<summary>Solution</summary>
 
 ```csharp
-
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int nbLignes;
+		
+		Console.Write("Combien de lignes voulez-vous afficher ? ");
+		nbLignes = int.Parse(Console.ReadLine());
+		
+		for(int i = 1; i <= nbLignes; i++) {
+			for(int j = 1; j <= i; j++) {
+				Console.Write("*");
+			}
+			Console.WriteLine();
+		}
+	}
+}
 ```
 </details>
 
 ## Exercice
 
-Lire deux vecteurs (de taille identique et demandée au début du programme), et ensuite effectuer la somme de ces deux vecteurs. Afficher le résultat.
+Créez une fonction qui renvoie ```true``` si une chaîne contient des espaces. Sinon renvoie ```false```. Pour y arriver, lisez chaque caractère de la chaîne de caractère via une boucle ```for```.  
 
-
-<details>
-	<summary>Solution</summary>
-
-```csharp
-
-```
-</details>
-
-## Exercice
-
-Ecrivez un programme qui vous donne le prix sur 10 articles, utilisez 2 vecteurs et un menu dans votre programme.
-
-- Lire les articles + les prix
-- Afficher un menu
-    1. Modifier prix article
-    2. Modifier type article
-    3. Afficher prix d’un article (en indiquant le nom de cet article ou le numéro)
-    4. Effacer un article
-    5. Quitter
-
-<details>
-	<summary>Solution</summary>
-
-```csharp
-
-```
-</details>
-
-## Exercice
-
-Lire un vecteur et l'afficher. On demande alors la position d'un élément de ce vecteur. Supprimer cet élément et afficher le vecteur.
-
-
-<details>
-	<summary>Solution</summary>
-
-```csharp
-
-```
-</details>
-
-
-## Exercice
-
-Créez une fonction qui renvoie TRUE si une chaîne contient des espaces. Sinon renvoie FALSE.
 
 Exemple:
 
@@ -106,6 +66,13 @@ containSpaces(" ") ➞ True
 
 containSpaces("") ➞ False
 
+<details>
+	<summary>Solution</summary>
+
+```csharp
+
+```
+</details>
 
 ## Exercice
 
@@ -118,3 +85,11 @@ nbrOfSlab("prin-temps") ➞ 2
 nbrOfSlab("ar-rê-te") ➞ 3
 
 nbrOfSlab("ther-mo-mè-tre") ➞ 4
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+
+```
+</details>
