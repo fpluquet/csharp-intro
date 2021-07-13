@@ -7,6 +7,127 @@
 > Ajouter des exos de lecture
 > Transformer les exos pour retirer les fonctions
 
+
+## Exercice
+
+Que fait le programme suivant ?
+
+```csharp
+using System;
+
+public class Program {
+  public static void Main(string[] args) {
+    int i;
+    for (i = 1; i <= 100; i++) {
+		if ((i % 3 == 0 && i % 5 == 0) || i % 7 == 0) {
+			Console.WriteLine(i);
+		}
+	}
+  }
+}
+```
+
+## Exercice
+
+Que fait le programme suivant ?
+
+```csharp
+using System;
+
+public class Program {
+  public static void Main(string[] args) {
+    int j;
+    for (j = 30; j > 0; j = j - 3) {
+		Console.WriteLine(i);
+	}
+  }
+}
+```
+
+## Exercice
+
+Que fait le programme suivant ?
+
+```csharp
+using System;
+
+public class Program {
+  public static void Main(string[] args) {
+    int i, j;
+    for (i = 0; i <= 10; i++) {
+        for (j = 0; j <= 10; j++) {
+    		Console.WriteLine("{0} x {1} = {2}", i, j, i * j);
+        }
+	}
+  }
+}
+```
+
+## Exercice
+
+Que fait le programme suivant ?
+
+```csharp
+using System;
+
+public class Program {
+  public static void Main(string[] args) {
+    int i, j;
+    for (i = 0; i <= 10; i++) {
+        for (j = 0; j <= i; j++) {
+    		Console.WriteLine("{0} x {1} = {2}", i, j, i * j);
+        }
+	}
+  }
+}
+```
+
+## Exercice
+
+Quelle est la sortie du programme suivant ?
+
+```csharp
+using System;
+
+public class Program {
+  public static void Main(string[] args) {
+    int somme = 0;
+    while(somme < 50) {
+        int i, j;
+        for (i = 0; i <= 10; i++) {
+			if (i % 2 == 0) {
+				somme += i;
+			}
+        }
+    }
+    Console.WriteLine(somme);
+  }
+}
+```
+
+## Exercice
+
+Quelle est la sortie du programme suivant ?
+
+```csharp
+using System;
+
+public class Program {
+  public static void Main(string[] args) {
+    int somme = 0;
+    while(somme < 50) {
+        int i, j;
+        for (i = 0; i <= 10 && somme < 50; i++) {
+			if (i % 2 == 0) {
+				somme += i;
+			}
+        }
+    }
+    Console.WriteLine(somme);
+  }
+}
+```
+
 ## Exercice
 
 Utilisez des boucles afin de construire un triangle rectangle formé par le caractère étoile (\*). 
