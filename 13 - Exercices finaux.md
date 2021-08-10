@@ -2,9 +2,9 @@
 
 # 2048
 
-Voici la description du jeu [1]:
+Voici la description du jeu ([^ref]):
 
-[1]: https://fr.wikipedia.org/wiki/2048_(jeu_vid%C3%A9o)#:~:text=2048%20est%20un%20jeu%20vid%C3%A9o,Github%20le%209%20mars%202014%20
+[^ref]: https://fr.wikipedia.org/wiki/2048_(jeu_vid%C3%A9o)#:~:text=2048%20est%20un%20jeu%20vid%C3%A9o,Github%20le%209%20mars%202014%20
 
 > 2048 est un jeu vidéo de type puzzle conçu en mars 2014 par le développeur indépendant italien Gabriele Cirulli et publié en ligne sous licence libre via Github le 9 mars 2014.
 >
