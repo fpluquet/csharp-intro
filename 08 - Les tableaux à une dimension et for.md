@@ -13,6 +13,14 @@ getSmall([100, -100, 1, 50]) ➞ -100
 
 getSmall([9, 9, 9, 9]) ➞ 9
 
+<details>
+	<summary>Solution</summary>
+
+```csharp
+
+```
+</details>
+
 ## Exercice
 
 Créez une fonction qui prend un tableau de nombres et renvoie le plus grand nombre du tableau.
@@ -25,6 +33,13 @@ getBigNbr([100, -100, 1, 50]) ➞ 100
 
 getBigNbr([9, 9, 9, 9]) ➞ 9
 
+<details>
+	<summary>Solution</summary>
+
+```csharp
+
+```
+</details>
 
 ## Exercice
 
