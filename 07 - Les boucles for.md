@@ -134,6 +134,7 @@ Utilisez des boucles afin de construire un triangle rectangle formé par le cara
 Affichez-en ```nbLignes``` lignes, où ```nbLignes``` est entré au clavier par l'utilisateur. 
 
 Exemple de sortie :
+
 ```
 Combien de lignes voulez-vous afficher ? 8
 *
@@ -174,43 +175,176 @@ public class Program
 
 ## Exercice 8
 
-Créez une fonction qui renvoie ```true``` si une chaîne contient des espaces. Sinon renvoie ```false```. Pour y arriver, lisez chaque caractère de la chaîne de caractère via une boucle ```for```.  
+Créez un programme qui compte et affiche le nombre de syllabes d’un mot. Chaque syllabe est séparée par un tiret -.
 
+Exemple de sorties :
 
-Exemple:
+```
+> prin-temps
+2 syllabes
+```
 
-containSpaces("Thomas") ➞ False
+```
+> ar-rê-te
+3 syllabes
+```
 
-containSpaces("Hello World!") ➞ True
+```
+> ther-mo-mè-tre
+4 syllabes
+```
 
-containSpaces(" ") ➞ True
+```
+> mer
+1 syllabe
+```
 
-containSpaces("") ➞ False
+```
+>
+0 syllabe
+```
 
 <details>
 	<summary>Solution</summary>
 
 ```csharp
-
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		string phrase;
+		int nbSyllabes = 0;
+		Console.Write("> ");
+		phrase = Console.ReadLine();
+		for(int i = 0; i < phrase.Length; i++) {
+			if (phrase[i] == '-') {
+				nbSyllabes++;
+			} else if (phrase[i] != ' ' && nbSyllabes == 0) {
+				nbSyllabes++;
+			}
+		}
+		
+		Console.WriteLine("{0} syllabe{1}", nbSyllabes, nbSyllabes > 1 ? "s": "");
+	}
+}
 ```
 </details>
 
 ## Exercice 9
 
-Créez une fonction qui compte le nombre de syllabes d’un mot. Chaque syllabe est séparée par un tiret -.
+Créez un programme qui affiche ```Il y a au moins un espace``` si une chaîne contient des espaces, sinon il affiche ```Aucun espace détecté```.  Pour y arriver, lisez chaque caractère de la chaîne de caractère via une boucle ```for```. Le programme se termine directement ensuite.
 
-Exemple:
 
-nbrOfSlab("prin-temps") ➞ 2
+Exemple de sorties:
 
-nbrOfSlab("ar-rê-te") ➞ 3
+```
+> Fréd
+Aucun espace détecté 
+```
 
-nbrOfSlab("ther-mo-mè-tre") ➞ 4
+```
+> Hello World!
+Il y a au moins un espace
+```
+
+Si on n'entre qu'uniquement un espace :
+
+```
+>  
+Il y a au moins un espace
+```
+
+Si on entre une chaîne vide :
+```
+>
+Aucun espace détecté 
+``` 
 
 <details>
 	<summary>Solution</summary>
 
 ```csharp
-
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		string phrase;
+		bool espaceExiste = false;
+		Console.Write("> ");
+		phrase = Console.ReadLine();
+		for(int i = 0; i < phrase.Length && espaceExiste == false; i++) {
+			if (phrase[i] == ' ') {
+				espaceExiste = true;
+			}
+		}
+		
+		if (espaceExiste) {
+			Console.WriteLine("Il y au moins un espace");
+		} else {
+			Console.WriteLine("Aucun espace détecté");
+		}
+	}
+}
 ```
 </details>
+
+## Exercice 10
+
+Même exercice que le précédent :
+> Créez un programme qui affiche ```Il y a au moins un espace``` si une chaîne contient des espaces, sinon il affiche ```Aucun espace détecté```.  Pour y arriver, lisez chaque caractère de la chaîne de caractère via une boucle ```for```. 
+
+Mais le programme continue de demander un mot jusqu'à ce que l'utilisateur entre le mot ```quitter```.
+
+
+Exemple de sortie:
+
+```
+> Fréd
+Aucun espace détecté 
+> Hello World!
+Il y a au moins un espace
+> Cool :)
+Il y a au moins un espace
+>
+Aucun espace détecté
+> quitter
+```
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		string phrase;
+		bool espaceExiste = false;
+		Console.Write("> ");
+		phrase = Console.ReadLine();
+		while(phrase != "quitter") {
+			for(int i = 0; i < phrase.Length && espaceExiste == false; i++) {
+				if (phrase[i] == ' ') {
+					espaceExiste = true;
+				}
+			}
+
+			if (espaceExiste) {
+				Console.WriteLine("Il y au moins un espace");
+			} else {
+				Console.WriteLine("Aucun espace détecté");
+			}
+			Console.Write("> ");
+			phrase = Console.ReadLine();
+		}
+	}
+}
+```
+</details>
+
