@@ -1,8 +1,285 @@
 # Conditions
 
-**Introduction sur les conditions**
+Les instructions conditionnelles permettent d'exécuter des blocs de code que si certaines conditions sont remplies.
+
+Les conditions sont des valeurs booléennes (```true``` ou ```false```) qui peut être évaluée dynamiquement :
+
+```csharp
+bool estUnHomme = true;
+
+if (estUnHomme == true) {
+	Console.WriteLine("C'est un homme");
+} else {
+	Console.WriteLine("Ce n'est pas un homme");
+}
+
+Console.WriteLine("Et on continue");
+```
+
+Si la condition du ```if``` est vraie, alors le bloc qui suit le ```if``` sera exécuté. Sinon le bloc suivant le ```else``` le sera.
+
+Ici, comme estUnHomme est égal à ```true```, seul le bloc du ```if```sera exécuté et on passera ensuite à la ligne ``` Console.WriteLine("Et on continue");```. Le résultat de ce code est donc :
+
+```
+C'est un homme
+Et on continue
+```
+
+Si on assigne ```false``` à la variable booléenne :
+
+```csharp
+bool estUnHomme = false;
+
+if (estUnHomme == true) {
+	Console.WriteLine("C'est un homme");
+} else {
+	Console.WriteLine("Ce n'est pas un homme");
+}
+
+Console.WriteLine("Et on continue");
+```
+
+alors seul le bloc du ```else``` sera exécuté, donnant le résultat suivant :
+
+```
+Ce n'est pas un homme
+Et on continue
+```
+
+
+Notez que le ```else``` est facultatif :
+
+```csharp
+bool estUnHomme = true;
+
+if (estUnHomme == true) {
+	Console.WriteLine("C'est un homme");
+}
+
+Console.WriteLine("Et on continue");
+```
 
 ## Exercice 1
+
+Que fait le programme suivant :
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		string nom = Console.ReadLine();
+		if (nom.Length < 3) { 
+			Console.WriteLine("Oups...");
+		} else { 
+			Console.WriteLine("Ok");
+		}
+	}
+}
+```
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// Lecture d'une chaîne de caractères sur la console
+		// et assignation de cette chaîne dans la variable nom 
+		string nom = Console.ReadLine();
+
+		// si la longueur de la chaîne de caractères est strictement plus petite que 3...
+		if (nom.Length < 3) {
+			// ... on affiche "Oups..." 
+			Console.WriteLine("Oups...");
+		} else { 
+			// ... sinon, on affiche "Ok" 
+			Console.WriteLine("Ok");
+		}
+	}
+}
+```
+</details>
+
+## Exercice 2
+
+Que fait le programme suivant :
+
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		string nom = Console.ReadLine();
+		string motDePasse = Console.ReadLine();
+		if (nom == "Fréd" && motDePasse == "le c# c'est la vie") { 
+			Console.WriteLine("Connecté !");
+		} else { 
+			Console.WriteLine("Erreur");
+		}
+	}
+}
+```
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// Lecture d'une chaîne de caractères sur la console
+		// et assignation de cette chaîne dans la variable nom 
+		string nom = Console.ReadLine();
+
+		// Lecture d'une chaîne de caractères sur la console
+		// et assignation de cette chaîne dans la variable motDePasse 
+		string motDePasse = Console.ReadLine();
+
+		// si le nom est "Fréd" et que le mot de passe est "le c# c'est la vie"
+		if (nom == "Fréd" && motDePasse == "le c# c'est la vie") { 
+			// ... alors on affiche "Connecté !"
+			Console.WriteLine("Connecté !");
+		} else { 
+			// ... sinon on affiche Erreur
+			Console.WriteLine("Erreur");
+		}
+	}
+}
+```
+</details>
+
+## Exercice 3
+
+
+Expliquer chaque ligne du programme suivant : 
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int entier = int.Parse(Console.ReadLine());
+
+		if (entier > 100) { 
+			Console.WriteLine("Assez grand");
+		}
+		if (entier == 1000) { 
+			Console.WriteLine("1000 pile !");
+		}
+		if (entier % 5 == 0) { 
+			Console.WriteLine("Multiple de 5");
+		}
+	}
+}
+```
+
+Que se passe-t-il si on entre les entiers suivants :
+
+- 0
+- 1
+- 20
+- 100
+- 150
+- 1000
+- 1001
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// lecture d'un nombre sur la console 
+		int entier = int.Parse(Console.ReadLine());
+
+		// si l'entier est strictement plus grand que 100
+		if (entier > 100) { 
+			// ... on affiche "Assez grand"
+			Console.WriteLine("Assez grand");
+		}
+
+		// si l'entier est égal à 1000
+		if (entier == 1000) { 
+			// ... on affiche "1000 pile !"
+			Console.WriteLine("1000 pile !");
+		}
+
+		// si le reste de la division entière de l'entier par 5 est égal à 0 
+		if (entier % 5 == 0) { 
+			// ... on affiche "Multiple de 5"
+			Console.WriteLine("Multiple de 5");
+		}
+	}
+}
+```
+
+Si on entre les entiers suivants :
+
+- 0
+
+```
+Multiple de 5
+``` 
+
+- 1
+
+Rien ne s'affiche
+
+- 20
+
+```
+Multiple de 5
+``` 
+
+
+- 100
+
+```
+Multiple de 5
+``` 
+
+- 150
+
+```
+Assez grand
+Multiple de 5
+``` 
+
+- 1000
+
+```
+Assez grand
+1000 pile !
+Multiple de 5
+``` 
+- 1001
+
+```
+Assez grand
+``` 
+
+</details>
+
+## Exercice 4
 
 Ecrire un programme qui vous demande votre nom, puis votre sexe (M,F) et écrit :
    
@@ -11,7 +288,25 @@ Ecrire un programme qui vous demande votre nom, puis votre sexe (M,F) et écrit 
    ```Bonjour Madame x```
 
  où ```x``` est le nom entré.
- 
+
+Exemples de sorties :
+
+```
+Quel est votre nom ?
+Fréd
+Quel est votre sexe (M/F) ?
+M
+Bonjour Monsieur Fréd
+```
+
+```
+Quel est votre nom ?
+Sabine
+Quel est votre sexe (M/F) ?
+F
+Bonjour Madame Sabine
+```
+
 <details>
 	<summary>Solution</summary>
 
@@ -44,9 +339,29 @@ public class Program
 </details>
 
 
-## Exercice 2
+## Exercice 5
 
-Écrire un programme qui vous demande votre âge et affiche si vous êtes majeur ou mineur
+Écrire un programme qui vous demande votre âge et affiche si vous êtes majeur ou mineur. L'âge pivot est 18 ans.
+
+Exemple de sorties :
+
+```
+Quel est votre âge ?
+18
+Vous êtes majeur
+```
+
+```
+Quel est votre âge ?
+80
+Vous êtes majeur
+```
+
+```
+Quel est votre âge ?
+17
+Vous êtes mineur
+```
 
 <details>
 	<summary>Solution</summary>
@@ -80,80 +395,9 @@ public class Program
 ```
 </details>
 
+## Exercice 6
 
-## Exercice 3
-
-Ecrire un programme qui combine les exercices 2 et 3, c'est-à-dire qui vous demande votre nom, puis votre sexe (M,F), puis votre âge et écrit la bonne phrase en fonction des données entrées :
-
-```
-Bonjour Monsieur x
-
-Bonjour Madame x
-
-Bonjour Jeune Homme x
-
-Bonjour Mademoiselle x
-```
-
-où ```x``` est le nom entré, et l'âge pivot est 18 ans.
-
-<details>
-	<summary>Solution</summary>
-
-```csharp
-using System;
-
-public class Program
-{
-	public static void Main()
-	{
-		// affichage de la question sur la console
-		Console.WriteLine("Quel est votre nom ?");
-		
-		// lecture du nom de l'utilisateur 
-		string nom = Console.ReadLine();
-
-		// affichage de la question sur la console
-		Console.WriteLine("Quel est votre sexe (M/F) ?");
-
-		// lecture du sexe de l'utilisateur 
-		string sexe = Console.ReadLine();
-		
-		// affichage de la question sur la console
-		Console.WriteLine("Quel est votre âge ?");
-
-		// lecture de l'entrée de l'utilisateur dans la variable line
-		string line = Console.ReadLine();
-
-		// transformation de la chaîne de caractères en entier
-		int age = int.Parse(line);
-
-		// si l'âge est plus grand ou égal à 18... 
-		if (age >= 18) {
-			// ... et que c'est un homme
-			if (sexe == "M") {
-				Console.WriteLine("Bonjour Monsieur " + nom);
-			} else {
-				// ... et que c'est une femme
-				Console.WriteLine("Bonjour Madame " + nom);
-			}
-		} else {
-			// ... et que c'est un homme
-			if (sexe == "M") {
-				Console.WriteLine("Bonjour Jeune Homme " + nom);
-			} else {
-				// ... et que c'est une femme
-				Console.WriteLine("Bonjour Mademoiselle " + nom);
-			}
-		}
-	}
-}
-```
-</details>
-
-## Exercice 4
-
-Ecrire un programme qui demande une année. Il doit vous dire si c'est une année bissextile ou pas. Pour rappel, une année est bissextile :
+Écrire un programme qui demande une année. Il doit vous dire si c'est une année bissextile ou pas. Pour rappel, une année est bissextile :
 - si l'année est divisible par 4 et non divisible par 100
 - ou si l'année est divisible par 400.
 	
@@ -209,7 +453,7 @@ public class Program
 ```
 </details>
 	
-## Exercice 5
+## Exercice 7
 
 Vous allez faire vos courses et vous vous rendez compte que la caissière a des problèmes pour rendre la monnaie. Vous décidez de faire un programme pour l'aider. Pour cela, vous allez décomposer la somme d'argent qu'elle doit rendre en un nombre de pièces et/ou de billets le plus petit possible (on ne prend ici que des valeurs entières, sans centimes).
 
@@ -292,7 +536,7 @@ public class Program {
 </details>
 
  
-## Exercice 6
+## Exercice 8
 
 Ecrire un programme qui demande à l'utilisateur de taper 5 entiers et qui affiche le plus grand. Le programme ne devra utiliser que 2 variables.
 
