@@ -26,7 +26,7 @@ string texte = "Bonjour";
 int taille2 = texte.Length // taille2 contient 7
 ```
 
-Il est possible d'obtenir le caractère à une index précis en suffissant la chaîne de caractères par des crochets et l'index désiré (en partant de 0) :
+Il est possible d'obtenir le caractère à un index précis en suffixant la chaîne de caractères par des crochets et l'index désiré (en partant de 0) :
 
 ```csharp
 "Hello"[0] // renvoie le caractère 'H'
@@ -35,13 +35,13 @@ Console.Write(texte[0]) // affiche 'B'
 Console.Write(texte[6]) // affiche 'r'
 ```
 
-Il existe également pas mal de méthodes utiles sur les chaînes de caractères. Pour les retrouver : https://docs.microsoft.com/en-us/dotnet/api/system.string?view=net-5.0
+Il existe également d'autres méthodes utiles sur les chaînes de caractères. Pour les retrouver : https://docs.microsoft.com/en-us/dotnet/api/system.string?view=net-5.0
 
 Voici quelques unes des plus intéressantes :
 
 | Nom de la méthode | Utilité | Exemple |
 | - | - | - |
-| CompareTo | Compare cette instance avec un objet String spécifié et indique si cette instance précède, suit ou apparaît à la même position dans l'ordre de tri que la chaîne spécifiée. | ```"Hello".CompareTo("Bonjour"); // renvoie -1``` |
+| CompareTo | Compare cette instance avec un objet ```String``` spécifié et indique si cette instance précède (```>0```), suit(```<0```) ou apparaît à la même position (```0```) dans l'ordre de tri que la chaîne spécifiée. | ```"Hello".CompareTo("Bonjour"); // renvoie -1``` <br> ```"Hello".CompareTo("Hello"); // renvoie 0``` <br> ```"Bonjour".CompareTo("Hello"); // renvoie 1``` |
 | IndexOf | Signale l'index de base zéro de la première occurrence de la chaîne spécifiée dans cette instance. | ```"Hello".IndexOf("lo"); // renvoie 3```|
 | Contains | Retourne une valeur qui indique si la sous-chaîne spécifiée apparaît dans cette chaîne. | ```"Hello".Contains("ll"); // renvoie True``` |
 | StartsWith | Détermine si le début de cette instance de chaîne correspond à la chaîne spécifiée. | ```"Hello".StartsWith("Hel"); // renvoie True``` |
@@ -97,6 +97,33 @@ public class Program
 	}
 }
 ```
+
+Une autre possibilité est d'utiliser la méthode ```EndsWith``` au lieu de ```mot[mot.Length - 1]``` :
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// affichage de la question
+		Console.Write("Quel mot faut-il mettre au pluriel ?");
+
+		// lecture et assignation du mot de l'utilisateur
+		string mot = Console.ReadLine();
+		
+		// si la dernière lettre est un 's'...
+		if (mot.EndsWith("s")) {
+			// ... alors on affiche que c'est déjà au pluriel
+			Console.WriteLine("Le \"{0}\" est déjà au pluriel.", mot); 
+		} else {
+			// ... sinon on affiche le mot au pluriel
+			Console.WriteLine("Le mot \"{0}\" au pluriel : {1}", mot, mot + "s");
+		}
+	}
+}
+```
 </details>
 
 
@@ -137,7 +164,7 @@ public class Program
 		// affichage de la question
 		Console.Write("Quel est le deuxième mot ?");
 
-		// lecture et assignation du premier mot de l'utilisateur
+		// lecture et assignation du deuxième mot de l'utilisateur
 		string mot2 = Console.ReadLine();
 		
 		// on compare les deux mots... 
@@ -157,10 +184,12 @@ public class Program
 
 Demander une chaine de caractères et afficher le menu suivant :
 
+```
 1. Afficher en majuscules
 2. Afficher en miniscules
 3. Afficher sa longueur
 4. Quitter
+```
 
 Lire le choix et afficher les informations en conséquence.
 
