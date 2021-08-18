@@ -40,7 +40,7 @@ int unNombre = int.Parse("150"); // unNombre a la valeur entière 150
 int unAutreNombre = int.Parse("dfdsf"); // le programme s'arrête
 ```
 
-On peut gérer le cas d'une erreur via la méthode TryParse qui va prendre en paramètres la chaîne de caractères et la variable dans laquelle il faut écrire la valeur. Elle renvoie ```True``` si tout s'est bien passé et ```False``` si le texte n'a pas pu être transformé en entier. 
+On peut gérer le cas d'une erreur via la méthode ```TryParse``` qui va prendre en paramètres la chaîne de caractères et la variable dans laquelle il faut écrire la valeur. Elle renvoie ```True``` si tout s'est bien passé et ```False``` si le texte n'a pas pu être transformé en entier. 
 
 Remarquez que le mot clé ```out``` est indispensable pour que la méthode ```TryParse``` puisse écrire dans la variable entière.
 
@@ -219,7 +219,8 @@ public class Program
 		
 		// /------- on essaie de mettre un entier dans un string
 		// |        et le compilateur n'aime pas ça. 
-		// v        Il faut changer le string en int.      
+		// |       Il faut changer le string en int :      
+		// v       int nb1 = int.Parse(Console.ReadLine());      
 		string nb1 = int.Parse(Console.ReadLine());
 
 		Console.WriteLine("{0} * 3 = {1}", nb1, nb1 * 3);

@@ -3,9 +3,9 @@
 Une variable est un emplacement mémoire qui a :
 - un type (int, double, string, ...)
 - un nom
-- un valeur courante
+- une valeur courante
 
-Pour déclarer une variable nommée ```age``` qui est un entier et pour valeur initiale 5 :
+Voici le code pour déclarer une variable nommée ```age``` qui est un entier et pour valeur initiale 5 :
 ```
 int age = 18;
 ```
