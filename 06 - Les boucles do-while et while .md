@@ -18,16 +18,16 @@ public class Program
 	public static void Main()
 	{
 		/* Programme pour tester la structure "do...while" :
-		   - boucle 10 fois en affichant une valeur i incrementée à chaque itération
+		   - boucle 3 fois en affichant une valeur i incrementée à chaque itération
 		   - affiche la valeur de i après la dernière boucle.
 		*/
 		int i = 0;
 		do {
 			Console.WriteLine("iteration {0}", i);
 			i = i + 1;
-		} while ( i < 10 );
+		} while ( i < 3 );
 
-		Console.WriteLine("Valeur de i apres la boucle : {0} ", i);
+		Console.WriteLine("Valeur de i après la boucle : {0} ", i);
 	}
 }
 ```
@@ -54,16 +54,16 @@ public class Program
 	public static void Main()
 	{
 		/* Programme pour tester la structure "while" :
-		   - boucle 10 fois en affichant une valeur i incrementée à chaque itération
+		   - boucle 3 fois en affichant une valeur i incrementée à chaque itération
 		   - affiche la valeur de i après la dernière boucle.
 		*/
 		int i = 0;
-		while ( i < 10 ) {
+		while ( i < 3 ) {
 			Console.WriteLine("iteration {0}", i);
 			i = i + 1;
 		}
 
-		Console.WriteLine("Valeur de i apres la boucle : {0} ", i);
+		Console.WriteLine("Valeur de i après la boucle : {0} ", i);
 	}
 }
 ```
