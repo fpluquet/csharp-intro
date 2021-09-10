@@ -1,4 +1,4 @@
-# while et do-while
+# Les boucles do-while et while
 
 ## La boucle do-while
 
@@ -67,6 +67,8 @@ public class Program
 	}
 }
 ```
+
+# Exercices
 
 ## Exercice 1
 
