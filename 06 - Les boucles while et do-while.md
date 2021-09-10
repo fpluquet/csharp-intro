@@ -1,7 +1,72 @@
 # while et do-while
 
-**intro**
-- Utiliser des while (tant que) et do-while (faire tant que)
+## La boucle do-while
+
+Cette forme permet de construire une structure répétitive dans laquelle la condition de rebouclage est vérifiée à la fin : on est donc certain d’exécuter au moins une fois le bloc d’instruction à répéter. Syntaxe :
+
+```csharp
+do{ 
+	// instructions à répéter
+}while ( /* condition de rebouclage */);
+```
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		/* Programme pour tester la structure "do...while" :
+		   - boucle 10 fois en affichant une valeur i incrementée à chaque itération
+		   - affiche la valeur de i après la dernière boucle.
+		*/
+		int i = 0;
+		do {
+			Console.WriteLine("iteration {0}", i);
+			i = i + 1;
+		} while ( i < 10 );
+
+		Console.WriteLine("Valeur de i apres la boucle : {0} ", i);
+	}
+}
+```
+
+## La boucle while
+
+Cette deuxième forme est très similaire à la précédente exceptée qu’elle permet de construire une structure pour laquelle le bloc d’instructions à répéter peut éventuellement n’être jamais exécuté (comme dans le cas de la structure itérative “for”) car la condition est vérifiée avant le bloc.
+
+Syntaxe :
+
+```csharp
+while ( /* condition de boucle */){
+	// bloc d’instructions à répéter
+}
+```
+
+Exemple :
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		/* Programme pour tester la structure "while" :
+		   - boucle 10 fois en affichant une valeur i incrementée à chaque itération
+		   - affiche la valeur de i après la dernière boucle.
+		*/
+		int i = 0;
+		while ( i < 10 ) {
+			Console.WriteLine("iteration {0}", i);
+			i = i + 1;
+		}
+
+		Console.WriteLine("Valeur de i apres la boucle : {0} ", i);
+	}
+}
+```
 
 ## Exercice 1
 
