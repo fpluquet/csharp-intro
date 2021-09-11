@@ -624,7 +624,7 @@ public class Program
 ```
 </details>
 
-## Exercice 6
+## Exercice 9
 
 Écrire un programme qui lit un mois en toute lettre ("janvier", "février", ...) et affiche le nombre de jour dans ce mois via un switch.
 
@@ -679,7 +679,7 @@ public class Program
 ```
 </details>
 
-## Exercice 7
+## Exercice 10
 
 Un prof décide d'inscrire la mention suivante en fonction des points obtenus :
 
@@ -776,7 +776,7 @@ public class Program
 ```
 </details>
 
-## Exercice 8
+## Exercice 11
 
 D'après le tableau ci-dessous, utiliser un switch pour afficher le nombre de jours et le tarif en fonction de la formation.
 
