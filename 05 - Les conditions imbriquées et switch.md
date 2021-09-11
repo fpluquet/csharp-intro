@@ -1,9 +1,14 @@
 # Conditions imbriquées et switch
-**intro**
 
-- Utiliser des conditions imbriquées : if-else-if / if-if-else-else-if / ...
-- Utiliser des switchs
+## Conditions imbriquées
 
+Souvent, juste un condition (if/else) ne suffit pas à faire ce que l'on veut et doit alors en combiner plusieurs. C'est que l'on appelle des conditions imbriquées.
+
+## Switch
+
+Quand nous sommes dans le cas précis où nous allons exécuter des blocs de code différents en fonction d'une seule valeur, alors on peut utiliser un switch. 
+
+## Exercices de lecture ?
 ## Exercice 1
 
 Ecrire un programme qui demande 3 nombres à l'utilisateur et les affiche ensuite par ordre croissant.
