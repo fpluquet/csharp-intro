@@ -4,12 +4,237 @@
 
 Souvent, juste un condition (if/else) ne suffit pas à faire ce que l'on veut et doit alors en combiner plusieurs. C'est que l'on appelle des conditions imbriquées.
 
+Prenons l'exemple de la validation d'un post sur Twitter :
+- si le tweet est vide, ne pas l'accepter.
+- si le tweet vient d'un compte bloqué, ne pas l'accepter.
+- si le tweet est écrit en français :
+	- si le tweet contient des mots interdits, ne pas l'accepter.
+	- si le tweet est une adresse web commençant par https:// et que cette URL contient ".fr", ne pas l'accepter.
+	- ...
+- si tout est ok, on peut accepter le tweet.
+
+On a donc plusieurs conditions qui doivent être validées pour que le tweet puisse être accepté. En C#, on se retrouverait avec un code du style :
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		// définition des variables utilisées avec lesquelles on peut jouer 
+		string tweet = "Hello  Macron !";
+		bool compteEstBloqué = false;
+		bool estEnFrancais = true;
+
+		// tests de validité		
+		if (tweet.Length == 0) {
+			Console.WriteLine("Tweet non accepté");
+		} else if (compteEstBloqué == true) {
+			Console.WriteLine("Tweet non accepté");
+		} else if (estEnFrancais == true) {
+			if(tweet.Contains("Macron") == true) {
+				Console.WriteLine("Tweet non accepté");				
+			} else if (tweet.StartsWith("https://")) {
+				if (tweet.Contains(".fr") == true) {
+					Console.WriteLine("Tweet non accepté");
+				} else {
+					Console.WriteLine("Tweet accepté");
+				}
+			}  else {
+				Console.WriteLine("Tweet accepté");
+			}
+		}  else {
+			Console.WriteLine("Tweet accepté");
+		}
+			
+	}
+}
+```
+
 ## Switch
 
-Quand nous sommes dans le cas précis où nous allons exécuter des blocs de code différents en fonction d'une seule valeur, alors on peut utiliser un switch. 
+Quand nous sommes dans le cas précis où nous allons exécuter des blocs de code différents en fonction d'une seule expression, alors on peut utiliser un switch. 
 
-## Exercices de lecture ?
+Voici la syntaxe :
+
+```csharp
+switch(expression){ 
+	case val1 : 
+		// instructions à exécuter si expression == val1
+		break; // on sort du switch
+	case val2 : 
+		// instructions à exécuter si expression == val2
+		break; // on sort du switch
+	default : 
+		// instructions à exécuter si on n'est entré dans aucun case (expression != val1 et expression != val2) 
+		break; // on sort du switch
+}
+```
+
+Par exemple, si on veut tester si un tweet est original ou pas en le comparant exactement à d'autres chaînes de caractères :
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		// définition de la variable utilisée 
+		string tweet = Console.ReadLine();
+
+		// tests sur la valeur de la variable tweet
+		switch(tweet) {
+			case "Hello" :
+				Console.WriteLine("Déjà trop de tweets Hello... Sois un peu inventif !");
+				break;
+			case "Bijourno" :
+				Console.WriteLine("Si tu veux parler espagnol, écris bien !");
+				break;
+			default :
+				Console.WriteLine("Tweet original");
+				break;
+		}
+	}
+}
+```
+
 ## Exercice 1
+
+Qu'affiche le programme suivant si on entre les valeurs : 1, 2, 3, 4, 5, 6, 7 puis 8 ?
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		int i = int.Parse(Console.ReadLine());
+		if (i > 3) {
+			Console.WriteLine("i > 3");
+			if (i < 8) {
+				Console.WriteLine("i < 8");
+			} else {
+				Console.WriteLine("i >= 8");
+			}
+		} else if (i < 2) {
+			Console.WriteLine("i > 2");			
+		} else {
+			Console.WriteLine("i >= 2");
+		}		
+	}
+}
+```
+<details>
+	<summary>Solution</summary>
+
+| i | Sortie                        |
+| - | ----------------------------- |
+| 1 | ```i > 2```                   |
+| 2 | ```i>= 2```                   |
+| 3 | ```i >= 2```                  |
+| 4 | ```i > 3``` <br> ```i < 8```  |
+| 5 | ```i > 3``` <br> ```i < 8```  |
+| 6 | ```i > 3``` <br> ```i < 8```  |
+| 7 | ```i > 3``` <br> ```i < 8```  |
+| 8 | ```i > 3``` <br> ```i >= 8``` |
+
+</details>
+
+## Exercice 2
+
+Qu'affiche le programme suivant si on entre les valeurs : 1, 2, 3, 4, 5, 6, 7 puis 8 ?
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		int i = int.Parse(Console.ReadLine());
+		if (i > 3) {
+			Console.WriteLine("i > 3");
+			if (i < 8) {
+				Console.WriteLine("i < 8");
+			} else {
+				Console.WriteLine("i >= 8");
+			}
+		}
+		if (i < 2) {
+			Console.WriteLine("i > 2");			
+		} else {
+			Console.WriteLine("i >= 2");
+		}		
+	}
+}
+```
+<details>
+	<summary>Solution</summary>
+
+| i | Sortie                        |
+| - | ----------------------------- |
+| 1 | ```i > 2```                   |
+| 2 | ```i>= 2```                   |
+| 3 | ```i >= 2```                  |
+| 4 | ```i > 3``` <br> ```i < 8```<br> ```i >= 2```  |
+| 5 | ```i > 3``` <br> ```i < 8``` <br> ```i >= 2``` |
+| 6 | ```i > 3``` <br> ```i < 8``` <br> ```i >= 2``` |
+| 7 | ```i > 3``` <br> ```i < 8``` <br> ```i >= 2``` |
+| 8 | ```i > 3``` <br> ```i >= 8``` <br> ```i >= 2``` |
+
+</details>
+
+## Exercice 3
+
+Qu'affiche le programme suivant si on entre les valeurs : 0, 1, 2, 3, 6, 8, 9, puis 12 ?
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		int i = int.Parse(Console.ReadLine());
+		switch(i % 2) {
+				case 0:
+					Console.WriteLine("i est pair");
+					break;
+				case 1:
+					Console.WriteLine("i est impair");
+					switch(i % 3) {
+						case 0:
+							Console.WriteLine("i est divisible par 3");
+							break;
+						default:
+							Console.WriteLine("i n'est pas divisible par 3");
+							break;
+					}
+					break;
+			}
+	}
+}
+```
+<details>
+	<summary>Solution</summary>
+
+| i  | Sortie                                                    |
+| -- | --------------------------------------------------------- |
+| 0  | ```i est pair```                                          |
+| 1  | ```i est impair``` <br> ```i n'est pas divisible par 3``` |
+| 2  | ```i est pair```                                          |
+| 3  | ```i est impair``` <br> ```i est divisible par 3```       |
+| 6  | ```i est pair```                                          |
+| 8  | ```i est pair```                                          |
+| 9  | ```i est impair``` <br> ```i est divisible par 3```       |
+| 12 | ```i est pair```                                          |
+
+</details>
+
+## Exercice 4
 
 Ecrire un programme qui demande 3 nombres à l'utilisateur et les affiche ensuite par ordre croissant.
 
@@ -106,7 +331,7 @@ public class Program
 ```
 </details>
 
-## Exercice 2
+## Exercice 5
 
 Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's' ou un 'x', ajouter un 'x' si cela finit par 'ou' ou ajouter un 's' et l'afficher.
 
@@ -163,7 +388,7 @@ public class Program
 ```
 </details>
 
-## Exercice 3
+## Exercice 6
 
 Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's' ou un 'x', ajouter un 'x' si c'est une des exceptions (Bijou, Caillou, Chou, Genou, Hibou, Joujou, Pou) ou alors ajouter un 's' et l'afficher. La casse du mot (majuscules, miniscules, ...) de ne pas avoir d'importance.
 
@@ -240,7 +465,7 @@ public class Program
 ```
 </details>
 
-## Exercice 4
+## Exercice 7
 
 Écrire un programme qui réalise une machine à calculer de base (+ - * /). Le programme demande 2 nombres et la fonction souhaitée. Il affiche alors le résultat. Utilisez un switch quand c'est possible.
 
@@ -320,7 +545,7 @@ public class Program
 ```
 </details>
 
-## Exercice 5
+## Exercice 8
 
 Écrire un programme qui lit une date dans deux variables (jj et mm). Il doit alors l'afficher en clair: 12 janvier par exemple.
 
