@@ -4,8 +4,9 @@
 
 - Utiliser des boucles (for, while, do/while, ...)
 
-> Ajouter des exos de lecture
-> Transformer les exos pour retirer les fonctions
+> Ajouter l'intro
+> Ajouter les solutions manquantes
+> Ajouter des commentaires dans les codes solutions
 
 
 ## Exercice 1
@@ -18,7 +19,7 @@ using System;
 public class Program {
   public static void Main(string[] args) {
     int i;
-    for (i = 1; i <= 100; i++) {
+    for (i = 1; i <= 20; i++) {
       if ((i % 3 == 0 && i % 5 == 0) || i % 7 == 0) {
         Console.WriteLine(i);
       }
@@ -164,6 +165,54 @@ public class Program
 		
 		for(int i = 1; i <= nbLignes; i++) {
 			for(int j = 1; j <= i; j++) {
+				Console.Write("*");
+			}
+			Console.WriteLine();
+		}
+	}
+}
+```
+</details>
+
+## Exercice 8
+
+Utilisez des boucles afin de construire un triangle bien équilibré formé par le caractère étoile (\*). 
+Affichez-en ```nbLignes``` lignes, où ```nbLignes``` est entré au clavier par l'utilisateur. 
+
+Exemple de sortie :
+
+```
+Combien de lignes voulez-vous afficher ? 8
+       *
+      ***
+     *****
+    *******
+   *********
+  ***********
+ *************
+***************
+```
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int nbLignes;
+		
+		Console.Write("Combien de lignes voulez-vous afficher ? ");
+		nbLignes = int.Parse(Console.ReadLine());
+		
+		for(int i = 1; i <= nbLignes; i++) {
+			for(int j = 0; j < nbLignes - i; j++) {
+				Console.Write(" ");
+			}
+			for(int j = 1; j < i * 2; j++) {
 				Console.Write("*");
 			}
 			Console.WriteLine();
