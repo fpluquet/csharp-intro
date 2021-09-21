@@ -526,7 +526,7 @@ public class Program
 ```
 </details>
 
-## Exercice 8
+## Exercice 9
 
 Créez un programme qui compte et affiche le nombre de syllabes d’un mot. Chaque syllabe est séparée par un tiret -.
 
@@ -585,7 +585,7 @@ public class Program
 ```
 </details>
 
-## Exercice 9
+## Exercice 10
 
 Créez un programme qui affiche ```Il y a au moins un espace``` si une chaîne contient des espaces, sinon il affiche ```Aucun espace détecté```.  Pour y arriver, lisez chaque caractère de la chaîne de caractère via une boucle ```for```. Le programme se termine directement ensuite.
 
@@ -645,7 +645,7 @@ public class Program
 ```
 </details>
 
-## Exercice 10
+## Exercice 11
 
 Même exercice que le précédent :
 > Créez un programme qui affiche ```Il y a au moins un espace``` si une chaîne contient des espaces, sinon il affiche ```Aucun espace détecté```.  Pour y arriver, lisez chaque caractère de la chaîne de caractère via une boucle ```for```. 
