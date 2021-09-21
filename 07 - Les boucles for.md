@@ -403,31 +403,31 @@ La sortie est
 
 La ```somme``` commence à 0. 
 
-| somme | somme < 50 | i  | i <= 10 | somme < 50  | i <=10 && somme < 50 | i % 2 == 0 | somme += i | i++ |
-| ----- | ---------- | -- | ------- | ---------- | ---------- | --- |
-| 0     | Vrai       | 0  | Vrai    | Vrai | Vrai | Vrai       | 0          | 1   |
-|       |            | 1  | Vrai    | Vrai | Vrai |  Faux       |            | 2   |
-|       |            | 2  | Vrai    | Vrai | Vrai |  Vrai       | 2          | 3   |
-|       |            | 3  | Vrai    | Vrai | Vrai |  Faux       |            | 4   |
-|       |            | 4  | Vrai    |  Vrai | Vrai | Vrai       | 6          | 5   |
-|       |            | 5  | Vrai    |  Vrai | Vrai | Faux       |            | 6   |
-|       |            | 6  | Vrai    | Vrai | Vrai |  Vrai       | 12         | 7   |
-|       |            | 7  | Vrai    |  Vrai | Vrai | Faux       |            | 8   |
-|       |            | 8  | Vrai    |  Vrai | Vrai | Vrai       | 20         | 9   |
-|       |            | 9  | Vrai    | Vrai | Vrai |  Faux       |            | 10  |
-|       |            | 10 | Vrai    | Vrai | Vrai |  Vrai       | 30         | 11  |
-|       |            | 11 | Faux    |  Vrai | Faux |            |            |     |
-| 30    | Vrai       | 0  | Vrai    |  Vrai | Vrai | Vrai       | 30         | 1   |
-|       |            | 1  | Vrai    |  Vrai | Vrai | Faux       |            | 2   |
-|       |            | 2  | Vrai    |  Vrai | Vrai | Vrai       | 32         | 3   |
-|       |            | 3  | Vrai    | Vrai | Vrai |  Faux       |            | 4   |
-|       |            | 4  | Vrai    | Vrai | Vrai |  Vrai       | 36         | 5   |
-|       |            | 5  | Vrai    | Vrai | Vrai |  Faux       |            | 6   |
-|       |            | 6  | Vrai    | Vrai | Vrai |  Vrai       | 42         | 7   |
-|       |            | 7  | Vrai    | Vrai | Vrai |  Faux       |            | 8   |
-|       |            | 8  | Vrai    | Vrai | Vrai |  Vrai       | 50         | 9   |
-|       |            | 9  | Vrai    | Faux | Faux |        |            |   |
-| 50    | Faux       |    |         |            |            |     |
+| somme | somme < 50 | i  | i <= 10 | somme < 50 | i <=10 && somme < 50 | i % 2 == 0 | somme += i | i++ |
+| ----- | ---------- | -- | ------- | ---------- | -------------------- | ---------- | ---------- | --- |
+| 0     | Vrai       | 0  | Vrai    | Vrai       | Vrai                 | Vrai       | 0          | 1   |
+|       |            | 1  | Vrai    | Vrai       | Vrai                 | Faux       |            | 2   |
+|       |            | 2  | Vrai    | Vrai       | Vrai                 | Vrai       | 2          | 3   |
+|       |            | 3  | Vrai    | Vrai       | Vrai                 | Faux       |            | 4   |
+|       |            | 4  | Vrai    | Vrai       | Vrai                 | Vrai       | 6          | 5   |
+|       |            | 5  | Vrai    | Vrai       | Vrai                 | Faux       |            | 6   |
+|       |            | 6  | Vrai    | Vrai       | Vrai                 | Vrai       | 12         | 7   |
+|       |            | 7  | Vrai    | Vrai       | Vrai                 | Faux       |            | 8   |
+|       |            | 8  | Vrai    | Vrai       | Vrai                 | Vrai       | 20         | 9   |
+|       |            | 9  | Vrai    | Vrai       | Vrai                 | Faux       |            | 10  |
+|       |            | 10 | Vrai    | Vrai       | Vrai                 | Vrai       | 30         | 11  |
+|       |            | 11 | Faux    | Vrai       | Faux                 |            |            |     |
+| 30    | Vrai       | 0  | Vrai    | Vrai       | Vrai                 | Vrai       | 30         | 1   |
+|       |            | 1  | Vrai    | Vrai       | Vrai                 | Faux       |            | 2   |
+|       |            | 2  | Vrai    | Vrai       | Vrai                 | Vrai       | 32         | 3   |
+|       |            | 3  | Vrai    | Vrai       | Vrai                 | Faux       |            | 4   |
+|       |            | 4  | Vrai    | Vrai       | Vrai                 | Vrai       | 36         | 5   |
+|       |            | 5  | Vrai    | Vrai       | Vrai                 | Faux       |            | 6   |
+|       |            | 6  | Vrai    | Vrai       | Vrai                 | Vrai       | 42         | 7   |
+|       |            | 7  | Vrai    | Vrai       | Vrai                 | Faux       |            | 8   |
+|       |            | 8  | Vrai    | Vrai       | Vrai                 | Vrai       | 50         | 9   |
+|       |            | 9  | Vrai    | Faux       | Faux                 |            |            |     |
+| 50    | Faux       |    |         |            |                      |            |            |     |
 
 
 
