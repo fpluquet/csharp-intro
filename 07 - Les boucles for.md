@@ -5,7 +5,6 @@
 - Utiliser des boucles (for, while, do/while, ...)
 
 > Ajouter l'intro
-> Ajouter les solutions manquantes
 > Ajouter des commentaires dans les codes solutions
 
 
