@@ -2,15 +2,16 @@
 
 Les boucles ```do/while``` et ```while``` permettent de répéter un bout de code autant de fois que nécessaire. Il existe un autre type de boucles qui permet une écriture plus concise : les boucles ```for``` (pour en anglais).
 
-Une boucle ```for``` prend 3 paramètres `for([1]; [2]; [3]) {...}` :
+Une boucle ```for``` prend 3 paramètres `for([1]; [2]; [3]) { [4] }` :
 1. l'initialisation  
 2. la condition de répétition
-3. le post-traitement.
+3. le post-traitement
+4. le bloc de code à répéter.
 
 Prenons un exemple simple :
 
 ```csharp
-for(int i = 0; i < 10; i++) {
+for(int i = 0; i < 10; i = i + 1) {
 	Console.WriteLine(i);
 }
 ```
@@ -19,11 +20,72 @@ On peut décortiquer ce code comme cela :
 1. L'initialisation est `int i = 0`
 	- on déclare une variable `i`
 	- on initilise cette variable à 0
-2. La condition de répétition est `i < 0`
+2. La condition de répétition est `i < 0`. 
+	- On ne va exécuter le bloc de code que si la condition est vraie.
+3. Une fois qu'on a exécuté le bloc, le post-traitement `i = i + 1` est toujours exécuté.
+4. Le bloc à répéter est conposé uniquement de `Console.WriteLine(i);`.
 
-> Ajouter l'intro
-> Ajouter des commentaires dans les codes solutions
+L'exécution se passe toujours comme cela :
+1. l'initialisation [1] est exécutée
+2. le condition [2] est évaluée :
+	- si elle est fausse, on passe au code après le bloc [4].
+	- si elle est vraie :
+		- le code du bloc [4] est exécuté.
+		- le post-traitement [3] est exécuté.
+		- on revient au point 2.  
 
+Le code suivant va donc afficher les nombre de 0 à 9 :
+```csharp
+for(int i = 0; i < 10; i = i + 1) {
+	Console.WriteLine(i);
+}
+```
+
+On peut s'en rendre compte en suivant la valeur de `i` et des différentes étapes :
+| i = 0 | i  | i < 10 | Console.WriteLine(i) | i = i + 1 |
+| ----- | -- | ------ | -------------------- | --------- |
+| 0     | 0  | Vrai   | "0"                  | 1         |
+|       | 1  | Vrai   | "1"                  | 2         |
+|       | 2  | Vrai   | "2"                  | 3         |
+|       | 3  | Vrai   | "3"                  | 4         |
+|       | 4  | Vrai   | "4"                  | 5         |
+|       | 5  | Vrai   | "5"                  | 6         |
+|       | 6  | Vrai   | "6"                  | 7         |
+|       | 7  | Vrai   | "7"                  | 8         |
+|       | 8  | Vrai   | "8"                  | 9         |
+|       | 9  | Vrai   | "9"                  | 10        |
+|       | 10 | Faux   |                      |           |
+
+La boucle `for` est donc plus concise dans son écriture mais permet de faire ce que l'on pouvait déjà faire avec un `while`. C'est juste une autre manière d'écrire les choses. Voici le même code que le précédent mais avec un `while` :
+
+```csharp
+int i = 0;
+while(i < 10) {
+	Console.WriteLine(i);
+	i = i + 1;
+}
+```
+
+Notez que l'initialisation et le post-traitement d'un `for` peuvent être vides mais les 3 parties doivent toujours être présentes (via les `;`) :
+
+```csharp
+int i = 0;
+for( ; i < 10 ; ) {
+	Console.WriteLine(i);
+	i++;
+}
+```
+
+...mais on perd un peu l'intérêt du `for` ! 
+
+> Attention : les variables déclarées dans l'initialisation d'un `for` ne sont connues que dans le `for` (et son bloc de code). Si vous avez besoin de connaître la valeur d'une variable après l'exécution du `for`, vous devez définir la variable avant le `for` :
+```csharp
+int i = 0;
+for( ; i < 10 ; i++) {
+	Console.WriteLine(i);
+}
+Console.WriteLine(i); // affiche 10
+```
 
 ## Exercice 1
 
@@ -451,6 +513,103 @@ La ```somme``` commence à 0.
 
 ## Exercice 7
 
+Transformez le code suivant pour n'utiliser que des boucles `for`:
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		
+		int i = 0;
+		while( i < 20) {
+			if(i % 3 != 0) {
+				Console.WriteLine(i);
+			}
+			i += 2;
+		}
+	}
+}
+```
+
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		for(int i = 0; i < 20; i += 2) {
+			if(i % 3 != 0) {
+				Console.WriteLine(i);
+			}
+		}
+	}
+}
+```
+</details>
+
+## Exercice 8
+
+Transformez le code suivant pour n'utiliser que des boucles `for`:
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		int i = 0;
+		while( i < 20) {
+			if(i % 3 != 0) {
+				Console.WriteLine(i);
+			}
+			i += 2;
+		}
+		while(i % 8 != 0) {
+			Console.WriteLine(i);
+			i += 1;
+		}
+	}
+}
+```
+
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		// on est obligé de sortir la déclaration de i du for 
+		// car il doit être encore connu dans le deuxième for
+		int i = 0;
+		for(;i < 20;i += 2) {
+			if(i % 3 != 0) {
+				Console.WriteLine(i);
+			}
+		}
+		for(;i % 8 != 0;i += 1) {
+			Console.WriteLine(i);
+		}
+	}
+}
+```
+</details>
+
+## Exercice 9
+
 Utilisez des boucles afin de construire un triangle rectangle formé par le caractère étoile (\*). 
 Affichez-en ```nbLignes``` lignes, où ```nbLignes``` est entré au clavier par l'utilisateur. 
 
@@ -494,7 +653,7 @@ public class Program
 ```
 </details>
 
-## Exercice 8
+## Exercice 10
 
 Utilisez des boucles afin de construire un triangle bien équilibré formé par le caractère étoile (\*). 
 Affichez-en ```nbLignes``` lignes, où ```nbLignes``` est entré au clavier par l'utilisateur. 
@@ -542,7 +701,7 @@ public class Program
 ```
 </details>
 
-## Exercice 9
+## Exercice 11
 
 Créez un programme qui compte et affiche le nombre de syllabes d’un mot. Chaque syllabe est séparée par un tiret -.
 
@@ -601,7 +760,7 @@ public class Program
 ```
 </details>
 
-## Exercice 10
+## Exercice 12
 
 Créez un programme qui affiche ```Il y a au moins un espace``` si une chaîne contient des espaces, sinon il affiche ```Aucun espace détecté```.  Pour y arriver, lisez chaque caractère de la chaîne de caractère via une boucle ```for```. Le programme se termine directement ensuite.
 
@@ -661,7 +820,7 @@ public class Program
 ```
 </details>
 
-## Exercice 11
+## Exercice 13
 
 Même exercice que le précédent :
 > Créez un programme qui affiche ```Il y a au moins un espace``` si une chaîne contient des espaces, sinon il affiche ```Aucun espace détecté```.  Pour y arriver, lisez chaque caractère de la chaîne de caractère via une boucle ```for```. 
