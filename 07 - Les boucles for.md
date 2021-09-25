@@ -1,8 +1,25 @@
 # Boucles for
 
-**intro**
+Les boucles ```do/while``` et ```while``` permettent de répéter un bout de code autant de fois que nécessaire. Il existe un autre type de boucles qui permet une écriture plus concise : les boucles ```for``` (pour en anglais).
 
-- Utiliser des boucles (for, while, do/while, ...)
+Une boucle ```for``` prend 3 paramètres `for([1]; [2]; [3])`{:.csharp} :
+1. l'initialisation  
+2. la condition de répétition
+3. le post-traitement.
+
+Prenons un exemple simple :
+
+```csharp
+for(int i = 0; i < 10; i++) {
+	Console.WriteLine(i);
+}
+```
+On peut décortiquer ce code comme cela :
+
+1. L'initialisation est `int i = 0`{:.csharp}
+	- on déclare une variable `i`
+	- on initilise cette variable à 0
+2. La condition de répétition est `i < 0`{:.csharp}
 
 > Ajouter l'intro
 > Ajouter des commentaires dans les codes solutions
