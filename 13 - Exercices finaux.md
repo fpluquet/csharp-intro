@@ -18,3 +18,6 @@ A chaque mouvement, une nouvelle tuile 2 apparaît sur le plateau.
 Exemple de début de partie :
 
 ![](https://thumbs.gfycat.com/ImpassionedShadyFlounder-size_restricted.gif)
+
+
+# Labyrinthe

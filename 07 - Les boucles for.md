@@ -545,6 +545,10 @@ public class Program
 {
 	public static void Main()
 	{
+		// [1] déclaration et initialisation de i à 0
+		//			i ne sera connu que dans le for et son bloc
+		// [2] condition : i < 20
+		// [3] post traitement : i = i + 2
 		for(int i = 0; i < 20; i += 2) {
 			if(i % 3 != 0) {
 				Console.WriteLine(i);
@@ -637,15 +641,22 @@ public class Program
 {
 	public static void Main()
 	{
+		// déclaration de la variable qui contiendra le nombre de lignes à afficher
 		int nbLignes;
 		
+		// affichage de la question
 		Console.Write("Combien de lignes voulez-vous afficher ? ");
+		
+		// lecture et transformation en entier du nombre de lignes
 		nbLignes = int.Parse(Console.ReadLine());
 		
+		// Pour chaque ligne i (de 1 à nbLignes compris)...
 		for(int i = 1; i <= nbLignes; i++) {
+			// ... on va afficher i étoiles en faisant varier j de 1 à i compris
 			for(int j = 1; j <= i; j++) {
 				Console.Write("*");
 			}
+			// et on affiche un retour à la ligne une fois les étoiles affichées
 			Console.WriteLine();
 		}
 	}
@@ -672,8 +683,30 @@ Combien de lignes voulez-vous afficher ? 8
 ***************
 ```
 
+Indice : il faut afficher le bon nombre d'espaces avant d'afficher les étoiles.
+
 <details>
 	<summary>Solution</summary>
+
+La complexité de cet exercice est d'afficher les étoiles bien alignées, et donc d'afficher le bon nombre d'espaces avant de commencer à afficher les étoiles.
+
+Combien d'espaces et d'étoiles faut-il afficher à chaque ligne ? Il suffit de compter et trouver une formule mathématique qui fonctionne avec le nombre de lignes entrés :
+
+| Numéro de ligne | Nb étoiles | Nb espaces |
+| --------------- | ---------- | ---------- |
+| 1               | 1          | 7          |
+| 2               | 3          | 6          |
+| 3               | 5          | 5          |
+| 4               | 7          | 4          |
+| 5               | 9          | 3          |
+| 6               | 11         | 2          |
+| 7               | 13         | 1          |
+| 8               | 15         | 0          |
+
+Pour le nombre d'espaces, on peut trouver la formule simple : ```nbLignes - numéroLigne```. À la 7e ligne, il y a 8 - 7 = 1 étoile.
+
+Pour le nombre d'étoiles, on peut trouver la formule suivante : ```numéroLigne * 2 - 1```. À la 7e ligne, il y a 7 * 2 - 1 = 13 étoiles.
+
 
 ```csharp
 using System;
@@ -682,18 +715,28 @@ public class Program
 {
 	public static void Main()
 	{
+		// déclaration de la variable qui contiendra le nombre de lignes à afficher
 		int nbLignes;
 		
+		// affichage de la question
 		Console.Write("Combien de lignes voulez-vous afficher ? ");
+		
+		// lecture et transformation en entier du nombre de lignes
 		nbLignes = int.Parse(Console.ReadLine());
 		
+		// Pour chaque ligne i (de 1 à nbLignes compris)...
 		for(int i = 1; i <= nbLignes; i++) {
+			// ... on affiche les nbLignes - numéroLigne (i) espaces 
 			for(int j = 0; j < nbLignes - i; j++) {
 				Console.Write(" ");
 			}
-			for(int j = 1; j < i * 2; j++) {
+
+			// ... on affiche les numéroLigne * 2 - 1 étoiles 
+			for(int k = 1; k < i * 2; k++) {
 				Console.Write("*");
 			}
+
+			// et on affiche un retour à la ligne une fois les étoiles affichées
 			Console.WriteLine();
 		}
 	}
@@ -742,18 +785,30 @@ public class Program
 {
 	public static void Main()
 	{
-		string phrase;
+		// déclaration de la variable contenant le mot duquel on doit compter les syllabes   
+		string mot;
+		
+		// déclaration et initialisation à 0 du nombre de syllabes trouvées
 		int nbSyllabes = 0;
+
+		// on affiche le > initial
 		Console.Write("> ");
-		phrase = Console.ReadLine();
-		for(int i = 0; i < phrase.Length; i++) {
-			if (phrase[i] == '-') {
+
+		// on lit le mot sur la console
+		mot = Console.ReadLine();
+
+		// on va parcourir chaque caractère du mot (i va de 0 à mot.Length - 1)
+		for(int i = 0; i < mot.Length; i++) {
+			// si le ième caractère du mot est '-'...
+			if (mot[i] == '-') {
+				// ... on incrémente le nombre de syllabes (équivalent à nbSyllabes = nbSyllabes + 1;)
 				nbSyllabes++;
-			} else if (phrase[i] != ' ' && nbSyllabes == 0) {
+			} else if (mot[i] != ' ' && nbSyllabes == 0) { // ... sinon si le ième caractère n'est pas un espace et que le nombre de syllabes est à 0
+				// ... le mot contient donc au moins un caractère et donc au moins un syllabes 
 				nbSyllabes++;
 			}
 		}
-		
+		// on affiche le nombre de syllabes et un 's' si nécessaire
 		Console.WriteLine("{0} syllabe{1}", nbSyllabes, nbSyllabes > 1 ? "s": "");
 	}
 }
@@ -800,25 +855,42 @@ public class Program
 {
 	public static void Main()
 	{
+		// déclaration de la variable contenant la phrase à analyser   		
 		string phrase;
+		
+		// déclaration et initialisation à false de la variable indiquant s'il y a au moins un espace dans la phrase   		
 		bool espaceExiste = false;
+
+		// on affiche le > initial
 		Console.Write("> ");
+
+		// on lit la phrase sur la console
 		phrase = Console.ReadLine();
+
+		// on va parcourir tous les caractères de la phrase (i va de 0 à phrase.Length - 1) et si on n'a pas encore trouvé un espace
 		for(int i = 0; i < phrase.Length && espaceExiste == false; i++) {
+			// si le ième caractère est un espace...
 			if (phrase[i] == ' ') {
+				// ... on passe la variable espaceExiste à true (cela va donc arrêter la boucle for)
 				espaceExiste = true;
 			}
 		}
 		
+		// si on a détecté un espace...
 		if (espaceExiste) {
+			// ... on l'affiche
 			Console.WriteLine("Il y au moins un espace");
 		} else {
+			// sinon on affiche l'inverse
 			Console.WriteLine("Aucun espace détecté");
 		}
 	}
 }
 ```
 </details>
+
+
+
 
 ## Exercice 13
 
@@ -856,7 +928,10 @@ public class Program
 		bool espaceExiste = false;
 		Console.Write("> ");
 		phrase = Console.ReadLine();
+
+		// on ajoute cette boucle tant que la phrase n'est pas égale à "quitter"
 		while(phrase != "quitter") {
+
 			for(int i = 0; i < phrase.Length && espaceExiste == false; i++) {
 				if (phrase[i] == ' ') {
 					espaceExiste = true;
@@ -868,6 +943,8 @@ public class Program
 			} else {
 				Console.WriteLine("Aucun espace détecté");
 			}
+
+			// on ajoute ces deux lignes pour recommencer la lecture de l'entrée de l'utilisateur
 			Console.Write("> ");
 			phrase = Console.ReadLine();
 		}
