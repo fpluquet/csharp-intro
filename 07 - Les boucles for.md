@@ -692,16 +692,16 @@ La complexité de cet exercice est d'afficher les étoiles bien alignées, et do
 
 Combien d'espaces et d'étoiles faut-il afficher à chaque ligne ? Il suffit de compter et trouver une formule mathématique qui fonctionne avec le nombre de lignes entrés :
 
-| Numéro de ligne | Nb étoiles | Nb espaces |
+| Numéro de ligne | Nb espaces | Nb étoiles |
 | --------------- | ---------- | ---------- |
-| 1               | 1          | 7          |
-| 2               | 3          | 6          |
+| 1               | 7          | 1          |
+| 2               | 6          | 3          |
 | 3               | 5          | 5          |
-| 4               | 7          | 4          |
-| 5               | 9          | 3          |
-| 6               | 11         | 2          |
-| 7               | 13         | 1          |
-| 8               | 15         | 0          |
+| 4               | 4          | 7          |
+| 5               | 3          | 9          |
+| 6               | 2          | 11         |
+| 7               | 1          | 13         |
+| 8               | 0          | 15         |
 
 Pour le nombre d'espaces, on peut trouver la formule simple : ```nbLignes - numéroLigne```. À la 7e ligne, il y a 8 - 7 = 1 étoile.
 
