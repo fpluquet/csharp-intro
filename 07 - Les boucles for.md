@@ -87,6 +87,8 @@ for( ; i < 10 ; i++) {
 Console.WriteLine(i); // affiche 10
 ```
 
+# Exercices
+
 ## Exercice 1
 
 Que fait le programme suivant ?
