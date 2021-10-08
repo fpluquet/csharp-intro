@@ -45,7 +45,7 @@ Voici quelques unes des plus intéressantes :
 | IndexOf | Signale l'index de base zéro de la première occurrence de la chaîne spécifiée dans cette instance. | ```"Hello".IndexOf("lo"); // renvoie 3```|
 | Contains | Retourne une valeur qui indique si la sous-chaîne spécifiée apparaît dans cette chaîne. | ```"Hello".Contains("ll"); // renvoie True``` |
 | StartsWith | Détermine si le début de cette instance de chaîne correspond à la chaîne spécifiée. | ```"Hello".StartsWith("Hel"); // renvoie True``` |
-| EndsWith | Détermine si la fin de cette instance de chaîne correspond à la chaîne spécifiée. | ```"Hello".StartsWith("llo"); // renvoie True``` |
+| EndsWith | Détermine si la fin de cette instance de chaîne correspond à la chaîne spécifiée. | ```"Hello".EndsWith("llo"); // renvoie True``` |
 | ToLower| Retourne une copie de cette chaîne convertie en minuscules. | ```"HelLo".ToLower(); // renvoie "hello"``` |
 ## Concaténation
 
