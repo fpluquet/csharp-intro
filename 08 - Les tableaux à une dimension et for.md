@@ -2,7 +2,7 @@
 
 Un tableau est une structure de données qui permet de stocker des informations de même type et d'y accéder via un index.
 
-En C#, un tableau est déclaré en indiquant un type et en le suffixant par des crochets ([]) :
+En C#, un tableau est déclaré en indiquant un type et en le suffixant par des crochets (`[]`) :
 
 ```csharp
 int[] tab;
@@ -36,6 +36,106 @@ double[] monTableau = new double[5 + nb];
 
 Comme on le voit sur cet exemple, le nombre d'éléments ne doit pas forcément être constant : il peut être calculé (comme `nb` ou `5 + nb`).
 
+Les différentes cases du tableau sont initialisées à leur valeur par défaut en fonction du type (0 pour les `int` et les `double`, `null` pour les `string`, ...).
+
+## Assignation
+
+On peut assigner des valeurs dans les cases d'un tableau en utilisant le nom du tableau suivi de l'indice (la position, l'index, ...) placé entre crochets (`[]`), un `=` et la valeur à assigner.
+
+```csharp
+int[] tab = new int[10]; // tab a 10 cases valant toutes 0
+tab[0] = 5; // tab a 10 cases valant toutes 0, sauf la première qui est à 5
+tab[5] = 8; // tab a 10 cases valant toutes 0, sauf la première qui est à 5 et la 6e qui est à 8
+```
+
+## Lecture
+
+On peut lire les valeurs des cases d'un tableau en utilisant le nom du tableau suivi de l'indice (la position, l'index, ...) placé entre crochets (`[]`).
+
+```csharp
+int[] tab = new int[10];
+tab[0] = 5;
+tab[5] = 8;
+int n;
+n = tab[0]; // n contient 5
+n = tab[1]; // n contient 0
+n = tab[5]; // n contient 8
+```
+
+## Longueur d'un tableau
+
+On peut obtenir la taille d'un tableau en utilisant sa propriété `Length` :
+
+```csharp
+int[] tab = new int[10];
+string[] mots = new string[5];
+int nb = 8;
+char[] caractères = new char[nb];
+double[] monTableau = new double[5 + nb];
+
+Console.WriteLine(tab.Length); // affiche 10
+Console.WriteLine(mots.Length); // affiche 5
+Console.WriteLine(caractères.Length); // affiche 8
+Console.WriteLine(monTableau.Length); // affiche 13
+```
+
+Cette propriété `Length` est très pratique pour itérer sur tous les éléments d'un tableau :
+
+```csharp
+int[] tab = new int[10];
+tab[0] = 5;
+tab[5] = 8;
+
+for(int i = 0; i < tab.Length; i++) {
+	Console.WriteLine("tab[{0}] = {1}", i, tab[i]);
+}
+```
+
+Ce code va afficher toutes les cases du tableau `tab` :
+
+```
+tab[0] = 5
+tab[1] = 0
+tab[2] = 0
+tab[3] = 0
+tab[4] = 0
+tab[5] = 8
+tab[6] = 0
+tab[7] = 0
+tab[8] = 0
+tab[9] = 0
+```
+
+## Le mot clé `foreach`
+
+Lorsque l'on veut itérer sur chaque élément d'un tableau, on peut utiliser le mot clé `foreach` (traduit littéralement en `pour chaque`) en lui donnant une variable du type des éléments du tableau, le mot clé `in` et le nom du tableau :
+
+```csharp
+int[] tab = new int[10];
+tab[0] = 5;
+tab[5] = 8;
+
+foreach(int n in tab) {
+	Console.WriteLine("{0}", n);
+}
+```
+
+Ce code affichera :
+
+```
+5
+0
+0
+0
+0
+8
+0
+0
+0
+0
+```
+
+# Exercices
 
 ## Exercice 1
 
@@ -490,11 +590,107 @@ public class Program
 
 ## Exercice 7
 
-Trier un tableau via l'algorithme du tri à bulles[^refTriBulle].
-
-
+Créer un tableau de 10 entiers, remplissez-le de valeurs aléatoires entre -100 et 100 et triez ce tableau en utilisant l'algorithme du tri à bulles[^refTriBulle]. 
 
 [^refTriBulle]: https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles
+
+
+Exemple de sortie:
+
+```
+Avant le tri : 
+
+tab[0] = -86
+tab[1] = 57
+tab[2] = 50
+tab[3] = 99
+tab[4] = 74
+tab[5] = 62
+tab[6] = -53
+tab[7] = -67
+tab[8] = 12
+tab[9] = -69
+
+Après le tri :
+
+tab[0] = -86
+tab[1] = -69
+tab[2] = -67
+tab[3] = -53
+tab[4] = 12
+tab[5] = 50
+tab[6] = 57
+tab[7] = 62
+tab[8] = 74
+tab[9] = 99
+```
+
+<details>
+	<summary>Solution</summary>
+
+Il faut évidemment déjà bien comprendre l'algorithme du tri à bulle qui permet de trier un tableau facilement.
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// déclaration et initialisation d'un tableau de 10 entiers nommé tab
+		int[] tab = new int[10];
+
+		// déclaration et initialisation de random qui permettra d'obtenir des nombres aléatoires 
+		Random random = new Random(); 
+		
+		// assignation de 10 nombres aléatoires dans tab
+		for(int i = 0; i < tab.Length; i++) {
+			tab[i] = random.Next(-100,100);
+		}
+
+		// affichage du titre (le \n permet d'ajouter un retour à la ligne)
+		Console.WriteLine("Avant le tri : \n");
+
+		// i varie de 0 à tab.Length - 1
+		for(int i = 0; i < tab.Length; i++) {
+			// on affiche la case i
+			Console.WriteLine("tab[{0}] = {1}", i, tab[i]);
+		}
+		
+		// pseudo code provenant de Wikipedia :
+
+		// pour i allant de (taille de T)-1 à 1
+    //		pour j allant de 0 à i-1
+    //   		si T[j+1] < T[j]
+    //       		(T[j+1], T[j]) = (T[j], T[j+1])
+		
+		// i varie de tab.Length - 1 à 1
+		for(int i = tab.Length - 1; i > 0; i--) {
+			// j varie de 0 à i - 1
+			for(int j = 0; j < i; j++) {
+				// si la case suivante ([j+1]) contient un valeur plus petite que la courante ([j])
+				if (tab[j + 1] < tab[j]) {
+					// on échange les deux cases du tableau (swap)
+					int tmp = tab[j + 1];
+					tab[j + 1] = tab[j];
+					tab[j] = tmp;
+				}
+			}
+		}
+		
+		// affichage du titre (les \n permettent d'ajouter un retour à la ligne)
+		Console.WriteLine("\nAprès le tri :\n");
+
+		// i varie de 0 à tab.Length - 1
+		for(int i = 0; i < tab.Length; i++) {
+			// on affiche la case i
+			Console.WriteLine("tab[{0}] = {1}", i, tab[i]);
+		}
+	}
+}
+```
+
+</details>
 
 
 
@@ -734,10 +930,18 @@ public class Program
 {
 	public static void Main()
 	{
+		// déclaration et initialisation du tableau noms de 10 strings 
 		string[] noms = new string[10];
+
+		// déclaration et initialisation du tableau prix de 10 entiers 
 		int[] prix = new int[10];
+		
+		// déclaration et initialisation de la variable contenant le choix de l'utilisateur
 		int choix = 0;
+		
+		// on commence la boucle faire...tant que... (do/while) 
 		do {
+			// on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
 			Console.Write(@"
 1. Afficher tous les articles et leur prix
 2. Modifier le nom d'un article
@@ -746,45 +950,94 @@ public class Program
 5. Quitter
 
 Votre choix: ");
+
+			// on lit le choix de l'utilisateur
+			// 	=> choix sera à 0 si l'entrée n'est pas un nombre 
 			int.TryParse(Console.ReadLine(), out choix);
 			
+			// affichage d'une ligne vide 
 			Console.WriteLine();
+
+			// si le choix est 1...
 			if (choix == 1) {
+
+				// i varie de 0 à 9
 				for(int i = 0; i < 10; i++) {
+
+					// si, pour l'élément à l'indice i, le nom est assigné ou le prix est assigné...
 					if (noms[i] != null || prix[i] != 0) {
+						// on affiche le nom et le prix
 						Console.WriteLine("{0}. {1} : {2} euros", i + 1, noms[i], prix[i]);
-					} else {
+					} else { // sinon...
+						// on affiche "Non défini"
 						Console.WriteLine("{0}. Non défini", i + 1);
 					}
 				}
-			} else if (choix >= 2 && choix <= 4) {
+			} else if (choix >= 2 && choix <= 4) { // sinon, si le choix est compris entre 2 et 4...
+				// on va demander à l'utilisateur l'index de l'article à modifier 
+
+				//  indexArticle va contenir le numéro d'article à modifier
 				int indexArticle = -1;
+
 				do {
+					// affichage de la question
 					Console.Write("Quel numéro d'article voulez-vous modifier ? ");
+
+					// on lit indexArticle sur la console
 					int.TryParse(Console.ReadLine(), out indexArticle);
+					
+					// si l'index est inférieur à 1 ou supérieur à 10
 					if (indexArticle < 1 || indexArticle > 10) {
+						// on met indexArticle à -1
 						indexArticle = -1;
 					}
-				}while(indexArticle == -1);
+				}while(indexArticle == -1); // on boucle sur la demande de l'indice tant que le nombre n'est pas correct 
+
+				// si le choix est 2 (modification du nom)
 				if (choix == 2) {
+					// on affiche la question du nom
 					Console.Write("Quel est le nouveau nom de l'article {0} ? ", indexArticle);
+
+					// on lit le nouveau nom
 					string nom = Console.ReadLine();
+
+					// on l'assigne au bon indice dans la tableau noms
 					noms[indexArticle - 1] = nom;
+
+					// on affiche le retour utilisateur
 					Console.WriteLine("Nom modifié avec succès");
-				} else if (choix == 3) {
+
+				} else if (choix == 3) { // ou si le choix est 3 (modification du prix)
+
+					// on affiche la question du prix
 					Console.Write("Quel est le nouveau prix de l'article {0} ? ", indexArticle);
+
+					// on lit le nouveau prix
 					int nouveauPrix = int.Parse(Console.ReadLine());
+
+					// on l'assigne au bon indice dans la tableau prix
 					prix[indexArticle - 1] = nouveauPrix;				
+
+					// on affiche le retour utilisateur
 					Console.WriteLine("Prix modifié avec succès");
-				} else if (choix == 4) {
+
+				} else if (choix == 4) {  // ou si le choix est 4 (suppression de l'article)
+					
+					// on efface le nom
 					noms[indexArticle - 1] = null;
+					
+					// on efface le prix
 					prix[indexArticle - 1] = 0;
+
+					// on affiche le retour utilisateur
 					Console.WriteLine("Article retiré avec succès");
+
 				}
-			} else if (choix != 5) {
+			} else if (choix != 5) { // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
+				// on affiche le message d'erreur
 				Console.WriteLine("Ce choix est invalide");
 			}
-		} while(choix != 5);
+		} while(choix != 5); // on arrête cette boucle quand le choix est 5
 	}
 }
 ```
