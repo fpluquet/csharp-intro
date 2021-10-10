@@ -1,6 +1,41 @@
-# Tableau à une dimension et boucles for
+# Tableaux à une dimension et boucles for
 
-**intro**
+Un tableau est une structure de données qui permet de stocker des informations de même type et d'y accéder via un index.
+
+En C#, un tableau est déclaré en indiquant un type et en le suffixant par des crochets ([]) :
+
+```csharp
+int[] tab;
+string[] mots;
+char[] caractères;
+double[] monTableau;
+```
+
+Ces 4 variables ne sont pas encore initialisées. Pour les utiliser sans avoir créé de tableaux, on peut leur assigner la valeur `null`.
+
+```csharp
+int[] tab = null;
+if (tab == null) {
+	Console.WriteLine("Non initialisé");
+} else {
+	Console.WriteLine("Initialisé");
+}
+```
+
+Ce code affiche donc `"Non initialisé"`.
+
+On peut créer un tableau via un `new`, le type et le nombre d'éléments :
+
+```csharp
+int[] tab = new int[10];
+string[] mots = new string[5];
+int nb = 8;
+char[] caractères = new char[nb];
+double[] monTableau = new double[5 + nb];
+```
+
+Comme on le voit sur cet exemple, le nombre d'éléments ne doit pas forcément être constant : il peut être calculé (comme `nb` ou `5 + nb`).
+
 
 ## Exercice 1
 
