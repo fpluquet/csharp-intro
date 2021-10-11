@@ -263,51 +263,152 @@ Après
 # Exercices
 
 
-## Exercice
+## Exercice 1
 
-Créez une fonction qui prend un nombre en argument, incrémente le nombre +1 et renvoie le résultat.
+Créez une fonction `incremente` qui prend un entier en paramètre, incrémente ce nombre (+ 1) et renvoie le résultat.
 
-Exemple:
-increment(1) ➞ 2
+Exemples:
 
-increment(4) ➞ 5
+```csharp
+Console.WriteLine(incremente(1)); // affiche 2
+Console.WriteLine(incremente(2)); // affiche 3
+Console.WriteLine(incremente(5)); // affiche 6
+Console.WriteLine(incremente(-1)); // affiche 0
+```
 
-increment(-1) ➞ 0
+<details>
+  <summary>Solution</summary>
 
-## Exercice
+```csharp
+using System;
+          
+public class Program
+{  
+  static int incremente(int n){
+    n++;
+    return n;
+  }
 
-Écrivez un programme C# pour renvoyer le reste de deux nombres. Il existe un seul opérateur en C#, capable de fournir le reste d’une division. Deux nombres sont transmis comme paramètres. Le premier paramètre divisé par le deuxième paramètre.
+  public static void Main()
+  {
+  Console.WriteLine(incremente(1)); // affiche 2
+  Console.WriteLine(incremente(2)); // affiche 3
+  Console.WriteLine(incremente(5)); // affiche 6
+  Console.WriteLine(incremente(-1)); // affiche 0
+  }
+}
+```
 
-Exemple:
-resteDiv(1, 3) ➞ 1
+</details>
 
-resteDiv(2, 4) ➞ 2
+## Exercice 2
 
-resteDiv(3, 3) ➞ 0
-## Exercice
+Écrivez une fonction `resteDiv` qui prend en paramètres deux nombres et renvoie le reste de la division entière du premier paramètre par le second. Utilisez l'opérateur `%` capable de fournir le reste d’une division.
 
-Créez une fonction qui renvoie TRUE si un entier est divisible par 5, sinon retournez FALSE.
+Exemples:
 
-Exemple:
-isDivisible(5) ➞ True
+```csharp
+Console.WriteLine(resteDiv(10,3)); // affiche 1, car 10 / 3 = 3 et 10 - 3 * 3 = 1
+Console.WriteLine(resteDiv(6,3)); // affiche 0, car 6 / 3 = 2 et 6 - 3 * 2 = 0
+Console.WriteLine(resteDiv(17, 7)); // affiche 3, car 17 / 7 = 2 et 17 - 7 * 2 = 3
+```
 
-isDivisible(10) ➞ True
+<details>
+  <summary>Solution</summary>
 
-isDivisible(6) ➞ False
+```csharp
+using System;
+          
+public class Program
+{
+  static int resteDiv(int dividende, int diviseur){
+    int reste = dividende % diviseur;
+    return reste;
+  }
 
-## Exercice
+  public static void Main()
+  {
+    Console.WriteLine(resteDiv(10,3)); // affiche 1, car 10 / 3 = 3 et 10 - 3 * 3 = 1
+    Console.WriteLine(resteDiv(6,3)); // affiche 0, car 6 / 3 = 2 et 6 - 3 * 2 = 0
+    Console.WriteLine(resteDiv(17, 7)); // affiche 3, car 17 / 7 = 2 et 17 - 7 * 2 = 3
+  }
+}
+```
 
-Créez une fonction qui renvoie TRUE si une chaîne est vide et sinon renvoie FALSE.
+</details>
 
-Exemple:
+## Exercice 3
 
-isEmpty("1") ➞ False
+Créez une fonction `estDivisiblePar5` qui renvoie `True` si un entier est divisible par 5, sinon retournez `False`.
 
-isEmpty("WayToLearnX") ➞ False
+Exemples:
 
-isEmpty("  ") ➞ False
+```csharp
+Console.WriteLine(estDivisiblePar5(5)); // affiche True
+Console.WriteLine(estDivisiblePar5(10)); // affiche True
+Console.WriteLine(estDivisiblePar5(6)); // affiche False
+```
 
-isEmpty("") ➞ True
+<details>
+  <summary>Solution</summary>
+
+```csharp
+using System;
+          
+public class Program
+{
+  static bool estDivisiblePar5(int nb){
+	  return nb % 5 == 0;
+  }
+
+  public static void Main()
+  {
+    Console.WriteLine(estDivisiblePar5(5)); // affiche true
+    Console.WriteLine(estDivisiblePar5(10)); // affiche true
+    Console.WriteLine(estDivisiblePar5(6)); // affiche false
+  }
+}
+```
+
+</details>
+
+## Exercice 4
+
+Créez une fonction `isEmpty` qui renvoie `True` si la chaîne de caractères passée en paramètre est vide et sinon renvoie `False`.
+
+Exemples:
+
+```csharp
+Console.WriteLine(isEmpty("1")); // affiche False
+Console.WriteLine(isEmpty("")); // affiche True
+Console.WriteLine(isEmpty("Trop cool")); // affiche False
+Console.WriteLine(isEmpty("   ")); // affiche False
+```
+
+<details>
+  <summary>Solution</summary>
+
+```csharp
+using System;
+          
+public class Program
+{
+  static bool isEmpty(string texte){
+	  return texte.Length == 0;
+  }
+
+  public static void Main()
+  {
+    Console.WriteLine(isEmpty("1")); // affiche False
+    Console.WriteLine(isEmpty("")); // affiche True
+    Console.WriteLine(isEmpty("Trop cool")); // affiche False
+    Console.WriteLine(isEmpty("   ")); // affiche False
+  }
+}
+```
+
+</details>
+
 
 ## Exercice
 
@@ -342,7 +443,7 @@ vaches = 4 pattes
 chevaux = 4 pattes
 Le fermier a compté ses animaux et il vous donne un sous-total pour chaque espèce. Vous devez implémenter une fonction qui renvoie le nombre total de pattes de tous les animaux.
 
-L’ordre des animaux transmis à la fonction est nbrsPattes(poulets, vaches, chevaux).
+L’ordre des animaux transmis à la fonction est `nbrsPattes(poulets, vaches, chevaux)`.
 
 Exemple:
 nbrsPattes(1, 4, 2) ➞ 26
@@ -397,7 +498,7 @@ La distance de Hamming est le nombre de caractères qui diffèrent entre deux ch
 Str1: « abcdde »
 Str2: « abcdbe »
 
-Distance de Hamming = 1 « d » et « b » est la seule différence.
+Distance de Hamming = 1 car « d » et « b » est la seule différence.
 
 Créez une fonction qui calcule la distance de hamming entre deux chaînes.
 
@@ -405,7 +506,7 @@ Exemple:
 
 distanceHamming("abcdde", "abcdbe") ➞ 1
 
-distanceHamming("abefcd", "cdfgea") ➞ 6
+distanceHamming("abcdef", "defabc") ➞ 6
 
 distanceHamming("agresser", "adresser") ➞ 1
 
@@ -431,14 +532,4 @@ getLastElem([8, 7, 6]) ➞ 6
 
 getLastElem([1]) ➞ 1
 
-## Exercice
-
-Créez une fonction qui prend un nombre en argument, incrémente le nombre +1 et renvoie le résultat.
-
-Exemple:
-increment(1) ➞ 2
-
-increment(4) ➞ 5
-
-increment(-1) ➞ 0
 
