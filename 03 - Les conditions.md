@@ -411,7 +411,7 @@ L'année 2021 n'est pas bissextile
 ```
 ```
 Entrez une année : 2022
-L'année 2022 est bissextile
+L'année 2022 n'est pas bissextile
 ```
 ```
 Entrez une année : 2000

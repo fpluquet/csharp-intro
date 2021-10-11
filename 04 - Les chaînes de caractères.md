@@ -67,7 +67,7 @@ Le mot "Chien" au pluriel : Chiens
 ```
 ```
 Quel mot faut-il mettre au pluriel ? Chiens
-Le "Chiens" est déjà au pluriel. 
+Le mot "Chiens" est déjà au pluriel. 
 ```
 
 <details>
@@ -89,7 +89,7 @@ public class Program
 		// si la dernière lettre est un 's'...
 		if (mot[mot.Length - 1] == 's') {
 			// ... alors on affiche que c'est déjà au pluriel
-			Console.WriteLine("Le \"{0}\" est déjà au pluriel.", mot); 
+			Console.WriteLine("Le mot \"{0}\" est déjà au pluriel.", mot); 
 		} else {
 			// ... sinon on affiche le mot au pluriel
 			Console.WriteLine("Le mot \"{0}\" au pluriel : {1}", mot, mot + "s");
@@ -116,7 +116,7 @@ public class Program
 		// si la dernière lettre est un 's'...
 		if (mot.EndsWith("s")) {
 			// ... alors on affiche que c'est déjà au pluriel
-			Console.WriteLine("Le \"{0}\" est déjà au pluriel.", mot); 
+			Console.WriteLine("Le mot \"{0}\" est déjà au pluriel.", mot); 
 		} else {
 			// ... sinon on affiche le mot au pluriel
 			Console.WriteLine("Le mot \"{0}\" au pluriel : {1}", mot, mot + "s");
