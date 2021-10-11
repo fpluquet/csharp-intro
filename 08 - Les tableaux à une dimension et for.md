@@ -696,7 +696,7 @@ public class Program
 
 ## Exercice 8
 
-Ecrivez un programme qui vous permet de gérer 10 articles, chacun ayant un nom et un prix. Utilisez 2 tableaux à une dimensions pour y stocker les noms et les prix. Utilisez un menu pour faciliter la gestion de ces articles par l'utilisateur, comme suit :
+Ecrivez un programme qui vous permet de gérer 10 articles, chacun ayant un nom et un prix. Utilisez 2 tableaux à une dimension pour y stocker les noms et les prix. Utilisez un menu pour faciliter la gestion de ces articles par l'utilisateur, comme suit :
 
 ```
 1. Afficher tous les articles et leur prix
