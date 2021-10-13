@@ -2,7 +2,7 @@
 
 Une fonction est un bloc d'instructions qui porte un nom, qui peut prendre des paramètres en entrée et peut renvoyer une valeur en sortie.
 
-Prenons un exemple simple d'un affichage :
+Commençons par un exemple simple :
 
 ```csharp
 static void AfficheHello(){
