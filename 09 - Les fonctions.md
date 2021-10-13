@@ -746,24 +746,24 @@ Voici le code de la solution d'un précédent exercice :
 
 ```csharp
 using System;
-					
+          
 public class Program
 {
-	public static void Main()
-	{
-		// déclaration et initialisation du tableau noms de 10 strings 
-		string[] noms = new string[10];
+  public static void Main()
+  {
+    // déclaration et initialisation du tableau noms de 10 strings 
+    string[] noms = new string[10];
 
-		// déclaration et initialisation du tableau prix de 10 entiers 
-		int[] prix = new int[10];
-		
-		// déclaration et initialisation de la variable contenant le choix de l'utilisateur
-		int choix = 0;
-		
-		// on commence la boucle faire...tant que... (do/while) 
-		do {
-			// on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
-			Console.Write(@"
+    // déclaration et initialisation du tableau prix de 10 entiers 
+    int[] prix = new int[10];
+    
+    // déclaration et initialisation de la variable contenant le choix de l'utilisateur
+    int choix = 0;
+    
+    // on commence la boucle faire...tant que... (do/while) 
+    do {
+      // on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
+      Console.Write(@"
 1. Afficher tous les articles et leur prix
 2. Modifier le nom d'un article
 3. Modifier le prix d'un article
@@ -772,94 +772,94 @@ public class Program
 
 Votre choix: ");
 
-			// on lit le choix de l'utilisateur
-			// 	=> choix sera à 0 si l'entrée n'est pas un nombre 
-			int.TryParse(Console.ReadLine(), out choix);
-			
-			// affichage d'une ligne vide 
-			Console.WriteLine();
+      // on lit le choix de l'utilisateur
+      // 	=> choix sera à 0 si l'entrée n'est pas un nombre 
+      int.TryParse(Console.ReadLine(), out choix);
+      
+      // affichage d'une ligne vide 
+      Console.WriteLine();
 
-			// si le choix est 1...
-			if (choix == 1) {
+      // si le choix est 1...
+      if (choix == 1) {
 
-				// i varie de 0 à 9
-				for(int i = 0; i < 10; i++) {
+        // i varie de 0 à 9
+        for(int i = 0; i < 10; i++) {
 
-					// si, pour l'élément à l'indice i, le nom est assigné ou le prix est assigné...
-					if (noms[i] != null || prix[i] != 0) {
-						// on affiche le nom et le prix
-						Console.WriteLine("{0}. {1} : {2} euros", i + 1, noms[i], prix[i]);
-					} else { // sinon...
-						// on affiche "Non défini"
-						Console.WriteLine("{0}. Non défini", i + 1);
-					}
-				}
-			} else if (choix >= 2 && choix <= 4) { // sinon, si le choix est compris entre 2 et 4...
-				// on va demander à l'utilisateur l'index de l'article à modifier 
+          // si, pour l'élément à l'indice i, le nom est assigné ou le prix est assigné...
+          if (noms[i] != null || prix[i] != 0) {
+            // on affiche le nom et le prix
+            Console.WriteLine("{0}. {1} : {2} euros", i + 1, noms[i], prix[i]);
+          } else { // sinon...
+            // on affiche "Non défini"
+            Console.WriteLine("{0}. Non défini", i + 1);
+          }
+        }
+      } else if (choix >= 2 && choix <= 4) { // sinon, si le choix est compris entre 2 et 4...
+        // on va demander à l'utilisateur l'index de l'article à modifier 
 
-				//  indexArticle va contenir le numéro d'article à modifier
-				int indexArticle = -1;
+        //  indexArticle va contenir le numéro d'article à modifier
+        int indexArticle = -1;
 
-				do {
-					// affichage de la question
-					Console.Write("Quel numéro d'article voulez-vous modifier ? ");
+        do {
+          // affichage de la question
+          Console.Write("Quel numéro d'article voulez-vous modifier ? ");
 
-					// on lit indexArticle sur la console
-					int.TryParse(Console.ReadLine(), out indexArticle);
-					
-					// si l'index est inférieur à 1 ou supérieur à 10
-					if (indexArticle < 1 || indexArticle > 10) {
-						// on met indexArticle à -1
-						indexArticle = -1;
-					}
-				}while(indexArticle == -1); // on boucle sur la demande de l'indice tant que le nombre n'est pas correct 
+          // on lit indexArticle sur la console
+          int.TryParse(Console.ReadLine(), out indexArticle);
+          
+          // si l'index est inférieur à 1 ou supérieur à 10
+          if (indexArticle < 1 || indexArticle > 10) {
+            // on met indexArticle à -1
+            indexArticle = -1;
+          }
+        }while(indexArticle == -1); // on boucle sur la demande de l'indice tant que le nombre n'est pas correct 
 
-				// si le choix est 2 (modification du nom)
-				if (choix == 2) {
-					// on affiche la question du nom
-					Console.Write("Quel est le nouveau nom de l'article {0} ? ", indexArticle);
+        // si le choix est 2 (modification du nom)
+        if (choix == 2) {
+          // on affiche la question du nom
+          Console.Write("Quel est le nouveau nom de l'article {0} ? ", indexArticle);
 
-					// on lit le nouveau nom
-					string nom = Console.ReadLine();
+          // on lit le nouveau nom
+          string nom = Console.ReadLine();
 
-					// on l'assigne au bon indice dans la tableau noms
-					noms[indexArticle - 1] = nom;
+          // on l'assigne au bon indice dans la tableau noms
+          noms[indexArticle - 1] = nom;
 
-					// on affiche le retour utilisateur
-					Console.WriteLine("Nom modifié avec succès");
+          // on affiche le retour utilisateur
+          Console.WriteLine("Nom modifié avec succès");
 
-				} else if (choix == 3) { // ou si le choix est 3 (modification du prix)
+        } else if (choix == 3) { // ou si le choix est 3 (modification du prix)
 
-					// on affiche la question du prix
-					Console.Write("Quel est le nouveau prix de l'article {0} ? ", indexArticle);
+          // on affiche la question du prix
+          Console.Write("Quel est le nouveau prix de l'article {0} ? ", indexArticle);
 
-					// on lit le nouveau prix
-					int nouveauPrix = int.Parse(Console.ReadLine());
+          // on lit le nouveau prix
+          int nouveauPrix = int.Parse(Console.ReadLine());
 
-					// on l'assigne au bon indice dans la tableau prix
-					prix[indexArticle - 1] = nouveauPrix;				
+          // on l'assigne au bon indice dans la tableau prix
+          prix[indexArticle - 1] = nouveauPrix;				
 
-					// on affiche le retour utilisateur
-					Console.WriteLine("Prix modifié avec succès");
+          // on affiche le retour utilisateur
+          Console.WriteLine("Prix modifié avec succès");
 
-				} else if (choix == 4) {  // ou si le choix est 4 (suppression de l'article)
-					
-					// on efface le nom
-					noms[indexArticle - 1] = null;
-					
-					// on efface le prix
-					prix[indexArticle - 1] = 0;
+        } else if (choix == 4) {  // ou si le choix est 4 (suppression de l'article)
+          
+          // on efface le nom
+          noms[indexArticle - 1] = null;
+          
+          // on efface le prix
+          prix[indexArticle - 1] = 0;
 
-					// on affiche le retour utilisateur
-					Console.WriteLine("Article retiré avec succès");
+          // on affiche le retour utilisateur
+          Console.WriteLine("Article retiré avec succès");
 
-				}
-			} else if (choix != 5) { // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
-				// on affiche le message d'erreur
-				Console.WriteLine("Ce choix est invalide");
-			}
-		} while(choix != 5); // on arrête cette boucle quand le choix est 5
-	}
+        }
+      } else if (choix != 5) { // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
+        // on affiche le message d'erreur
+        Console.WriteLine("Ce choix est invalide");
+      }
+    } while(choix != 5); // on arrête cette boucle quand le choix est 5
+  }
 }
 ```
 
@@ -867,23 +867,23 @@ La fonction `Main` contient trop de lignes de code. Créez les fonctions manquan
 
 ```csharp
 public static void Main()
-	{
-		// déclaration et initialisation du tableau noms de 10 strings 
-		string[] noms = new string[10];
+  {
+    // déclaration et initialisation du tableau noms de 10 strings 
+    string[] noms = new string[10];
 
-		// déclaration et initialisation du tableau prix de 10 entiers 
-		int[] prix = new int[10];
+    // déclaration et initialisation du tableau prix de 10 entiers 
+    int[] prix = new int[10];
 
-		// déclaration et initialisation de la variable contenant le choix de l'utilisateur
-		int choix = 0;
+    // déclaration et initialisation de la variable contenant le choix de l'utilisateur
+    int choix = 0;
 
-		// on commence la boucle faire...tant que... (do/while) 
-		do
-		{
-			// on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
-			choix = DemandeChoix();
-			// si le choix est 1...
-			if (choix == 1)
+    // on commence la boucle faire...tant que... (do/while) 
+    do
+    {
+      // on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
+      choix = DemandeChoix();
+      // si le choix est 1...
+      if (choix == 1)
             {
                 AfficherArticles(noms, prix);
             }
@@ -912,12 +912,12 @@ public static void Main()
                 }
             }
             else if (choix != 5)
-			{ // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
-			  // on affiche le message d'erreur
-				Console.WriteLine("Ce choix est invalide");
-			}
-		} while (choix != 5); // on arrête cette boucle quand le choix est 5
-	}
+      { // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
+        // on affiche le message d'erreur
+        Console.WriteLine("Ce choix est invalide");
+      }
+    } while (choix != 5); // on arrête cette boucle quand le choix est 5
+  }
 ```
 
 <details>
@@ -928,24 +928,24 @@ using System;
 
 public class Program
 {
-	public static void Main()
-	{
-		// déclaration et initialisation du tableau noms de 10 strings 
-		string[] noms = new string[10];
+  public static void Main()
+  {
+    // déclaration et initialisation du tableau noms de 10 strings 
+    string[] noms = new string[10];
 
-		// déclaration et initialisation du tableau prix de 10 entiers 
-		int[] prix = new int[10];
+    // déclaration et initialisation du tableau prix de 10 entiers 
+    int[] prix = new int[10];
 
-		// déclaration et initialisation de la variable contenant le choix de l'utilisateur
-		int choix = 0;
+    // déclaration et initialisation de la variable contenant le choix de l'utilisateur
+    int choix = 0;
 
-		// on commence la boucle faire...tant que... (do/while) 
-		do
-		{
-			// on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
-			choix = DemandeChoix();
-			// si le choix est 1...
-			if (choix == 1)
+    // on commence la boucle faire...tant que... (do/while) 
+    do
+    {
+      // on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
+      choix = DemandeChoix();
+      // si le choix est 1...
+      if (choix == 1)
             {
                 AfficherArticles(noms, prix);
             }
@@ -974,17 +974,17 @@ public class Program
                 }
             }
             else if (choix != 5)
-			{ // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
-			  // on affiche le message d'erreur
-				Console.WriteLine("Ce choix est invalide");
-			}
-		} while (choix != 5); // on arrête cette boucle quand le choix est 5
-	}
+      { // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
+        // on affiche le message d'erreur
+        Console.WriteLine("Ce choix est invalide");
+      }
+    } while (choix != 5); // on arrête cette boucle quand le choix est 5
+  }
 
-	static int DemandeChoix()
-	{
-		int choix = 0;
-		Console.Write(@"
+  static int DemandeChoix()
+  {
+    int choix = 0;
+    Console.Write(@"
 1. Afficher tous les articles et leur prix
 2. Modifier le nom d'un article
 3. Modifier le prix d'un article
@@ -993,15 +993,15 @@ public class Program
 
 Votre choix: ");
 
-		// on lit le choix de l'utilisateur
-		// 	=> choix sera à 0 si l'entrée n'est pas un nombre 
-		int.TryParse(Console.ReadLine(), out choix);
+    // on lit le choix de l'utilisateur
+    // 	=> choix sera à 0 si l'entrée n'est pas un nombre 
+    int.TryParse(Console.ReadLine(), out choix);
 
-		// affichage d'une ligne vide 
-		Console.WriteLine();
+    // affichage d'une ligne vide 
+    Console.WriteLine();
 
-		return choix;
-	}
+    return choix;
+  }
 
   static void AfficherArticles(string[] noms, int[] prix)
   {
