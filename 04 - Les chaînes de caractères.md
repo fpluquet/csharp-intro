@@ -47,6 +47,8 @@ Voici quelques unes des plus intéressantes :
 | StartsWith | Détermine si le début de cette instance de chaîne correspond à la chaîne spécifiée. | ```"Hello".StartsWith("Hel"); // renvoie True``` |
 | EndsWith | Détermine si la fin de cette instance de chaîne correspond à la chaîne spécifiée. | ```"Hello".EndsWith("llo"); // renvoie True``` |
 | ToLower| Retourne une copie de cette chaîne convertie en minuscules. | ```"HelLo".ToLower(); // renvoie "hello"``` |
+| ToUpper| Retourne une copie de cette chaîne convertie en majuscules. | ```"HelLo".ToUpper(); // renvoie "HELLO"``` |
+
 ## Concaténation
 
 On peut créer une nouvelle chaîne de caractères en *concaténant* plusieurs chaînes, c'est-à-dire en les collant les unes ou autres. Pour cela, il suffit de mettre un + entre ces chaînes :
