@@ -419,15 +419,15 @@ public class Program
   <summary>Solution</summary>
 
 La fonction `Traitment`:
-- attend deux paramètres en entrée nommé `a` et `b` de type `double`
-- `a` est par valeur alors que `b` est passé par référence
+- attend deux paramètres en entrée nommés `a` et `b` de type `double`
+- `a` est passé par valeur alors que `b` est passé par référence
 - le type de retour est `void` et donc aucun résultat ne sera renvoyé
 
 Lors de l'appel de `Traitement(nb1, ref nb2);`, comme le paramètre `a` est passé par valeur, la valeur de `nb1` est copiée dans `a` et les deux variables sont indépendentes. Une modification de `a` n'aura aucune incidence sur la variable `nb1`.
 
 Par contre, comme le paramètre `b` est passé par référence (`ref`), `b` et `nb2` sont en fait la même variable : si la valeur `b` est modifiée, la valeur de `nb2` le sera également.
 
-Puisque, lors de l'appel de `Traitement`, `nb1` vaut 10 et `nb2` vaut 20, on entre dans la fonction avec `a` égal à 10 et `b` égale à 20.
+Puisque, lors de l'appel de `Traitement`, `nb1` vaut 10 et `nb2` vaut 20, on entre dans la fonction avec `a` égal à 10 et `b` égal à 20.
 
 La variable `a` est modifiée en `a = a * 3`, on met donc `10 * 3 = 30` dans la variable `a` (`nb1` n'est pas modifiée). 
 
@@ -443,7 +443,7 @@ nb1 = 10, nb2 = 38
 
 ## Exercice 3
 
-Créez une fonction `Incremente` qui prend un entier en paramètre, incrémente ce nombre (+ 1) et renvoie le résultat.
+Créez une fonction `Incremente` qui prend un entier en paramètre, incrémente ce nombre (+1) et renvoie le résultat.
 
 Exemples:
 
@@ -519,7 +519,7 @@ public class Program
 
 ## Exercice 5
 
-Créez une fonction `EstDivisiblePar5` qui renvoie `True` si un entier est divisible par 5, sinon retournez `False`.
+Créez une fonction `EstDivisiblePar5` qui renvoie `true` si un entier est divisible par 5, sinon retournez `false`.
 
 Exemples:
 
@@ -555,7 +555,7 @@ public class Program
 
 ## Exercice 6
 
-Créez une fonction `IsEmpty` qui renvoie `True` si la chaîne de caractères passée en paramètre est vide et sinon renvoie `False`.
+Créez une fonction `IsEmpty` qui renvoie `true` si la chaîne de caractères passée en paramètre est vide et sinon renvoie `false`.
 
 Exemples:
 
@@ -789,6 +789,9 @@ Renverse(ref bonjour);
 // la variable bonjour contient "! ednom el tuot ruojnoB"
 ```
 
+<details>
+  <summary>Solution</summary>
+
 ```csharp
 using System;
 
@@ -818,21 +821,24 @@ public class Program
 }
 ```
 
+</details>
+
 ## Exercice 12
 
-Créez une fonction `NbrOfSyllabes` qui compte le nombre de syllabes d’un mot passé en paramètre. Chaque syllabe est séparée par un tiret -.
+Créez une fonction `NbrOfSyllabes` qui compte le nombre de syllabes d’un mot passé en paramètre et l'assigne au second paramètre passé en `out`. Chaque syllabe est séparée par un tiret -.
 
 Exemples:
 
 ```csharp
-NbrOfSyllabes(""); // renvoie 0
-NbrOfSyllabes("mon"); // renvoie 1
-NbrOfSyllabes("prin-temps"); // renvoie 2
-NbrOfSyllabes("ar-rê-te"); // renvoie 3
-NbrOfSyllabes("ther-mo-mè-tre"); // renvoie 4
-NbrOfSyllabes("-"); // renvoie 1
-NbrOfSyllabes("-mon"); // renvoie 1
-NbrOfSyllabes("-mon-"); // renvoie 2
+int nb;
+NbrOfSyllabes("", out nb); // nb vaut 0
+NbrOfSyllabes("mon", out nb); // nb vaut 1
+NbrOfSyllabes("prin-temps", out nb); // nb vaut 2
+NbrOfSyllabes("ar-rê-te", out nb); // nb vaut 3
+NbrOfSyllabes("ther-mo-mè-tre", out nb); // nb vaut 4
+NbrOfSyllabes("-", out nb); // nb vaut 1
+NbrOfSyllabes("-mon", out nb); // nb vaut 1
+NbrOfSyllabes("-mon-", out nb); // nb vaut 2
 ```
 
 <details>
@@ -840,41 +846,52 @@ NbrOfSyllabes("-mon-"); // renvoie 2
 
 ```csharp
 using System;
-          
+
 public class Program
 {
-  // retourne le nombre de syllabes séparés par des '-'
-  static int NbrOfSyllabes(string str){
-    // initialisation du compteur
-    int nb = 0;
+    // assigne à nb le nombre de syllabes séparés par des '-' de str
+    static void NbrOfSyllabes(string str,  out int nb)
+    {
+        // initialisation du compteur
+        nb = 0;
 
-    // pour chaque caractère dans str...
-    foreach(char caractere in str) {
-      // si on est sur le premier caractère...
-      if (nb == 0) {
-        // ... il y a au moins une syllabe
-        nb = 1;
-      }
-      else if (caractere == '-') { // sinon, si c'est le caractère '-'...
-        // ... il y a une syllabe de plus
-        nb++;
-      }
+        // pour chaque caractère dans str...
+        foreach (char caractere in str)
+        {
+            // si on est sur le premier caractère...
+            if (nb == 0)
+            {
+                // ... il y a au moins une syllabe
+                nb = 1;
+            }
+            else if (caractere == '-')
+            { // sinon, si c'est le caractère '-'...
+              // ... il y a une syllabe de plus
+                nb++;
+            }
+        }
     }
 
-    return nb;
-  }
-
-  public static void Main()
-  {
-    Console.WriteLine(NbrOfSyllabes("")); // affiche 0
-    Console.WriteLine(NbrOfSyllabes("mon")); // affiche 1
-    Console.WriteLine(NbrOfSyllabes("prin-temps")); // affiche 2
-    Console.WriteLine(NbrOfSyllabes("ar-rê-te")); // affiche 3
-    Console.WriteLine(NbrOfSyllabes("ther-mo-mè-tre")); // affiche 4
-    Console.WriteLine(NbrOfSyllabes("-")); // affiche 1
-    Console.WriteLine(NbrOfSyllabes("-mon")); // affiche 1
-    Console.WriteLine(NbrOfSyllabes("-mon-")); // affiche 2
-  }
+    public static void Main()
+    {
+        int nb;
+        NbrOfSyllabes("", out nb);
+        Console.WriteLine(nb); // affiche 0
+        NbrOfSyllabes("mon", out nb);
+        Console.WriteLine(nb); // affiche 1
+        NbrOfSyllabes("prin-temps", out nb);
+        Console.WriteLine(nb); // affiche 2
+        NbrOfSyllabes("ar-rê-te", out nb);
+        Console.WriteLine(nb); // affiche 3
+        NbrOfSyllabes("ther-mo-mè-tre", out nb);
+        Console.WriteLine(nb); // affiche 4
+        NbrOfSyllabes("-", out nb);
+        Console.WriteLine(nb); // affiche 1
+        NbrOfSyllabes("-mon", out nb);
+        Console.WriteLine(nb); // affiche 1
+        NbrOfSyllabes("-mon-", out nb);
+        Console.WriteLine(nb); // affiche 2
+    }
 }
 ```
 
@@ -991,7 +1008,7 @@ public class Program
 
 </details>
 
-## Exercice 14
+## Exercice 15
 
 Voici le code de la solution d'un précédent exercice :
 
