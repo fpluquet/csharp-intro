@@ -352,7 +352,7 @@ Bonjour Fréd !
 
 ## Exercice 1 
 
-En sachant que `Math.Pow(a,b)` renvoie `a exposant b` (![a^b](http://www.sciweavers.org/tex2img.php?eq=a%5Eb&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)), que fait le programme suivant ?
+En sachant que `Math.Pow(a,b)` renvoie a<sup>b</sup>, que fait le programme suivant ?
 
 ```csharp
 using System;
