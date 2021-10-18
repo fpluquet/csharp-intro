@@ -259,14 +259,201 @@ Votre nom est : Fréd
 Après
 ```
 
+## Les paramètres modifiables
+
+Les paramètres d'une fonction sont par défaut des copies des valeurs passées et ne sont pas liées aux variables utilisées pour passer ces valeurs :
+
+```csharp
+using System;
+
+public class Program {
+	static void Incremente(int a) {
+    a = a + 1;
+    Console.WriteLine($"a : {a}");
+  }
+
+  public static void Main() {
+    int nb = 0;
+    Incremente(nb);
+    Console.WriteLine($"nb : {nb}");
+  }
+}
+```
+
+Ici la valeur de la variable `nb` (dans le `Main`) a été recopiée dans la variable locale `a` lors de l'appel de la fonction. Cette variable locale est indépendante de `nb` et son incrémentation (`a = a + 1;`) n'a donc pas modifié `nb`. On appelle cela un passage par valeur (car la valeur est recopiée). Le résultat de l'exécution de ce code est donc :
+
+```
+a : 1
+nb : 0
+```
+
+On peut changer ce comportement en ajoutant le mot clé `ref` avant le paramètre (dans sa définition et lors de l'appel): 
+
+```csharp
+using System;
+
+public class Program {
+	static void Incremente(ref int a) {
+    a = a + 1;
+    Console.WriteLine($"a : {a}");
+  }
+
+  public static void Main() {
+    int nb = 0;
+    Incremente(ref nb);
+    Console.WriteLine($"nb : {nb}");
+  }
+}
+```
+
+En mettant le mot clé `ref`, nous disons que nous voulons que la variable `nb` et la variable `a` soit la même variable. On appelle cela un passage par référence (d'où le mot clé `ref`). Le résultat de l'exécution est donc le suivant :
+
+```csharp
+using System;
+
+public class Program {
+	static void Incremente(ref int a) {
+    a = a + 1;
+    Console.WriteLine($"a : {a}");
+  }
+
+  public static void Main() {
+    int nb = 0;
+    Incremente(ref nb);
+    Console.WriteLine($"nb : {nb}");
+  }
+}
+```
+
+Au lieu d'utiliser le mot clé `ref`, on peut utiliser le mot clé `out`. Le comportement est presque identique à `ref` mais C# s'attend alors à ce que le paramètre ne ait pas encore de valeur en entrée et qu'il soit initialisé dans la fonction. 
+
+On a déjà rencontré ce mot clé `out` dans `int.TryParse("5", out monEntier)`. Il va mettre la valeur entière dans la variable `monEntier`.
+
+Voici un autre exemple :
+
+```csharp
+using System;
+
+public class Program {
+	static void DemandeQuestion(string question, out string réponse) {
+    Console.WriteLine(question);
+    réponse = Console.ReadLine();
+  }
+
+  public static void Main() {
+    string nom;
+    DemandeQuestion("Quel est votre nom ? ", out nom);
+    Console.WriteLine($"Bonjour {nom} !");
+  }
+}
+```
+
+La fonction `DemandeQuestion` prend deux paramètres : un `string` `question` qui est passé par valeur et un `string` `réponse` qui est passé par référence en sortie. Comme `réponse` est en `out`, elle n'est pas initialisée, elle ne contient pas de valeur et on ne peut pas la lire. Mais on peut y assigner une valeur qui sera présente également dans la variable `nom`.
+
+L'exécution de ce code donne donc le résultat suivant :
+
+```
+Quel est votre nom ?
+Fréd
+Bonjour Fréd !
+```
+
+> Attention ! Comme les mots clés `ref` et `out` désignent un passage par référence, l'entité passé en paramètre doit être assignable (une variable donc ici). Vous ne pouvez donc pas écrire `DemandeQuestion("Quel est votre nom ? ", out "coucou")` car "coucou" n'est pas assignable (`"coucou" = "Fréd";` n'aurait pas de sens).
 
 # Exercices
 
-## Exercices 
+## Exercice 1 
 
-Exercices de lecture
+En sachant que `Math.Pow(a,b)` renvoie `a exposant b` ($a^b$), que fait le programme suivant ?
 
-## Exercice 1
+```csharp
+using System;
+
+public class Program
+{
+    static double Fn(double a, double b)
+    {
+        return Math.Pow(a, b);
+    }
+
+    public static void Main()
+    {
+        Console.WriteLine(Fn(10, 3));
+    }
+}
+```
+
+Pour info, la fonction `double Math.Pow(double, double)` est toujours disponible car elle est définie dans la librairie standard. 
+
+> Regardez la classe `Math` (https://docs.microsoft.com/en-us/dotnet/api/system.math.pow?view=net-5.0) pour obtenir plus de fonctions mathématiques pour vos différents projets.
+
+<details>
+  <summary>Solution</summary>
+
+La fonction `Fn`:
+- attend deux paramètres en entrée nommé `a` et `b` de type `double`
+- le type de retour est un `double`
+- renvoie le résulat de `Math.Pow(a, b)`.
+
+`Fn(10, 3)` va appler la fonction `Fn` en passant `10` pour `a` et `3` pour `b`.
+
+La fonction va retourner $10^3$, c'est-à-dire 1000. Ce retour de fonction prend la place de l'appel : `Console.WriteLine(Fn(10, 3));` devient `Console.WriteLine(1000);` pour C#. La valeur `1000` est donc affichée.
+
+</details>
+
+## Exercice 2
+
+Que fait le programme suivant ?
+
+```csharp
+using System;
+
+public class Program
+{
+    static void Traitement(int a, ref int b)
+    {
+        a = a * 3;
+        b = a + 8;
+    }
+
+    public static void Main()
+    {
+        int nb1 = 10;
+        int nb2 = 20;
+        Traitement(nb1, ref nb2);
+        Console.WriteLine($"nb1 = {nb1}, nb2 = {nb2}");
+    }
+}
+```
+
+
+<details>
+  <summary>Solution</summary>
+
+La fonction `Traitment`:
+- attend deux paramètres en entrée nommé `a` et `b` de type `double`
+- `a` est par valeur alors que `b` est passé par référence
+- le type de retour est `void` et donc aucun résultat ne sera renvoyé
+
+Lors de l'appel de `Traitement(nb1, ref nb2);`, comme le paramètre `a` est passé par valeur, la valeur de `nb1` est copiée dans `a` et les deux variables sont indépendentes. Une modification de `a` n'aura aucune incidence sur la variable `nb1`.
+
+Par contre, comme le paramètre `b` est passé par référence (`ref`), `b` et `nb2` sont en fait la même variable : si la valeur `b` est modifiée, la valeur de `nb2` le sera également.
+
+Puisque, lors de l'appel de `Traitement`, `nb1` vaut 10 et `nb2` vaut 20, on entre dans la fonction avec `a` égal à 10 et `b` égale à 20.
+
+La variable `a` est modifiée en `a = a * 3`, on met donc `10 * 3 = 30` dans la variable `a` (`nb1` n'est pas modifiée). 
+
+Ensuite la valeur de `b` est modifiée en `b = a + 8`, c'est-à-dire `b = 30 + 8 = 38`. La valeur de `b` est modifiée ainsi que celle de `nb2`.
+
+On revient alors dans le `Main` et le `Console.WriteLine` affiche la valeur des variables `nb1` et `nb2`: 
+
+```
+nb1 = 10, nb2 = 38
+```
+
+</details>
+
+## Exercice 3
 
 Créez une fonction `Incremente` qui prend un entier en paramètre, incrémente ce nombre (+ 1) et renvoie le résultat.
 
@@ -304,7 +491,7 @@ public class Program
 
 </details>
 
-## Exercice 2
+## Exercice 4
 
 Écrivez une fonction `ResteDiv` qui prend en paramètres deux nombres et renvoie le reste de la division entière du premier paramètre par le second. Utilisez l'opérateur `%` capable de fournir le reste d’une division.
 
@@ -340,7 +527,7 @@ public class Program
 
 </details>
 
-## Exercice 3
+## Exercice 5
 
 Créez une fonction `EstDivisiblePar5` qui renvoie `True` si un entier est divisible par 5, sinon retournez `False`.
 
@@ -375,7 +562,7 @@ public class Program
 
 </details>
 
-## Exercice 4
+## Exercice 6
 
 Créez une fonction `IsEmpty` qui renvoie `True` si la chaîne de caractères passée en paramètre est vide et sinon renvoie `False`.
 
@@ -413,7 +600,7 @@ public class Program
 </details>
 
 
-## Exercice 5
+## Exercice 7
 
 Créez une fonction `Parité` qui prend un paramètre entier `n` et qui renvoie le `string` `"pair"` si `n` est un nombre pair ou le `string` `"impair"` sinon.
 
@@ -455,7 +642,7 @@ public class Program
 
 </details>
 
-## Exercice 6
+## Exercice 8
 
 Créez une fonction `EstMemeLongueur` qui prend deux chaînes `str1` et `str2` comme paramètres et renvoie `true` si le nombre total de caractères dans `str1` est égal au nombre total de caractères dans `str2`. Sinon cette fonction renvoie `false`.
 
@@ -503,7 +690,7 @@ public class Program
 
 </details>
 
-## Exercice 7
+## Exercice 9
 
 Un fermier vous demande de lui dire combien de pattes peuvent être comptées parmi tous ses animaux. Il y a trois espèces:
 
@@ -548,7 +735,7 @@ public class Program
 
 </details>
 
-## Exercice 8
+## Exercice 10
 
 Créez une fonction `GetMax` qui prend un tableau d'entiers en paramètre et renvoie le plus grand nombre du tableau.
 
@@ -588,7 +775,7 @@ public class Program
 
 </details>
 
-## Exercice 9
+## Exercice 11
 
 Créez une fonction `NbrOfSyllabes` qui compte le nombre de syllabes d’un mot passé en paramètre. Chaque syllabe est séparée par un tiret -.
 
@@ -645,7 +832,7 @@ public class Program
 
 </details>
 
-## Exercice 10
+## Exercice 12
 
 Créez une fonction `GetIndex` qui prend un tableau `mots` de `string` et un `string` `mot` comme paramètres et renvoie l’index de `mot` dans `mots`. La fonction retourne -1 si `mot` n'existe pas dans `mots`.
 
@@ -687,7 +874,7 @@ public class Program
 
 </details>
 
-## Exercice 11
+## Exercice 13
 
 La distance de Hamming est le nombre de caractères qui diffèrent entre deux chaînes. Prenons un exemple :
 
@@ -740,7 +927,7 @@ public class Program
 
 </details>
 
-## Exercice
+## Exercice 14
 
 Voici le code de la solution d'un précédent exercice :
 
