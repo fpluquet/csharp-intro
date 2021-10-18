@@ -474,6 +474,7 @@ using System;
           
 public class Program
 {  
+  // renvoie le paramètre n + 1
   static int Incremente(int n){
     n++;
     return n;
@@ -511,6 +512,7 @@ using System;
           
 public class Program
 {
+  // renvoie le reste de la division entière de dividende par diviseur
   static int ResteDiv(int dividende, int diviseur){
     int reste = dividende % diviseur;
     return reste;
@@ -547,6 +549,7 @@ using System;
           
 public class Program
 {
+  // renvoie vrai si le paramètre est divible par 5, faux sinon.
   static bool EstDivisiblePar5(int nb){
     return nb % 5 == 0;
   }
@@ -583,6 +586,7 @@ using System;
           
 public class Program
 {
+  // renvoie vrai si le paramètre est vide, faux sinon. 
   static bool IsEmpty(string texte){
     return texte.Length == 0;
   }
@@ -621,6 +625,7 @@ using System;
           
 public class Program
 {
+  // renvoie "pair" si le paramètre est pair, "impair" sinon.
   static string Parité(int n){
     if (n % 2 == 0) {
       return "pair";
@@ -662,6 +667,7 @@ using System;
           
 public class Program
 {
+  // retourne vrai si les deux strings passés en paramètre ont la même taille et faux sinon.
   static bool EstMemeLongueur(string str1, string str2){
     return str1.Length == str2.Length;
   }
@@ -720,6 +726,7 @@ using System;
           
 public class Program
 {
+  // renvoie le nombre de pattes des animaux
   static int ComptePattes(int poulets, int vaches, int chevaux){	  
     return poulets * 2 + vaches * 4 + chevaux * 4;
   }
@@ -754,13 +761,20 @@ using System;
           
 public class Program
 {
+  // renvoie le nombre maximum du tab, int.MinValue sinon
   static int GetMax(int[] tab){
+    // on pose que le maximum est la valeur la plus petite possible (int.MinValue donne cette valeur)
     int max = int.MinValue;
+
+    // pour chaque élément du tableau...
     foreach(int element in tab) {
+      // si l'élément courant du tableau est plus grand que le max courant...
       if (element > max) {
+        // ... on remplace le max 
         max = element;
       }
     }
+    // on renvoie le maximum trouvé
     return max;
   }
 
@@ -776,6 +790,47 @@ public class Program
 </details>
 
 ## Exercice 11
+
+Créez une fonction `Renverse` qui prend une chaîne de caractères `phrase` en paramètre par référence et la renverse (le premier caractère devient le dernier, etc).
+
+Exemple :
+
+```csharp
+string bonjour = "Bonjour tout le monde !";
+Renverse(ref bonjour);
+// la variable bonjour contient "! ednom el tuot ruojnoB"
+```
+
+```csharp
+using System;
+
+public class Program
+{
+    static void Renverse(ref string phrase)
+    {
+        // déclaration et initialisation d'un string dans lequel on va construire la chaîne inversée
+        string phraseRenversée = "";
+
+        // pour chaque indice de la chaîne (de 0 à phrase.Length - 1)...
+        for(int i = 0; i < phrase.Length; i++)
+        {
+            // ... on met le caractère en position i au début de la chaîne renversée
+            phraseRenversée = phrase[i] + phraseRenversée;
+        }
+        // on assigne à phrase la nouvelle phrase
+        phrase = phraseRenversée;
+    }
+
+    public static void Main()
+    {
+        string bonjour = "Bonjour tout le monde !";
+        Renverse(ref bonjour); // on va modifier la variable bonjour dans la fonction Renverse
+        Console.WriteLine(bonjour); // affiche "! ednom el tuot ruojnoB"
+    }
+}
+```
+
+## Exercice 12
 
 Créez une fonction `NbrOfSyllabes` qui compte le nombre de syllabes d’un mot passé en paramètre. Chaque syllabe est séparée par un tiret -.
 
@@ -800,16 +855,21 @@ using System;
           
 public class Program
 {
+  // retourne le nombre de syllabes séparés par des '-'
   static int NbrOfSyllabes(string str){
-
+    // initialisation du compteur
     int nb = 0;
 
+    // pour chaque caractère dans str...
     foreach(char caractere in str) {
+      // si on est sur le premier caractère...
       if (nb == 0) {
+        // ... il y a au moins une syllabe
         nb = 1;
       }
-      else if (caractere == '-') {
-        nb ++;
+      else if (caractere == '-') { // sinon, si c'est le caractère '-'...
+        // ... il y a une syllabe de plus
+        nb++;
       }
     }
 
@@ -832,7 +892,7 @@ public class Program
 
 </details>
 
-## Exercice 12
+## Exercice 13
 
 Créez une fonction `GetIndex` qui prend un tableau `mots` de `string` et un `string` `mot` comme paramètres et renvoie l’index de `mot` dans `mots`. La fonction retourne -1 si `mot` n'existe pas dans `mots`.
 
@@ -853,12 +913,16 @@ using System;
           
 public class Program
 {
+  // retourne l'indice de mot dans le tableau mots si il existe. Sinon -1.
   static int GetIndex(string[] mots, string mot){
+    // on va parcourir chaque mot via l'indice i
     for(int i = 0; i < mots.Length; i++) {
       if(mots[i] == mot) {
+        // si mots[i] est le mot recherché, on retoure i
         return i;
       }
     }
+    // si on n'a rien trouvé, on retourne -1
     return -1;
   }
 
@@ -874,7 +938,7 @@ public class Program
 
 </details>
 
-## Exercice 13
+## Exercice 14
 
 La distance de Hamming est le nombre de caractères qui diffèrent entre deux chaînes. Prenons un exemple :
 
@@ -904,16 +968,28 @@ using System;
           
 public class Program
 {
+  // renvoie le nombre de caractères différents entre 2 chaînes
   static int DistanceHamming(string str1, string str2)
   {
-    int i = 0, count = 0;
+    // i sera l'indice de parcours et nbDifférences sera le nombre de différences
+    int i = 0, nbDifférences = 0;
+
+    // tant que i est un indice de str1
     while (i < str1.Length)
     {
-      if (str1[i] != str2[i])
-        count++;
+      // si les caractères à la même position sont différents...
+      if (str1[i] != str2[i]) 
+      {
+        // on incrémente le nombre de différences
+        nbDifférences++;
+      }
+
+      // on incrémente i
       i++;
     }
-    return count;
+
+    // on renvoie le nombre de différences
+    return nbDifférences;
   }
   public static void Main()
   {
