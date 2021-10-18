@@ -143,7 +143,7 @@ Après
 
 ## La valeur de retour
 
-Toutes les fonctions décrites avant ne renvoie aucune valeur. Elles affichent des `strings` et se termine sans renvoyer de valeur au code qui l'a appelé. 
+Toutes les fonctions décrites avant ne renvoie aucune valeur. Elles affichent des `strings` et se termine sans renvoyer de valeur au code qui l'a appelée. 
 
 Prenons l'exemple de la fonction suivante :
 
@@ -209,7 +209,7 @@ static string Demande(string question){
 ```
 
 Cette fonction :
-- a comme nom `demande`, 
+- a comme nom `Demande`, 
 - a un paramètre en entrée nommé `question` de type `string`
 - a trois instructions (`Console.WriteLine...`, `string réponse = ...` et `return réponse`) comme bloc d'instructions
 - renvoie une chaîne de caractères (indiqué par le `string` avant le nom de la fonction).
@@ -237,9 +237,9 @@ public class Program
 }
 ```
 
-Quand le `Main` est exécuté et qu'il tombe sur la ligne `string nom = Demande("Quel est votre nom ?")`, le programme va d'abord exécuté la fonction `Demande("Quel est votre nom ?")` pour savoir quelle valeur assigner à la variable `nom`. 
+Quand le `Main` est exécuté et qu'il tombe sur la ligne `string nom = Demande("Quel est votre nom ?")`, le programme va d'abord exécuter la fonction `Demande("Quel est votre nom ?")` pour savoir quelle valeur assigner à la variable `nom`. 
 
-Le `string` `"Quel est votre nom ?"` est copié dans la variable `question` et le code contenu dans cette fonction est exécuté : le `Console.WriteLine...` et `string réponse = Console.ReadLine()`  qui va remplir la variable locale `nom` par ce que l'utilisateur a entré. 
+Le `string` `"Quel est votre nom ?"` est copié dans la variable `question` et le code contenu dans cette fonction est exécuté : le `Console.WriteLine...` et `string réponse = Console.ReadLine()`  qui va remplir la variable locale `réponse` par ce que l'utilisateur a entré. 
 
 La dernière ligne de la fonction `return réponse;` indique au programme que la fonction se finit et que la valeur de retour est celle contenue dans la variable `réponse`. 
 
@@ -267,7 +267,7 @@ Les paramètres d'une fonction sont par défaut des copies des valeurs passées 
 using System;
 
 public class Program {
-	static void Incremente(int a) {
+  static void Incremente(int a) {
     a = a + 1;
     Console.WriteLine($"a : {a}");
   }
@@ -280,7 +280,7 @@ public class Program {
 }
 ```
 
-Ici la valeur de la variable `nb` (dans le `Main`) a été recopiée dans la variable locale `a` lors de l'appel de la fonction. Cette variable locale est indépendante de `nb` et son incrémentation (`a = a + 1;`) n'a donc pas modifié `nb`. On appelle cela un passage par valeur (car la valeur est recopiée). Le résultat de l'exécution de ce code est donc :
+Ici la valeur de la variable `nb` (dans le `Main`) a été recopiée dans la variable locale `a` lors de l'appel de la fonction. Cette variable locale est indépendante de `nb` et son incrémentation (`a = a + 1;`) n'a donc pas modifié `nb`. On appelle cela un passage par valeur (car seule la valeur est copiée). Le résultat de l'exécution de ce code est donc :
 
 ```
 a : 1
@@ -293,7 +293,7 @@ On peut changer ce comportement en ajoutant le mot clé `ref` avant le paramètr
 using System;
 
 public class Program {
-	static void Incremente(ref int a) {
+  static void Incremente(ref int a) {
     a = a + 1;
     Console.WriteLine($"a : {a}");
   }
@@ -308,24 +308,12 @@ public class Program {
 
 En mettant le mot clé `ref`, nous disons que nous voulons que la variable `nb` et la variable `a` soit la même variable. On appelle cela un passage par référence (d'où le mot clé `ref`). Le résultat de l'exécution est donc le suivant :
 
-```csharp
-using System;
-
-public class Program {
-	static void Incremente(ref int a) {
-    a = a + 1;
-    Console.WriteLine($"a : {a}");
-  }
-
-  public static void Main() {
-    int nb = 0;
-    Incremente(ref nb);
-    Console.WriteLine($"nb : {nb}");
-  }
-}
+```
+a : 1
+nb : 1
 ```
 
-Au lieu d'utiliser le mot clé `ref`, on peut utiliser le mot clé `out`. Le comportement est presque identique à `ref` mais C# s'attend alors à ce que le paramètre ne ait pas encore de valeur en entrée et qu'il soit initialisé dans la fonction. 
+Au lieu d'utiliser le mot clé `ref`, on peut utiliser le mot clé `out`. Le comportement est presque identique à `ref` mais C# s'attend alors à ce que le paramètre n'ait pas encore de valeur en entrée et qu'il soit initialisé dans la fonction. 
 
 On a déjà rencontré ce mot clé `out` dans `int.TryParse("5", out monEntier)`. Il va mettre la valeur entière dans la variable `monEntier`.
 
@@ -335,7 +323,7 @@ Voici un autre exemple :
 using System;
 
 public class Program {
-	static void DemandeQuestion(string question, out string réponse) {
+  static void DemandeQuestion(string question, out string réponse) {
     Console.WriteLine(question);
     réponse = Console.ReadLine();
   }
@@ -358,13 +346,13 @@ Fréd
 Bonjour Fréd !
 ```
 
-> Attention ! Comme les mots clés `ref` et `out` désignent un passage par référence, l'entité passé en paramètre doit être assignable (une variable donc ici). Vous ne pouvez donc pas écrire `DemandeQuestion("Quel est votre nom ? ", out "coucou")` car "coucou" n'est pas assignable (`"coucou" = "Fréd";` n'aurait pas de sens).
+> Attention ! Comme les mots clés `ref` et `out` désignent un passage par référence, l'entité passée en paramètre doit être assignable (une variable donc ici). Vous ne pouvez donc pas écrire `DemandeQuestion("Quel est votre nom ? ", out "coucou")` car "coucou" n'est pas assignable (`"coucou" = "Fréd";` n'a pas de sens en C#).
 
 # Exercices
 
 ## Exercice 1 
 
-En sachant que `Math.Pow(a,b)` renvoie `a exposant b` ($a^b$), que fait le programme suivant ?
+En sachant que `Math.Pow(a,b)` renvoie `a exposant b` (![a^b](http://www.sciweavers.org/tex2img.php?eq=a%5Eb&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)), que fait le programme suivant ?
 
 ```csharp
 using System;
