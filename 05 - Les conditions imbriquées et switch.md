@@ -120,7 +120,7 @@ public class Program
 				Console.WriteLine("i >= 8");
 			}
 		} else if (i < 2) {
-			Console.WriteLine("i > 2");			
+			Console.WriteLine("i < 2");			
 		} else {
 			Console.WriteLine("i >= 2");
 		}		
@@ -132,8 +132,8 @@ public class Program
 
 | i | Sortie                        |
 | - | ----------------------------- |
-| 1 | ```i > 2```                   |
-| 2 | ```i>= 2```                   |
+| 1 | ```i < 2```                   |
+| 2 | ```i >= 2```                   |
 | 3 | ```i >= 2```                  |
 | 4 | ```i > 3``` <br> ```i < 8```  |
 | 5 | ```i > 3``` <br> ```i < 8```  |
