@@ -42,7 +42,15 @@ Cette écriture est clairement plus facile à lire que son écriture récursive.
 
 Prenons un exemple concret : les tours de Hanoï.
 
-Les tours de Hanoï est un petit jeu dans lequel on a 3 piques et des disques posés dessus. Ces disques sont soit petits, soit moyens, soit grands. Au départ, 
+Les tours de Hanoï est un petit jeu dans lequel on a 3 piques et des disques posés dessus. Ces disques ont tous une taille différentes. Au départ, les disques sont rangés sur une seule pique de manière croissante (le plus petit en haut et le grand en bas) :
+
+![hanoi](images/Tower_of_Hanoi.jpeg)
+
+Le jeu consiste à déplacer toute la tour d'une pique à une autre en respectant les règles suivantes :
+- on ne déplace d'un seul disque à la fois
+- on ne peut poser un disque `d1` sur un disque `d2` que si `d1` est plus petit que `d2`. En d'autres termes, les tours de disques doivent toujours être bien ordonnée de manière croissante.
+
+Comment fait-on pour résoudre ce problème ?
 
 
 
