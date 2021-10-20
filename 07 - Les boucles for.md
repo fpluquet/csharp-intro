@@ -460,7 +460,7 @@ public class Program {
   public static void Main(string[] args) {
     int somme = 0;
     while(somme < 50) {
-      int i, j;
+      int i;
       for (i = 0; i <= 10 && somme < 50; i++) {
         if (i % 2 == 0) {
           somme += i;
