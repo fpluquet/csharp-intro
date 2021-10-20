@@ -549,6 +549,20 @@ public class Program
 
 Écrire un programme qui lit une date dans deux variables (jj et mm). Il doit alors l'afficher en clair: 12 janvier par exemple.
 
+Exemples de sortie :
+
+```
+Entrez le jour : 15
+Entrez le mois : 11
+15 novembre
+```
+
+```
+Entrez le jour : 3
+Entrez le mois : 13
+3 mois inconnu
+```
+
 <details>
 	<summary>Solution</summary>
 
@@ -629,6 +643,23 @@ public class Program
 Écrire un programme qui lit un mois en toute lettre ("janvier", "février", ...) et affiche le nombre de jour dans ce mois via un switch.
 
 Conseil: il est possible de regrouper le code pour les mois qui ont le même nombre de jours sans faire de ```break```.
+
+Exemples de sortie :
+
+```
+Entrez le mois : août
+31 jours
+```
+
+```
+Entrez le mois : février
+28 ou 29 jours
+```
+
+```
+Entrez le mois : 2
+mois inconnu
+```
 
 <details>
 	<summary>Solution</summary>
