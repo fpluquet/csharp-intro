@@ -1,6 +1,50 @@
 # Les fonctions récursives
 
-**intro**
+Une fonction récursive est une fonction qui s'appelle elle-même :
+
+```csharp
+int sommeN(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    int resultatPourNMoins1 = sommeN(n-1); // appel récursif
+    return resultatPourNMoins1 + n;
+}
+```
+
+Si on devait décrire en français cette fonction, on dirait que `sommeN(n)` vaut `0` pour tout `n <= 0` et qu'elle vaut `sommeN(n-1) + n` pour tout `n > 0`.  
+
+On obtient donc les résultats suivants :
+
+| n   | sommmeN(n) |
+| --- | ---------- |
+| -1  | 0          |
+| 0   | 0          |
+| 1   | 1          |
+| 2   | 3          |
+| 3   | 6          |
+| 4   | 10         |
+| 5   | 15         |
+| ... | ...        |
+
+Remarquez qu'on aurait pu écrire cette fonction sans appel récursif :
+
+```csharp
+int sommeN(int n) {
+    int résultat = 0;
+    for(int i = 1; i <= n;i++) {
+        résultat += i;
+    }
+    return résultat;
+}
+```
+Cette écriture est clairement plus facile à lire que son écriture récursive. Alors pourquoi s'embêter avec des appels récursifs ? Parce que parfois c'est plus simple...
+
+Prenons un exemple concret : les tours de Hanoï.
+
+Les tours de Hanoï est un petit jeu dans lequel on a 3 piques et des disques posés dessus. Ces disques sont soit petits, soit moyens, soit grands. Au départ, 
+
+
 
 ## Exercice
 
