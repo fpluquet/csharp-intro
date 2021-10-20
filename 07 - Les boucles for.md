@@ -460,7 +460,7 @@ public class Program {
   public static void Main(string[] args) {
     int somme = 0;
     while(somme < 50) {
-      int i, j;
+      int i;
       for (i = 0; i <= 10 && somme < 50; i++) {
         if (i % 2 == 0) {
           somme += i;
@@ -927,13 +927,12 @@ public class Program
 	public static void Main()
 	{
 		string phrase;
-		bool espaceExiste = false;
 		Console.Write("> ");
 		phrase = Console.ReadLine();
 
 		// on ajoute cette boucle tant que la phrase n'est pas égale à "quitter"
 		while(phrase != "quitter") {
-
+			bool espaceExiste = false;
 			for(int i = 0; i < phrase.Length && espaceExiste == false; i++) {
 				if (phrase[i] == ' ') {
 					espaceExiste = true;

@@ -471,6 +471,21 @@ public class Program
 
 Attention à la division par zéro.
 
+Exemples de sortie :
+```
+Entrez le premier nombre : 10
+Entrez l'opération (+,-,/,*) : *
+Entrez le deuxième nombre : 55
+10 * 55 = 550
+```
+	
+```
+Entrez le premier nombre : 10
+Entrez l'opération (+,-,/,*) : %%%
+Entrez le deuxième nombre : 55
+Opération %%% non permise
+```
+
 <details>
 	<summary>Solution</summary>
 
