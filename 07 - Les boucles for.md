@@ -927,13 +927,13 @@ public class Program
 	public static void Main()
 	{
 		string phrase;
-		bool espaceExiste = false;
+		bool espaceExiste;
 		Console.Write("> ");
 		phrase = Console.ReadLine();
 
 		// on ajoute cette boucle tant que la phrase n'est pas égale à "quitter"
 		while(phrase != "quitter") {
-
+			espaceExiste = false;
 			for(int i = 0; i < phrase.Length && espaceExiste == false; i++) {
 				if (phrase[i] == ' ') {
 					espaceExiste = true;
