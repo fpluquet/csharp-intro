@@ -483,7 +483,14 @@ Entrez le deuxième nombre : 55
 Entrez le premier nombre : 10
 Entrez l'opération (+,-,/,*) : %%%
 Entrez le deuxième nombre : 55
-Opération %%% non permise
+Opération 10 %%% 55 non permise
+```
+
+```
+Entrez le premier nombre : 5
+Entrez l'opération (+,-,/,*) : /
+Entrez le deuxième nombre : 0
+Opération 5 / 0 non permise
 ```
 
 <details>
@@ -537,7 +544,9 @@ public class Program
 			// si c'est /...
 			case "/": 
 				// ... on fait une division
-				resultat = nombre1 / nombre2;
+				if (nombre2 != 0) {
+					resultat = nombre1 / nombre2;
+				}
 				// ... et on sort du switch
 				break;
 			// si c'est *...
@@ -550,7 +559,7 @@ public class Program
 		// si le résultat est toujours NaN, alors l'opération n'était pas +, -, /, ou *
 		if (resultat.CompareTo(double.NaN) == 0) {
 			// ... on affiche l'erreur
-			Console.WriteLine("Opération {0} non permise", operation);
+			Console.WriteLine("Opération {0} {1} {2} non permise", nombre1, operation, nombre2);
 		} else {	
 			// ... sinon on affiche le calcul et le résultat
 			Console.WriteLine("{0} {1} {2} = {3}", nombre1, operation, nombre2, resultat);
