@@ -729,12 +729,12 @@ public class Program
 		// Pour chaque ligne i (de 1 à nbLignes compris)...
 		for(int i = 1; i <= nbLignes; i++) {
 			// ... on affiche les nbLignes - numéroLigne (i) espaces 
-			for(int j = 0; j < nbLignes - i; j++) {
+			for(int j = 1; j <= nbLignes - i; j++) {
 				Console.Write(" ");
 			}
 
 			// ... on affiche les numéroLigne * 2 - 1 étoiles 
-			for(int k = 1; k < i * 2; k++) {
+			for(int k = 1; k <= i * 2 - 1; k++) {
 				Console.Write("*");
 			}
 
