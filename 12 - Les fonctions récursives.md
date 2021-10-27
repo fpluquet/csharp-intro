@@ -53,21 +53,46 @@ Le jeu consiste à déplacer toute la tour d'une pique à une autre en respectan
 Comment fait-on pour résoudre ce problème ?
 
 
+Pour faire une bonne fonction récursive, il faut :
+- penser aux cas d'arrêts de la récursion
+- penser aux valeurs des paramètres lors de l'appel récursif
 
 ## Exercice
 
-Créez une fonction qui prend un entier et renvoie la factorielle de cet entier. C’est-à-dire, l’entier multiplié par tous les entiers inférieurs positifs.
+Créez une fonction récursive `factorielle` qui prend un entier et renvoie la factorielle de cet entier, c’est-à-dire, l’entier multiplié par tous les entiers inférieurs positifs.
 
-Exemple:
+Exemples :
 
-factoriel(2) ➞ 2
-// 2 * 1 = 2
+```csharp
+Console.WriteLine(factorielle(2)); // affiche 2 car 2 * 1 = 2
+Console.WriteLine(factorielle(3)); // affiche 6 car 3 * 2 * 1 = 6
+Console.WriteLine(factorielle(4)); // affiche 24 car 4 * 3 * 2 * 1 = 24
+```
 
-factoriel(3) ➞ 6
-// 3 * 2 * 1 = 6
+<details>
+    <summary>Solution</summary>
 
-factoriel(4) ➞ 24
-// 4 * 3 * 2 * 1 = 24
+```csharp
+using System;
+					
+public class Program
+{
+	static int factorielle(int n) {
+		if (n <= 1) {
+			return 1;
+		}
+		return n * factorielle(n-1);
+	}
+	public static void Main()
+	{
+		Console.WriteLine(factorielle(2)); // affiche 2 car 2 * 1 = 2
+		Console.WriteLine(factorielle(3)); // affiche 6 car 3 * 2 * 1 = 6
+		Console.WriteLine(factorielle(4)); // affiche 24 car 4 * 3 * 2 * 1 = 24
+	}
+}
+```
+
+</details>
 
 ## Exercice
 
