@@ -679,9 +679,6 @@ Quelle ligne voulez-vous jouer ? : <b>7</b>
 Quelle colonne voulez-vous jouer ? : <b>0</b>
 Mauvaise case ! Votre score final : 2 points
 </pre>
-<style>
-	
-</style>
 
 <details>
 	<summary>Solution</summary>
