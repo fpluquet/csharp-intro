@@ -63,14 +63,14 @@ string uneChaineComplète = "Hello " + "tout " + "le monde"; // uneChaineComplè
 Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's', en ajouter un et l'afficher.
 
 Exemple de sortie:
-```
-Quel mot faut-il mettre au pluriel ? Chien
+<pre>
+Quel mot faut-il mettre au pluriel ? <b>Chien</b>
 Le mot "Chien" au pluriel : Chiens
-```
-```
-Quel mot faut-il mettre au pluriel ? Chiens
+</pre>
+<pre>
+Quel mot faut-il mettre au pluriel ? <b>Chiens</b>
 Le mot "Chiens" est déjà au pluriel. 
-```
+</pre>
 
 <details>
 	<summary>Solution</summary>
@@ -136,16 +136,16 @@ Demander 2 chaînes de caractères et les afficher dans l'ordre du dictionnaire 
 
 Exemple de sortie :
 
-```
-Quel est le premier mot ? Bonbon
-Quel est le deuxième mot ? Arbre
+<pre>
+Quel est le premier mot ? <b>Bonbon</b>
+Quel est le deuxième mot ? <b>Arbre</b>
 Arbre vient avant Bonbon
-```
-```
-Quel est le premier mot ? Arbre
-Quel est le deuxième mot ? Bonbon
+</pre>
+<pre>
+Quel est le premier mot ? <b>Arbre</b>
+Quel est le deuxième mot ? <b>Bonbon</b>
 Arbre vient avant Bonbon
-```
+</pre>
 
 <details>
 	<summary>Solution</summary>
@@ -197,50 +197,54 @@ Lire le choix et afficher les informations en conséquence.
 
 Exemples de sorties :
 
-```
-Quel est le mot ? Hello
+<pre>
+Quel est le mot ? <b>Hello</b>
 1. Afficher en majuscules
 2. Afficher en miniscules
 3. Afficher sa longueur
 4. Quitter
-Votre choix : 1
+Votre choix : <b>1</b>
 Hello en majuscules : HELLO
-```
-```
-Quel est le mot ? Hello
+</pre>
+
+<pre>
+Quel est le mot ? <b>Hello</b>
 1. Afficher en majuscules
 2. Afficher en miniscules
 3. Afficher sa longueur
 4. Quitter
-Votre choix : 2
+Votre choix : <b>2</b>
 Hello en minuscules : hello
-```
-```
-Quel est le mot ? Hello
+</pre>
+
+<pre>
+Quel est le mot ? <b>Hello</b>
 1. Afficher en majuscules
 2. Afficher en miniscules
 3. Afficher sa longueur
 4. Quitter
-Votre choix : 3
+Votre choix : <b>3</b>
 Hello a une longueur de 5
-```
-```
-Quel est le mot ? Hello
+</pre>
+
+<pre>
+Quel est le mot ? <b>Hello</b>
 1. Afficher en majuscules
 2. Afficher en miniscules
 3. Afficher sa longueur
 4. Quitter
-Votre choix : 4
-```
-```
-Quel est le mot ? Hello
+Votre choix : <b>4</b>
+</pre>
+
+<pre>
+Quel est le mot ? <b>Hello</b>
 1. Afficher en majuscules
 2. Afficher en miniscules
 3. Afficher sa longueur
 4. Quitter
-Votre choix : unChoix
+Votre choix : <b>unChoix</b>
 Votre choix est invalide
-```
+</pre>
 
 
 <details>

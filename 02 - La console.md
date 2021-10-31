@@ -143,12 +143,12 @@ public class Program
 Ecrire un programme qui demande deux nombres et en affiche la somme et le produit.
 
 Exemple de sortie :
-```
-Premier nombre ? 12
-Deuxième nombre ? 13
+<pre>
+Premier nombre ? <b>12</b>
+Deuxième nombre ? <b>13</b>
 12 + 13 = 25
 12 * 13 = 156
-```
+</pre>
 
 <details>
 	<summary>Solution</summary>
