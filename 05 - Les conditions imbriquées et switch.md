@@ -240,18 +240,18 @@ Ecrire un programme qui demande 3 nombres à l'utilisateur et les affiche ensuit
 
 Exemple de sortie :
 
-```
+<pre>
 Quel est le premier nombre ?
-22
+<b>22</b>
 Premier nombre : 22
 Quel est le deuxième nombre ?
-33
+<b>33</b>
 Deuxième nombre : 33
 Quel est le troisième nombre ?
-11
+<b>11</b>
 Troisième nombre : 11
 Nombres triés : 11 22 33
-```
+</pre>
 
 <details>
 	<summary>Solution</summary>
@@ -336,18 +336,22 @@ public class Program
 Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's' ou un 'x', ajouter un 'x' si cela finit par 'ou' ou ajouter un 's' et l'afficher.
 
 Exemple de sortie:
-```
-Quel mot faut-il mettre au pluriel ? Chien
+
+<pre>
+Quel mot faut-il mettre au pluriel ? <b>Chien</b>
 Le mot "Chien" au pluriel : Chiens
-```
-```
-Quel mot faut-il mettre au pluriel ? Chiens
+</pre>
+
+<pre>
+Quel mot faut-il mettre au pluriel ? <b>Chiens</b>
 Le "Chiens" est déjà au pluriel. 
-```
-```
-Quel mot faut-il mettre au pluriel ? Hibou
+</pre>
+
+<pre>
+Quel mot faut-il mettre au pluriel ? <b>Hibou</b>
 Le mot "Hibou" au pluriel : Hiboux
-```
+</pre>
+
 
 <details>
 	<summary>Solution</summary>
@@ -393,26 +397,26 @@ public class Program
 Créer un programme qui demande une chaîne de caractères et si cette chaîne ne finit pas par un 's' ou un 'x', ajouter un 'x' si c'est une des exceptions (Bijou, Caillou, Chou, Genou, Hibou, Joujou, Pou) ou alors ajouter un 's' et l'afficher. La casse du mot (majuscules, miniscules, ...) de ne pas avoir d'importance.
 
 Exemple de sortie:
-```
-Quel mot faut-il mettre au pluriel ? Chien
+<pre>
+Quel mot faut-il mettre au pluriel ? <b>Chien</b>
 Le mot "Chien" au pluriel : Chiens
-```
-```
-Quel mot faut-il mettre au pluriel ? Chiens
+</pre>
+<pre>
+Quel mot faut-il mettre au pluriel ? <b>Chiens</b>
 Le "Chiens" est déjà au pluriel. 
-```
-```
-Quel mot faut-il mettre au pluriel ? Hibou
+</pre>
+<pre>
+Quel mot faut-il mettre au pluriel ? <b>Hibou</b>
 Le mot "Hibou" au pluriel : Hiboux
-```
-```
-Quel mot faut-il mettre au pluriel ? hibou
+</pre>
+<pre>
+Quel mot faut-il mettre au pluriel ? <b>hibou</b>
 Le mot "Hibou" au pluriel : hiboux
-```
-```
-Quel mot faut-il mettre au pluriel ? Caribou
+</pre>
+<pre>
+Quel mot faut-il mettre au pluriel ? <b>Caribou</b>
 Le mot "Caribou" au pluriel : Caribous
-```
+</pre>
 
 <details>
 	<summary>Solution</summary>
@@ -472,26 +476,26 @@ public class Program
 Attention à la division par zéro.
 
 Exemples de sortie :
-```
-Entrez le premier nombre : 10
-Entrez l'opération (+,-,/,*) : *
-Entrez le deuxième nombre : 55
+<pre>
+Entrez le premier nombre : <b>10</b>
+Entrez l'opération (+,-,/,*) : <b>*</b>
+Entrez le deuxième nombre : <b>55</b>
 10 * 55 = 550
-```
+</pre>
 	
-```
-Entrez le premier nombre : 10
-Entrez l'opération (+,-,/,*) : %%%
-Entrez le deuxième nombre : 55
+<pre>
+Entrez le premier nombre : <b>10</b>
+Entrez l'opération (+,-,/,*) : <b>%%%</b>
+Entrez le deuxième nombre : <b>55</b>
 Opération 10 %%% 55 non permise
-```
+</pre>
 
-```
-Entrez le premier nombre : 5
-Entrez l'opération (+,-,/,*) : /
-Entrez le deuxième nombre : 0
+<pre>
+Entrez le premier nombre : <b>5</b>
+Entrez l'opération (+,-,/,*) : <b>/</b>
+Entrez le deuxième nombre : <b>0</b>
 Opération 5 / 0 non permise
-```
+</pre>
 
 <details>
 	<summary>Solution</summary>
@@ -575,17 +579,17 @@ public class Program
 
 Exemples de sortie :
 
-```
-Entrez le jour : 15
-Entrez le mois : 11
+<pre>
+Entrez le jour : <b>15</b>
+Entrez le mois : <b>11</b>
 15 novembre
-```
+</pre>
 
-```
-Entrez le jour : 3
-Entrez le mois : 13
+<pre>
+Entrez le jour : <b>3</b>
+Entrez le mois : <b>13</b>
 3 mois inconnu
-```
+</pre>
 
 <details>
 	<summary>Solution</summary>
@@ -670,20 +674,20 @@ Conseil: il est possible de regrouper le code pour les mois qui ont le même nom
 
 Exemples de sortie :
 
-```
-Entrez le mois : août
+<pre>
+Entrez le mois : <b>août</b>
 31 jours
-```
+</pre>
 
-```
-Entrez le mois : février
+<pre>
+Entrez le mois : <b>février</b>
 28 ou 29 jours
-```
+</pre>
 
-```
-Entrez le mois : 2
+<pre>
+Entrez le mois : <b>2</b>
 mois inconnu
-```
+</pre>
 
 <details>
 	<summary>Solution</summary>
@@ -753,26 +757,26 @@ Un prof décide d'inscrire la mention suivante en fonction des points obtenus :
 
 Exemple de sorties :
 
-```
-Entrez les points (entre 0 et 100 compris) : 100
+<pre>
+Entrez les points (entre 0 et 100 compris) : <b>100</b>
 La mention obtenue est : PGD
-```
-```
-Entrez les points (entre 0 et 100 compris) : 87
+</pre>
+<pre>
+Entrez les points (entre 0 et 100 compris) : <b>87</b>
 La mention obtenue est : GD
-```
-```
-Entrez les points (entre 0 et 100 compris) : -1
+</pre>
+<pre>
+Entrez les points (entre 0 et 100 compris) : <b>-1</b>
 Les points entrés sont invalides.
-```
-```
-Entrez les points (entre 0 et 100 compris) : cent
+</pre>
+<pre>
+Entrez les points (entre 0 et 100 compris) : <b>cent</b>
 Les points entrés sont invalides.
-```
-```
+</pre>
+<pre>
 Entrez les points (entre 0 et 100 compris) : 
 Les points entrés sont invalides.
-```
+</pre>
 
 <details>
 	<summary>Solution</summary>
@@ -843,20 +847,20 @@ D'après le tableau ci-dessous, utiliser un switch pour afficher le nombre de jo
 
 Exemple de sorties : 
 
-```
-Entrez le nombre de personnes: 3
-Entrez la formation: Photoshop
+<pre>
+Entrez le nombre de personnes: <b>3</b>
+Entrez la formation: <b>Photoshop</b>
 Le montant est de 2700 euros
-```
-```
-Entrez le nombre de personnes: 3
-Entrez la formation: C#
+</pre>
+<pre>
+Entrez le nombre de personnes: <b>3</b>
+Entrez la formation: <b>C#</b>
 La formation n'existe pas.
-```
-```
-Entrez le nombre de personnes: un texte
+</pre>
+<pre>
+Entrez le nombre de personnes: <b>un texte</b>
 Le nombre entré de personnes n'est pas valide.
-```
+</pre>
 	
 <details>
 	<summary>Solution</summary>
