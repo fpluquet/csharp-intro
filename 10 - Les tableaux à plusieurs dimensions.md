@@ -682,3 +682,66 @@ Mauvaise case ! Votre score final : 2 points
 <style>
 	
 </style>
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	public static void AfficherArray2D(int[,] array) {
+		Console.Write("  ");
+		for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
+			Console.Write("{0} ", colonne);
+		}
+		Console.WriteLine();
+		for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
+			Console.Write("{0} ", ligne);
+			for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
+				if (array[ligne, colonne] == 2) {
+					Console.Write("X ");
+				} else {
+					Console.Write("  ");
+				}	
+			}
+			Console.WriteLine();
+		}
+	}
+	public static void RemplirDe1(int[,] tab) {
+		Random random = new Random();
+		for(int i = 0; i < 10; i++) {
+			int x, y;
+			do {
+				x = random.Next(tab.GetLength(0));
+				y = random.Next(tab.GetLength(1));
+			}while(tab[x,y] == 1);
+			tab[x,y] = 1;
+		}
+	}		
+	public static void Main()
+	{
+		int[,] tab = new int[10,10];
+		RemplirDe1(tab);
+		AfficherArray2D(tab);
+		int score = 0;
+		int x, y;
+		do {
+			Console.Write("Quelle ligne voulez-vous jouer ? : ");
+			x = int.Parse(Console.ReadLine());
+			Console.Write("Quelle colonne voulez-vous jouer ? : ");
+			y = int.Parse(Console.ReadLine());
+			if (tab[x,y] == 0) {
+				score ++;
+				tab[x,y] = 2;
+				Console.WriteLine("Bonne case ! Votre score : {0} point{1}", score, score > 1 ? "s" : "");
+				AfficherArray2D(tab);
+			}
+		} while (tab[x,y] != 1);
+		Console.WriteLine("Mauvaise case ! Votre score final : {0} point{1}", score, score > 1 ? "s" : "");		
+	}
+}
+```
+
+</details>
