@@ -308,22 +308,22 @@ public class Program
 Ecrire un programme qui vous demande des nombres entiers. Le programme s'arrête lorsque l'on entre 0. Il affiche alors la somme et la moyenne des nombres entrés.
 
 Exemples de sortie :
-```
-5
-8
-10
-0
+<pre>
+<b>5</b>
+<b>8</b>
+<b>10</b>
+<b>0</b>
 Somme : 23, Moyenne : 7.66666666666667
-```
-```
-0
+</pre>
+<pre>
+<b>0</b>
 Somme : 0, Moyenne : 0
-```
-```
-5
-0
+</pre>
+<pre>
+<b>5</b>
+<b>0</b>
 Somme : 5, Moyenne : 5
-```
+</pre>
 
 
 
@@ -379,13 +379,13 @@ public class Program
 Demander un nombre entre 0 et 10 et redemander tant que l'utilisateur entre un texte qui n'est pas un nombre ou l'utilisateur entre un nombre non compris entre 0 et 10. 
 
 Exemple de sortie :
-```
-Entrez un nombre entre 0 et 10 : -1
-Entrez un nombre entre 0 et 10 : 1001
-Entrez un nombre entre 0 et 10 : un
-Entrez un nombre entre 0 et 10 : 10
+<pre>
+Entrez un nombre entre 0 et 10 : <b>-1</b>
+Entrez un nombre entre 0 et 10 : <b>1001</b>
+Entrez un nombre entre 0 et 10 : <b>un</b>
+Entrez un nombre entre 0 et 10 : <b>10</b>
 Le nombre entré est 10
-```
+</pre>
 
 <details>
 	<summary>Solution</summary>
@@ -427,33 +427,33 @@ public class Program
 
 Exemples de sortie :
 
-```
-3
-+
-5
-*
-2
-=
+<pre>
+<b>3</b>
+<b>+</b>
+<b>5</b>
+<b>*</b>
+<b>2</b>
+<b>=</b>
 16
-```
+</pre>
 
-```
-3
-+
-6
-*
-2
-/
-4
-=
+<pre>
+<b>3</b>
+<b>+</b>
+<b>6</b>
+<b>*</b>
+<b>2</b>
+<b>/</b>
+<b>4</b>
+<b>=</b>
 4.5
-```
+</pre>
 
-```
+<pre>
+<b>5</b>
+<b>=</b>
 5
-=
-5
-```
+</pre>
 
 
 <details>
