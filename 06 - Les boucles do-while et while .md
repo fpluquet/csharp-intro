@@ -423,9 +423,9 @@ public class Program
 
 ## Exercice 7
 
-Écrire un programme qui va réaliser une calculatrice de base +, -, \*, / sur ```n``` nombres. Ne tenez pas compte des priorités. 
+Écrire un programme qui va réaliser une calculatrice de base +, -, \*, /. Ne tenez pas compte des priorités. Le programme demande un nombre, puis une opération, puis un nombre, puis une opération, ... jusqu'à ce que le signe `=` soit entré comme opération. Le résultat est alors affiché et le programme se termine.
 
-Exemple :
+Exemples de sortie :
 
 ```
 3
@@ -436,6 +436,25 @@ Exemple :
 =
 16
 ```
+
+```
+3
++
+6
+*
+2
+/
+4
+=
+4.5
+```
+
+```
+5
+=
+5
+```
+
 
 <details>
 	<summary>Solution</summary>
