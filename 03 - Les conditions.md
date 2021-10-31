@@ -291,13 +291,13 @@ Ecrire un programme qui vous demande votre nom, puis votre sexe (M,F) et écrit 
 
 Exemples de sorties :
 
-```
+<pre>
 Quel est votre nom ?
-Fréd
+<b>Fréd</b>
 Quel est votre sexe (M/F) ?
-M
+<b>M</b>
 Bonjour Monsieur Fréd
-```
+</pre>
 
 ```
 Quel est votre nom ?
