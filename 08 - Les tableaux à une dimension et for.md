@@ -62,6 +62,25 @@ n = tab[1]; // n contient 0
 n = tab[5]; // n contient 8
 ```
 
+## Initialisation
+
+On peut initialiser rapidement un tableau dès sa création via des accolades :
+
+```csharp
+int[] tab = new int[] {5,4,0};
+```
+
+Cette instruction a pour effet de créer le tableau comme suit :
+
+<table border=1>
+<tr><td>Indice</td></td><td><b>0</b></td><td><b>1</b></td><td><b>2</b></td></tr>
+<tr><td>Valeur</td><td>5</td><td>4</td><td>0</td></tr>
+</table>
+
+> Attention ! Il faut que le nombre de colonnes soit égal pour chaque ligne renseignée. Si ce n'est pas le cas, le compilateur n'acceptera pas votre code.
+
+
+
 ## Longueur d'un tableau
 
 On peut obtenir la taille d'un tableau en utilisant sa propriété `Length` :

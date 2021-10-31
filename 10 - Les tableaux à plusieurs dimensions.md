@@ -32,7 +32,7 @@ Le `new int[2,3]` permet de dire au compilateur que nous voulons créer un table
 <tr><td><b>1</b></td><td>0</td><td>0</td><td>0</td></tr>
 </table>
 
-Comme nous travaillons avec des entiers, toutes les éléments du tableau sont initialisés à 0.
+Comme nous travaillons avec des entiers, tous les éléments du tableau sont initialisés à 0.
 
 Le `int[,] tab` permet de définir une variable nommée `tab` qui pourra accepter un tableau à deux dimensions. Notez que la virgule permet de bien montrer que le tableau contiendra 2 dimensions.
 
@@ -80,7 +80,7 @@ Cette instruction a pour effet de créer le tableau comme suit :
 <tr><td><b>1</b></td><td>0</td><td>0</td><td>7</td></tr>
 </table>
 
-> Attention ! Il faut que le nombre de colonnes soit égal pour chaque ligne renseignée. Si ce n'est pas le cas, le compilateur n'acceptera pas votre code.
+> Attention ! Il faut que le nombre de colonnes soit identique pour chaque ligne renseignée. Si ce n'est pas le cas, le compilateur n'acceptera pas votre code.
 
 
 ## Longueurs d'un tableau
@@ -101,9 +101,9 @@ int[,] tab = new int[2,3];
 Console.WriteLine(tab.GetLength(0)); // Affiche 2
 Console.WriteLine(tab.GetLength(1)); // Affiche 3
 
-tab = new int[8,12];
-Console.WriteLine(tab.GetLength(0)); // Affiche 8
-Console.WriteLine(tab.GetLength(1)); // Affiche 12
+string[,] mots = new string[8,12];
+Console.WriteLine(mots.GetLength(0)); // Affiche 8
+Console.WriteLine(mots.GetLength(1)); // Affiche 12
 ```
 
 C'est donc beaucoup plus pratique pour pouvoir accéder au tableau de manière séquentielle :
@@ -142,9 +142,148 @@ string[,,,] tab4 = new string[2,2,2,2]; // tableau à 4 dimensions de 2x2x2x2
 tab4[0,1,0,0] = "Coucou";
 ```
 
+## foreach
+
+Il est encore possible d'utiliser un boucle `foreach` avec un tableau à plusieurs dimensions. Cette boucle va alors parcourir le tableau élément par élément de la première à la dernière ligne et pour chaque ligne, de la première à la dernière colonne :
+
+```csharp
+int[,] tab = new int[,] {
+			{5,4,0},
+			{0,0,7}
+		};
+foreach(int element in tab) {
+	Console.WriteLine(element);
+}
+```
+
+Ce code va produire la sortie suivante :
+
+```
+5
+4
+0
+0
+0
+7
+```
+
+C'est donc utile lorsqu'on doit parcourir tous les éléments sans avoir besoin du numéro de ligne ni le numéro de colonne de chaque élément.
+
+## Le nombre de dimensions
+
+Vous pouvez utiliser la propriété `Rank` d'un tableau pour connaître le nombre de dimensions de ce tableau.
+
+
+```csharp
+int[] array1 = new int[10];
+int[,] array2= new int[10,3];
+int[,,] array3= new int[5,8,7];
+
+Console.WriteLine("{0}: {1} dimension(s)",
+									array1.ToString(), array1.Rank);
+Console.WriteLine("{0}: {1} dimension(s)",
+									array2.ToString(), array2.Rank);
+Console.WriteLine("{0}: {1} dimension(s)",
+									array3.ToString(), array3.Rank);
+```
+
+Ce code va produire la sortie suivante :
+
+```
+System.Int32[]: 1 dimension(s)
+System.Int32[,]: 2 dimension(s)
+System.Int32[,,]: 3 dimension(s)
+```
+
+Si on ne connaît pas la dimension d'un tableau avant de le créer, nous pouvons utiliser comme type générique `Array` :
+
+```csharp
+Array array1 = new int[10];
+Array array2= new int[10,3];
+Array array3= new int[5,8,7];
+
+Console.WriteLine("{0}: {1} dimension(s)",
+									array1.ToString(), array1.Rank);
+Console.WriteLine("{0}: {1} dimension(s)",
+									array2.ToString(), array2.Rank);
+Console.WriteLine("{0}: {1} dimension(s)",
+									array3.ToString(), array3.Rank);
+```
+
+Ce code va produire la même sortie :
+
+```
+System.Int32[]: 1 dimension(s)
+System.Int32[,]: 2 dimension(s)
+System.Int32[,,]: 3 dimension(s)
+```
+
+Mais l'avantage ici est que le type de chaque variable ne nous force pas à y accueilir des tableaux de dimensions prédéfinies.
+
 # Exercices
 
-## Exercice
+## Exercice 1
+
+Que va afficher le programme suivant ? Pourquoi ?
+
+```csharp
+using System;
+					
+public class Program
+{
+	
+	public static void Main()
+	{
+		int[,] tab = new int[,] {
+			{5,8,9,10},
+			{0,0,1,1},
+			{1,5,5,3}
+		};
+		
+		int s = 0;
+		for(int ligne = 0; ligne < tab.GetLength(0); ligne++) {
+			for(int colonne = 0; colonne < tab.GetLength(1); colonne++) {
+				s += tab[ligne, colonne];
+			}
+		}
+		Console.WriteLine(s);
+	}
+}
+```
+
+## Exercice 2
+
+Réécrivez le programme précédent avec une seule boucle `foreach`.
+
+<details>
+	<summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	
+	public static void Main()
+	{
+		int[,] tab = new int[,] {
+			{5,8,9,10},
+			{0,0,1,1},
+			{1,5,5,3}
+		};
+		
+		int s = 0;
+		foreach(int item in tab) {
+			s += item;
+		}
+		Console.WriteLine(s);
+	}
+}
+```
+
+</details>
+
+## Exercice 3
 
 Que fait le programme suivant ?
 
@@ -245,7 +384,82 @@ public class Program
 
 </details>
 
-## Exercice
+## Exercice 4
+
+Que fait le programme suivant ?
+
+```csharp
+using System;
+					
+public class Program
+{
+	
+	public static void AfficheArray(Array array) {
+		int nbDimensions = array.Rank;
+		int index = 0;
+		foreach(int element in array) {
+			Console.WriteLine("[{0}] = {1}", index, element);
+			index++;
+		}
+	}
+	public static void Main()
+	{
+		AfficheArray(new int[,] {
+			{5,7,8},
+			{1,2,1}
+		});
+		Console.WriteLine();
+		AfficheArray(new int[] {10,3,2});
+	}
+}
+```
+
+<details>
+  <summary>Solution</summary>
+Ce programme affiche la sortie suivante :
+
+```
+[0] = 5
+[1] = 7
+[2] = 8
+[3] = 1
+[4] = 2
+[5] = 1
+
+[0] = 10
+[1] = 3
+[2] = 2
+```
+
+Voici l'explication :
+
+```csharp
+using System;
+					
+public class Program
+{
+	
+	public static void AfficheArray(Array array) {
+		int nbDimensions = array.Rank;
+		int index = 0;
+		foreach(int element in array) {
+			Console.WriteLine("[{0}] = {1}", index, element);
+			index++;
+		}
+	}
+	public static void Main()
+	{
+		AfficheArray(new int[,] {
+			{5,7,8},
+			{1,2,1}
+		});
+		Console.WriteLine();
+		AfficheArray(new int[] {10,3,2});
+	}
+}
+```
+
+</details>
 
 
 
@@ -391,6 +605,11 @@ public class Program
 
 ## Exercice
 
+Écrivez un programme qui crée un tableau de 5x10 entiers et y place aléatoirement 10 cases à la valeur 10. Affichez ce tableau.
+
+
+## Exercice
+
 Écrivez un programme qui :
 1. demande à l'utilisateur deux entiers `n` et `m`
 2. créé un tableau de `double` à 2 dimensions `n` x `m`
@@ -401,3 +620,65 @@ public class Program
 7. recommence à l'étape 3 jusqu'à ce que `i` soit inférieur à 0
 
 Attention à bien vérfier que les positions soient correctes par rapport aux dimensions.
+
+## Exercice
+
+Écrivez un programme qui fait les étapes suivantes.
+
+1. Il crée un tableau 10x10. 
+2. Il place aléatoirement 30 cases à la valeur 1.
+3. Il demande alors une position à l'utilisateur.
+4. Si la case vaut 0, il y met un 2 et l'utilisateur gagne un point. Le tableau est affiché (uniquement les 2) et recommence au point 3. 
+5. Si la case vaut 1, l'utilisateur a perdu, le programme affiche le nombre de points obtenus et se termine.
+
+Conseils :
+- Créez une méthode `static void RemplirDe1(int[,] tab)` pour l'etape 2.
+- Utilisez et adaptez la méthode `AfficheArray2D` pour l'étape 3.
+
+<pre>
+  0 1 2 3 4 5 6 7 8 9 
+0                     
+1                     
+2                     
+3                     
+4                     
+5                     
+6                     
+7                     
+8                     
+9                     
+Quelle ligne voulez-vous jouer ? : <b>0</b>
+Quelle colonne voulez-vous jouer ? : <b>0</b>
+Bonne case ! Votre score : 1 point
+  0 1 2 3 4 5 6 7 8 9 
+0 X                   
+1                     
+2                     
+3                     
+4                     
+5                     
+6                     
+7                     
+8                     
+9                     
+Quelle ligne voulez-vous jouer ? : <b>3</b>
+Quelle colonne voulez-vous jouer ? : <b>3</b>
+Bonne case ! Votre score : 2 points
+  0 1 2 3 4 5 6 7 8 9 
+0 X                   
+1                     
+2                     
+3       X             
+4                     
+5                     
+6                     
+7                     
+8                     
+9                     
+Quelle ligne voulez-vous jouer ? : <b>7</b>
+Quelle colonne voulez-vous jouer ? : <b>0</b>
+Mauvaise case ! Votre score final : 2 points
+</pre>
+<style>
+	
+</style>

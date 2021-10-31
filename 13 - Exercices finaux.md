@@ -21,3 +21,7 @@ Exemple de début de partie :
 
 
 # Labyrinthe
+
+# Othello
+
+# Démineur
