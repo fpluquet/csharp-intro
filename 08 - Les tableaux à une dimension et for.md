@@ -62,6 +62,25 @@ n = tab[1]; // n contient 0
 n = tab[5]; // n contient 8
 ```
 
+## Initialisation
+
+On peut initialiser rapidement un tableau dès sa création via des accolades :
+
+```csharp
+int[] tab = new int[] {5,4,0};
+```
+
+Cette instruction a pour effet de créer le tableau comme suit :
+
+<table border=1>
+<tr><td>Indice</td></td><td><b>0</b></td><td><b>1</b></td><td><b>2</b></td></tr>
+<tr><td>Valeur</td><td>5</td><td>4</td><td>0</td></tr>
+</table>
+
+> Attention ! Il faut que le nombre de colonnes soit égal pour chaque ligne renseignée. Si ce n'est pas le cas, le compilateur n'acceptera pas votre code.
+
+
+
 ## Longueur d'un tableau
 
 On peut obtenir la taille d'un tableau en utilisant sa propriété `Length` :
@@ -408,29 +427,29 @@ public class Program
 
 Exemple de sorties :
 
-```
-Quel est la taille des tableaux ? 3
+<pre>
+Quel est la taille des tableaux ? <b>3</b>
 Entrez les 3 éléments du tableau 1 : 
-tab1[0] = 1
-tab1[1] = 5
-tab1[2] = 7
+tab1[0] = <b>1</b>
+tab1[1] = <b>5</b>
+tab1[2] = <b>7</b>
 Entrez les 3 éléments du tableau 2 : 
-tab2[0] = 2
-tab2[1] = 2
-tab2[2] = 0
+tab2[0] = <b>2</b>
+tab2[1] = <b>2</b>
+tab2[2] = <b>0</b>
 La somme des éléments des deux tableaux est : 17
-```
+</pre>
 
-```
-Quel est la taille des tableaux ? 2
+<pre>
+Quel est la taille des tableaux ? <b>2</b>
 Entrez les 2 éléments du tableau 1 : 
-tab1[0] = 1
-tab1[1] = 8
+tab1[0] = <b>1</b>
+tab1[1] = <b>8</b>
 Entrez les 2 éléments du tableau 2 : 
-tab2[0] = 3
-tab2[1] = 7
+tab2[0] = <b>3</b>
+tab2[1] = <b>7</b>
 La somme des éléments des deux tableaux est : 19
-```
+</pre>
 
 <details>
 	<summary>Solution</summary>
@@ -496,37 +515,37 @@ Ensuite il demande à l'utilisteur la position d'un élément à supprimer et d�
 
 Sorties possibles :
 
-```
+<pre>
 tab[0] = 81
 tab[1] = -55
 tab[2] = 43
 tab[3] = 36
 tab[4] = 45
 
-Quelle position voulez-vous supprimer ? 0
+Quelle position voulez-vous supprimer ? <b>0</b>
 
 tab[0] = -55
 tab[1] = 43
 tab[2] = 36
 tab[3] = 45
 tab[4] = 0
-```
+</pre>
 
-```
+<pre>
 tab[0] = -30
 tab[1] = -55
 tab[2] = -100
 tab[3] = 92
 tab[4] = 11
 
-Quelle position voulez-vous supprimer ? 2
+Quelle position voulez-vous supprimer ? <b>2</b>
 
 tab[0] = -30
 tab[1] = -55
 tab[2] = 92
 tab[3] = 11
 tab[4] = 0
-```
+</pre>
 
 
 <details>
@@ -698,14 +717,14 @@ public class Program
 
 Ecrivez un programme qui vous permet de gérer 10 articles, chacun ayant un nom et un prix. Utilisez 2 tableaux à une dimension pour y stocker les noms et les prix. Utilisez un menu pour faciliter la gestion de ces articles par l'utilisateur, comme suit :
 
-```
+<pre>
 1. Afficher tous les articles et leur prix
 2. Modifier le nom d'un article
 3. Modifier le prix d'un article
 4. Effacer un article
 5. Quitter
 
-Votre choix: 1
+Votre choix: <b>1</b>
 
 1. Non défini
 2. Non défini
@@ -724,10 +743,10 @@ Votre choix: 1
 4. Effacer un article
 5. Quitter
 
-Votre choix: 2
+Votre choix: <b>2</b>
 
-Quel numéro d'article voulez-vous modifier ? 1
-Quel est le nouveau nom de l'article 1 ? Sac à dos
+Quel numéro d'article voulez-vous modifier ? <b>1</b>
+Quel est le nouveau nom de l'article 1 ? <b>Sac à dos</b>
 Nom modifié avec succès
 
 1. Afficher tous les articles et leur prix
@@ -736,7 +755,7 @@ Nom modifié avec succès
 4. Effacer un article
 5. Quitter
 
-Votre choix: 1
+Votre choix: <b>1</b>
 
 1. Sac à dos : 0 euros
 2. Non défini
@@ -755,10 +774,10 @@ Votre choix: 1
 4. Effacer un article
 5. Quitter
 
-Votre choix: 3
+Votre choix: <b>3</b>
 
-Quel numéro d'article voulez-vous modifier ? 1
-Quel est le nouveau prix de l'article 1 ? 30
+Quel numéro d'article voulez-vous modifier ? <b>1</b>
+Quel est le nouveau prix de l'article 1 ? <b>30</b>
 Prix modifié avec succès
 
 1. Afficher tous les articles et leur prix
@@ -767,7 +786,7 @@ Prix modifié avec succès
 4. Effacer un article
 5. Quitter
 
-Votre choix: 1
+Votre choix: <b>1</b>
 
 1. Sac à dos : 30 euros
 2. Non défini
@@ -786,10 +805,10 @@ Votre choix: 1
 4. Effacer un article
 5. Quitter
 
-Votre choix: 2
+Votre choix: <b>2</b>
 
-Quel numéro d'article voulez-vous modifier ? 2
-Quel est le nouveau nom de l'article 2 ? Manteau
+Quel numéro d'article voulez-vous modifier ? <b>2</b>
+Quel est le nouveau nom de l'article 2 ? <b>Manteau</b>
 Nom modifié avec succès
 
 1. Afficher tous les articles et leur prix
@@ -798,10 +817,10 @@ Nom modifié avec succès
 4. Effacer un article
 5. Quitter
 
-Votre choix: 3
+Votre choix: <b>3</b>
 
-Quel numéro d'article voulez-vous modifier ? 2
-Quel est le nouveau prix de l'article 2 ? 79
+Quel numéro d'article voulez-vous modifier ? <b>2</b>
+Quel est le nouveau prix de l'article 2 ? <b>79</b>
 Prix modifié avec succès
 
 1. Afficher tous les articles et leur prix
@@ -810,7 +829,7 @@ Prix modifié avec succès
 4. Effacer un article
 5. Quitter
 
-Votre choix: 1
+Votre choix: <b>1</b>
 
 1. Sac à dos : 30 euros
 2. Manteau : 79 euros
@@ -829,9 +848,9 @@ Votre choix: 1
 4. Effacer un article
 5. Quitter
 
-Votre choix: 4
+Votre choix: <b>4</b>
 
-Quel numéro d'article voulez-vous modifier ? 1
+Quel numéro d'article voulez-vous modifier ? <b>1</b>
 Article retiré avec succès
 
 1. Afficher tous les articles et leur prix
@@ -840,7 +859,7 @@ Article retiré avec succès
 4. Effacer un article
 5. Quitter
 
-Votre choix: 1
+Votre choix: <b>1</b>
 
 1. Non défini
 2. Manteau : 79 euros
@@ -859,19 +878,19 @@ Votre choix: 1
 4. Effacer un article
 5. Quitter
 
-Votre choix: 5
-```
+Votre choix: <b>5</b>
+</pre>
 
 Attention à biem gérer les choix invalides :
 
-```
+<pre>
 1. Afficher tous les articles et leur prix
 2. Modifier le nom d'un article
 3. Modifier le prix d'un article
 4. Effacer un article
 5. Quitter
 
-Votre choix: 0
+Votre choix: <b>0</b>
 
 Ce choix est invalide
 
@@ -881,7 +900,7 @@ Ce choix est invalide
 4. Effacer un article
 5. Quitter
 
-Votre choix: -1
+Votre choix: <b>-1</b>
 
 Ce choix est invalide
 
@@ -891,7 +910,7 @@ Ce choix est invalide
 4. Effacer un article
 5. Quitter
 
-Votre choix: 15
+Votre choix: <b>15</b>
 
 Ce choix est invalide
 
@@ -901,7 +920,7 @@ Ce choix est invalide
 4. Effacer un article
 5. Quitter
 
-Votre choix: dfgdfgdfg
+Votre choix: <b>dfgdfgdfg</b>
 
 Ce choix est invalide
 
@@ -911,14 +930,14 @@ Ce choix est invalide
 4. Effacer un article
 5. Quitter
 
-Votre choix: 4
+Votre choix: <b>4</b>
 
 Quel numéro d'article voulez-vous modifier ? un
 Quel numéro d'article voulez-vous modifier ? -1
 Quel numéro d'article voulez-vous modifier ? 11
 Quel numéro d'article voulez-vous modifier ? 1
 Article retiré avec succès
-```
+</pre>
 
 <details>
 	<summary>Solution</summary>
