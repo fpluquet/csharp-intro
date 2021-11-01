@@ -717,7 +717,7 @@ public class Program
 5. Si la case vaut 1, l'utilisateur a perdu, le programme affiche le nombre de points obtenus et se termine.
 
 Conseils :
-- Créez une méthode `static void RemplirDe1(int[,] tab)` pour l'etape 2.
+- Créez une méthode `static void RemplirDe1(int[,] tab)` pour l'étape 2.
 - Utilisez et adaptez la méthode `AfficheArray2D` pour l'étape 3.
 
 <pre>
