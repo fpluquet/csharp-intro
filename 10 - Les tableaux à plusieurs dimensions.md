@@ -603,18 +603,19 @@ public class Program
 Écrivez un programme qui :
 1. demande à l'utilisateur deux entiers `n` et `m`
 2. créé un tableau de `double` à 2 dimensions `n` x `m`
-3. demande à l'utilisateur une position `(i,j)`
+3. demande à l'utilisateur une position `i,j`
 4. demande à l'utilisateur une valeur `v`
 5. assigne la valeur `v` à la position `(i,j)` dans le tableau
 6. affiche le tableau
 7. recommence à l'étape 3 jusqu'à ce que `i` soit inférieur à 0
 
-Attention à bien vérfier que les positions soient correctes par rapport aux dimensions.
+Attention à bien vérfier que les dimensions soient possibles (> 0) et que les positions soient correctes par rapport aux dimensions. Si ce n'est pas le cas, redemandez d'entrez quelque chose.
 
 Exemple de sortie :
 
 <pre>
 Entrez le nombre de lignes : <b>5</b>
+Entrez le nombre de colonnes : <b>six</b>
 Entrez le nombre de colonnes : <b>6</b>
 Entrez une position i,j : <b>3,2</b>
 Entrez une valeur : <b>5</b>
