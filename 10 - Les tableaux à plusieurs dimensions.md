@@ -224,7 +224,7 @@ Mais l'avantage ici est que le type de chaque variable ne nous force pas à y ac
 
 ## Exercice 1
 
-Que va afficher le programme suivant ? Pourquoi ?
+Que va afficher le programme suivant ?
 
 ```csharp
 using System;
@@ -235,7 +235,7 @@ public class Program
 	public static void Main()
 	{
 		int[,] tab = new int[,] {
-			{5,8,9,10},
+			{5,8,9,4},
 			{0,0,1,1},
 			{1,5,5,3}
 		};
@@ -250,6 +250,52 @@ public class Program
 	}
 }
 ```
+
+<details>
+	<summary>Solution</summary>
+
+Ce programme affiche la somme de tous les éléments du tableau, c'est-à-dire :
+
+```
+42
+```
+
+Voici l'explication ligne par ligne : 
+
+```csharp
+using System;
+					
+public class Program
+{
+	
+	public static void Main()
+	{
+		// on crée un tableau à deux dimensions de 3 x 4
+		int[,] tab = new int[,] {
+			{5,8,9,4},
+			{0,0,1,1},
+			{1,5,5,3}
+		};
+		
+		// on crée une variable s, qui est un entier initialisé à 0
+		int s = 0;
+
+		// ligne va varier de 0 à 2 (tab.GetLength(0) renvoyant 3)
+		for(int ligne = 0; ligne < tab.GetLength(0); ligne++) {
+			// colonne va varier de 0 à 3 (tab.GetLength(1) renvoyant 4)
+			for(int colonne = 0; colonne < tab.GetLength(1); colonne++) {
+				// on prend l'élément du tableau à la position (ligne, colonne) et on l'ajoute à s
+				s += tab[ligne, colonne];
+			}
+		}
+		// on affiche le contenu de s
+		Console.WriteLine(s);
+	}
+}
+
+```
+
+</details>
 
 ## Exercice 2
 
@@ -267,12 +313,13 @@ public class Program
 	public static void Main()
 	{
 		int[,] tab = new int[,] {
-			{5,8,9,10},
+			{5,8,9,4},
 			{0,0,1,1},
 			{1,5,5,3}
 		};
 		
 		int s = 0;
+		// la boucle foreach va donner chaque élément du tableau
 		foreach(int item in tab) {
 			s += item;
 		}
@@ -364,18 +411,28 @@ public class Program
 	}
 	public static void Main()
 	{
+		// création d'une tableau tab à 2 dimensions et initialisé avec un tableau 3x3
 		int[,] tab = new int[3,3];
 		
+		// on affiche "Avant :" et un retour à la ligne (\n) 
 		Console.WriteLine("Avant :\n");
+
+		// on appelle la fonction AfficheArray2D en lui passant tab comme argument
 		AfficheArray2D(tab);
 
+		// on affiche "Après :" et des retours à la ligne (\n) 
 		Console.WriteLine("\nAprès:\n");
+
+		// ligne va varier de 0 à 2 (tab.GetLength(0) renvoyant 3)
 		for(int ligne = 0; ligne < tab.GetLength(0); ligne++) {
+			// colonne va varier de 0 à 2 (tab.GetLength(1) renvoyant 3)
 			for(int colonne = 0; colonne < tab.GetLength(1); colonne++) {
+				// on met ligne * 3 + colonne à la position (ligne, colonne) 
 				tab[ligne, colonne] = ligne * 3 + colonne;
 			}
 		}
 		
+		// on appelle la fonction AfficheArray2D en lui passant tab comme argument
 		AfficheArray2D(tab);
 
 	}
@@ -438,22 +495,30 @@ using System;
 					
 public class Program
 {
-	
+	// déclaration de la méthode AfficheArray qui prend un tableau array en paramètre
 	public static void AfficheArray(Array array) {
+		// on récupère le nombre de dimensions du tableau
 		int nbDimensions = array.Rank;
+		// on crée une variable entière index, initialisée à 0
 		int index = 0;
+
+		// pour chaque élément de tableau array qu'on met dans element...
 		foreach(int element in array) {
+			// ... on affiche l'index courant et la valeur de element
 			Console.WriteLine("[{0}] = {1}", index, element);
+			// on incrémente index
 			index++;
 		}
 	}
 	public static void Main()
 	{
+		// on appelle la méthode AfficheArray en lui passant un tableau 2x3
 		AfficheArray(new int[,] {
 			{5,7,8},
 			{1,2,1}
 		});
 		Console.WriteLine();
+		// on appelle la méthode AfficheArray en lui passant un tableau 1x3
 		AfficheArray(new int[] {10,3,2});
 	}
 }
@@ -461,154 +526,11 @@ public class Program
 
 </details>
 
-
-
-## Exercice
-
-Écrivez une fonction `ScalaireFoisMatrice(int scalaire, int[,] matrice)` qui renvoie un nouveau tableau aux mêmes dimensions que `matrice` et dont les éléments sont les éléments de `matrice` multipliés par `scalaire` (voir le cours de Math).
-
-Exemple 1 :
-```csharp
-int[,] tab = new int[,]{
-        {0,1,2},
-        {2,3,3},
-      };
-Console.WriteLine("matrice = ");
-AfficheArray2D(tab);
-int[,] resultat = ScalaireFoisMatrice(3, tab);
-Console.WriteLine("\n3 * matrice = ");
-AfficheArray2D(resultat);
-```
-doit afficher :
-```
-matrice = 
-0 1 2 
-2 3 3 
-
-3 * matrice = 
-0 3 6 
-6 9 9
-```
-
-```csharp
-int[,] tab = new int[,]{
-        {2,1,1,4,1},
-        {1,3,0,1,4},
-        {2,2,2,3,0},
-      };
-Console.WriteLine("matrice = ");
-AfficheArray2D(tab);
-int[,] resultat = ScalaireFoisMatrice(2, tab);
-Console.WriteLine("\n2 * matrice = ");
-AfficheArray2D(resultat);
-```
-doit afficher :
-```
-matrice = 
-2 1 1 4 1 
-1 3 0 1 4 
-2 2 2 3 0 
-
-2 * matrice = 
-4 2 2 8 2 
-2 6 0 2 8 
-4 4 4 6 0
-```
-
-<details>
-  <summary>Solution</summary>
-
-```csharp
-using System;
-					
-public class Program
-{
-	
-	public static void AfficheArray2D(int[,] array) {
-		for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
-			for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
-				Console.Write("{0} ", array[ligne, colonne]);
-			}
-			Console.WriteLine();
-		}
-	}
-	public static int[,] ScalaireFoisMatrice(int scalaire, int[,] matrice) {
-		int[,] resultat = new int[matrice.GetLength(0), matrice.GetLength(1)];
-		for(int ligne = 0; ligne < matrice.GetLength(0); ligne++) {
-			for(int colonne = 0; colonne < matrice.GetLength(1); colonne++) {
-				resultat[ligne, colonne] = scalaire * matrice[ligne, colonne];
-			}
-		}
-		return resultat;
-	}
-	public static void Main()
-	{
-    int[,] tab = new int[,]{
-            {2,1,1,4,1},
-            {1,3,0,1,4},
-            {2,2,2,3,0},
-          };
-    Console.WriteLine("matrice = ");
-    AfficheArray2D(tab);
-    int[,] resultat = ScalaireFoisMatrice(2, tab);
-    Console.WriteLine("\n2 * matrice = ");
-    AfficheArray2D(resultat);
-	}
-}
-```
-
-</details>
-
-## Exercice
-
-Écrivez une fonction `SommeMatrices(int[,] tab1, int[,] tab2)` qui renvoie un nouveau tableau aux mêmes dimensions que `matrice` et dont les éléments sont la somme des éléments deux à deux de `tab1` et `tab2` (voir la somme de matrices dans le cours de Math).
-
-<details>
-  <summary>Solution</summary>
-
-```csharp
-using System;
-					
-public class Program
-{
-	
-	public static void AfficheArray2D(int[,] array) {
-		for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
-			for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
-				Console.Write("{0} ", array[ligne, colonne]);
-			}
-			Console.WriteLine();
-		}
-	}
-	public static int[,] SommeMatrices(int[,] tab1, int[,] tab2) {
-		if (tab1.GetLength(0) != tab2.GetLength(0) || tab1.GetLength(1) != tab2.GetLength(1)) {
-			// on ne peut pas faire la somme si les dimensions ne sont pas identiques
-			return null;
-		}
-		int[,] resultat = new int[tab1.GetLength(0), tab1.GetLength(1)];
-		for(int ligne = 0; ligne < tab1.GetLength(0); ligne++) {
-			for(int colonne = 0; colonne < tab1.GetLength(1); colonne++) {
-				resultat[ligne, colonne] = tab1[ligne,colonne] + tab2[ligne, colonne];
-			}
-		}
-		return resultat;
-	}
-	public static void Main()
-	{
-		int[,] resultat = SommeMatrices(new int[,] {{1,3,4},{2,3,3}}, new int[,] {{0,2,5},{0,1,1}});
-		AfficheArray2D(resultat);
-	}
-}
-```
-
-</details>
-
-## Exercice
+## Exercice 5
 
 Écrivez un programme qui crée un tableau de 5x10 entiers et y place aléatoirement 10 cases à la valeur 10. Affichez ce tableau.
 
-
-## Exercice
+## Exercice 6
 
 Écrivez un programme qui :
 1. demande à l'utilisateur deux entiers `n` et `m`
@@ -621,7 +543,7 @@ public class Program
 
 Attention à bien vérfier que les positions soient correctes par rapport aux dimensions.
 
-## Exercice
+## Exercice 7
 
 Écrivez un programme qui fait les étapes suivantes.
 
@@ -737,6 +659,201 @@ public class Program
 			}
 		} while (tab[x,y] != 1);
 		Console.WriteLine("Mauvaise case ! Votre score final : {0} point{1}", score, score > 1 ? "s" : "");		
+	}
+}
+```
+</details>
+
+## Exercice 8
+
+Écrire une fonction qui retourne `true` si les deux tableaux passés en paramètre ont le même nombre de dimensions et les mêmes dimensions. Sinon elle renvoie `false`.
+
+## Exercice 9
+
+Écrivez une fonction `ScalaireFoisMatrice(int scalaire, int[,] matrice)` qui renvoie un nouveau tableau aux mêmes dimensions que `matrice` et dont les éléments sont les éléments de `matrice` multipliés par `scalaire` (voir le cours de Math).
+
+Exemples :
+```csharp
+int[,] tab = new int[,]{
+        {0,1,2},
+        {2,3,3},
+      };
+Console.WriteLine("matrice = ");
+AfficheArray2D(tab);
+int[,] resultat = ScalaireFoisMatrice(3, tab);
+Console.WriteLine("\n3 * matrice = ");
+AfficheArray2D(resultat);
+```
+doit afficher :
+```
+matrice = 
+0 1 2 
+2 3 3 
+
+3 * matrice = 
+0 3 6 
+6 9 9
+```
+
+```csharp
+int[,] tab = new int[,]{
+        {2,1,1,4,1},
+        {1,3,0,1,4},
+        {2,2,2,3,0},
+      };
+Console.WriteLine("matrice = ");
+AfficheArray2D(tab);
+int[,] resultat = ScalaireFoisMatrice(2, tab);
+Console.WriteLine("\n2 * matrice = ");
+AfficheArray2D(resultat);
+```
+doit afficher :
+```
+matrice = 
+2 1 1 4 1 
+1 3 0 1 4 
+2 2 2 3 0 
+
+2 * matrice = 
+4 2 2 8 2 
+2 6 0 2 8 
+4 4 4 6 0
+```
+
+<details>
+  <summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	
+	public static void AfficheArray2D(int[,] array) {
+		for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
+			for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
+				Console.Write("{0} ", array[ligne, colonne]);
+			}
+			Console.WriteLine();
+		}
+	}
+	public static int[,] ScalaireFoisMatrice(int scalaire, int[,] matrice) {
+		int[,] resultat = new int[matrice.GetLength(0), matrice.GetLength(1)];
+		for(int ligne = 0; ligne < matrice.GetLength(0); ligne++) {
+			for(int colonne = 0; colonne < matrice.GetLength(1); colonne++) {
+				resultat[ligne, colonne] = scalaire * matrice[ligne, colonne];
+			}
+		}
+		return resultat;
+	}
+	public static void Main()
+	{
+    int[,] tab = new int[,]{
+            {2,1,1,4,1},
+            {1,3,0,1,4},
+            {2,2,2,3,0},
+          };
+    Console.WriteLine("matrice = ");
+    AfficheArray2D(tab);
+    int[,] resultat = ScalaireFoisMatrice(2, tab);
+    Console.WriteLine("\n2 * matrice = ");
+    AfficheArray2D(resultat);
+	}
+}
+```
+
+</details>
+
+## Exercice 10
+
+Écrivez une fonction `SommeMatrices(int[,] tab1, int[,] tab2)` qui renvoie un nouveau tableau aux mêmes dimensions que `matrice` et dont les éléments sont la somme des éléments deux à deux de `tab1` et `tab2` (voir la somme de matrices dans le cours de Math).
+
+Exemples :
+
+```csharp
+int[,] resultat = SommeMatrices(new int[,] {{1,3,4},{2,3,3}}, new int[,] {{0,2,5},{0,1,1}});
+AfficheArray2D(resultat);
+```
+doit afficher :
+```
+1 5 9 
+2 4 4
+```
+
+```csharp
+int[,] resultat = SommeMatrices(new int[,] {{1},{2}}, new int[,] {{3},{4}});
+AfficheArray2D(resultat);
+```
+doit afficher :
+```
+4
+6
+```
+
+```csharp
+int[,] resultat = SommeMatrices(new int[,] {{1}}, new int[,] {{3},{4}});
+if (resultat != null) {
+	AfficheArray2D(resultat);
+} else {
+	Console.WriteLine("Les deux matrices ne sont pas de la même taille");
+}
+```
+doit afficher :
+```
+Les deux matrices ne sont pas de la même taille
+```
+
+<details>
+  <summary>Solution</summary>
+
+```csharp
+using System;
+					
+public class Program
+{
+	// même fonction que les exercices précédents
+	public static void AfficheArray2D(int[,] array) {
+		for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
+			for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
+				Console.Write("{0} ", array[ligne, colonne]);
+			}
+			Console.WriteLine();
+		}
+	}
+
+	// prend en paramètre 2 matrices, les additionne et retourne la matrice résultat
+	public static int[,] SommeMatrices(int[,] tab1, int[,] tab2) {
+		if (tab1.GetLength(0) != tab2.GetLength(0) || tab1.GetLength(1) != tab2.GetLength(1)) {
+			// on ne peut pas faire la somme si les dimensions ne sont pas identiques
+			return null;
+		}
+		// on crée un tableau nommé résultat qui aura les même dimension que le tab1 (on aurait pu prendre le tab2)
+		int[,] resultat = new int[tab1.GetLength(0), tab1.GetLength(1)];
+
+		// ligne va varier de 0 au nombre de lignes de tab1 (-1)
+		for(int ligne = 0; ligne < tab1.GetLength(0); ligne++) {
+			// colonne va varier de 0 au nombre de colonnes de tab1 (-1)
+			for(int colonne = 0; colonne < tab1.GetLength(1); colonne++) {
+				// on additionne les deux coeffiants aux positions (ligne, colonne) et on place la somme dans résultat 
+				resultat[ligne, colonne] = tab1[ligne,colonne] + tab2[ligne, colonne];
+			}
+		}
+		// on retourne le tableau résultat
+		return resultat;
+	}
+
+	public static void Main()
+	{
+		int[,] resultat = SommeMatrices(new int[,] {{1,3,4},{2,3,3}}, new int[,] {{0,2,5},{0,1,1}});
+		AfficheArray2D(resultat);
+		resultat = SommeMatrices(new int[,] {{1},{2}}, new int[,] {{3},{4}});
+		AfficheArray2D(resultat);
+		resultat = SommeMatrices(new int[,] {{1}}, new int[,] {{3},{4}});
+		if (resultat != null) {
+			AfficheArray2D(resultat);
+		} else {
+			Console.WriteLine("Les deux matrices ne sont pas de la même taille");
+		}
 	}
 }
 ```
