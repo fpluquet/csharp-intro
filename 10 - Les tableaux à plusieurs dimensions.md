@@ -528,7 +528,75 @@ public class Program
 
 ## Exercice 5
 
-Écrivez un programme qui crée un tableau de 5x10 entiers et y place aléatoirement 10 cases à la valeur 10. Affichez ce tableau.
+Écrivez un programme qui crée un tableau de 5x10 entiers et y place aléatoirement 10 cases à la valeur 7. Faites attention de ne pas choisir 2 fois la même case pour qu'il y ait bien 10 élements du tableau à 7. Affichez ce tableau.
+
+Exemples de sortie :
+
+```
+7 0 0 0 7 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 
+0 0 7 0 7 0 0 0 0 0 
+0 7 0 0 7 0 0 7 0 7 
+0 0 0 0 0 0 0 0 7 7
+```
+
+```
+7 0 0 0 0 0 0 0 0 0 
+0 0 0 0 7 0 7 0 0 7 
+0 0 0 0 7 0 0 0 7 0 
+0 7 0 0 0 7 0 7 0 0 
+0 0 0 0 0 7 0 0 0 0
+```
+
+<details>
+  <summary>Solution</summary>
+
+```csharp
+using System;
+          
+public class Program
+{
+  // même fonction que les exercices précédents
+  public static void AfficheArray2D(int[,] array) {
+    for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
+      for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
+        Console.Write("{0} ", array[ligne, colonne]);
+      }
+      Console.WriteLine();
+    }
+  }
+
+  public void Main() {
+
+    // création d'un tableau nommé tab de 5x10 entiers
+    int[,] tab = new int[5,10];
+
+    // on crée un objet random qui nous permettra d'obtenir des nombres aléatoires 
+    Random random = new Random();
+
+    // on va placer 10 éléments => i va de 0 à 9
+    for(int i = 0; i < 10; i++) {
+      // on déclare x et y comme des entiers, ils contiendront la position
+      int x, y;
+      do {
+        // on choisit un x et un y aléatoirement en fonction de la taille du tableau tab 
+        x = random.Next(tab.GetLength(0));
+        y = random.Next(tab.GetLength(1));
+      }while(tab[x,y] != 0); // on recommence la boucle jusqu`à ce qu'on ait la position d'une case vide (== 0)
+      
+      // on assigne 7 à cette position
+      tab[x,y] = 7;
+    }
+
+    // on affiche le tableau tab via la méthode AfficheArray 
+    AfficheArray2D(tab);
+  }
+}
+```
+
+</details>
+
+
 
 ## Exercice 6
 
@@ -542,6 +610,100 @@ public class Program
 7. recommence à l'étape 3 jusqu'à ce que `i` soit inférieur à 0
 
 Attention à bien vérfier que les positions soient correctes par rapport aux dimensions.
+
+Exemple de sortie :
+
+<pre>
+Entrez le nombre de lignes : <b>5</b>
+Entrez le nombre de colonnes : <b>6</b>
+Entrez une position i,j : <b>3,2</b>
+Entrez une valeur : <b>5</b>
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 5 0 0 0 
+0 0 0 0 0 0 
+Entrez une position i,j : <b>5,0</b>
+Entrez une position i,j : <b>8,9</b>
+Entrez une position i,j : <b>0,0</b>
+Entrez une valeur : <b>8</b>
+8 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 5 0 0 0 
+0 0 0 0 0 0 
+Entrez une position i,j : <b>3,3</b>
+Entrez une valeur : <b>2</b>
+8 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 5 2 0 0 
+0 0 0 0 0 0 
+Entrez une position i,j : <b>3,3</b>
+Entrez une valeur : <b>9</b>
+8 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 5 9 0 0 
+0 0 0 0 0 0 
+Entrez une position i,j : <b>-1,0</b>
+</pre>
+
+<details>
+  <summary>Solution</summary>
+
+```csharp
+using System;
+          
+public class Program
+{
+  // même fonction que les exercices précédents
+  public static void AfficheArray2D(int[,] array) {
+    for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
+      for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
+        Console.Write("{0} ", array[ligne, colonne]);
+      }
+      Console.WriteLine();
+    }
+  }
+
+  public void Main() {
+    int n, m;
+
+    bool correct;
+    do {
+      Console.Write("Entrez le nombre de lignes : ");
+      correct = int.TryParse(Console.ReadLine(), out n);
+    }while(correct == false || n <= 0);
+    do {
+      Console.Write("Entrez le nombre de colonnes : ");
+      correct = int.TryParse(Console.ReadLine(), out m);
+    }while(correct == false || n <= 0);
+    int i = 0, j = 0, v;
+    int[,] tab = new int[n,m];
+    do {
+      do {
+        Console.Write("Entrez une position i,j : ");
+        string position = Console.ReadLine();
+        string[] p = position.Split(',');
+        correct = int.TryParse(p[0], out i);
+        correct = correct && int.TryParse(p[1], out j);
+      }while(correct == false || j < 0 || i >= n || j >= m);
+      if (i < 0) {
+        break; // arrête la boucle en cours
+      }
+      do {
+        Console.Write("Entrez une valeur :");
+        correct = int.TryParse(Console.ReadLine(), out v);
+      }while(correct == false);
+      tab[i,j] = v;
+      AfficheArray2D(tab);
+    }while(i >= 0);
+  }
+}
+```
+
+</details>
 
 ## Exercice 7
 
@@ -666,7 +828,54 @@ public class Program
 
 ## Exercice 8
 
-Écrire une fonction qui retourne `true` si les deux tableaux passés en paramètre ont le même nombre de dimensions et les mêmes dimensions. Sinon elle renvoie `false`.
+Écrire une fonction `memeTaille` qui retourne `true` si les deux tableaux passés en paramètre ont le même nombre de dimensions et les mêmes dimensions. Sinon elle renvoie `false`.
+
+Exemples d'utilisation :
+
+```csharp
+Console.WriteLine(memeTaille(new int[3,3], new int[3,3])); // affiche True
+Console.WriteLine(memeTaille(new int[2,3], new int[3,3])); // affiche False
+Console.WriteLine(memeTaille(new int[3], new int[3,3])); // affiche False
+Console.WriteLine(memeTaille(new int[3], new int[3])); // affiche True
+Console.WriteLine(memeTaille(new int[3,5,5], new int[3,5,5])); // affiche True
+Console.WriteLine(memeTaille(new int[3,5,8], new int[3,5,5])); // affiche False
+Console.WriteLine(memeTaille(new int[3,5,8], new int[3])); // affiche False
+```
+
+<details>
+  <summary>Solution</summary>
+
+```csharp
+using System;
+          
+public class Program
+{
+  public static bool memeTaille(Array tab1, Array tab2) {
+    if (tab1.Rank != tab2.Rank) {
+      return false;
+    }
+    for(int i = 0; i < tab1.Rank; i++) {
+      if (tab1.GetLength(i) != tab2.GetLength(i)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public void Main() {
+    Console.WriteLine(memeTaille(new int[3,3], new int[3,3])); // affiche True
+    Console.WriteLine(memeTaille(new int[2,3], new int[3,3])); // affiche False
+    Console.WriteLine(memeTaille(new int[3], new int[3,3])); // affiche False
+    Console.WriteLine(memeTaille(new int[3], new int[3])); // affiche True
+    Console.WriteLine(memeTaille(new int[3,5,5], new int[3,5,5])); // affiche True
+    Console.WriteLine(memeTaille(new int[3,5,8], new int[3,5,5])); // affiche False
+    Console.WriteLine(memeTaille(new int[3,5,8], new int[3])); // affiche False
+  }
+}
+```
+
+</details>
+
 
 ## Exercice 9
 
