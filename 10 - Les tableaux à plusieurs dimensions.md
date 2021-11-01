@@ -148,11 +148,11 @@ Il est encore possible d'utiliser un boucle `foreach` avec un tableau à plusieu
 
 ```csharp
 int[,] tab = new int[,] {
-			{5,4,0},
-			{0,0,7}
-		};
+      {5,4,0},
+      {0,0,7}
+    };
 foreach(int element in tab) {
-	Console.WriteLine(element);
+  Console.WriteLine(element);
 }
 ```
 
@@ -180,11 +180,11 @@ int[,] array2= new int[10,3];
 int[,,] array3= new int[5,8,7];
 
 Console.WriteLine("{0}: {1} dimension(s)",
-									array1.ToString(), array1.Rank);
+                  array1.ToString(), array1.Rank);
 Console.WriteLine("{0}: {1} dimension(s)",
-									array2.ToString(), array2.Rank);
+                  array2.ToString(), array2.Rank);
 Console.WriteLine("{0}: {1} dimension(s)",
-									array3.ToString(), array3.Rank);
+                  array3.ToString(), array3.Rank);
 ```
 
 Ce code va produire la sortie suivante :
@@ -203,11 +203,11 @@ Array array2= new int[10,3];
 Array array3= new int[5,8,7];
 
 Console.WriteLine("{0}: {1} dimension(s)",
-									array1.ToString(), array1.Rank);
+                  array1.ToString(), array1.Rank);
 Console.WriteLine("{0}: {1} dimension(s)",
-									array2.ToString(), array2.Rank);
+                  array2.ToString(), array2.Rank);
 Console.WriteLine("{0}: {1} dimension(s)",
-									array3.ToString(), array3.Rank);
+                  array3.ToString(), array3.Rank);
 ```
 
 Ce code va produire la même sortie :
@@ -228,31 +228,31 @@ Que va afficher le programme suivant ?
 
 ```csharp
 using System;
-					
+          
 public class Program
 {
-	
-	public static void Main()
-	{
-		int[,] tab = new int[,] {
-			{5,8,9,4},
-			{0,0,1,1},
-			{1,5,5,3}
-		};
-		
-		int s = 0;
-		for(int ligne = 0; ligne < tab.GetLength(0); ligne++) {
-			for(int colonne = 0; colonne < tab.GetLength(1); colonne++) {
-				s += tab[ligne, colonne];
-			}
-		}
-		Console.WriteLine(s);
-	}
+  
+  public static void Main()
+  {
+    int[,] tab = new int[,] {
+      {5,8,9,4},
+      {0,0,1,1},
+      {1,5,5,3}
+    };
+    
+    int s = 0;
+    for(int ligne = 0; ligne < tab.GetLength(0); ligne++) {
+      for(int colonne = 0; colonne < tab.GetLength(1); colonne++) {
+        s += tab[ligne, colonne];
+      }
+    }
+    Console.WriteLine(s);
+  }
 }
 ```
 
 <details>
-	<summary>Solution</summary>
+  <summary>Solution</summary>
 
 Ce programme affiche la somme de tous les éléments du tableau, c'est-à-dire :
 
@@ -264,33 +264,33 @@ Voici l'explication ligne par ligne :
 
 ```csharp
 using System;
-					
+          
 public class Program
 {
-	
-	public static void Main()
-	{
-		// on crée un tableau à deux dimensions de 3 x 4
-		int[,] tab = new int[,] {
-			{5,8,9,4},
-			{0,0,1,1},
-			{1,5,5,3}
-		};
-		
-		// on crée une variable s, qui est un entier initialisé à 0
-		int s = 0;
+  
+  public static void Main()
+  {
+    // on crée un tableau à deux dimensions de 3 x 4
+    int[,] tab = new int[,] {
+      {5,8,9,4},
+      {0,0,1,1},
+      {1,5,5,3}
+    };
+    
+    // on crée une variable s, qui est un entier initialisé à 0
+    int s = 0;
 
-		// ligne va varier de 0 à 2 (tab.GetLength(0) renvoyant 3)
-		for(int ligne = 0; ligne < tab.GetLength(0); ligne++) {
-			// colonne va varier de 0 à 3 (tab.GetLength(1) renvoyant 4)
-			for(int colonne = 0; colonne < tab.GetLength(1); colonne++) {
-				// on prend l'élément du tableau à la position (ligne, colonne) et on l'ajoute à s
-				s += tab[ligne, colonne];
-			}
-		}
-		// on affiche le contenu de s
-		Console.WriteLine(s);
-	}
+    // ligne va varier de 0 à 2 (tab.GetLength(0) renvoyant 3)
+    for(int ligne = 0; ligne < tab.GetLength(0); ligne++) {
+      // colonne va varier de 0 à 3 (tab.GetLength(1) renvoyant 4)
+      for(int colonne = 0; colonne < tab.GetLength(1); colonne++) {
+        // on prend l'élément du tableau à la position (ligne, colonne) et on l'ajoute à s
+        s += tab[ligne, colonne];
+      }
+    }
+    // on affiche le contenu de s
+    Console.WriteLine(s);
+  }
 }
 
 ```
@@ -302,29 +302,29 @@ public class Program
 Réécrivez le programme précédent avec une seule boucle `foreach`.
 
 <details>
-	<summary>Solution</summary>
+  <summary>Solution</summary>
 
 ```csharp
 using System;
-					
+          
 public class Program
 {
-	
-	public static void Main()
-	{
-		int[,] tab = new int[,] {
-			{5,8,9,4},
-			{0,0,1,1},
-			{1,5,5,3}
-		};
-		
-		int s = 0;
-		// la boucle foreach va donner chaque élément du tableau
-		foreach(int item in tab) {
-			s += item;
-		}
-		Console.WriteLine(s);
-	}
+  
+  public static void Main()
+  {
+    int[,] tab = new int[,] {
+      {5,8,9,4},
+      {0,0,1,1},
+      {1,5,5,3}
+    };
+    
+    int s = 0;
+    // la boucle foreach va donner chaque élément du tableau
+    foreach(int item in tab) {
+      s += item;
+    }
+    Console.WriteLine(s);
+  }
 }
 ```
 
@@ -336,35 +336,35 @@ Que fait le programme suivant ?
 
 ```csharp
 using System;
-					
+          
 public class Program
 {
-	
-	public static void AfficheArray2D(int[,] array) {
-		for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
-			for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
-				Console.Write("{0} ", array[ligne, colonne]);
-			}
-			Console.WriteLine();
-		}
-	}
-	public static void Main()
-	{
-		int[,] tab = new int[3,3];
-		
-		Console.WriteLine("Avant :\n");
-		AfficheArray2D(tab);
+  
+  public static void AfficheArray2D(int[,] array) {
+    for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
+      for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
+        Console.Write("{0} ", array[ligne, colonne]);
+      }
+      Console.WriteLine();
+    }
+  }
+  public static void Main()
+  {
+    int[,] tab = new int[3,3];
+    
+    Console.WriteLine("Avant :\n");
+    AfficheArray2D(tab);
 
-		Console.WriteLine("\nAprès:\n");
-		for(int ligne = 0; ligne < tab.GetLength(0); ligne++) {
-			for(int colonne = 0; colonne < tab.GetLength(1); colonne++) {
-				tab[ligne, colonne] = ligne * 3 + colonne;
-			}
-		}
-		
-		AfficheArray2D(tab);
+    Console.WriteLine("\nAprès:\n");
+    for(int ligne = 0; ligne < tab.GetLength(0); ligne++) {
+      for(int colonne = 0; colonne < tab.GetLength(1); colonne++) {
+        tab[ligne, colonne] = ligne * 3 + colonne;
+      }
+    }
+    
+    AfficheArray2D(tab);
 
-	}
+  }
 }
 ```
 
@@ -390,52 +390,52 @@ Voici l'explication :
 
 ```csharp
 using System;
-					
+          
 public class Program
 {
   // on définit une fonction qui :
   // - a comme nom : AfficheArray2D
   // - prend 1 paramètre nommé array de type int[,] (un tableau d'entiers à deux dimensions)
   // - ne renvoie aucune valeur (void)
-	public static void AfficheArray2D(int[,] array) {
+  public static void AfficheArray2D(int[,] array) {
     // ligne va varier de 0 au nombre d'éléments (-1) de la première dimension
-		for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
+    for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
       // colonne va varier de 0 au nombre d'éléments (-1) de la deuxième dimension
-			for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
+      for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
         // on affiche l'élément à la position (ligne,colonne)
-				Console.Write("{0} ", array[ligne, colonne]);
-			}
+        Console.Write("{0} ", array[ligne, colonne]);
+      }
       // on affiche l'élément à la position (ligne,colonne)
-			Console.WriteLine();
-		}
-	}
-	public static void Main()
-	{
-		// création d'une tableau tab à 2 dimensions et initialisé avec un tableau 3x3
-		int[,] tab = new int[3,3];
-		
-		// on affiche "Avant :" et un retour à la ligne (\n) 
-		Console.WriteLine("Avant :\n");
+      Console.WriteLine();
+    }
+  }
+  public static void Main()
+  {
+    // création d'une tableau tab à 2 dimensions et initialisé avec un tableau 3x3
+    int[,] tab = new int[3,3];
+    
+    // on affiche "Avant :" et un retour à la ligne (\n) 
+    Console.WriteLine("Avant :\n");
 
-		// on appelle la fonction AfficheArray2D en lui passant tab comme argument
-		AfficheArray2D(tab);
+    // on appelle la fonction AfficheArray2D en lui passant tab comme argument
+    AfficheArray2D(tab);
 
-		// on affiche "Après :" et des retours à la ligne (\n) 
-		Console.WriteLine("\nAprès:\n");
+    // on affiche "Après :" et des retours à la ligne (\n) 
+    Console.WriteLine("\nAprès:\n");
 
-		// ligne va varier de 0 à 2 (tab.GetLength(0) renvoyant 3)
-		for(int ligne = 0; ligne < tab.GetLength(0); ligne++) {
-			// colonne va varier de 0 à 2 (tab.GetLength(1) renvoyant 3)
-			for(int colonne = 0; colonne < tab.GetLength(1); colonne++) {
-				// on met ligne * 3 + colonne à la position (ligne, colonne) 
-				tab[ligne, colonne] = ligne * 3 + colonne;
-			}
-		}
-		
-		// on appelle la fonction AfficheArray2D en lui passant tab comme argument
-		AfficheArray2D(tab);
+    // ligne va varier de 0 à 2 (tab.GetLength(0) renvoyant 3)
+    for(int ligne = 0; ligne < tab.GetLength(0); ligne++) {
+      // colonne va varier de 0 à 2 (tab.GetLength(1) renvoyant 3)
+      for(int colonne = 0; colonne < tab.GetLength(1); colonne++) {
+        // on met ligne * 3 + colonne à la position (ligne, colonne) 
+        tab[ligne, colonne] = ligne * 3 + colonne;
+      }
+    }
+    
+    // on appelle la fonction AfficheArray2D en lui passant tab comme argument
+    AfficheArray2D(tab);
 
-	}
+  }
 }
 ```
 
@@ -447,27 +447,27 @@ Que fait le programme suivant ?
 
 ```csharp
 using System;
-					
+          
 public class Program
 {
-	
-	public static void AfficheArray(Array array) {
-		int nbDimensions = array.Rank;
-		int index = 0;
-		foreach(int element in array) {
-			Console.WriteLine("[{0}] = {1}", index, element);
-			index++;
-		}
-	}
-	public static void Main()
-	{
-		AfficheArray(new int[,] {
-			{5,7,8},
-			{1,2,1}
-		});
-		Console.WriteLine();
-		AfficheArray(new int[] {10,3,2});
-	}
+  
+  public static void AfficheArray(Array array) {
+    int nbDimensions = array.Rank;
+    int index = 0;
+    foreach(int element in array) {
+      Console.WriteLine("[{0}] = {1}", index, element);
+      index++;
+    }
+  }
+  public static void Main()
+  {
+    AfficheArray(new int[,] {
+      {5,7,8},
+      {1,2,1}
+    });
+    Console.WriteLine();
+    AfficheArray(new int[] {10,3,2});
+  }
 }
 ```
 
@@ -492,35 +492,35 @@ Voici l'explication :
 
 ```csharp
 using System;
-					
+          
 public class Program
 {
-	// déclaration de la méthode AfficheArray qui prend un tableau array en paramètre
-	public static void AfficheArray(Array array) {
-		// on récupère le nombre de dimensions du tableau
-		int nbDimensions = array.Rank;
-		// on crée une variable entière index, initialisée à 0
-		int index = 0;
+  // déclaration de la méthode AfficheArray qui prend un tableau array en paramètre
+  public static void AfficheArray(Array array) {
+    // on récupère le nombre de dimensions du tableau
+    int nbDimensions = array.Rank;
+    // on crée une variable entière index, initialisée à 0
+    int index = 0;
 
-		// pour chaque élément de tableau array qu'on met dans element...
-		foreach(int element in array) {
-			// ... on affiche l'index courant et la valeur de element
-			Console.WriteLine("[{0}] = {1}", index, element);
-			// on incrémente index
-			index++;
-		}
-	}
-	public static void Main()
-	{
-		// on appelle la méthode AfficheArray en lui passant un tableau 2x3
-		AfficheArray(new int[,] {
-			{5,7,8},
-			{1,2,1}
-		});
-		Console.WriteLine();
-		// on appelle la méthode AfficheArray en lui passant un tableau 1x3
-		AfficheArray(new int[] {10,3,2});
-	}
+    // pour chaque élément de tableau array qu'on met dans element...
+    foreach(int element in array) {
+      // ... on affiche l'index courant et la valeur de element
+      Console.WriteLine("[{0}] = {1}", index, element);
+      // on incrémente index
+      index++;
+    }
+  }
+  public static void Main()
+  {
+    // on appelle la méthode AfficheArray en lui passant un tableau 2x3
+    AfficheArray(new int[,] {
+      {5,7,8},
+      {1,2,1}
+    });
+    Console.WriteLine();
+    // on appelle la méthode AfficheArray en lui passant un tableau 1x3
+    AfficheArray(new int[] {10,3,2});
+  }
 }
 ```
 
@@ -603,63 +603,63 @@ Mauvaise case ! Votre score final : 2 points
 </pre>
 
 <details>
-	<summary>Solution</summary>
+  <summary>Solution</summary>
 
 ```csharp
 using System;
-					
+          
 public class Program
 {
-	public static void AfficherArray2D(int[,] array) {
-		Console.Write("  ");
-		for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
-			Console.Write("{0} ", colonne);
-		}
-		Console.WriteLine();
-		for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
-			Console.Write("{0} ", ligne);
-			for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
-				if (array[ligne, colonne] == 2) {
-					Console.Write("X ");
-				} else {
-					Console.Write("  ");
-				}	
-			}
-			Console.WriteLine();
-		}
-	}
-	public static void RemplirDe1(int[,] tab) {
-		Random random = new Random();
-		for(int i = 0; i < 10; i++) {
-			int x, y;
-			do {
-				x = random.Next(tab.GetLength(0));
-				y = random.Next(tab.GetLength(1));
-			}while(tab[x,y] == 1);
-			tab[x,y] = 1;
-		}
-	}		
-	public static void Main()
-	{
-		int[,] tab = new int[10,10];
-		RemplirDe1(tab);
-		AfficherArray2D(tab);
-		int score = 0;
-		int x, y;
-		do {
-			Console.Write("Quelle ligne voulez-vous jouer ? : ");
-			x = int.Parse(Console.ReadLine());
-			Console.Write("Quelle colonne voulez-vous jouer ? : ");
-			y = int.Parse(Console.ReadLine());
-			if (tab[x,y] == 0) {
-				score ++;
-				tab[x,y] = 2;
-				Console.WriteLine("Bonne case ! Votre score : {0} point{1}", score, score > 1 ? "s" : "");
-				AfficherArray2D(tab);
-			}
-		} while (tab[x,y] != 1);
-		Console.WriteLine("Mauvaise case ! Votre score final : {0} point{1}", score, score > 1 ? "s" : "");		
-	}
+  public static void AfficherArray2D(int[,] array) {
+    Console.Write("  ");
+    for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
+      Console.Write("{0} ", colonne);
+    }
+    Console.WriteLine();
+    for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
+      Console.Write("{0} ", ligne);
+      for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
+        if (array[ligne, colonne] == 2) {
+          Console.Write("X ");
+        } else {
+          Console.Write("  ");
+        }	
+      }
+      Console.WriteLine();
+    }
+  }
+  public static void RemplirDe1(int[,] tab) {
+    Random random = new Random();
+    for(int i = 0; i < 10; i++) {
+      int x, y;
+      do {
+        x = random.Next(tab.GetLength(0));
+        y = random.Next(tab.GetLength(1));
+      }while(tab[x,y] == 1);
+      tab[x,y] = 1;
+    }
+  }		
+  public static void Main()
+  {
+    int[,] tab = new int[10,10];
+    RemplirDe1(tab);
+    AfficherArray2D(tab);
+    int score = 0;
+    int x, y;
+    do {
+      Console.Write("Quelle ligne voulez-vous jouer ? : ");
+      x = int.Parse(Console.ReadLine());
+      Console.Write("Quelle colonne voulez-vous jouer ? : ");
+      y = int.Parse(Console.ReadLine());
+      if (tab[x,y] == 0) {
+        score ++;
+        tab[x,y] = 2;
+        Console.WriteLine("Bonne case ! Votre score : {0} point{1}", score, score > 1 ? "s" : "");
+        AfficherArray2D(tab);
+      }
+    } while (tab[x,y] != 1);
+    Console.WriteLine("Mauvaise case ! Votre score final : {0} point{1}", score, score > 1 ? "s" : "");		
+  }
 }
 ```
 </details>
@@ -725,29 +725,29 @@ matrice =
 
 ```csharp
 using System;
-					
+          
 public class Program
 {
-	
-	public static void AfficheArray2D(int[,] array) {
-		for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
-			for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
-				Console.Write("{0} ", array[ligne, colonne]);
-			}
-			Console.WriteLine();
-		}
-	}
-	public static int[,] ScalaireFoisMatrice(int scalaire, int[,] matrice) {
-		int[,] resultat = new int[matrice.GetLength(0), matrice.GetLength(1)];
-		for(int ligne = 0; ligne < matrice.GetLength(0); ligne++) {
-			for(int colonne = 0; colonne < matrice.GetLength(1); colonne++) {
-				resultat[ligne, colonne] = scalaire * matrice[ligne, colonne];
-			}
-		}
-		return resultat;
-	}
-	public static void Main()
-	{
+  
+  public static void AfficheArray2D(int[,] array) {
+    for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
+      for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
+        Console.Write("{0} ", array[ligne, colonne]);
+      }
+      Console.WriteLine();
+    }
+  }
+  public static int[,] ScalaireFoisMatrice(int scalaire, int[,] matrice) {
+    int[,] resultat = new int[matrice.GetLength(0), matrice.GetLength(1)];
+    for(int ligne = 0; ligne < matrice.GetLength(0); ligne++) {
+      for(int colonne = 0; colonne < matrice.GetLength(1); colonne++) {
+        resultat[ligne, colonne] = scalaire * matrice[ligne, colonne];
+      }
+    }
+    return resultat;
+  }
+  public static void Main()
+  {
     int[,] tab = new int[,]{
             {2,1,1,4,1},
             {1,3,0,1,4},
@@ -758,7 +758,7 @@ public class Program
     int[,] resultat = ScalaireFoisMatrice(2, tab);
     Console.WriteLine("\n2 * matrice = ");
     AfficheArray2D(resultat);
-	}
+  }
 }
 ```
 
@@ -793,9 +793,9 @@ doit afficher :
 ```csharp
 int[,] resultat = SommeMatrices(new int[,] {{1}}, new int[,] {{3},{4}});
 if (resultat != null) {
-	AfficheArray2D(resultat);
+  AfficheArray2D(resultat);
 } else {
-	Console.WriteLine("Les deux matrices ne sont pas de la même taille");
+  Console.WriteLine("Les deux matrices ne sont pas de la même taille");
 }
 ```
 doit afficher :
@@ -808,53 +808,53 @@ Les deux matrices ne sont pas de la même taille
 
 ```csharp
 using System;
-					
+          
 public class Program
 {
-	// même fonction que les exercices précédents
-	public static void AfficheArray2D(int[,] array) {
-		for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
-			for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
-				Console.Write("{0} ", array[ligne, colonne]);
-			}
-			Console.WriteLine();
-		}
-	}
+  // même fonction que les exercices précédents
+  public static void AfficheArray2D(int[,] array) {
+    for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
+      for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
+        Console.Write("{0} ", array[ligne, colonne]);
+      }
+      Console.WriteLine();
+    }
+  }
 
-	// prend en paramètre 2 matrices, les additionne et retourne la matrice résultat
-	public static int[,] SommeMatrices(int[,] tab1, int[,] tab2) {
-		if (tab1.GetLength(0) != tab2.GetLength(0) || tab1.GetLength(1) != tab2.GetLength(1)) {
-			// on ne peut pas faire la somme si les dimensions ne sont pas identiques
-			return null;
-		}
-		// on crée un tableau nommé résultat qui aura les même dimension que le tab1 (on aurait pu prendre le tab2)
-		int[,] resultat = new int[tab1.GetLength(0), tab1.GetLength(1)];
+  // prend en paramètre 2 matrices, les additionne et retourne la matrice résultat
+  public static int[,] SommeMatrices(int[,] tab1, int[,] tab2) {
+    if (tab1.GetLength(0) != tab2.GetLength(0) || tab1.GetLength(1) != tab2.GetLength(1)) {
+      // on ne peut pas faire la somme si les dimensions ne sont pas identiques
+      return null;
+    }
+    // on crée un tableau nommé résultat qui aura les même dimension que le tab1 (on aurait pu prendre le tab2)
+    int[,] resultat = new int[tab1.GetLength(0), tab1.GetLength(1)];
 
-		// ligne va varier de 0 au nombre de lignes de tab1 (-1)
-		for(int ligne = 0; ligne < tab1.GetLength(0); ligne++) {
-			// colonne va varier de 0 au nombre de colonnes de tab1 (-1)
-			for(int colonne = 0; colonne < tab1.GetLength(1); colonne++) {
-				// on additionne les deux coeffiants aux positions (ligne, colonne) et on place la somme dans résultat 
-				resultat[ligne, colonne] = tab1[ligne,colonne] + tab2[ligne, colonne];
-			}
-		}
-		// on retourne le tableau résultat
-		return resultat;
-	}
+    // ligne va varier de 0 au nombre de lignes de tab1 (-1)
+    for(int ligne = 0; ligne < tab1.GetLength(0); ligne++) {
+      // colonne va varier de 0 au nombre de colonnes de tab1 (-1)
+      for(int colonne = 0; colonne < tab1.GetLength(1); colonne++) {
+        // on additionne les deux coeffiants aux positions (ligne, colonne) et on place la somme dans résultat 
+        resultat[ligne, colonne] = tab1[ligne,colonne] + tab2[ligne, colonne];
+      }
+    }
+    // on retourne le tableau résultat
+    return resultat;
+  }
 
-	public static void Main()
-	{
-		int[,] resultat = SommeMatrices(new int[,] {{1,3,4},{2,3,3}}, new int[,] {{0,2,5},{0,1,1}});
-		AfficheArray2D(resultat);
-		resultat = SommeMatrices(new int[,] {{1},{2}}, new int[,] {{3},{4}});
-		AfficheArray2D(resultat);
-		resultat = SommeMatrices(new int[,] {{1}}, new int[,] {{3},{4}});
-		if (resultat != null) {
-			AfficheArray2D(resultat);
-		} else {
-			Console.WriteLine("Les deux matrices ne sont pas de la même taille");
-		}
-	}
+  public static void Main()
+  {
+    int[,] resultat = SommeMatrices(new int[,] {{1,3,4},{2,3,3}}, new int[,] {{0,2,5},{0,1,1}});
+    AfficheArray2D(resultat);
+    resultat = SommeMatrices(new int[,] {{1},{2}}, new int[,] {{3},{4}});
+    AfficheArray2D(resultat);
+    resultat = SommeMatrices(new int[,] {{1}}, new int[,] {{3},{4}});
+    if (resultat != null) {
+      AfficheArray2D(resultat);
+    } else {
+      Console.WriteLine("Les deux matrices ne sont pas de la même taille");
+    }
+  }
 }
 ```
 
