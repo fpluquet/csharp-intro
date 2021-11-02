@@ -808,15 +808,24 @@ using System;
           
 public class Program
 {
+  // Affichage du tableau array avec les numéros de lignes et colonnes
   public static void AfficherArray2D(int[,] array) {
-    Console.Write("  ");
+  
+    // affichage des numéros de colonnes
+    Console.Write("  ");    
     for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
       Console.Write("{0} ", colonne);
     }
     Console.WriteLine();
+                                                      
+                                                      
     for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
+      // affichage du numéro de ligne
       Console.Write("{0} ", ligne);
+  
+      
       for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
+        // on affiche un X si c'est égal à 2, un espace sinon
         if (array[ligne, colonne] == 2) {
           Console.Write("X ");
         } else {
@@ -826,36 +835,62 @@ public class Program
       Console.WriteLine();
     }
   }
+        
+  // Fonction RemplirDe1, avec en paramètre le tableau à remplir
   public static void RemplirDe1(int[,] tab) {
+
+    // l'objet Random
     Random random = new Random();
+    
+    // on va poser 10 éléments à 1
     for(int i = 0; i < 10; i++) {
       int x, y;
+      // on va chercher une position qui n'est pas égale à 1
       do {
         x = random.Next(tab.GetLength(0));
         y = random.Next(tab.GetLength(1));
       }while(tab[x,y] == 1);
+      // on met 1 à cette position
       tab[x,y] = 1;
     }
   }		
+  
   public static void Main()
   {
+    // tab est un tableau d'entiers 10 x 10
     int[,] tab = new int[10,10];
+    
+    // on le remplit de 10 éléments à 1
     RemplirDe1(tab);
+  
+    // on affiche le tableau
     AfficherArray2D(tab);
+  
+    // le score est initialisé à 0
     int score = 0;
+  
+    // on a besoin d'une position x, y
     int x, y;
     do {
       Console.Write("Quelle ligne voulez-vous jouer ? : ");
       x = int.Parse(Console.ReadLine());
       Console.Write("Quelle colonne voulez-vous jouer ? : ");
       y = int.Parse(Console.ReadLine());
+  
+      // si la case est vide
       if (tab[x,y] == 0) {
+        // on incrémente le score
         score ++;
+        // on y met un 2
         tab[x,y] = 2;
+        // on affiche le score
         Console.WriteLine("Bonne case ! Votre score : {0} point{1}", score, score > 1 ? "s" : "");
+        // on affiche le tableau tab
         AfficherArray2D(tab);
       }
+    // on continue tant que la case choisie n'a pas un 1
     } while (tab[x,y] != 1);
+    // quand on sort de la boucle, on a perdu... On affiche le message
     Console.WriteLine("Mauvaise case ! Votre score final : {0} point{1}", score, score > 1 ? "s" : "");		
   }
 }
@@ -887,14 +922,18 @@ using System;
 public class Program
 {
   public static bool memeTaille(Array tab1, Array tab2) {
+    // on vérifie le nombre de dimensions
     if (tab1.Rank != tab2.Rank) {
       return false;
     }
+
+    // on vérifie chaque dimension
     for(int i = 0; i < tab1.Rank; i++) {
       if (tab1.GetLength(i) != tab2.GetLength(i)) {
         return false;
       }
     }
+    // si rien ne va mal, tout est ok !
     return true;
   }
 
