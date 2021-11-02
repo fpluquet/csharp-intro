@@ -560,7 +560,7 @@ using System;
           
 public class Program
 {
-  // même fonction que les exercices précédents
+  // même fonction que dans les exercices précédents
   public static void AfficheArray2D(int[,] array) {
     for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
       for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
@@ -662,7 +662,7 @@ using System;
           
 public class Program
 {
-  // même fonction que les exercices précédents
+  // même fonction que dans les exercices précédents
   public static void AfficheArray2D(int[,] array) {
     for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
       for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
@@ -1012,7 +1012,7 @@ using System;
           
 public class Program
 {
-  
+  // même fonction que dans les exercices précédents
   public static void AfficheArray2D(int[,] array) {
     for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
       for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
@@ -1021,15 +1021,27 @@ public class Program
       Console.WriteLine();
     }
   }
+
+  // Fonction ScalaireFoisMatrice :
+  // - deux paramètres : 
+  //    - scalaire : entier par qui il faut multiplier la matrice
+  //    - matrice : la matrice (tableau à 2 dimensions) à multipler
+  // - retour : un nouveau tableau à 2 dimensions qui est le résultat de l'opération  
   public static int[,] ScalaireFoisMatrice(int scalaire, int[,] matrice) {
+    
+    // on crée le tableau resultat de même dimension que matrice 
     int[,] resultat = new int[matrice.GetLength(0), matrice.GetLength(1)];
+    
     for(int ligne = 0; ligne < matrice.GetLength(0); ligne++) {
       for(int colonne = 0; colonne < matrice.GetLength(1); colonne++) {
+        // on remplit resultat du produit de scalaire par le coeffient correspondant de matrice   
         resultat[ligne, colonne] = scalaire * matrice[ligne, colonne];
       }
     }
+    // on retourne le tableau calculé
     return resultat;
   }
+
   public static void Main()
   {
     int[,] tab = new int[,]{
@@ -1095,7 +1107,7 @@ using System;
           
 public class Program
 {
-  // même fonction que les exercices précédents
+  // même fonction que dans les exercices précédents
   public static void AfficheArray2D(int[,] array) {
     for(int ligne = 0; ligne < array.GetLength(0); ligne++) {
       for(int colonne = 0; colonne < array.GetLength(1); colonne++) {
@@ -1105,7 +1117,9 @@ public class Program
     }
   }
 
-  // prend en paramètre 2 matrices, les additionne et retourne la matrice résultat
+  // Fonction SommeMatrices :
+  // - deux paramètres : deux tableaux à 2 dimensions à additionner
+  // - retour : un nouveau tableau à 2 dimensions qui est le résultat de l'opération  
   public static int[,] SommeMatrices(int[,] tab1, int[,] tab2) {
     if (tab1.GetLength(0) != tab2.GetLength(0) || tab1.GetLength(1) != tab2.GetLength(1)) {
       // on ne peut pas faire la somme si les dimensions ne sont pas identiques
