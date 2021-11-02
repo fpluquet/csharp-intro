@@ -30,8 +30,8 @@ Voici la matière à terminer pour chaque semaine de cours :
 | 6    | Les boucles while et do-while                                       |
 | 7    | Les boucles for                                                     |
 | 8    | Les tableaux à une dimension                                        |
-| 9    | Les fonctions et les fonctions récursives                           |
-| 10   | Les exceptions, try-catch, les tableaux à plusieurs dimensions      |
+| 9    | Les fonctions                                                       |
+| 10   | Les tableaux à plusieurs dimensions                                 |
 | 11   | Les exercices finaux                                                |
 | 12   | Les exercices finaux                                                |
 
