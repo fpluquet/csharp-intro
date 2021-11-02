@@ -176,8 +176,8 @@ Vous pouvez utiliser la propriété `Rank` d'un tableau pour connaître le nombr
 
 ```csharp
 int[] array1 = new int[10];
-int[,] array2= new int[10,3];
-int[,,] array3= new int[5,8,7];
+int[,] array2 = new int[10,3];
+int[,,] array3 = new int[5,8,7];
 
 Console.WriteLine("{0}: {1} dimension(s)",
                   array1.ToString(), array1.Rank);
@@ -199,15 +199,19 @@ Si on ne connaît pas la dimension d'un tableau avant de le créer, nous pouvons
 
 ```csharp
 Array array1 = new int[10];
-Array array2= new int[10,3];
-Array array3= new int[5,8,7];
 
 Console.WriteLine("{0}: {1} dimension(s)",
                   array1.ToString(), array1.Rank);
+
+array1 = new int[10,3];
+
 Console.WriteLine("{0}: {1} dimension(s)",
-                  array2.ToString(), array2.Rank);
+                  array1.ToString(), array1.Rank);
+                  
+array1 = new int[5,8,7];
+
 Console.WriteLine("{0}: {1} dimension(s)",
-                  array3.ToString(), array3.Rank);
+                  array1.ToString(), array1.Rank);
 ```
 
 Ce code va produire la même sortie :
@@ -669,36 +673,67 @@ public class Program
   }
 
   public void Main() {
+    // les deux dimensions n et m
     int n, m;
-
+  
+    // correct contiendra le retour de TryParse (true si le string contient bien un nombre)
     bool correct;
+  
+    // Demande du nombre de lignes
     do {
       Console.Write("Entrez le nombre de lignes : ");
       correct = int.TryParse(Console.ReadLine(), out n);
     }while(correct == false || n <= 0);
+                                      
+    // Demande du nombre de colonnes
     do {
       Console.Write("Entrez le nombre de colonnes : ");
       correct = int.TryParse(Console.ReadLine(), out m);
-    }while(correct == false || n <= 0);
+    }while(correct == false || m <= 0);
+  
+    // Déclarations de i, j et v
     int i = 0, j = 0, v;
+  
+    // déclaration de tab et initialisation avec un tableau n x m
     int[,] tab = new int[n,m];
+  
+    // boucle principale
     do {
+      // boucle de demande de la position
       do {
         Console.Write("Entrez une position i,j : ");
         string position = Console.ReadLine();
+
+        // on sépare l'entrée en deux avec la virgule : i,j
         string[] p = position.Split(',');
+  
+        // le tableau p contient 2 strings
         correct = int.TryParse(p[0], out i);
+  
+        // correct contient correct *et* le parse de j
+        // --> si correct est faux avant d'arriver ici, il restera faux
         correct = correct && int.TryParse(p[1], out j);
+      // on continue tant que les valeurs ne sont pas correctes
       }while(correct == false || j < 0 || i >= n || j >= m);
+  
+      // si i est négatif...
       if (i < 0) {
-        break; // arrête la boucle en cours
+        break; // ...arrête la boucle en cours (le do/while)
       }
+                
+      // on demande une valeur
       do {
         Console.Write("Entrez une valeur :");
         correct = int.TryParse(Console.ReadLine(), out v);
       }while(correct == false);
+      
+      // on assigne la valeur à la bonne position
       tab[i,j] = v;
+
+      // on affiche le tableau tab
       AfficheArray2D(tab);
+    
+    // tant que i est supérieur à 0, on boucle
     }while(i >= 0);
   }
 }
