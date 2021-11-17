@@ -654,6 +654,7 @@ Entrez une valeur : <b>9</b>
 Entrez une position i,j : <b>-1,0</b>
 </pre>
 
+> Conseil : utilisez la méthode `Split` sur un string pour séparer un string en sous-string en fonction d'un séparateur (https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=net-5.0) : `"3,2".Split(",")` renvoie un tableau `["3", "2"]`.
 <details>
   <summary>Solution</summary>
 
