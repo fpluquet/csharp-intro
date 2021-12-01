@@ -4,7 +4,9 @@ On vous demande de développer le jeu de Puissance 4 en console. Veuillez respec
 
 Vérifiez que l'entrée de l'utilisateur est correcte (que ce soit bien un nombre et qu'il soit compris entre 1 et 7). Si elle ne l'est pas, redemandez une nouvelle valeur.
 
-Découpez votre code en fonctions pour éviter d'avoir des fonctions trop grandes (> 30 lignes)
+Découpez votre code en fonctions pour éviter d'avoir des fonctions trop grandes (> 30 lignes).
+
+Vérifiez que le jeu est terminé lorsque 4 pions de même couleur sont alignés horizontalement, verticalement ou en diagonale.
 
 Voici une sortie attendue :
 
