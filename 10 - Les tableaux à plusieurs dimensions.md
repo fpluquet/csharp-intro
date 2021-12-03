@@ -714,6 +714,10 @@ public class Program
         // correct contient correct *et* le parse de j
         // --> si correct est faux avant d'arriver ici, il restera faux
         correct = correct && int.TryParse(p[1], out j);
+        // on pourrait aussi écrire cette ligne comme ça :
+        // if(correct == true) {
+        //  correct = int.TryParse(p[1], out j);
+        // }
       // on continue tant que les valeurs ne sont pas correctes
       }while(correct == false || j < 0 || i >= n || j >= m);
   
