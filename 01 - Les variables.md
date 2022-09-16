@@ -19,6 +19,7 @@ On peut aussi lire le contenu d'une variable en indiquant son nom dans une expre
 ```
 int ageMinimum = age;
 ```
+
 La valeur contenue dans ```age``` sera alors recopiée dans la variable nommée ```ageMinimum```.
 
 Le code ```Console.WriteLine(age)``` permet d'afficher la valeur de la variable sur la sortie standard du programme (qu'on appelle la console). 
