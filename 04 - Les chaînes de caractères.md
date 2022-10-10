@@ -41,7 +41,7 @@ Voici quelques unes des plus intéressantes :
 
 | Nom de la méthode | Utilité | Exemple |
 | - | - | - |
-| CompareTo | Compare cette instance avec un objet ```String``` spécifié et indique si cette instance précède (```>0```), suit(```<0```) ou apparaît à la même position (```0```) dans l'ordre de tri que la chaîne spécifiée. | ```"Hello".CompareTo("Bonjour"); // renvoie -1``` <br> ```"Hello".CompareTo("Hello"); // renvoie 0``` <br> ```"Bonjour".CompareTo("Hello"); // renvoie 1``` |
+| CompareTo | Compare cette instance avec un objet ```String``` spécifié et indique si cette instance précède (```>0```), suit(```<0```) ou apparaît à la même position (```0```) dans l'ordre de tri que la chaîne spécifiée. | ```"Hello".CompareTo("Bonjour"); // renvoie 1``` <br> ```"Hello".CompareTo("Hello"); // renvoie 0``` <br> ```"Bonjour".CompareTo("Hello"); // renvoie -1``` |
 | IndexOf | Signale l'index de base zéro de la première occurrence de la chaîne spécifiée dans cette instance. | ```"Hello".IndexOf("lo"); // renvoie 3```|
 | Contains | Retourne une valeur qui indique si la sous-chaîne spécifiée apparaît dans cette chaîne. | ```"Hello".Contains("ll"); // renvoie True``` |
 | StartsWith | Détermine si le début de cette instance de chaîne correspond à la chaîne spécifiée. | ```"Hello".StartsWith("Hel"); // renvoie True``` |
