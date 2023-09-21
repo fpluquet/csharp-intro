@@ -24,7 +24,7 @@ Console.WriteLine("Les paramètres sont : {1}, {2}, {0}", 5, 12, 24); // affiche
 Console.WriteLine("Les paramètres sont : {1}, {2}, {0}", "coucou", 12, "hello"); // affichera "Les paramètres sont : 12, hello, coucou"
 ```
 
-## Convertion
+## Conversion
 
 Il arrive souvent que l'on doive passer d'une chaîne de caractères à des entiers et inversément. Pour transformer un ```int``` en ```string```, il suffit d'appeler la méthode ```ToString()``` sur l'entier :
 
