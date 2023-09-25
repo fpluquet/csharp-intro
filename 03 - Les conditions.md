@@ -7,9 +7,12 @@ Les conditions sont des valeurs booléennes (```true``` ou ```false```) qui peut
 ```csharp
 bool estUnHomme = true;
 
-if (estUnHomme == true) {
+if (estUnHomme == true)
+{
 	Console.WriteLine("C'est un homme");
-} else {
+}
+else
+{
 	Console.WriteLine("Ce n'est pas un homme");
 }
 
@@ -30,9 +33,12 @@ Si on assigne ```false``` à la variable booléenne :
 ```csharp
 bool estUnHomme = false;
 
-if (estUnHomme == true) {
+if (estUnHomme == true)
+{
 	Console.WriteLine("C'est un homme");
-} else {
+}
+else
+{
 	Console.WriteLine("Ce n'est pas un homme");
 }
 
@@ -52,7 +58,8 @@ Notez que le ```else``` est facultatif :
 ```csharp
 bool estUnHomme = true;
 
-if (estUnHomme == true) {
+if (estUnHomme == true)
+{
 	Console.WriteLine("C'est un homme");
 }
 
@@ -71,9 +78,12 @@ public class Program
 	public static void Main()
 	{
 		string nom = Console.ReadLine();
-		if (nom.Length < 3) { 
+		if (nom.Length < 3)
+		{ 
 			Console.WriteLine("Oups...");
-		} else { 
+		}
+		else
+		{ 
 			Console.WriteLine("Ok");
 		}
 	}
@@ -95,10 +105,13 @@ public class Program
 		string nom = Console.ReadLine();
 
 		// si la longueur de la chaîne de caractères est strictement plus petite que 3...
-		if (nom.Length < 3) {
+		if (nom.Length < 3)
+		{
 			// ... on affiche "Oups..." 
 			Console.WriteLine("Oups...");
-		} else { 
+		}
+		else
+		{ 
 			// ... sinon, on affiche "Ok" 
 			Console.WriteLine("Ok");
 		}
@@ -121,9 +134,12 @@ public class Program
 	{
 		string nom = Console.ReadLine();
 		string motDePasse = Console.ReadLine();
-		if (nom == "Fréd" && motDePasse == "le c# c'est la vie") { 
+		if (nom == "Fréd" && motDePasse == "le c# c'est la vie")
+		{ 
 			Console.WriteLine("Connecté !");
-		} else { 
+		}
+		else
+		{ 
 			Console.WriteLine("Erreur");
 		}
 	}
@@ -149,10 +165,13 @@ public class Program
 		string motDePasse = Console.ReadLine();
 
 		// si le nom est "Fréd" et que le mot de passe est "le c# c'est la vie"
-		if (nom == "Fréd" && motDePasse == "le c# c'est la vie") { 
+		if (nom == "Fréd" && motDePasse == "le c# c'est la vie")
+		{ 
 			// ... alors on affiche "Connecté !"
 			Console.WriteLine("Connecté !");
-		} else { 
+		}
+		else
+		{ 
 			// ... sinon on affiche Erreur
 			Console.WriteLine("Erreur");
 		}
@@ -175,13 +194,16 @@ public class Program
 	{
 		int entier = int.Parse(Console.ReadLine());
 
-		if (entier > 100) { 
+		if (entier > 100)
+		{ 
 			Console.WriteLine("Assez grand");
 		}
-		if (entier == 1000) { 
+		if (entier == 1000)
+		{ 
 			Console.WriteLine("1000 pile !");
 		}
-		if (entier % 5 == 0) { 
+		if (entier % 5 == 0)
+		{ 
 			Console.WriteLine("Multiple de 5");
 		}
 	}
@@ -212,19 +234,22 @@ public class Program
 		int entier = int.Parse(Console.ReadLine());
 
 		// si l'entier est strictement plus grand que 100
-		if (entier > 100) { 
+		if (entier > 100)
+		{ 
 			// ... on affiche "Assez grand"
 			Console.WriteLine("Assez grand");
 		}
 
 		// si l'entier est égal à 1000
-		if (entier == 1000) { 
+		if (entier == 1000)
+		{ 
 			// ... on affiche "1000 pile !"
 			Console.WriteLine("1000 pile !");
 		}
 
 		// si le reste de la division entière de l'entier par 5 est égal à 0 
-		if (entier % 5 == 0) { 
+		if (entier % 5 == 0)
+		{ 
 			// ... on affiche "Multiple de 5"
 			Console.WriteLine("Multiple de 5");
 		}
@@ -299,13 +324,13 @@ Quel est votre sexe (M/F) ?
 Bonjour Monsieur Fréd
 </pre>
 
-```
+<pre>
 Quel est votre nom ?
-Sabine
+<b>Sabine</b>
 Quel est votre sexe (M/F) ?
-F
+<b>F</b>
 Bonjour Madame Sabine
-```
+</pre>
 
 <details>
 	<summary>Solution</summary>
@@ -328,9 +353,12 @@ public class Program
 
 		// lecture du sexe de l'utilisateur 
 		string sexe = Console.ReadLine();
-		if (sexe == "M") {
+		if (sexe == "M")
+		{
 			Console.WriteLine("Bonjour Monsieur " + nom);
-		} else {
+		}
+		else
+		{
 			Console.WriteLine("Bonjour Madame " + nom);
 		}
 	}
@@ -383,10 +411,13 @@ public class Program
 		int age = int.Parse(line);
 
 		// si l'âge est plus grand ou égal à 18... 
-		if (age >= 18) {
+		if (age >= 18)
+		{
 			// ... on affiche qu'il est majeur
 			Console.WriteLine("Vous êtes majeur");
-		} else {
+		}
+		else
+		{
 			// ... sinon on affiche qu'il est mineur
 			Console.WriteLine("Vous êtes mineur");
 		}
@@ -441,10 +472,13 @@ public class Program
 		int.TryParse(Console.ReadLine(), out annee);
 		
 		// (si annee est divisible par 4 et pas par 100) ou (si annee est divisible par 400)
-		if ((annee % 4 == 0 && annee % 100 != 0) || (annee % 400 == 0)) {
+		if ((annee % 4 == 0 && annee % 100 != 0) || (annee % 400 == 0))
+		{
 			// On affiche que cette année est bissextile
 			Console.WriteLine("L'année {0} est bissextile", annee);
-		} else {
+		}
+		else
+		{
 			// On affiche que cette année n'est pas bissextile
 			Console.WriteLine("L'année {0} n'est pas bissextile", annee);
 		}
@@ -486,7 +520,8 @@ public class Program {
 		int aRendre = int.Parse(Console.ReadLine());
 		
 		// Si il y a au moins 200 euros à rendre...
-		if (aRendre >= 200) {
+		if (aRendre >= 200)
+		{
 			// ... on compte le nombre de billets de 200 euros à rendre 
 			int nbBillets = aRendre / 200; // comme nbBillets est un entier, on a une division entière : 312 / 200 = 1
 			
