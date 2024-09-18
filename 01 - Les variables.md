@@ -59,7 +59,7 @@ public class Program
 	{
 		int age = 18; 		// age contient 18
 		int ageMinimum = 0; 	// age contient 18, ageMinimum contient 0
-		int ageMaximum = 99; 	// age contient 18, ageMinimum contient 0, ageMaximum contient 0-99
+		int ageMaximum = 99; 	// age contient 18, ageMinimum contient 0, ageMaximum contient 99
 		
 		// on va copier la valeur contenue dans age dans la variable ageMinimum
 		// attention : seule la valeur est copiée : ageMinimum n'est pas "liée" à age 
