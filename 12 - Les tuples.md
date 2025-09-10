@@ -1,4 +1,4 @@
-### Les Tuples
+﻿### Les Tuples
 
 Les tuples sont une structure de données légère qui permet de stocker plusieurs éléments hétérogènes dans un seul conteneur. Chaque élément peut être de type différent, offrant ainsi une flexibilité dans la manipulation de données. En C#, vous pouvez créer des tuples en utilisant la classe `Tuple` ou à l'aide de la syntaxe de tuple introduite dans C# 7.0.
 

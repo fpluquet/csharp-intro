@@ -1,4 +1,4 @@
-# Tableaux à une dimension et boucles for
+﻿# Tableaux à une dimension et boucles for
 
 Un tableau est une structure de données qui permet de stocker des informations de même type et d'y accéder via un index.
 
@@ -106,7 +106,7 @@ tab[0] = 5;
 tab[5] = 8;
 
 for(int i = 0; i < tab.Length; i++) {
-	Console.WriteLine("tab[{0}] = {1}", i, tab[i]);
+	Console.WriteLine($"tab[{i}] = {tab[i]}");
 }
 ```
 
@@ -135,7 +135,7 @@ tab[0] = 5;
 tab[5] = 8;
 
 foreach(int n in tab) {
-	Console.WriteLine("{0}", n);
+	Console.WriteLine($"{n}");
 }
 ```
 
@@ -161,25 +161,17 @@ Ce code affichera :
 Qu'affiche le programme suivant ?
 
 ```csharp
-using System;
-
-public class Program
-{
-	public static void Main()
-	{
-		int[] tab = new int[6];
-		tab[0] = 10;
-		tab[1] = 15;
-		tab[2] = tab[0];
-		tab[3] = tab[1];
-		tab[4] = tab[0] + tab[1];
-		tab[5] = 1;
-		tab[5] += 2;
-		tab[5]++;
-		for(int i = 0; i < tab.Length; i++) {
-			Console.WriteLine("tab[{0}] = {1}", i, tab[i]);
-		}
-	}
+int[] tab = new int[6];
+tab[0] = 10;
+tab[1] = 15;
+tab[2] = tab[0];
+tab[3] = tab[1];
+tab[4] = tab[0] + tab[1];
+tab[5] = 1;
+tab[5] += 2;
+tab[5]++;
+for(int i = 0; i < tab.Length; i++) {
+	Console.WriteLine($"tab[{i}] = {tab[i]}");
 }
 ```
 
@@ -187,36 +179,28 @@ public class Program
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-
-public class Program
-{
-	public static void Main()
-	{
-		// création d'un tableau nommé tab, qui contiendra 6 entiers
-		int[] tab = new int[6];
-		// on met 10 dans la case d'index 0
-		tab[0] = 10;
-		// on met 15 dans la case d'index 1
-		tab[1] = 15;
-		// on recopie la valeur de tab[0] (donc 10) dans la case d'index 2
-		tab[2] = tab[0];
-		// on recopie la valeur de tab[1] (donc 15) dans la case d'index 3
-		tab[3] = tab[1];
-		// on fait la somme de la valeur de tab[0] (donc 10) et tab[1] (donc 15), ce qui donne la valuer 25, qu'on va assigner à la case d'index 4
-		tab[4] = tab[0] + tab[1];
-		// on met 1 dans la case d'index 5
-		tab[5] = 1;
-		// on ajoute 2 dans la case d'index 5 (c'est équivalent à tab[5] = tab[5] + 2)
-		tab[5] += 2;
-		// on ajoute 1 dans la case d'index 5 (c'est équivalent à tab[5] = tab[5] + 1)
-		tab[5]++;
-		// on fait varier i de 0 à 5
-		for(int i = 0; i < tab.Length; i++) {
-			// on affiche la case i
-			Console.WriteLine("tab[{0}] = {1}", i, tab[i]);
-		}
-	}
+// création d'un tableau nommé tab, qui contiendra 6 entiers
+int[] tab = new int[6];
+// on met 10 dans la case d'index 0
+tab[0] = 10;
+// on met 15 dans la case d'index 1
+tab[1] = 15;
+// on recopie la valeur de tab[0] (donc 10) dans la case d'index 2
+tab[2] = tab[0];
+// on recopie la valeur de tab[1] (donc 15) dans la case d'index 3
+tab[3] = tab[1];
+// on fait la somme de la valeur de tab[0] (donc 10) et tab[1] (donc 15), ce qui donne la valuer 25, qu'on va assigner à la case d'index 4
+tab[4] = tab[0] + tab[1];
+// on met 1 dans la case d'index 5
+tab[5] = 1;
+// on ajoute 2 dans la case d'index 5 (c'est équivalent à tab[5] = tab[5] + 2)
+tab[5] += 2;
+// on ajoute 1 dans la case d'index 5 (c'est équivalent à tab[5] = tab[5] + 1)
+tab[5]++;
+// on fait varier i de 0 à 5
+for(int i = 0; i < tab.Length; i++) {
+	// on affiche la case i
+	Console.WriteLine($"tab[{i}] = {tab[i]}");
 }
 ```
 
@@ -255,30 +239,22 @@ tab[9] = 63
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// création d'un tableau nommé tab, qui contiendra 10 entiers
-		int[] tab = new int[10];
+// création d'un tableau nommé tab, qui contiendra 10 entiers
+int[] tab = new int[10];
 
-		// création d'un objet random qui permet d'obtenir des nombres aléatoires
-		Random random = new Random();
-		
-		// i varie de 0 à 9
-		for(int i = 0; i < 10; i++) {
-			// on assigne à tab[i] une valeur aléatoire entre -100 et 100
-			tab[i] = random.Next(-100,100);
-		}
+// création d'un objet random qui permet d'obtenir des nombres aléatoires
+Random random = new Random();
 
-		// i varie de 0 à 9
-		for(int i = 0; i < 10; i++) {
-			// on affiche la case i
-			Console.WriteLine("tab[{0}] = {1}", i, tab[i]);
-		}
-	}
+// i varie de 0 à 9
+for(int i = 0; i < 10; i++) {
+	// on assigne à tab[i] une valeur aléatoire entre -100 et 100
+	tab[i] = random.Next(-100,100);
+}
+
+// i varie de 0 à 9
+for(int i = 0; i < 10; i++) {
+	// on affiche la case i
+	Console.WriteLine($"tab[{i}] = {tab[i]}");
 }
 ```
 
@@ -308,46 +284,38 @@ L'élément le plus petit est : -84
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// création d'un tableau nommé tab, qui contiendra 10 entiers
-		int[] tab = new int[10];
+// création d'un tableau nommé tab, qui contiendra 10 entiers
+int[] tab = new int[10];
 
-		// création d'un objet random qui permet d'obtenir des nombres aléatoires
-		Random random = new Random();
-		
-		// i varie de 0 à 9
-		for(int i = 0; i < 10; i++) {
-			// on assigne à tab[i] une valeur aléatoire entre -100 et 100
-			tab[i] = random.Next(-100,100);
-		}
+// création d'un objet random qui permet d'obtenir des nombres aléatoires
+Random random = new Random();
 
-		// i varie de 0 à 9
-		for(int i = 0; i < 10; i++) {
-			// on affiche la case i
-			Console.WriteLine("tab[{0}] = {1}", i, tab[i]);
-		}
-		// on déclare une variable min
-		//    dans laquelle on met le plus grand entier possible
-		int min = int.MaxValue;
+// i varie de 0 à 9
+for(int i = 0; i < 10; i++) {
+	// on assigne à tab[i] une valeur aléatoire entre -100 et 100
+	tab[i] = random.Next(-100,100);
+}
 
-		// i varie de 0 à 9
-		for(int i = 0; i < 10; i++) {
-			// si la valeur à l'index i du tableau est plus petite que le minimum courant...
-			if (tab[i] < min) {
-				// ... on retient cette valeur comme minimum courant
-				min = tab[i];
-			}
-		}
+// i varie de 0 à 9
+for(int i = 0; i < 10; i++) {
+	// on affiche la case i
+	Console.WriteLine($"tab[{i}] = {tab[i]}");
+}
+// on déclare une variable min
+//    dans laquelle on met le plus grand entier possible
+int min = int.MaxValue;
 
-		// on affiche le minimum trouvé
-		Console.WriteLine("L'élément le plus petit est : {0}", min);
+// i varie de 0 à 9
+for(int i = 0; i < 10; i++) {
+	// si la valeur à l'index i du tableau est plus petite que le minimum courant...
+	if (tab[i] < min) {
+		// ... on retient cette valeur comme minimum courant
+		min = tab[i];
 	}
 }
+
+// on affiche le minimum trouvé
+Console.WriteLine($"L'élément le plus petit est : {min}");
 ```
 </details>
 
@@ -375,46 +343,38 @@ L'élément le plus grand est : 66
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// création d'un tableau nommé tab, qui contiendra 10 entiers
-		int[] tab = new int[10];
+// création d'un tableau nommé tab, qui contiendra 10 entiers
+int[] tab = new int[10];
 
-		// création d'un objet random qui permet d'obtenir des nombres aléatoires
-		Random random = new Random();
-		
-		// i varie de 0 à 9
-		for(int i = 0; i < 10; i++) {
-			// on assigne à tab[i] une valeur aléatoire entre -100 et 100
-			tab[i] = random.Next(-100,100);
-		}
+// création d'un objet random qui permet d'obtenir des nombres aléatoires
+Random random = new Random();
 
-		// i varie de 0 à 9
-		for(int i = 0; i < 10; i++) {
-			// on affiche la case i
-			Console.WriteLine("tab[{0}] = {1}", i, tab[i]);
-		}
-		// on déclare une variable max
-		//    dans laquelle on met le plus petit entier possible
-		int max = int.MinValue;
+// i varie de 0 à 9
+for(int i = 0; i < 10; i++) {
+	// on assigne à tab[i] une valeur aléatoire entre -100 et 100
+	tab[i] = random.Next(-100,100);
+}
 
-		// i varie de 0 à 9
-		for(int i = 0; i < 10; i++) {
-			// si la valeur à l'index i du tableau est plus grande que le maximum courant...
-			if (tab[i] > max) {
-				// ... on retient cette valeur comme maximum courant
-				max = tab[i];
-			}
-		}
+// i varie de 0 à 9
+for(int i = 0; i < 10; i++) {
+	// on affiche la case i
+	Console.WriteLine($"tab[{i}] = {tab[i]}");
+}
+// on déclare une variable max
+//    dans laquelle on met le plus petit entier possible
+int max = int.MinValue;
 
-		// on affiche le maximum trouvé
-		Console.WriteLine("L'élément le plus grand est : {0}", max);
+// i varie de 0 à 9
+for(int i = 0; i < 10; i++) {
+	// si la valeur à l'index i du tableau est plus grande que le maximum courant...
+	if (tab[i] > max) {
+		// ... on retient cette valeur comme maximum courant
+		max = tab[i];
 	}
 }
+
+// on affiche le maximum trouvé
+Console.WriteLine($"L'élément le plus grand est : {max}");
 ```
 </details>
 
@@ -455,56 +415,48 @@ La somme des éléments des deux tableaux est : 19
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// affichage de la question
-		Console.Write("Quel est la taille des tableaux ? ");
+// affichage de la question
+Console.Write("Quel est la taille des tableaux ? ");
 
-		// lecture de la taille *n* des tableaux
-		int n = int.Parse(Console.ReadLine());
+// lecture de la taille *n* des tableaux
+int n = int.Parse(Console.ReadLine());
 
-		// création des tableaux tab1 et tab2 de dimension n
-		int[] tab1 = new int[n];
-		int[] tab2 = new int[n];
-		
-		// affichage du texte
-		Console.WriteLine("Entrez les {0} éléments du tableau 1 : ", n);
+// création des tableaux tab1 et tab2 de dimension n
+int[] tab1 = new int[n];
+int[] tab2 = new int[n];
 
-		// i varie de 0 à n - 1
-		for(int i = 0; i < n; i++) {
-			// affichage de la "question"
-			Console.Write("tab1[{0}] = ", i);
-			// lecture de l'entier et assignation à l'index i de tab1
-			tab1[i] = int.Parse(Console.ReadLine());
-		}
+// affichage du texte
+Console.WriteLine($"Entrez les {n} éléments du tableau 1 : ");
 
-		// affichage du texte
-		Console.WriteLine("Entrez les {0} éléments du tableau 2 : ",n);
-
-		// i varie de 0 à n - 1
-		for(int i = 0; i < n; i++) {
-			// affichage de la "question"
-			Console.Write("tab2[{0}] = ", i);
-			// lecture de l'entier et assignation à l'index i de tab1
-			tab2[i] = int.Parse(Console.ReadLine());
-		}
-		
-		// on déclare et initialise la variable somme à 0 
-		int somme = 0;
-		// i varie de 0 à n - 1
-		for(int i = 0; i < n; i++) {
-			// on cumule dans somme les valeurs à l'indice i de tab1 et tab2
-			somme = somme + tab1[i] + tab2[i];
-		}
-		
-		// on affiche la somme
-		Console.WriteLine("La somme des éléments des deux tableaux est : {0}", somme);
-	}
+// i varie de 0 à n - 1
+for(int i = 0; i < n; i++) {
+	// affichage de la "question"
+	Console.Write($"tab1[{i}] = ");
+	// lecture de l'entier et assignation à l'index i de tab1
+	tab1[i] = int.Parse(Console.ReadLine());
 }
+
+// affichage du texte
+Console.WriteLine($"Entrez les {n} éléments du tableau 2 : ");
+
+// i varie de 0 à n - 1
+for(int i = 0; i < n; i++) {
+	// affichage de la "question"
+	Console.Write($"tab2[{i}] = ");
+	// lecture de l'entier et assignation à l'index i de tab1
+	tab2[i] = int.Parse(Console.ReadLine());
+}
+
+// on déclare et initialise la variable somme à 0 
+int somme = 0;
+// i varie de 0 à n - 1
+for(int i = 0; i < n; i++) {
+	// on cumule dans somme les valeurs à l'indice i de tab1 et tab2
+	somme = somme + tab1[i] + tab2[i];
+}
+
+// on affiche la somme
+Console.WriteLine($"La somme des éléments des deux tableaux est : {somme}");
 ```
 </details>
 
@@ -552,57 +504,49 @@ tab[4] = 0
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// création d'un tableau nommé tab, qui contiendra 10 entiers
-		int[] tab = new int[5];
+// création d'un tableau nommé tab, qui contiendra 10 entiers
+int[] tab = new int[5];
 
-		// création d'un objet random qui permet d'obtenir des nombres aléatoires
-		Random random = new Random();
-		
-		// i varie de 0 à 4
-		for(int i = 0; i < tab.Length; i++) {
-			// on assigne à tab[i] une valeur aléatoire entre -100 et 100
-			tab[i] = random.Next(-100,100);
-		}
+// création d'un objet random qui permet d'obtenir des nombres aléatoires
+Random random = new Random();
 
-		// i varie de 0 à 4
-		for(int i = 0; i < tab.Length; i++) {
-			// on affiche la case i
-			Console.WriteLine("tab[{0}] = {1}", i, tab[i]);
-		}
-		// Affiche un ligne blanche
-		Console.WriteLine();
-		
-		// Affiche la question
-		Console.Write("Quelle position voulez-vous supprimer ? ");
-		
-		// index va contenir l'index du tableau à supprimer
-		int index;
-		int.TryParse(Console.ReadLine(), out index);
+// i varie de 0 à 4
+for(int i = 0; i < tab.Length; i++) {
+	// on assigne à tab[i] une valeur aléatoire entre -100 et 100
+	tab[i] = random.Next(-100,100);
+}
 
-		// on décale tout d'un position vers le début :
-		//    si i = 0, tab[0] = tab[1]
-		//    si i = 1, tab[1] = tab[2]
-		for(int i = index; i < tab.Length - 1; i++) {
-			tab[i] = tab[i+1];
-		}
+// i varie de 0 à 4
+for(int i = 0; i < tab.Length; i++) {
+	// on affiche la case i
+	Console.WriteLine($"tab[{i}] = {tab[i]}");
+}
+// Affiche un ligne blanche
+Console.WriteLine();
 
-		// on met zéro à la dernière position
-		tab[tab.Length - 1] = 0;
+// Affiche la question
+Console.Write("Quelle position voulez-vous supprimer ? ");
 
-		// Affiche un ligne blanche
-		Console.WriteLine();
-		// i varie de 0 à 4
-		for(int i = 0; i < tab.Length; i++) {
-			// on affiche la case i
-			Console.WriteLine("tab[{0}] = {1}", i, tab[i]);
-		}
-	}
+// index va contenir l'index du tableau à supprimer
+int index;
+int.TryParse(Console.ReadLine(), out index);
+
+// on décale tout d'un position vers le début :
+//    si i = 0, tab[0] = tab[1]
+//    si i = 1, tab[1] = tab[2]
+for(int i = index; i < tab.Length - 1; i++) {
+	tab[i] = tab[i+1];
+}
+
+// on met zéro à la dernière position
+tab[tab.Length - 1] = 0;
+
+// Affiche un ligne blanche
+Console.WriteLine();
+// i varie de 0 à 4
+for(int i = 0; i < tab.Length; i++) {
+	// on affiche la case i
+	Console.WriteLine($"tab[{i}] = {tab[i]}");
 }
 ```
 </details>
@@ -650,62 +594,54 @@ tab[9] = 99
 Il faut évidemment déjà bien comprendre l'algorithme du tri à bulle qui permet de trier un tableau facilement.
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// déclaration et initialisation d'un tableau de 10 entiers nommé tab
-		int[] tab = new int[10];
+// déclaration et initialisation d'un tableau de 10 entiers nommé tab
+int[] tab = new int[10];
 
-		// déclaration et initialisation de random qui permettra d'obtenir des nombres aléatoires 
-		Random random = new Random(); 
-		
-		// assignation de 10 nombres aléatoires dans tab
-		for(int i = 0; i < tab.Length; i++) {
-			tab[i] = random.Next(-100,100);
-		}
+// déclaration et initialisation de random qui permettra d'obtenir des nombres aléatoires 
+Random random = new Random(); 
 
-		// affichage du titre (le \n permet d'ajouter un retour à la ligne)
-		Console.WriteLine("Avant le tri : \n");
+// assignation de 10 nombres aléatoires dans tab
+for(int i = 0; i < tab.Length; i++) {
+	tab[i] = random.Next(-100,100);
+}
 
-		// i varie de 0 à tab.Length - 1
-		for(int i = 0; i < tab.Length; i++) {
-			// on affiche la case i
-			Console.WriteLine("tab[{0}] = {1}", i, tab[i]);
-		}
-		
-		// pseudo code provenant de Wikipedia :
+// affichage du titre (le \n permet d'ajouter un retour à la ligne)
+Console.WriteLine("Avant le tri : \n");
 
-		// pour i allant de (taille de T)-1 à 1
-    //		pour j allant de 0 à i-1
-    //   		si T[j+1] < T[j]
-    //       		(T[j+1], T[j]) = (T[j], T[j+1])
-		
-		// i varie de tab.Length - 1 à 1
-		for(int i = tab.Length - 1; i > 0; i--) {
-			// j varie de 0 à i - 1
-			for(int j = 0; j < i; j++) {
-				// si la case suivante ([j+1]) contient un valeur plus petite que la courante ([j])
-				if (tab[j + 1] < tab[j]) {
-					// on échange les deux cases du tableau (swap)
-					int tmp = tab[j + 1];
-					tab[j + 1] = tab[j];
-					tab[j] = tmp;
-				}
-			}
-		}
-		
-		// affichage du titre (les \n permettent d'ajouter un retour à la ligne)
-		Console.WriteLine("\nAprès le tri :\n");
+// i varie de 0 à tab.Length - 1
+for(int i = 0; i < tab.Length; i++) {
+	// on affiche la case i
+	Console.WriteLine($"tab[{i}] = {tab[i]}");
+}
 
-		// i varie de 0 à tab.Length - 1
-		for(int i = 0; i < tab.Length; i++) {
-			// on affiche la case i
-			Console.WriteLine("tab[{0}] = {1}", i, tab[i]);
+// pseudo code provenant de Wikipedia :
+
+// pour i allant de (taille de T)-1 à 1
+//		pour j allant de 0 à i-1
+//   		si T[j+1] < T[j]
+//       		(T[j+1], T[j]) = (T[j], T[j+1])
+
+// i varie de tab.Length - 1 à 1
+for(int i = tab.Length - 1; i > 0; i--) {
+	// j varie de 0 à i - 1
+	for(int j = 0; j < i; j++) {
+		// si la case suivante ([j+1]) contient un valeur plus petite que la courante ([j])
+		if (tab[j + 1] < tab[j]) {
+			// on échange les deux cases du tableau (swap)
+			int tmp = tab[j + 1];
+			tab[j + 1] = tab[j];
+			tab[j] = tmp;
 		}
 	}
+}
+
+// affichage du titre (les \n permettent d'ajouter un retour à la ligne)
+Console.WriteLine("\nAprès le tri :\n");
+
+// i varie de 0 à tab.Length - 1
+for(int i = 0; i < tab.Length; i++) {
+	// on affiche la case i
+	Console.WriteLine($"tab[{i}] = {tab[i]}");
 }
 ```
 
@@ -943,25 +879,19 @@ Article retiré avec succès
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// déclaration et initialisation du tableau noms de 10 strings 
-		string[] noms = new string[10];
+// déclaration et initialisation du tableau noms de 10 strings 
+string[] noms = new string[10];
 
-		// déclaration et initialisation du tableau prix de 10 entiers 
-		int[] prix = new int[10];
-		
-		// déclaration et initialisation de la variable contenant le choix de l'utilisateur
-		int choix = 0;
-		
-		// on commence la boucle faire...tant que... (do/while) 
-		do {
-			// on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
-			Console.Write(@"
+// déclaration et initialisation du tableau prix de 10 entiers 
+int[] prix = new int[10];
+
+// déclaration et initialisation de la variable contenant le choix de l'utilisateur
+int choix = 0;
+
+// on commence la boucle faire...tant que... (do/while) 
+do {
+	// on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
+	Console.Write(@"
 1. Afficher tous les articles et leur prix
 2. Modifier le nom d'un article
 3. Modifier le prix d'un article
@@ -970,95 +900,93 @@ public class Program
 
 Votre choix: ");
 
-			// on lit le choix de l'utilisateur
-			// 	=> choix sera à 0 si l'entrée n'est pas un nombre 
-			int.TryParse(Console.ReadLine(), out choix);
-			
-			// affichage d'une ligne vide 
-			Console.WriteLine();
+	// on lit le choix de l'utilisateur
+	// 	=> choix sera à 0 si l'entrée n'est pas un nombre 
+	int.TryParse(Console.ReadLine(), out choix);
+	
+	// affichage d'une ligne vide 
+	Console.WriteLine();
 
-			// si le choix est 1...
-			if (choix == 1) {
+	// si le choix est 1...
+	if (choix == 1) {
 
-				// i varie de 0 à 9
-				for(int i = 0; i < 10; i++) {
+		// i varie de 0 à 9
+		for(int i = 0; i < 10; i++) {
 
-					// si, pour l'élément à l'indice i, le nom est assigné ou le prix est assigné...
-					if (noms[i] != null || prix[i] != 0) {
-						// on affiche le nom et le prix
-						Console.WriteLine("{0}. {1} : {2} euros", i + 1, noms[i], prix[i]);
-					} else { // sinon...
-						// on affiche "Non défini"
-						Console.WriteLine("{0}. Non défini", i + 1);
-					}
-				}
-			} else if (choix >= 2 && choix <= 4) { // sinon, si le choix est compris entre 2 et 4...
-				// on va demander à l'utilisateur l'index de l'article à modifier 
-
-				//  indexArticle va contenir le numéro d'article à modifier
-				int indexArticle = -1;
-
-				do {
-					// affichage de la question
-					Console.Write("Quel numéro d'article voulez-vous modifier ? ");
-
-					// on lit indexArticle sur la console
-					int.TryParse(Console.ReadLine(), out indexArticle);
-					
-					// si l'index est inférieur à 1 ou supérieur à 10
-					if (indexArticle < 1 || indexArticle > 10) {
-						// on met indexArticle à -1
-						indexArticle = -1;
-					}
-				}while(indexArticle == -1); // on boucle sur la demande de l'indice tant que le nombre n'est pas correct 
-
-				// si le choix est 2 (modification du nom)
-				if (choix == 2) {
-					// on affiche la question du nom
-					Console.Write("Quel est le nouveau nom de l'article {0} ? ", indexArticle);
-
-					// on lit le nouveau nom
-					string nom = Console.ReadLine();
-
-					// on l'assigne au bon indice dans la tableau noms
-					noms[indexArticle - 1] = nom;
-
-					// on affiche le retour utilisateur
-					Console.WriteLine("Nom modifié avec succès");
-
-				} else if (choix == 3) { // ou si le choix est 3 (modification du prix)
-
-					// on affiche la question du prix
-					Console.Write("Quel est le nouveau prix de l'article {0} ? ", indexArticle);
-
-					// on lit le nouveau prix
-					int nouveauPrix = int.Parse(Console.ReadLine());
-
-					// on l'assigne au bon indice dans la tableau prix
-					prix[indexArticle - 1] = nouveauPrix;				
-
-					// on affiche le retour utilisateur
-					Console.WriteLine("Prix modifié avec succès");
-
-				} else if (choix == 4) {  // ou si le choix est 4 (suppression de l'article)
-					
-					// on efface le nom
-					noms[indexArticle - 1] = null;
-					
-					// on efface le prix
-					prix[indexArticle - 1] = 0;
-
-					// on affiche le retour utilisateur
-					Console.WriteLine("Article retiré avec succès");
-
-				}
-			} else if (choix != 5) { // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
-				// on affiche le message d'erreur
-				Console.WriteLine("Ce choix est invalide");
+			// si, pour l'élément à l'indice i, le nom est assigné ou le prix est assigné...
+			if (noms[i] != null || prix[i] != 0) {
+				// on affiche le nom et le prix
+				Console.WriteLine($"{i + 1}. {noms[i]} : {prix[i]} euros");
+			} else { // sinon...
+				// on affiche "Non défini"
+				Console.WriteLine($"{i + 1}. Non défini");
 			}
-		} while(choix != 5); // on arrête cette boucle quand le choix est 5
+		}
+	} else if (choix >= 2 && choix <= 4) { // sinon, si le choix est compris entre 2 et 4...
+		// on va demander à l'utilisateur l'index de l'article à modifier 
+
+		//  indexArticle va contenir le numéro d'article à modifier
+		int indexArticle = -1;
+
+		do {
+			// affichage de la question
+			Console.Write("Quel numéro d'article voulez-vous modifier ? ");
+
+			// on lit indexArticle sur la console
+			int.TryParse(Console.ReadLine(), out indexArticle);
+			
+			// si l'index est inférieur à 1 ou supérieur à 10
+			if (indexArticle < 1 || indexArticle > 10) {
+				// on met indexArticle à -1
+				indexArticle = -1;
+			}
+		}while(indexArticle == -1); // on boucle sur la demande de l'indice tant que le nombre n'est pas correct 
+
+		// si le choix est 2 (modification du nom)
+		if (choix == 2) {
+			// on affiche la question du nom
+			Console.Write($"Quel est le nouveau nom de l'article {indexArticle} ? ");
+
+			// on lit le nouveau nom
+			string nom = Console.ReadLine();
+
+			// on l'assigne au bon indice dans la tableau noms
+			noms[indexArticle - 1] = nom;
+
+			// on affiche le retour utilisateur
+			Console.WriteLine("Nom modifié avec succès");
+
+		} else if (choix == 3) { // ou si le choix est 3 (modification du prix)
+
+			// on affiche la question du prix
+			Console.Write($"Quel est le nouveau prix de l'article {indexArticle} ? ");
+
+			// on lit le nouveau prix
+			int nouveauPrix = int.Parse(Console.ReadLine());
+
+			// on l'assigne au bon indice dans la tableau prix
+			prix[indexArticle - 1] = nouveauPrix;				
+
+			// on affiche le retour utilisateur
+			Console.WriteLine("Prix modifié avec succès");
+
+		} else if (choix == 4) {  // ou si le choix est 4 (suppression de l'article)
+			
+			// on efface le nom
+			noms[indexArticle - 1] = null;
+			
+			// on efface le prix
+			prix[indexArticle - 1] = 0;
+
+			// on affiche le retour utilisateur
+			Console.WriteLine("Article retiré avec succès");
+
+		}
+	} else if (choix != 5) { // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
+		// on affiche le message d'erreur
+		Console.WriteLine("Ce choix est invalide");
 	}
-}
+} while(choix != 5); // on arrête cette boucle quand le choix est 5
 ```
 </details>
 

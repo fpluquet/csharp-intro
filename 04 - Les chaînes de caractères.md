@@ -1,4 +1,4 @@
-# Les chaînes de caractères (string)
+﻿# Les chaînes de caractères (string)
 
 Un ```string``` en informatique est une chaîne de caractères, c'est-à-dire une suite ordonnée de caractères.
 
@@ -76,54 +76,38 @@ Le mot "Chiens" est déjà au pluriel.
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// affichage de la question
-		Console.Write("Quel mot faut-il mettre au pluriel ?");
+// affichage de la question
+Console.Write("Quel mot faut-il mettre au pluriel ?");
 
-		// lecture et assignation du mot de l'utilisateur
-		string mot = Console.ReadLine();
-		
-		// si la dernière lettre est un 's'...
-		if (mot[mot.Length - 1] == 's') {
-			// ... alors on affiche que c'est déjà au pluriel
-			Console.WriteLine("Le mot \"{0}\" est déjà au pluriel.", mot); 
-		} else {
-			// ... sinon on affiche le mot au pluriel
-			Console.WriteLine("Le mot \"{0}\" au pluriel : {1}", mot, mot + "s");
-		}
-	}
+// lecture et assignation du mot de l'utilisateur
+string mot = Console.ReadLine();
+
+// si la dernière lettre est un 's'...
+if (mot[mot.Length - 1] == 's') {
+	// ... alors on affiche que c'est déjà au pluriel
+	Console.WriteLine($"Le mot \"{mot}\" est déjà au pluriel."); 
+} else {
+	// ... sinon on affiche le mot au pluriel
+	Console.WriteLine($"Le mot \"{mot}\" au pluriel : {mot}s");
 }
 ```
 
 Une autre possibilité est d'utiliser la méthode ```EndsWith``` au lieu de ```mot[mot.Length - 1]``` :
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// affichage de la question
-		Console.Write("Quel mot faut-il mettre au pluriel ?");
+// affichage de la question
+Console.Write("Quel mot faut-il mettre au pluriel ?");
 
-		// lecture et assignation du mot de l'utilisateur
-		string mot = Console.ReadLine();
-		
-		// si la dernière lettre est un 's'...
-		if (mot.EndsWith("s")) {
-			// ... alors on affiche que c'est déjà au pluriel
-			Console.WriteLine("Le mot \"{0}\" est déjà au pluriel.", mot); 
-		} else {
-			// ... sinon on affiche le mot au pluriel
-			Console.WriteLine("Le mot \"{0}\" au pluriel : {1}", mot, mot + "s");
-		}
-	}
+// lecture et assignation du mot de l'utilisateur
+string mot = Console.ReadLine();
+
+// si la dernière lettre est un 's'...
+if (mot.EndsWith("s")) {
+	// ... alors on affiche que c'est déjà au pluriel
+	Console.WriteLine($"Le mot \"{mot}\" est déjà au pluriel."); 
+} else {
+	// ... sinon on affiche le mot au pluriel
+	Console.WriteLine($"Le mot \"{mot}\" au pluriel : {mot}s");
 }
 ```
 </details>
@@ -151,33 +135,25 @@ Arbre vient avant Bonbon
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// affichage de la question
-		Console.Write("Quel est le premier mot ?");
+// affichage de la question
+Console.Write("Quel est le premier mot ?");
 
-		// lecture et assignation du premier mot de l'utilisateur
-		string mot1 = Console.ReadLine();
+// lecture et assignation du premier mot de l'utilisateur
+string mot1 = Console.ReadLine();
 
-		// affichage de la question
-		Console.Write("Quel est le deuxième mot ?");
+// affichage de la question
+Console.Write("Quel est le deuxième mot ?");
 
-		// lecture et assignation du deuxième mot de l'utilisateur
-		string mot2 = Console.ReadLine();
-		
-		// on compare les deux mots... 
-		if (mot1.CompareTo(mot2) < 0) {
-			// ... et si le résultat est < 0, alors mot1 est avant mot2
-			Console.WriteLine(mot1 + " vient avant " + mot2);
-		} else {
-			// ... sinon c'est l'inverse
-			Console.WriteLine(mot2 + " vient avant " + mot1);
-		}		
-	}
+// lecture et assignation du deuxième mot de l'utilisateur
+string mot2 = Console.ReadLine();
+
+// on compare les deux mots... 
+if (mot1.CompareTo(mot2) < 0) {
+	// ... et si le résultat est < 0, alors mot1 est avant mot2
+	Console.WriteLine($"{mot1} vient avant {mot2}");
+} else {
+	// ... sinon c'est l'inverse
+	Console.WriteLine($"{mot2} vient avant {mot1}");
 }
 ```
 </details>
@@ -251,41 +227,33 @@ Votre choix est invalide
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// affichage de la question
-		Console.Write("Quel est le mot ? ");
+// affichage de la question
+Console.Write("Quel est le mot ? ");
 
-		// lecture et assignation du mot de l'utilisateur
-		string mot = Console.ReadLine();
+// lecture et assignation du mot de l'utilisateur
+string mot = Console.ReadLine();
 
-		// afficahe du menu
-		Console.WriteLine("1. Afficher en majuscules");
-		Console.WriteLine("2. Afficher en miniscules");
-		Console.WriteLine("3. Afficher sa longueur");
-		Console.WriteLine("4. Quitter");
-		Console.Write("Votre choix : ");
-		
-		// on lit le choix de l'utilisateur
-		int choix;
-		int.TryParse(Console.ReadLine(), out choix);
-		
-		if (choix == 1) {
-			Console.WriteLine("{0} en majuscules : {1}", mot, mot.ToUpper());			
-		} else if (choix == 2) {
-			Console.WriteLine("{0} en minuscules : {1}", mot, mot.ToLower());			
-		} else if (choix == 3) {
-			Console.WriteLine("{0} a une longueur de {1}", mot, mot.Length);
-		} else if (choix == 4) {
-			// ne rien faire
-		} else {
-			Console.WriteLine("Votre choix est invalide");
-		}
-	}
+// afficahe du menu
+Console.WriteLine("1. Afficher en majuscules");
+Console.WriteLine("2. Afficher en miniscules");
+Console.WriteLine("3. Afficher sa longueur");
+Console.WriteLine("4. Quitter");
+Console.Write("Votre choix : ");
+
+// on lit le choix de l'utilisateur
+int choix;
+int.TryParse(Console.ReadLine(), out choix);
+
+if (choix == 1) {
+	Console.WriteLine($"{mot} en majuscules : {mot.ToUpper()}");			
+} else if (choix == 2) {
+	Console.WriteLine($"{mot} en minuscules : {mot.ToLower()}");			
+} else if (choix == 3) {
+	Console.WriteLine($"{mot} a une longueur de {mot.Length}");
+} else if (choix == 4) {
+	// ne rien faire
+} else {
+	Console.WriteLine("Votre choix est invalide");
 }
 ```
 </details>

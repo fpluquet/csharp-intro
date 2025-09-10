@@ -1,4 +1,4 @@
-# Les Listes
+﻿# Les Listes
 
 Les listes en C# offrent une alternative dynamique aux tableaux, permettant d'ajouter ou de supprimer des éléments de manière flexible. Voici comment déclarer, initialiser et utiliser des listes en C#.
 
@@ -76,8 +76,8 @@ Nous pouvons même jouer avec des listes de listes :
 
 ```csharp
 List<List<int>> listeListesEntiers = new List<List<int>>();
-listListesEntiers.Add(new List<int>() { 1, 2, 3 });
-listListesEntiers.Add(new List<int>() { 4, 5, 6, 7 });
+listeListesEntiers.Add(new List<int>() { 1, 2, 3 });
+listeListesEntiers.Add(new List<int>() { 4, 5, 6, 7 });
 
 Console.WriteLine(listeListesEntiers[0].Count);  // Affiche 3
 Console.WriteLine(listeListesEntiers[1].Count);  // Affiche 4
@@ -221,42 +221,33 @@ Implémentez une fonction en C# qui prend une liste de produits dans le panier d
   <summary>Solution</summary>
 
 ```csharp
-using System;
-using System.Collections.Generic;
-
-class Program
+decimal CalculerMontantTotal(List<string> panier, List<decimal> prixProduits)
 {
-    static decimal CalculerMontantTotal(List<string> panier, List<decimal> prixProduits)
-    {
-        decimal montantTotal = 0;
+    decimal montantTotal = 0;
 
-        for (int i = 0; i < panier.Count; i++)
+    for (int i = 0; i < panier.Count; i++)
+    {
+        // Assurez-vous que l'index est valide
+        if (i < prixProduits.Count)
         {
-            // Assurez-vous que l'index est valide
-            if (i < prixProduits.Count)
-            {
-                montantTotal += prixProduits[i];
-            }
+            montantTotal += prixProduits[i];
         }
-
-        return montantTotal;
     }
 
-    static void Main()
-    {
-        List<string> panierUtilisateur = new List<string> { "Livre", "Téléphone", "Casque" };
-
-        List<decimal> prixProduits = new List<decimal>
-        {
-            12.99m,   // Prix du Livre
-            299.99m,  // Prix du Téléphone
-            49.99m    // Prix du Casque
-        };
-
-        decimal montantTotal = CalculerMontantTotal(panierUtilisateur, prixProduits);
-        Console.WriteLine($"Le montant total de la commande est : {montantTotal:C}");
-    }
+    return montantTotal;
 }
+
+List<string> panierUtilisateur = new List<string> { "Livre", "Téléphone", "Casque" };
+
+List<decimal> prixProduits = new List<decimal>
+{
+    12.99m,   // Prix du Livre
+    299.99m,  // Prix du Téléphone
+    49.99m    // Prix du Casque
+};
+
+decimal montantTotal = CalculerMontantTotal(panierUtilisateur, prixProduits);
+Console.WriteLine($"Le montant total de la commande est : {montantTotal:C}");
 ```
 </details>
 
@@ -271,42 +262,33 @@ Implémentez une fonction en C# qui prend une liste de tâches et renvoie une no
   <summary>Solution</summary>
 
 ```csharp
-using System;
-using System.Collections.Generic;
-
-class Program
+List<string> FiltrerTachesNonTerminees(List<string> listeTaches)
 {
-    static List<string> FiltrerTachesNonTerminees(List<string> listeTaches)
+    List<string> tachesNonTerminees = new List<string>();
+
+    foreach (var tache in listeTaches)
     {
-        List<string> tachesNonTerminees = new List<string>();
-
-        foreach (var tache in listeTaches)
+        if (!tache.EndsWith("(Terminée)"))
         {
-            if (!tache.EndsWith("(Terminée)"))
-            {
-                tachesNonTerminees.Add(tache);
-            }
-        }
-
-        return tachesNonTerminees;
-    }
-
-    static void Main()
-    {
-        List<string> tachesUtilisateur = new List<string>
-        {
-            "Répondre aux e-mails",
-            "Préparer le rapport mensuel (Terminée)",
-            "Planifier la réunion"
-        };
-
-        List<string> tachesNonTerminees = FiltrerTachesNonTerminees(tachesUtilisateur);
-
-        foreach (var tache in tachesNonTerminees)
-        {
-            Console.WriteLine(tache);
+            tachesNonTerminees.Add(tache);
         }
     }
+
+    return tachesNonTerminees;
+}
+
+List<string> tachesUtilisateur = new List<string>
+{
+    "Répondre aux e-mails",
+    "Préparer le rapport mensuel (Terminée)",
+    "Planifier la réunion"
+};
+
+List<string> tachesNonTerminees = FiltrerTachesNonTerminees(tachesUtilisateur);
+
+foreach (var tache in tachesNonTerminees)
+{
+    Console.WriteLine(tache);
 }
 ```
 </details>

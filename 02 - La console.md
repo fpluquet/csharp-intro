@@ -1,4 +1,4 @@
-# Console
+﻿# Console
 
 La console est le terminal textuel utilisé pour interagir avec l'utilisateur. On l'utilisera pour les programmes en mode "console" et pour le débogage rapide.
 
@@ -19,9 +19,11 @@ Console.WriteLine("Bonjour !");
 
 Pour afficher un texte avec des trous à compléter par des paramètres :
 ```csharp
-Console.WriteLine("Les paramètres sont : {0}, {1}, {2}", 5, 12, 24); // affichera "Les paramètres sont : 5, 12, 24"
-Console.WriteLine("Les paramètres sont : {1}, {2}, {0}", 5, 12, 24); // affichera "Les paramètres sont : 12, 24, 5"
-Console.WriteLine("Les paramètres sont : {1}, {2}, {0}", "coucou", 12, "hello"); // affichera "Les paramètres sont : 12, hello, coucou"
+int a = 5, b = 12, c = 24;
+Console.WriteLine($"Les paramètres sont : {a}, {b}, {c}"); // affichera "Les paramètres sont : 5, 12, 24"
+Console.WriteLine($"Les paramètres sont : {b}, {c}, {a}"); // affichera "Les paramètres sont : 12, 24, 5"
+string x = "coucou", z = "hello";
+Console.WriteLine($"Les paramètres sont : {b}, {z}, {x}"); // affichera "Les paramètres sont : 12, hello, coucou"
 ```
 
 ## Conversion
@@ -55,18 +57,10 @@ resultat = int.TryParse("dfdsf", out unNombre); // unNombre a été mis à 0 et 
 Que fait exactement le programme suivant si on entre le texte "Salut" ? 
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		string entrée = Console.ReadLine();	
-		Console.Write("Avant:");
-		Console.WriteLine(entrée);
-		Console.Write("Après");
-	}
-}
+string entrée = Console.ReadLine();	
+Console.Write("Avant:");
+Console.WriteLine(entrée);
+Console.Write("Après");
 ```
 
 <details>
@@ -80,26 +74,18 @@ public class Program
 > ```
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// Le programme va attendre qu'on entre un texte et qu'on revienne à la ligne. 
-		// Le texte lu est alors assigné dans la variable nommée *entrée* qui est de type string (chaîne de caractères)
-		string entrée = Console.ReadLine();
-	
-		// On affiche le texte Avant: sans revenir à la ligne
-		Console.Write("Avant:");
-	
-		// On affiche le texte lu par le ReadLine() et on revient à la ligne.
-		Console.WriteLine(entrée);
+// Le programme va attendre qu'on entre un texte et qu'on revienne à la ligne. 
+// Le texte lu est alors assigné dans la variable nommée *entrée* qui est de type string (chaîne de caractères)
+string entrée = Console.ReadLine();
 
-		// On affiche le texte Après
-		Console.Write("Après");
-	}
-}
+// On affiche le texte Avant: sans revenir à la ligne
+Console.Write("Avant:");
+
+// On affiche le texte lu par le ReadLine() et on revient à la ligne.
+Console.WriteLine(entrée);
+
+// On affiche le texte Après
+Console.Write("Après");
 ```
 	
 </details>
@@ -119,22 +105,14 @@ Bonjour Nico
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// affichage de la question sur la console
-		Console.WriteLine("Quel est votre nom ?");
-		
-		// lecture du nom de l'utilisateur 
-		string nom = Console.ReadLine();
+// affichage de la question sur la console
+Console.WriteLine("Quel est votre nom ?");
 
-		// affichage du message sur la console
-		Console.WriteLine("Bonjour {0}", nom);
-	}
-}
+// lecture du nom de l'utilisateur 
+string nom = Console.ReadLine();
+
+// affichage du message sur la console
+Console.WriteLine($"Bonjour {nom}");
 ```
 </details>
 
@@ -154,31 +132,23 @@ Deuxième nombre ? <b>13</b>
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// affichage de la question sur la console
-		Console.Write("Premier nombre ?");
-		
-		// lecture du premier nombre de l'utilisateur 
-		int nb1 = int.Parse(Console.ReadLine());
+// affichage de la question sur la console
+Console.Write("Premier nombre ?");
 
-		// affichage de la question sur la console
-		Console.Write("Deuxième nombre ?");
-		
-		// lecture du deuxième nombre de l'utilisateur 
-		int nb2 = int.Parse(Console.ReadLine());
+// lecture du premier nombre de l'utilisateur 
+int nb1 = int.Parse(Console.ReadLine());
 
-		// affichage du message sur la console
-		Console.WriteLine("{0} + {1} = {2}", nb1, nb2, nb1 + nb2);
+// affichage de la question sur la console
+Console.Write("Deuxième nombre ?");
 
-		// affichage du message sur la console
-		Console.WriteLine("{0} * {1} = {2}", nb1, nb2, nb1 * nb2);
-	}
-}
+// lecture du deuxième nombre de l'utilisateur 
+int nb2 = int.Parse(Console.ReadLine());
+
+// affichage du message sur la console
+Console.WriteLine($"{nb1} + {nb2} = {nb1 + nb2}");
+
+// affichage du message sur la console
+Console.WriteLine($"{nb1} * {nb2} = {nb1 * nb2}");
 ```
 </details>
 
@@ -187,44 +157,28 @@ public class Program
 Quel est le problème avec le code suivant ?
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// affichage de la question sur la console
-		Console.Write("Votre nombre ?");
-		
-		// lecture du premier nombre de l'utilisateur 
-		string nb1 = int.Parse(Console.ReadLine());
+// affichage de la question sur la console
+Console.Write("Votre nombre ?");
 
-		// affichage du message sur la console
-		Console.WriteLine("{0} * 3 = {1}", nb1, nb1 * 3);
-	}
-}
+// lecture du premier nombre de l'utilisateur 
+string nb1 = int.Parse(Console.ReadLine());
+
+// affichage du message sur la console
+Console.WriteLine($"{nb1} * 3 = {nb1 * 3}");
 ```
 
 <details>
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		Console.Write("Votre nombre ?");
-		
-		// /------- on essaie de mettre un entier dans un string
-		// |        et le compilateur n'aime pas ça. 
-		// |       Il faut changer le string en int :      
-		// v       int nb1 = int.Parse(Console.ReadLine());      
-		string nb1 = int.Parse(Console.ReadLine());
+Console.Write("Votre nombre ?");
 
-		Console.WriteLine("{0} * 3 = {1}", nb1, nb1 * 3);
-	}
-}
+// /------- on essaie de mettre un entier dans un string
+// |        et le compilateur n'aime pas ça. 
+// |       Il faut changer le string en int :      
+// v       int nb1 = int.Parse(Console.ReadLine());      
+string nb1 = int.Parse(Console.ReadLine());
+
+Console.WriteLine($"{nb1} * 3 = {nb1 * 3}");
 ```
 </details>

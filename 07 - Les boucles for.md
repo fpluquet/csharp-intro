@@ -1,4 +1,4 @@
-# Boucles for
+﻿# Boucles for
 
 Les boucles ```do/while``` et ```while``` permettent de répéter un bout de code autant de fois que nécessaire. Il existe un autre type de boucles qui permet une écriture plus concise : les boucles ```for``` (pour en anglais).
 
@@ -94,16 +94,10 @@ Console.WriteLine(i); // affiche 10
 Que fait le programme suivant ?
 
 ```csharp
-using System;
-
-public class Program {
-  public static void Main(string[] args) {
-    int i;
-    for (i = 1; i <= 20; i++) {
-      if ((i % 3 == 0 && i % 5 == 0) || i % 7 == 0) {
-        Console.WriteLine(i);
-      }
-    }
+int i;
+for (i = 1; i <= 20; i++) {
+  if ((i % 3 == 0 && i % 5 == 0) || i % 7 == 0) {
+    Console.WriteLine(i);
   }
 }
 ```
@@ -145,15 +139,9 @@ Ce programme va afficher tous les nombres entre 1 et 20 compris, divisibles par 
 Que fait le programme suivant ?
 
 ```csharp
-using System;
-
-public class Program {
-  public static void Main(string[] args) {
-    int j;
-    for (j = 10; j > 0; j = j - 3) {
-      Console.WriteLine(j);
-    }
-  }
+int j;
+for (j = 10; j > 0; j = j - 3) {
+  Console.WriteLine(j);
 }
 ```
 <details>
@@ -176,16 +164,10 @@ Ce programme va afficher les nombres entre 10 et 0 en retirant 3 à chaque tour.
 Que fait le programme suivant ?
 
 ```csharp
-using System;
-
-public class Program {
-  public static void Main(string[] args) {
-    int i, j;
-    for (i = 1; i <= 10; i++) {
-      for (j = 1; j <= 10; j++) {
-        Console.WriteLine("{0} x {1} = {2}", i, j, i * j);
-      }
-    }
+int i, j;
+for (i = 1; i <= 10; i++) {
+  for (j = 1; j <= 10; j++) {
+    Console.WriteLine($"{i} x {j} = {i * j}");
   }
 }
 ```
@@ -304,16 +286,10 @@ Ce programme va afficher les tables de multiplications de 1 à 10 :
 Que fait le programme suivant ?
 
 ```csharp
-using System;
-
-public class Program {
-  public static void Main(string[] args) {
-    int i, j;
-    for (i = 1; i <= 10; i++) {
-      for (j = 1; j <= i; j++) {
-        Console.WriteLine("{0} x {1} = {2}", i, j, i * j);
-      }
-    }
+int i, j;
+for (i = 1; i <= 10; i++) {
+  for (j = 1; j <= i; j++) {
+    Console.WriteLine($"{i} x {j} = {i * j}");
   }
 }
 ```
@@ -389,22 +365,16 @@ Ce programme va afficher les tables de multiplication de 1 à 10 mais s'arrête 
 Quelle est la sortie du programme suivant ?
 
 ```csharp
-using System;
-
-public class Program {
-  public static void Main(string[] args) {
-    int somme = 0;
-    while(somme < 50) {
-      int i;
-      for (i = 0; i <= 10; i++) {
-        if (i % 2 == 0) {
-          somme += i;
-        }
-      }
+int somme = 0;
+while(somme < 50) {
+  int i;
+  for (i = 0; i <= 10; i++) {
+    if (i % 2 == 0) {
+      somme += i;
     }
-    Console.WriteLine(somme);
   }
 }
+Console.WriteLine(somme);
 ```
 
 <details>
@@ -454,22 +424,16 @@ La ```somme``` commence à 0.
 Quelle est la sortie du programme suivant ?
 
 ```csharp
-using System;
-
-public class Program {
-  public static void Main(string[] args) {
-    int somme = 0;
-    while(somme < 50) {
-      int i;
-      for (i = 0; i <= 10 && somme < 50; i++) {
-        if (i % 2 == 0) {
-          somme += i;
-        }
-      }
+int somme = 0;
+while(somme < 50) {
+  int i;
+  for (i = 0; i <= 10 && somme < 50; i++) {
+    if (i % 2 == 0) {
+      somme += i;
     }
-    Console.WriteLine(somme);
   }
 }
+Console.WriteLine(somme);
 ```
 
 
@@ -518,21 +482,12 @@ La ```somme``` commence à 0.
 Transformez le code suivant pour n'utiliser que des boucles `for`:
 
 ```csharp
-using System;
-
-public class Program
-{
-	public static void Main()
-	{
-		
-		int i = 0;
-		while( i < 20) {
-			if(i % 3 != 0) {
-				Console.WriteLine(i);
-			}
-			i += 2;
-		}
+int i = 0;
+while( i < 20) {
+	if(i % 3 != 0) {
+		Console.WriteLine(i);
 	}
+	i += 2;
 }
 ```
 
@@ -541,21 +496,13 @@ public class Program
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-
-public class Program
-{
-	public static void Main()
-	{
-		// [1] déclaration et initialisation de i à 0
-		//			i ne sera connu que dans le for et son bloc
-		// [2] condition : i < 20
-		// [3] post traitement : i = i + 2
-		for(int i = 0; i < 20; i += 2) {
-			if(i % 3 != 0) {
-				Console.WriteLine(i);
-			}
-		}
+// [1] déclaration et initialisation de i à 0
+//			i ne sera connu que dans le for et son bloc
+// [2] condition : i < 20
+// [3] post traitement : i = i + 2
+for(int i = 0; i < 20; i += 2) {
+	if(i % 3 != 0) {
+		Console.WriteLine(i);
 	}
 }
 ```
@@ -566,24 +513,16 @@ public class Program
 Transformez le code suivant pour n'utiliser que des boucles `for`:
 
 ```csharp
-using System;
-
-public class Program
-{
-	public static void Main()
-	{
-		int i = 0;
-		while( i < 20) {
-			if(i % 3 != 0) {
-				Console.WriteLine(i);
-			}
-			i += 2;
-		}
-		while(i % 8 != 0) {
-			Console.WriteLine(i);
-			i += 1;
-		}
+int i = 0;
+while( i < 20) {
+	if(i % 3 != 0) {
+		Console.WriteLine(i);
 	}
+	i += 2;
+}
+while(i % 8 != 0) {
+	Console.WriteLine(i);
+	i += 1;
 }
 ```
 
@@ -592,24 +531,16 @@ public class Program
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-
-public class Program
-{
-	public static void Main()
-	{
-		// on est obligé de sortir la déclaration de i du for 
-		// car il doit être encore connu dans le deuxième for
-		int i = 0;
-		for(;i < 20;i += 2) {
-			if(i % 3 != 0) {
-				Console.WriteLine(i);
-			}
-		}
-		for(;i % 8 != 0;i += 1) {
-			Console.WriteLine(i);
-		}
+// on est obligé de sortir la déclaration de i du for 
+// car il doit être encore connu dans le deuxième for
+int i = 0;
+for(;i < 20;i += 2) {
+	if(i % 3 != 0) {
+		Console.WriteLine(i);
 	}
+}
+for(;i % 8 != 0;i += 1) {
+	Console.WriteLine(i);
 }
 ```
 </details>
@@ -637,31 +568,23 @@ Combien de lignes voulez-vous afficher ? 8
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// déclaration de la variable qui contiendra le nombre de lignes à afficher
-		int nbLignes;
-		
-		// affichage de la question
-		Console.Write("Combien de lignes voulez-vous afficher ? ");
-		
-		// lecture et transformation en entier du nombre de lignes
-		nbLignes = int.Parse(Console.ReadLine());
-		
-		// Pour chaque ligne i (de 1 à nbLignes compris)...
-		for(int i = 1; i <= nbLignes; i++) {
-			// ... on va afficher i étoiles en faisant varier j de 1 à i compris
-			for(int j = 1; j <= i; j++) {
-				Console.Write("*");
-			}
-			// et on affiche un retour à la ligne une fois les étoiles affichées
-			Console.WriteLine();
-		}
+// déclaration de la variable qui contiendra le nombre de lignes à afficher
+int nbLignes;
+
+// affichage de la question
+Console.Write("Combien de lignes voulez-vous afficher ? ");
+
+// lecture et transformation en entier du nombre de lignes
+nbLignes = int.Parse(Console.ReadLine());
+
+// Pour chaque ligne i (de 1 à nbLignes compris)...
+for(int i = 1; i <= nbLignes; i++) {
+	// ... on va afficher i étoiles en faisant varier j de 1 à i compris
+	for(int j = 1; j <= i; j++) {
+		Console.Write("*");
 	}
+	// et on affiche un retour à la ligne une fois les étoiles affichées
+	Console.WriteLine();
 }
 ```
 </details>
@@ -711,37 +634,29 @@ Pour le nombre d'étoiles, on peut trouver la formule suivante : ```numéroLigne
 
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// déclaration de la variable qui contiendra le nombre de lignes à afficher
-		int nbLignes;
-		
-		// affichage de la question
-		Console.Write("Combien de lignes voulez-vous afficher ? ");
-		
-		// lecture et transformation en entier du nombre de lignes
-		nbLignes = int.Parse(Console.ReadLine());
-		
-		// Pour chaque ligne i (de 1 à nbLignes compris)...
-		for(int i = 1; i <= nbLignes; i++) {
-			// ... on affiche les nbLignes - numéroLigne (i) espaces 
-			for(int j = 1; j <= nbLignes - i; j++) {
-				Console.Write(" ");
-			}
+// déclaration de la variable qui contiendra le nombre de lignes à afficher
+int nbLignes;
 
-			// ... on affiche les numéroLigne * 2 - 1 étoiles 
-			for(int k = 1; k <= i * 2 - 1; k++) {
-				Console.Write("*");
-			}
+// affichage de la question
+Console.Write("Combien de lignes voulez-vous afficher ? ");
 
-			// et on affiche un retour à la ligne une fois les étoiles affichées
-			Console.WriteLine();
-		}
+// lecture et transformation en entier du nombre de lignes
+nbLignes = int.Parse(Console.ReadLine());
+
+// Pour chaque ligne i (de 1 à nbLignes compris)...
+for(int i = 1; i <= nbLignes; i++) {
+	// ... on affiche les nbLignes - numéroLigne (i) espaces 
+	for(int j = 1; j <= nbLignes - i; j++) {
+		Console.Write(" ");
 	}
+
+	// ... on affiche les numéroLigne * 2 - 1 étoiles 
+	for(int k = 1; k <= i * 2 - 1; k++) {
+		Console.Write("*");
+	}
+
+	// et on affiche un retour à la ligne une fois les étoiles affichées
+	Console.WriteLine();
 }
 ```
 </details>
@@ -781,39 +696,31 @@ Exemple de sorties :
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// déclaration de la variable contenant le mot duquel on doit compter les syllabes   
-		string mot;
-		
-		// déclaration et initialisation à 0 du nombre de syllabes trouvées
-		int nbSyllabes = 0;
+// déclaration de la variable contenant le mot duquel on doit compter les syllabes   
+string mot;
 
-		// on affiche le > initial
-		Console.Write("> ");
+// déclaration et initialisation à 0 du nombre de syllabes trouvées
+int nbSyllabes = 0;
 
-		// on lit le mot sur la console
-		mot = Console.ReadLine();
+// on affiche le > initial
+Console.Write("> ");
 
-		// on va parcourir chaque caractère du mot (i va de 0 à mot.Length - 1)
-		for(int i = 0; i < mot.Length; i++) {
-			// si le ième caractère du mot est '-'...
-			if (mot[i] == '-') {
-				// ... on incrémente le nombre de syllabes (équivalent à nbSyllabes = nbSyllabes + 1;)
-				nbSyllabes++;
-			} else if (mot[i] != ' ' && nbSyllabes == 0) { // ... sinon si le ième caractère n'est pas un espace et que le nombre de syllabes est à 0
-				// ... le mot contient donc au moins un caractère et donc au moins un syllabes 
-				nbSyllabes++;
-			}
-		}
-		// on affiche le nombre de syllabes et un 's' si nécessaire
-		Console.WriteLine("{0} syllabe{1}", nbSyllabes, nbSyllabes > 1 ? "s": "");
+// on lit le mot sur la console
+mot = Console.ReadLine();
+
+// on va parcourir chaque caractère du mot (i va de 0 à mot.Length - 1)
+for(int i = 0; i < mot.Length; i++) {
+	// si le ième caractère du mot est '-'...
+	if (mot[i] == '-') {
+		// ... on incrémente le nombre de syllabes (équivalent à nbSyllabes = nbSyllabes + 1;)
+		nbSyllabes++;
+	} else if (mot[i] != ' ' && nbSyllabes == 0) { // ... sinon si le ième caractère n'est pas un espace et que le nombre de syllabes est à 0
+		// ... le mot contient donc au moins un caractère et donc au moins un syllabes 
+		nbSyllabes++;
 	}
 }
+// on affiche le nombre de syllabes et un 's' si nécessaire
+Console.WriteLine($"{nbSyllabes} syllabe{(nbSyllabes > 1 ? "s": "")}");
 ```
 </details>
 
@@ -851,42 +758,34 @@ Aucun espace détecté
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		// déclaration de la variable contenant la phrase à analyser   		
-		string phrase;
-		
-		// déclaration et initialisation à false de la variable indiquant s'il y a au moins un espace dans la phrase   		
-		bool espaceExiste = false;
+// déclaration de la variable contenant la phrase à analyser   		
+string phrase;
 
-		// on affiche le > initial
-		Console.Write("> ");
+// déclaration et initialisation à false de la variable indiquant s'il y a au moins un espace dans la phrase   		
+bool espaceExiste = false;
 
-		// on lit la phrase sur la console
-		phrase = Console.ReadLine();
+// on affiche le > initial
+Console.Write("> ");
 
-		// on va parcourir tous les caractères de la phrase (i va de 0 à phrase.Length - 1) et si on n'a pas encore trouvé un espace
-		for(int i = 0; i < phrase.Length && espaceExiste == false; i++) {
-			// si le ième caractère est un espace...
-			if (phrase[i] == ' ') {
-				// ... on passe la variable espaceExiste à true (cela va donc arrêter la boucle for)
-				espaceExiste = true;
-			}
-		}
-		
-		// si on a détecté un espace...
-		if (espaceExiste) {
-			// ... on l'affiche
-			Console.WriteLine("Il y au moins un espace");
-		} else {
-			// sinon on affiche l'inverse
-			Console.WriteLine("Aucun espace détecté");
-		}
+// on lit la phrase sur la console
+phrase = Console.ReadLine();
+
+// on va parcourir tous les caractères de la phrase (i va de 0 à phrase.Length - 1) et si on n'a pas encore trouvé un espace
+for(int i = 0; i < phrase.Length && espaceExiste == false; i++) {
+	// si le ième caractère est un espace...
+	if (phrase[i] == ' ') {
+		// ... on passe la variable espaceExiste à true (cela va donc arrêter la boucle for)
+		espaceExiste = true;
 	}
+}
+
+// si on a détecté un espace...
+if (espaceExiste) {
+	// ... on l'affiche
+	Console.WriteLine("Il y au moins un espace");
+} else {
+	// sinon on affiche l'inverse
+	Console.WriteLine("Aucun espace détecté");
 }
 ```
 </details>
@@ -920,36 +819,28 @@ Aucun espace détecté
 	<summary>Solution</summary>
 
 ```csharp
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		string phrase;
-		Console.Write("> ");
-		phrase = Console.ReadLine();
+string phrase;
+Console.Write("> ");
+phrase = Console.ReadLine();
 
-		// on ajoute cette boucle tant que la phrase n'est pas égale à "quitter"
-		while(phrase != "quitter") {
-			bool espaceExiste = false;
-			for(int i = 0; i < phrase.Length && espaceExiste == false; i++) {
-				if (phrase[i] == ' ') {
-					espaceExiste = true;
-				}
-			}
-
-			if (espaceExiste) {
-				Console.WriteLine("Il y au moins un espace");
-			} else {
-				Console.WriteLine("Aucun espace détecté");
-			}
-
-			// on ajoute ces deux lignes pour recommencer la lecture de l'entrée de l'utilisateur
-			Console.Write("> ");
-			phrase = Console.ReadLine();
+// on ajoute cette boucle tant que la phrase n'est pas égale à "quitter"
+while(phrase != "quitter") {
+	bool espaceExiste = false;
+	for(int i = 0; i < phrase.Length && espaceExiste == false; i++) {
+		if (phrase[i] == ' ') {
+			espaceExiste = true;
 		}
 	}
+
+	if (espaceExiste) {
+		Console.WriteLine("Il y au moins un espace");
+	} else {
+		Console.WriteLine("Aucun espace détecté");
+	}
+
+	// on ajoute ces deux lignes pour recommencer la lecture de l'entrée de l'utilisateur
+	Console.Write("> ");
+	phrase = Console.ReadLine();
 }
 ```
 </details>

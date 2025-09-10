@@ -1,11 +1,11 @@
-# Les fonctions
+﻿# Les fonctions
 
 Une fonction est un bloc d'instructions qui porte un nom, qui peut prendre des paramètres en entrée et peut renvoyer une valeur en sortie.
 
 Commençons par un exemple simple :
 
 ```csharp
-static void AfficheHello(){
+void AfficheHello(){
   Console.WriteLine("Hello !");
 }
 ```
@@ -16,26 +16,16 @@ Cette fonction :
 - a une seule instruction (`Console.WriteLine...`) comme bloc d'instructions
 - ne renvoie rien (indiqué par le `void` avant le nom de la fonction).
 
-> Le mot clé `static` doit toujours être mis avant une fonction (nous analyserons pourquoi en Q2). 
-
 Pour appeler cette fonction, il suffit de donner son nom et de mettre des parenthèses ensuite :
 
 ```csharp
-using System;
-          
-public class Program
-{
-  static void AfficheHello(){
-    Console.WriteLine("Hello !");
-  }
-
-  public static void Main()
-  {
-    Console.WriteLine("Avant");
-    AfficheHello();
-    Console.WriteLine("Après");
-  }
+void AfficheHello(){
+  Console.WriteLine("Hello !");
 }
+
+Console.WriteLine("Avant");
+AfficheHello();
+Console.WriteLine("Après");
 ```
 
 Quand le `Main` est exécuté et qu'il tombe sur l'appel de `AfficheHello()`, le programme va aller exécuter le code contenu dans cette fonction (`Console.WriteLine...`) et revenir où il était dans le `Main` et continuer. Le résultat de l'exécution de ce programme est donc :
@@ -51,7 +41,7 @@ Après
 Prenons un exemple un peu moins simple d'un affichage d'un texte fourni en entrée :
 
 ```csharp
-static void Affiche(string text){
+void Affiche(string text){
   Console.WriteLine(text);
 }
 ```
@@ -65,21 +55,13 @@ Cette fonction :
 Pour appeler cette fonction, il suffit de donner son nom et mettre le texte à afficher entre des parenthèses  :
 
 ```csharp
-using System;
-          
-public class Program
-{
-  static void Affiche(string text){
-    Console.WriteLine(text);
-  }
-
-  public static void Main()
-  {
-    Console.WriteLine("Avant");
-    Affiche("Bonjour :)");
-    Console.WriteLine("Après");
-  }
+void Affiche(string text){
+  Console.WriteLine(text);
 }
+
+Console.WriteLine("Avant");
+Affiche("Bonjour :)");
+Console.WriteLine("Après");
 ```
 
 Quand le `Main` est exécuté et qu'il tombe sur l'appel de `Affiche("Bonjour :)")`, le programme va aller recopier la valeur `"Bonjour :)"` dans la variable `text` et exécuter le code contenu dans cette fonction (`Console.WriteLine...`). Une fois la fonction exécutée, le programme va revenir où il était dans le `Main` et continuer. Le résultat de l'exécution de ce programme est donc :
@@ -93,7 +75,7 @@ Après
 Chaque fonction peut avoir 0, 1 ou plusieurs paramètres. Ceux-ci seront séparaés par des virgules. Par exemple ici, nous pourrions la fonction suivante :
 
 ```csharp
-static void AfficheNFois(string text, int nb){
+void AfficheNFois(string text, int nb){
   for(int i = 0; i < nb; i++) {
     Console.WriteLine(text);
   }
@@ -112,23 +94,15 @@ Cette fonction :
 Pour appeler cette fonction, il suffit de donner son nom et mettre le texte à afficher et le nombre de fois à l'afficher entre des parenthèses  :
 
 ```csharp
-using System;
-          
-public class Program
-{
-  static void AfficheNFois(string text, int nb){
-    for(int i = 0; i < nb; i++) {
-      Console.WriteLine(text);
-    }
-  }
-
-  public static void Main()
-  {
-    Console.WriteLine("Avant");
-    AfficheNFois("Bonjour :)", 3);
-    Console.WriteLine("Après");
+void AfficheNFois(string text, int nb){
+  for(int i = 0; i < nb; i++) {
+    Console.WriteLine(text);
   }
 }
+
+Console.WriteLine("Avant");
+AfficheNFois("Bonjour :)", 3);
+Console.WriteLine("Après");
 ```
 
 Quand le `Main` est exécuté et qu'il tombe sur l'appel de `AfficheNFois("Bonjour :)", 3)`, le programme va aller recopier la valeur `"Bonjour :)"` dans la variable `text` et `3` dans `nb`. Le programme exécute ensuite le code contenu dans cette fonction (le `for` avec `Console.WriteLine...`). Une fois la fonction exécutée, le programme va revenir où il était dans le `Main` et continuer. Le résultat de l'exécution de ce programme est donc :
@@ -148,7 +122,7 @@ Toutes les fonctions décrites avant ne renvoie aucune valeur. Elles affichent d
 Prenons l'exemple de la fonction suivante :
 
 ```csharp
-static string getNomDuProf(){
+string getNomDuProf(){
   return "Frédéric Pluquet";
 }
 ```
@@ -162,22 +136,14 @@ Cette fonction :
 Pour appeler cette fonction, il suffit de donner son nom et mettre des parenthèses  :
 
 ```csharp
-using System;
-          
-public class Program
-{
-  static string getNomDuProf(){
-    return "Frédéric Pluquet";
-  }
-
-  public static void Main()
-  {
-    Console.WriteLine("Avant");
-    string unJoliNom = getNomDuProf();
-    Console.WriteLine("Votre nom est : {0}", unJoliNom);
-    Console.WriteLine("Après");
-  }
+string getNomDuProf(){
+  return "Frédéric Pluquet";
 }
+
+Console.WriteLine("Avant");
+string unJoliNom = getNomDuProf();
+Console.WriteLine($"Votre nom est : {unJoliNom}");
+Console.WriteLine("Après");
 ```
 
 Quand le `Main` est exécuté et qu'il tombe sur la ligne `string unJoliNom = getNomDuProf()`, le programme va d'abord exécuté la fonction `getNomDuProf()` pour savoir quelle valeur assigner à la variable `unJoliNom`. 
@@ -201,7 +167,7 @@ Après
 Prenons l'exemple un peu plus complexe de la fonction suivante :
 
 ```csharp
-static string Demande(string question){
+string Demande(string question){
   Console.WriteLine(question);
   string réponse = Console.ReadLine();
   return réponse;
@@ -217,24 +183,16 @@ Cette fonction :
 Pour appeler cette fonction, il suffit de donner son nom et mettre la question à afficher entre parenthèses :
 
 ```csharp
-using System;
-          
-public class Program
-{
-  static string Demande(string question){
-    Console.WriteLine(question);
-    string réponse = Console.ReadLine();
-    return réponse;
-  }
-
-  public static void Main()
-  {
-    Console.WriteLine("Avant");
-    string nom = Demande("Quel est votre nom ?");
-    Console.WriteLine("Votre nom est : {0}", nom);
-    Console.WriteLine("Après");
-  }
+string Demande(string question){
+  Console.WriteLine(question);
+  string réponse = Console.ReadLine();
+  return réponse;
 }
+
+Console.WriteLine("Avant");
+string nom = Demande("Quel est votre nom ?");
+Console.WriteLine($"Votre nom est : {nom}");
+Console.WriteLine("Après");
 ```
 
 Quand le `Main` est exécuté et qu'il tombe sur la ligne `string nom = Demande("Quel est votre nom ?")`, le programme va d'abord exécuter la fonction `Demande("Quel est votre nom ?")` pour savoir quelle valeur assigner à la variable `nom`. 
@@ -264,20 +222,14 @@ Après
 Les paramètres d'une fonction sont par défaut des copies des valeurs passées et ne sont pas liées aux variables utilisées pour passer ces valeurs :
 
 ```csharp
-using System;
-
-public class Program {
-  static void Incremente(int a) {
-    a = a + 1;
-    Console.WriteLine($"a : {a}");
-  }
-
-  public static void Main() {
-    int nb = 0;
-    Incremente(nb);
-    Console.WriteLine($"nb : {nb}");
-  }
+void Incremente(int a) {
+  a = a + 1;
+  Console.WriteLine($"a : {a}");
 }
+
+int nb = 0;
+Incremente(nb);
+Console.WriteLine($"nb : {nb}");
 ```
 
 Ici la valeur de la variable `nb` (dans le `Main`) a été recopiée dans la variable locale `a` lors de l'appel de la fonction. Cette variable locale est indépendante de `nb` et son incrémentation (`a = a + 1;`) n'a donc pas modifié `nb`. On appelle cela un passage par valeur (car seule la valeur est copiée). Le résultat de l'exécution de ce code est donc :
@@ -290,20 +242,14 @@ nb : 0
 On peut changer ce comportement en ajoutant le mot clé `ref` avant le paramètre (dans sa définition et lors de l'appel): 
 
 ```csharp
-using System;
-
-public class Program {
-  static void Incremente(ref int a) {
-    a = a + 1;
-    Console.WriteLine($"a : {a}");
-  }
-
-  public static void Main() {
-    int nb = 0;
-    Incremente(ref nb);
-    Console.WriteLine($"nb : {nb}");
-  }
+void Incremente(ref int a) {
+  a = a + 1;
+  Console.WriteLine($"a : {a}");
 }
+
+int nb = 0;
+Incremente(ref nb);
+Console.WriteLine($"nb : {nb}");
 ```
 
 En mettant le mot clé `ref`, nous disons que nous voulons que la variable `nb` et la variable `a` soit la même variable. On appelle cela un passage par référence (d'où le mot clé `ref`). Le résultat de l'exécution est donc le suivant :
@@ -320,20 +266,14 @@ On a déjà rencontré ce mot clé `out` dans `int.TryParse("5", out monEntier)`
 Voici un autre exemple :
 
 ```csharp
-using System;
-
-public class Program {
-  static void DemandeQuestion(string question, out string réponse) {
-    Console.WriteLine(question);
-    réponse = Console.ReadLine();
-  }
-
-  public static void Main() {
-    string nom;
-    DemandeQuestion("Quel est votre nom ? ", out nom);
-    Console.WriteLine($"Bonjour {nom} !");
-  }
+void DemandeQuestion(string question, out string réponse) {
+  Console.WriteLine(question);
+  réponse = Console.ReadLine();
 }
+
+string nom;
+DemandeQuestion("Quel est votre nom ? ", out nom);
+Console.WriteLine($"Bonjour {nom} !");
 ```
 
 La fonction `DemandeQuestion` prend deux paramètres : un `string` `question` qui est passé par valeur et un `string` `réponse` qui est passé par référence en sortie. Comme `réponse` est en `out`, elle n'est pas initialisée, elle ne contient pas de valeur et on ne peut pas la lire. Mais on peut y assigner une valeur qui sera présente également dans la variable `nom`.
@@ -355,20 +295,12 @@ Bonjour Fréd !
 En sachant que `Math.Pow(a,b)` renvoie a<sup>b</sup>, que fait le programme suivant ?
 
 ```csharp
-using System;
-
-public class Program
+double Fn(double a, double b)
 {
-    static double Fn(double a, double b)
-    {
-        return Math.Pow(a, b);
-    }
-
-    public static void Main()
-    {
-        Console.WriteLine(Fn(10, 3));
-    }
+    return Math.Pow(a, b);
 }
+
+Console.WriteLine(Fn(10, 3));
 ```
 
 Pour info, la fonction `double Math.Pow(double, double)` est toujours disponible car elle est définie dans la librairie standard. 
@@ -394,24 +326,16 @@ La fonction va retourner $10^3$, c'est-à-dire 1000. Ce retour de fonction prend
 Que fait le programme suivant ?
 
 ```csharp
-using System;
-
-public class Program
+void Traitement(int a, ref int b)
 {
-    static void Traitement(int a, ref int b)
-    {
-        a = a * 3;
-        b = a + 8;
-    }
-
-    public static void Main()
-    {
-        int nb1 = 10;
-        int nb2 = 20;
-        Traitement(nb1, ref nb2);
-        Console.WriteLine($"nb1 = {nb1}, nb2 = {nb2}");
-    }
+    a = a * 3;
+    b = a + 8;
 }
+
+int nb1 = 10;
+int nb2 = 20;
+Traitement(nb1, ref nb2);
+Console.WriteLine($"nb1 = {nb1}, nb2 = {nb2}");
 ```
 
 
@@ -458,24 +382,16 @@ Console.WriteLine(Incremente(-1)); // affiche 0
   <summary>Solution</summary>
 
 ```csharp
-using System;
-          
-public class Program
-{  
-  // renvoie le paramètre n + 1
-  static int Incremente(int n){
-    n++;
-    return n;
-  }
-
-  public static void Main()
-  {
-    Console.WriteLine(Incremente(1)); // affiche 2
-    Console.WriteLine(Incremente(2)); // affiche 3
-    Console.WriteLine(Incremente(5)); // affiche 6
-    Console.WriteLine(Incremente(-1)); // affiche 0
-  }
+// renvoie le paramètre n + 1
+int Incremente(int n){
+  n++;
+  return n;
 }
+
+Console.WriteLine(Incremente(1)); // affiche 2
+Console.WriteLine(Incremente(2)); // affiche 3
+Console.WriteLine(Incremente(5)); // affiche 6
+Console.WriteLine(Incremente(-1)); // affiche 0
 ```
 
 </details>
@@ -496,23 +412,15 @@ Console.WriteLine(ResteDiv(17, 7)); // affiche 3, car 17 / 7 = 2 et 17 - 7 * 2 =
   <summary>Solution</summary>
 
 ```csharp
-using System;
-          
-public class Program
-{
-  // renvoie le reste de la division entière de dividende par diviseur
-  static int ResteDiv(int dividende, int diviseur){
-    int reste = dividende % diviseur;
-    return reste;
-  }
-
-  public static void Main()
-  {
-    Console.WriteLine(ResteDiv(10,3)); // affiche 1, car 10 / 3 = 3 et 10 - 3 * 3 = 1
-    Console.WriteLine(ResteDiv(6,3)); // affiche 0, car 6 / 3 = 2 et 6 - 3 * 2 = 0
-    Console.WriteLine(ResteDiv(17, 7)); // affiche 3, car 17 / 7 = 2 et 17 - 7 * 2 = 3
-  }
+// renvoie le reste de la division entière de dividende par diviseur
+int ResteDiv(int dividende, int diviseur){
+  int reste = dividende % diviseur;
+  return reste;
 }
+
+Console.WriteLine(ResteDiv(10,3)); // affiche 1, car 10 / 3 = 3 et 10 - 3 * 3 = 1
+Console.WriteLine(ResteDiv(6,3)); // affiche 0, car 6 / 3 = 2 et 6 - 3 * 2 = 0
+Console.WriteLine(ResteDiv(17, 7)); // affiche 3, car 17 / 7 = 2 et 17 - 7 * 2 = 3
 ```
 
 </details>
@@ -533,22 +441,14 @@ Console.WriteLine(EstDivisiblePar5(6)); // affiche False
   <summary>Solution</summary>
 
 ```csharp
-using System;
-          
-public class Program
-{
-  // renvoie vrai si le paramètre est divible par 5, faux sinon.
-  static bool EstDivisiblePar5(int nb){
-    return nb % 5 == 0;
-  }
-
-  public static void Main()
-  {
-    Console.WriteLine(EstDivisiblePar5(5)); // affiche true
-    Console.WriteLine(EstDivisiblePar5(10)); // affiche true
-    Console.WriteLine(EstDivisiblePar5(6)); // affiche false
-  }
+// renvoie vrai si le paramètre est divible par 5, faux sinon.
+bool EstDivisiblePar5(int nb){
+  return nb % 5 == 0;
 }
+
+Console.WriteLine(EstDivisiblePar5(5)); // affiche true
+Console.WriteLine(EstDivisiblePar5(10)); // affiche true
+Console.WriteLine(EstDivisiblePar5(6)); // affiche false
 ```
 
 </details>
@@ -570,23 +470,15 @@ Console.WriteLine(IsEmpty("   ")); // affiche False
   <summary>Solution</summary>
 
 ```csharp
-using System;
-          
-public class Program
-{
-  // renvoie vrai si le paramètre est vide, faux sinon. 
-  static bool IsEmpty(string texte){
-    return texte.Length == 0;
-  }
-
-  public static void Main()
-  {
-    Console.WriteLine(IsEmpty("1")); // affiche False
-    Console.WriteLine(IsEmpty("")); // affiche True
-    Console.WriteLine(IsEmpty("Trop cool")); // affiche False
-    Console.WriteLine(IsEmpty("   ")); // affiche False
-  }
+// renvoie vrai si le paramètre est vide, faux sinon. 
+bool IsEmpty(string texte){
+  return texte.Length == 0;
 }
+
+Console.WriteLine(IsEmpty("1")); // affiche False
+Console.WriteLine(IsEmpty("")); // affiche True
+Console.WriteLine(IsEmpty("Trop cool")); // affiche False
+Console.WriteLine(IsEmpty("   ")); // affiche False
 ```
 
 </details>
@@ -609,28 +501,20 @@ Console.WriteLine(Parité(-5)); // affiche "impair"
   <summary>Solution</summary>
 
 ```csharp
-using System;
-          
-public class Program
-{
-  // renvoie "pair" si le paramètre est pair, "impair" sinon.
-  static string Parité(int n){
-    if (n % 2 == 0) {
-      return "pair";
-    }
-    // le else n'est pas nécessaire car lorsqu'on rentre dans le if et que le return est exécuté, la méthode est arrêtée. 
-    // Si on a passé le if, c'est donc qu'on est forcément dans le else 
-    return "impair";
+// renvoie "pair" si le paramètre est pair, "impair" sinon.
+string Parité(int n){
+  if (n % 2 == 0) {
+    return "pair";
   }
-
-  public static void Main()
-  {
-    Console.WriteLine(Parité(2)); // affiche "pair"
-    Console.WriteLine(Parité(0)); // affiche "pair"
-    Console.WriteLine(Parité(5)); // affiche "impair"
-    Console.WriteLine(Parité(-5)); // affiche "impair"
-  }
+  // le else n'est pas nécessaire car lorsqu'on rentre dans le if et que le return est exécuté, la méthode est arrêtée. 
+  // Si on a passé le if, c'est donc qu'on est forcément dans le else 
+  return "impair";
 }
+
+Console.WriteLine(Parité(2)); // affiche "pair"
+Console.WriteLine(Parité(0)); // affiche "pair"
+Console.WriteLine(Parité(5)); // affiche "impair"
+Console.WriteLine(Parité(-5)); // affiche "impair"
 ```
 
 </details>
@@ -651,28 +535,20 @@ EstMemeLongueur("Ali", "Bob"); // retourne true
   <summary>Solution</summary>
 
 ```csharp
-using System;
-          
-public class Program
-{
-  // retourne vrai si les deux strings passés en paramètre ont la même taille et faux sinon.
-  static bool EstMemeLongueur(string str1, string str2){
-    return str1.Length == str2.Length;
-  }
-
-  public static void Main()
-  {
-    Console.WriteLine(EstMemeLongueur("AA", "BB")); // retourne true
-    Console.WriteLine(EstMemeLongueur("123", "1")); // retourne false
-    Console.WriteLine(EstMemeLongueur("Ali", "Bob")); // retourne true
-  }
+// retourne vrai si les deux strings passés en paramètre ont la même taille et faux sinon.
+bool EstMemeLongueur(string str1, string str2){
+  return str1.Length == str2.Length;
 }
+
+Console.WriteLine(EstMemeLongueur("AA", "BB")); // retourne true
+Console.WriteLine(EstMemeLongueur("123", "1")); // retourne false
+Console.WriteLine(EstMemeLongueur("Ali", "Bob")); // retourne true
 ```
 
 > ### Remarque :
 > Une autre solution est de définir la fonction `EstMemeLongueur` comme ceci : 
 > ```csharp
-> static bool EstMemeLongueur(string str1, string str2){
+> bool EstMemeLongueur(string str1, string str2){
 >  if (str1.Length == str2.Length) {
 >   return true;
 >  } else {
@@ -710,22 +586,14 @@ N’oubliez pas que le fermier veut connaître le nombre total de pattes et non 
   <summary>Solution</summary>
 
 ```csharp
-using System;
-          
-public class Program
-{
-  // renvoie le nombre de pattes des animaux
-  static int ComptePattes(int poulets, int vaches, int chevaux){	  
-    return poulets * 2 + vaches * 4 + chevaux * 4;
-  }
-
-  public static void Main()
-  {
-  Console.WriteLine(ComptePattes(1, 4, 2)); // renvoie 26
-  Console.WriteLine(ComptePattes(2, 2, 2)); // renvoie 20
-  Console.WriteLine(ComptePattes(2, 0, 3)); // renvoie 16
-  }
+// renvoie le nombre de pattes des animaux
+int ComptePattes(int poulets, int vaches, int chevaux){	  
+  return poulets * 2 + vaches * 4 + chevaux * 4;
 }
+
+Console.WriteLine(ComptePattes(1, 4, 2)); // renvoie 26
+Console.WriteLine(ComptePattes(2, 2, 2)); // renvoie 20
+Console.WriteLine(ComptePattes(2, 0, 3)); // renvoie 16
 ```
 
 </details>
@@ -745,34 +613,26 @@ GetMax(new int[]{9, 9, 9, 9}); // renvoie 9
   <summary>Solution</summary>
 
 ```csharp
-using System;
-          
-public class Program
-{
-  // renvoie le nombre maximum du tab, int.MinValue sinon
-  static int GetMax(int[] tab){
-    // on pose que le maximum est la valeur la plus petite possible (int.MinValue donne cette valeur)
-    int max = int.MinValue;
+// renvoie le nombre maximum du tab, int.MinValue sinon
+int GetMax(int[] tab){
+  // on pose que le maximum est la valeur la plus petite possible (int.MinValue donne cette valeur)
+  int max = int.MinValue;
 
-    // pour chaque élément du tableau...
-    foreach(int element in tab) {
-      // si l'élément courant du tableau est plus grand que le max courant...
-      if (element > max) {
-        // ... on remplace le max 
-        max = element;
-      }
+  // pour chaque élément du tableau...
+  foreach(int element in tab) {
+    // si l'élément courant du tableau est plus grand que le max courant...
+    if (element > max) {
+      // ... on remplace le max 
+      max = element;
     }
-    // on renvoie le maximum trouvé
-    return max;
   }
-
-  public static void Main()
-  {
-    Console.WriteLine(GetMax(new[]{9, 7, 1, 5})); // affiche 9
-    Console.WriteLine(GetMax(new[]{100, -100, 1, 50})); // affiche 100
-    Console.WriteLine(GetMax(new[]{9, 9, 9, 9})); // affiche 9
-  }
+  // on renvoie le maximum trouvé
+  return max;
 }
+
+Console.WriteLine(GetMax(new[]{9, 7, 1, 5})); // affiche 9
+Console.WriteLine(GetMax(new[]{100, -100, 1, 50})); // affiche 100
+Console.WriteLine(GetMax(new[]{9, 9, 9, 9})); // affiche 9
 ```
 
 </details>
@@ -793,32 +653,24 @@ Renverse(ref bonjour);
   <summary>Solution</summary>
 
 ```csharp
-using System;
-
-public class Program
+void Renverse(ref string phrase)
 {
-    static void Renverse(ref string phrase)
-    {
-        // déclaration et initialisation d'un string dans lequel on va construire la chaîne inversée
-        string phraseRenversée = "";
+    // déclaration et initialisation d'un string dans lequel on va construire la chaîne inversée
+    string phraseRenversée = "";
 
-        // pour chaque indice de la chaîne (de 0 à phrase.Length - 1)...
-        for(int i = 0; i < phrase.Length; i++)
-        {
-            // ... on met le caractère en position i au début de la chaîne renversée
-            phraseRenversée = phrase[i] + phraseRenversée;
-        }
-        // on assigne à phrase la nouvelle phrase
-        phrase = phraseRenversée;
-    }
-
-    public static void Main()
+    // pour chaque indice de la chaîne (de 0 à phrase.Length - 1)...
+    for(int i = 0; i < phrase.Length; i++)
     {
-        string bonjour = "Bonjour tout le monde !";
-        Renverse(ref bonjour); // on va modifier la variable bonjour dans la fonction Renverse
-        Console.WriteLine(bonjour); // affiche "! ednom el tuot ruojnoB"
+        // ... on met le caractère en position i au début de la chaîne renversée
+        phraseRenversée = phrase[i] + phraseRenversée;
     }
+    // on assigne à phrase la nouvelle phrase
+    phrase = phraseRenversée;
 }
+
+string bonjour = "Bonjour tout le monde !";
+Renverse(ref bonjour); // on va modifier la variable bonjour dans la fonction Renverse
+Console.WriteLine(bonjour); // affiche "! ednom el tuot ruojnoB"
 ```
 
 </details>
@@ -845,54 +697,46 @@ NbrOfSyllabes("-mon-", out nb); // nb vaut 2
   <summary>Solution</summary>
 
 ```csharp
-using System;
-
-public class Program
+// assigne à nb le nombre de syllabes séparés par des '-' de str
+void NbrOfSyllabes(string str,  out int nb)
 {
-    // assigne à nb le nombre de syllabes séparés par des '-' de str
-    static void NbrOfSyllabes(string str,  out int nb)
-    {
-        // initialisation du compteur
-        nb = 0;
+    // initialisation du compteur
+    nb = 0;
 
-        // pour chaque caractère dans str...
-        foreach (char caractere in str)
+    // pour chaque caractère dans str...
+    foreach (char caractere in str)
+    {
+        // si on est sur le premier caractère...
+        if (nb == 0)
         {
-            // si on est sur le premier caractère...
-            if (nb == 0)
-            {
-                // ... il y a au moins une syllabe
-                nb = 1;
-            }
-            else if (caractere == '-')
-            { // sinon, si c'est le caractère '-'...
-              // ... il y a une syllabe de plus
-                nb++;
-            }
+            // ... il y a au moins une syllabe
+            nb = 1;
+        }
+        else if (caractere == '-')
+        { // sinon, si c'est le caractère '-'...
+          // ... il y a une syllabe de plus
+            nb++;
         }
     }
-
-    public static void Main()
-    {
-        int nb;
-        NbrOfSyllabes("", out nb);
-        Console.WriteLine(nb); // affiche 0
-        NbrOfSyllabes("mon", out nb);
-        Console.WriteLine(nb); // affiche 1
-        NbrOfSyllabes("prin-temps", out nb);
-        Console.WriteLine(nb); // affiche 2
-        NbrOfSyllabes("ar-rê-te", out nb);
-        Console.WriteLine(nb); // affiche 3
-        NbrOfSyllabes("ther-mo-mè-tre", out nb);
-        Console.WriteLine(nb); // affiche 4
-        NbrOfSyllabes("-", out nb);
-        Console.WriteLine(nb); // affiche 1
-        NbrOfSyllabes("-mon", out nb);
-        Console.WriteLine(nb); // affiche 1
-        NbrOfSyllabes("-mon-", out nb);
-        Console.WriteLine(nb); // affiche 2
-    }
 }
+
+int nb;
+NbrOfSyllabes("", out nb);
+Console.WriteLine(nb); // affiche 0
+NbrOfSyllabes("mon", out nb);
+Console.WriteLine(nb); // affiche 1
+NbrOfSyllabes("prin-temps", out nb);
+Console.WriteLine(nb); // affiche 2
+NbrOfSyllabes("ar-rê-te", out nb);
+Console.WriteLine(nb); // affiche 3
+NbrOfSyllabes("ther-mo-mè-tre", out nb);
+Console.WriteLine(nb); // affiche 4
+NbrOfSyllabes("-", out nb);
+Console.WriteLine(nb); // affiche 1
+NbrOfSyllabes("-mon", out nb);
+Console.WriteLine(nb); // affiche 1
+NbrOfSyllabes("-mon-", out nb);
+Console.WriteLine(nb); // affiche 2
 ```
 
 </details>
@@ -914,31 +758,23 @@ GetIndex(new string[] {"A", "B", "C", "D"}, "E"); // renvoie -1
   <summary>Solution</summary>
 
 ```csharp
-using System;
-          
-public class Program
-{
-  // retourne l'indice de mot dans le tableau mots si il existe. Sinon -1.
-  static int GetIndex(string[] mots, string mot){
-    // on va parcourir chaque mot via l'indice i
-    for(int i = 0; i < mots.Length; i++) {
-      if(mots[i] == mot) {
-        // si mots[i] est le mot recherché, on retoure i
-        return i;
-      }
+// retourne l'indice de mot dans le tableau mots si il existe. Sinon -1.
+int GetIndex(string[] mots, string mot){
+  // on va parcourir chaque mot via l'indice i
+  for(int i = 0; i < mots.Length; i++) {
+    if(mots[i] == mot) {
+      // si mots[i] est le mot recherché, on retoure i
+      return i;
     }
-    // si on n'a rien trouvé, on retourne -1
-    return -1;
   }
-
-  public static void Main()
-  {
-    Console.WriteLine(GetIndex(new string[] {"A", "B", "C", "D"}, "B")); // affiche 1
-    Console.WriteLine(GetIndex(new string[] {"Alex", "Bob", "Emily", "Tom"}, "Emily")); // affiche 2
-    Console.WriteLine(GetIndex(new string[] {"C#", "PHP", "C++", "Java"}, "C#")); // affiche 0
-    Console.WriteLine(GetIndex(new string[] {"A", "B", "C", "D"}, "E")); // affiche -1
-  }
+  // si on n'a rien trouvé, on retourne -1
+  return -1;
 }
+
+Console.WriteLine(GetIndex(new string[] {"A", "B", "C", "D"}, "B")); // affiche 1
+Console.WriteLine(GetIndex(new string[] {"Alex", "Bob", "Emily", "Tom"}, "Emily")); // affiche 2
+Console.WriteLine(GetIndex(new string[] {"C#", "PHP", "C++", "Java"}, "C#")); // affiche 0
+Console.WriteLine(GetIndex(new string[] {"A", "B", "C", "D"}, "E")); // affiche -1
 ```
 
 </details>
@@ -969,41 +805,34 @@ DistanceHamming("attention", "intention"); // renvoie 2
   <summary>Solution</summary>
 
 ```csharp
-using System;
-          
-public class Program
+// renvoie le nombre de caractères différents entre 2 chaînes
+int DistanceHamming(string str1, string str2)
 {
-  // renvoie le nombre de caractères différents entre 2 chaînes
-  static int DistanceHamming(string str1, string str2)
+  // i sera l'indice de parcours et nbDifférences sera le nombre de différences
+  int i = 0, nbDifférences = 0;
+
+  // tant que i est un indice de str1
+  while (i < str1.Length)
   {
-    // i sera l'indice de parcours et nbDifférences sera le nombre de différences
-    int i = 0, nbDifférences = 0;
-
-    // tant que i est un indice de str1
-    while (i < str1.Length)
+    // si les caractères à la même position sont différents...
+    if (str1[i] != str2[i]) 
     {
-      // si les caractères à la même position sont différents...
-      if (str1[i] != str2[i]) 
-      {
-        // on incrémente le nombre de différences
-        nbDifférences++;
-      }
-
-      // on incrémente i
-      i++;
+      // on incrémente le nombre de différences
+      nbDifférences++;
     }
 
-    // on renvoie le nombre de différences
-    return nbDifférences;
+    // on incrémente i
+    i++;
   }
-  public static void Main()
-  {
-    Console.WriteLine(DistanceHamming("abcdde", "abcdbe")); // affiche 1
-    Console.WriteLine(DistanceHamming("abcdef", "defabc")); // affiche 6
-    Console.WriteLine(DistanceHamming("agresser", "adresser")); // affiche 1
-    Console.WriteLine(DistanceHamming("attention", "intention")); // affiche 2
-  }
+
+  // on renvoie le nombre de différences
+  return nbDifférences;
 }
+
+Console.WriteLine(DistanceHamming("abcdde", "abcdbe")); // affiche 1
+Console.WriteLine(DistanceHamming("abcdef", "defabc")); // affiche 6
+Console.WriteLine(DistanceHamming("agresser", "adresser")); // affiche 1
+Console.WriteLine(DistanceHamming("attention", "intention")); // affiche 2
 ```
 
 </details>
@@ -1013,25 +842,19 @@ public class Program
 Voici le code de la solution d'un précédent exercice :
 
 ```csharp
-using System;
-          
-public class Program
-{
-  public static void Main()
-  {
-    // déclaration et initialisation du tableau noms de 10 strings 
-    string[] noms = new string[10];
+// déclaration et initialisation du tableau noms de 10 strings 
+string[] noms = new string[10];
 
-    // déclaration et initialisation du tableau prix de 10 entiers 
-    int[] prix = new int[10];
-    
-    // déclaration et initialisation de la variable contenant le choix de l'utilisateur
-    int choix = 0;
-    
-    // on commence la boucle faire...tant que... (do/while) 
-    do {
-      // on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
-      Console.Write(@"
+// déclaration et initialisation du tableau prix de 10 entiers 
+int[] prix = new int[10];
+
+// déclaration et initialisation de la variable contenant le choix de l'utilisateur
+int choix = 0;
+
+// on commence la boucle faire...tant que... (do/while) 
+do {
+  // on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
+  Console.Write(@"
 1. Afficher tous les articles et leur prix
 2. Modifier le nom d'un article
 3. Modifier le prix d'un article
@@ -1040,219 +863,207 @@ public class Program
 
 Votre choix: ");
 
-      // on lit le choix de l'utilisateur
-      // 	=> choix sera à 0 si l'entrée n'est pas un nombre 
-      int.TryParse(Console.ReadLine(), out choix);
-      
-      // affichage d'une ligne vide 
-      Console.WriteLine();
+  // on lit le choix de l'utilisateur
+  // 	=> choix sera à 0 si l'entrée n'est pas un nombre 
+  int.TryParse(Console.ReadLine(), out choix);
+  
+  // affichage d'une ligne vide 
+  Console.WriteLine();
 
-      // si le choix est 1...
-      if (choix == 1) {
+  // si le choix est 1...
+  if (choix == 1) {
 
-        // i varie de 0 à 9
-        for(int i = 0; i < 10; i++) {
+    // i varie de 0 à 9
+    for(int i = 0; i < 10; i++) {
 
-          // si, pour l'élément à l'indice i, le nom est assigné ou le prix est assigné...
-          if (noms[i] != null || prix[i] != 0) {
-            // on affiche le nom et le prix
-            Console.WriteLine("{0}. {1} : {2} euros", i + 1, noms[i], prix[i]);
-          } else { // sinon...
-            // on affiche "Non défini"
-            Console.WriteLine("{0}. Non défini", i + 1);
-          }
-        }
-      } else if (choix >= 2 && choix <= 4) { // sinon, si le choix est compris entre 2 et 4...
-        // on va demander à l'utilisateur l'index de l'article à modifier 
-
-        //  indexArticle va contenir le numéro d'article à modifier
-        int indexArticle = -1;
-
-        do {
-          // affichage de la question
-          Console.Write("Quel numéro d'article voulez-vous modifier ? ");
-
-          // on lit indexArticle sur la console
-          int.TryParse(Console.ReadLine(), out indexArticle);
-          
-          // si l'index est inférieur à 1 ou supérieur à 10
-          if (indexArticle < 1 || indexArticle > 10) {
-            // on met indexArticle à -1
-            indexArticle = -1;
-          }
-        }while(indexArticle == -1); // on boucle sur la demande de l'indice tant que le nombre n'est pas correct 
-
-        // si le choix est 2 (modification du nom)
-        if (choix == 2) {
-          // on affiche la question du nom
-          Console.Write("Quel est le nouveau nom de l'article {0} ? ", indexArticle);
-
-          // on lit le nouveau nom
-          string nom = Console.ReadLine();
-
-          // on l'assigne au bon indice dans la tableau noms
-          noms[indexArticle - 1] = nom;
-
-          // on affiche le retour utilisateur
-          Console.WriteLine("Nom modifié avec succès");
-
-        } else if (choix == 3) { // ou si le choix est 3 (modification du prix)
-
-          // on affiche la question du prix
-          Console.Write("Quel est le nouveau prix de l'article {0} ? ", indexArticle);
-
-          // on lit le nouveau prix
-          int nouveauPrix = int.Parse(Console.ReadLine());
-
-          // on l'assigne au bon indice dans la tableau prix
-          prix[indexArticle - 1] = nouveauPrix;				
-
-          // on affiche le retour utilisateur
-          Console.WriteLine("Prix modifié avec succès");
-
-        } else if (choix == 4) {  // ou si le choix est 4 (suppression de l'article)
-          
-          // on efface le nom
-          noms[indexArticle - 1] = null;
-          
-          // on efface le prix
-          prix[indexArticle - 1] = 0;
-
-          // on affiche le retour utilisateur
-          Console.WriteLine("Article retiré avec succès");
-
-        }
-      } else if (choix != 5) { // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
-        // on affiche le message d'erreur
-        Console.WriteLine("Ce choix est invalide");
+      // si, pour l'élément à l'indice i, le nom est assigné ou le prix est assigné...
+      if (noms[i] != null || prix[i] != 0) {
+        // on affiche le nom et le prix
+        Console.WriteLine($"{i + 1}. {noms[i]} : {prix[i]} euros");
+      } else { // sinon...
+        // on affiche "Non défini"
+        Console.WriteLine($"{i + 1}. Non défini");
       }
-    } while(choix != 5); // on arrête cette boucle quand le choix est 5
+    }
+  } else if (choix >= 2 && choix <= 4) { // sinon, si le choix est compris entre 2 et 4...
+    // on va demander à l'utilisateur l'index de l'article à modifier 
+
+    //  indexArticle va contenir le numéro d'article à modifier
+    int indexArticle = -1;
+
+    do {
+      // affichage de la question
+      Console.Write("Quel numéro d'article voulez-vous modifier ? ");
+
+      // on lit indexArticle sur la console
+      int.TryParse(Console.ReadLine(), out indexArticle);
+      
+      // si l'index est inférieur à 1 ou supérieur à 10
+      if (indexArticle < 1 || indexArticle > 10) {
+        // on met indexArticle à -1
+        indexArticle = -1;
+      }
+    }while(indexArticle == -1); // on boucle sur la demande de l'indice tant que le nombre n'est pas correct 
+
+    // si le choix est 2 (modification du nom)
+    if (choix == 2) {
+      // on affiche la question du nom
+      Console.Write($"Quel est le nouveau nom de l'article {indexArticle} ? ");
+
+      // on lit le nouveau nom
+      string nom = Console.ReadLine();
+
+      // on l'assigne au bon indice dans la tableau noms
+      noms[indexArticle - 1] = nom;
+
+      // on affiche le retour utilisateur
+      Console.WriteLine("Nom modifié avec succès");
+
+    } else if (choix == 3) { // ou si le choix est 3 (modification du prix)
+
+      // on affiche la question du prix
+      Console.Write($"Quel est le nouveau prix de l'article {indexArticle} ? ");
+
+      // on lit le nouveau prix
+      int nouveauPrix = int.Parse(Console.ReadLine());
+
+      // on l'assigne au bon indice dans la tableau prix
+      prix[indexArticle - 1] = nouveauPrix;				
+
+      // on affiche le retour utilisateur
+      Console.WriteLine("Prix modifié avec succès");
+
+    } else if (choix == 4) {  // ou si le choix est 4 (suppression de l'article)
+      
+      // on efface le nom
+      noms[indexArticle - 1] = null;
+      
+      // on efface le prix
+      prix[indexArticle - 1] = 0;
+
+      // on affiche le retour utilisateur
+      Console.WriteLine("Article retiré avec succès");
+
+    }
+  } else if (choix != 5) { // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
+    // on affiche le message d'erreur
+    Console.WriteLine("Ce choix est invalide");
   }
-}
+} while(choix != 5); // on arrête cette boucle quand le choix est 5
 ```
 
-La fonction `Main` contient trop de lignes de code. Créez les fonctions manquantes pour que le programme fonctionne comme avant avec cette nouvelle définition de `Main`: 
+Ce code contient trop de lignes de code. Créez les fonctions manquantes pour que le programme fonctionne comme avant avec cette nouvelle définition du programme principal: 
 
 ```csharp
-public static void Main()
-  {
-    // déclaration et initialisation du tableau noms de 10 strings 
-    string[] noms = new string[10];
+// déclaration et initialisation du tableau noms de 10 strings 
+string[] noms = new string[10];
 
-    // déclaration et initialisation du tableau prix de 10 entiers 
-    int[] prix = new int[10];
+// déclaration et initialisation du tableau prix de 10 entiers 
+int[] prix = new int[10];
 
-    // déclaration et initialisation de la variable contenant le choix de l'utilisateur
-    int choix = 0;
+// déclaration et initialisation de la variable contenant le choix de l'utilisateur
+int choix = 0;
 
-    // on commence la boucle faire...tant que... (do/while) 
-    do
-    {
-      // on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
-      choix = DemandeChoix();
-      // si le choix est 1...
-      if (choix == 1)
+// on commence la boucle faire...tant que... (do/while) 
+do
+{
+  // on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
+  choix = DemandeChoix();
+  // si le choix est 1...
+  if (choix == 1)
+        {
+            AfficherArticles(noms, prix);
+        }
+        else if (choix >= 2 && choix <= 4)
+        { // sinon, si le choix est compris entre 2 et 4...
+          // on va demander à l'utilisateur l'index de l'article à modifier 
+
+            //  indexArticle va contenir le numéro d'article à modifier
+            int indexArticle = DemandeIndex(); 
+
+            // si le choix est 2 (modification du nom)
+            if (choix == 2)
             {
-                AfficherArticles(noms, prix);
+                ChangerNom(noms, indexArticle);
+
             }
-            else if (choix >= 2 && choix <= 4)
-            { // sinon, si le choix est compris entre 2 et 4...
-              // on va demander à l'utilisateur l'index de l'article à modifier 
+            else if (choix == 3)
+            { // ou si le choix est 3 (modification du prix)
+                ChangerPrix(prix, indexArticle);
 
-                //  indexArticle va contenir le numéro d'article à modifier
-                int indexArticle = DemandeIndex(); 
-
-                // si le choix est 2 (modification du nom)
-                if (choix == 2)
-                {
-                    ChangerNom(noms, indexArticle);
-
-                }
-                else if (choix == 3)
-                { // ou si le choix est 3 (modification du prix)
-                    ChangerPrix(prix, indexArticle);
-
-                }
-                else if (choix == 4)
-                {  // ou si le choix est 4 (suppression de l'article)
-                    SupprimerArticle(noms, prix, indexArticle);
-
-                }
             }
-            else if (choix != 5)
-      { // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
-        // on affiche le message d'erreur
-        Console.WriteLine("Ce choix est invalide");
-      }
-    } while (choix != 5); // on arrête cette boucle quand le choix est 5
+            else if (choix == 4)
+            {  // ou si le choix est 4 (suppression de l'article)
+                SupprimerArticle(noms, prix, indexArticle);
+
+            }
+        }
+        else if (choix != 5)
+  { // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
+    // on affiche le message d'erreur
+    Console.WriteLine("Ce choix est invalide");
   }
+} while (choix != 5); // on arrête cette boucle quand le choix est 5
 ```
 
 <details>
   <summary>Solution</summary>
 
 ```csharp
-using System;
+// déclaration et initialisation du tableau noms de 10 strings 
+string[] noms = new string[10];
 
-public class Program
+// déclaration et initialisation du tableau prix de 10 entiers 
+int[] prix = new int[10];
+
+// déclaration et initialisation de la variable contenant le choix de l'utilisateur
+int choix = 0;
+
+// on commence la boucle faire...tant que... (do/while) 
+do
 {
-  public static void Main()
-  {
-    // déclaration et initialisation du tableau noms de 10 strings 
-    string[] noms = new string[10];
+  // on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
+  choix = DemandeChoix();
+  // si le choix est 1...
+  if (choix == 1)
+        {
+            AfficherArticles(noms, prix);
+        }
+        else if (choix >= 2 && choix <= 4)
+        { // sinon, si le choix est compris entre 2 et 4...
+          // on va demander à l'utilisateur l'index de l'article à modifier 
 
-    // déclaration et initialisation du tableau prix de 10 entiers 
-    int[] prix = new int[10];
+            //  indexArticle va contenir le numéro d'article à modifier
+            int indexArticle = DemandeIndex(); 
 
-    // déclaration et initialisation de la variable contenant le choix de l'utilisateur
-    int choix = 0;
-
-    // on commence la boucle faire...tant que... (do/while) 
-    do
-    {
-      // on affiche le menu (le préfixe @ permet d'écrire un string sur plusieurs lignes)
-      choix = DemandeChoix();
-      // si le choix est 1...
-      if (choix == 1)
+            // si le choix est 2 (modification du nom)
+            if (choix == 2)
             {
-                AfficherArticles(noms, prix);
+                ChangerNom(noms, indexArticle);
+
             }
-            else if (choix >= 2 && choix <= 4)
-            { // sinon, si le choix est compris entre 2 et 4...
-              // on va demander à l'utilisateur l'index de l'article à modifier 
+            else if (choix == 3)
+            { // ou si le choix est 3 (modification du prix)
+                ChangerPrix(prix, indexArticle);
 
-                //  indexArticle va contenir le numéro d'article à modifier
-                int indexArticle = DemandeIndex(); 
-
-                // si le choix est 2 (modification du nom)
-                if (choix == 2)
-                {
-                    ChangerNom(noms, indexArticle);
-
-                }
-                else if (choix == 3)
-                { // ou si le choix est 3 (modification du prix)
-                    ChangerPrix(prix, indexArticle);
-
-                }
-                else if (choix == 4)
-                {  // ou si le choix est 4 (suppression de l'article)
-                    SupprimerArticle(noms, prix, indexArticle);
-
-                }
             }
-            else if (choix != 5)
-      { // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
-        // on affiche le message d'erreur
-        Console.WriteLine("Ce choix est invalide");
-      }
-    } while (choix != 5); // on arrête cette boucle quand le choix est 5
+            else if (choix == 4)
+            {  // ou si le choix est 4 (suppression de l'article)
+                SupprimerArticle(noms, prix, indexArticle);
+
+            }
+        }
+        else if (choix != 5)
+  { // si ce n'est pas 1, ni 2, ni 3, ni 4, ni 5...
+    // on affiche le message d'erreur
+    Console.WriteLine("Ce choix est invalide");
   }
+} while (choix != 5); // on arrête cette boucle quand le choix est 5
 
-  static int DemandeChoix()
-  {
-    int choix = 0;
-    Console.Write(@"
+int DemandeChoix()
+{
+  int choix = 0;
+  Console.Write(@"
 1. Afficher tous les articles et leur prix
 2. Modifier le nom d'un article
 3. Modifier le prix d'un article
@@ -1261,102 +1072,101 @@ public class Program
 
 Votre choix: ");
 
-    // on lit le choix de l'utilisateur
-    // 	=> choix sera à 0 si l'entrée n'est pas un nombre 
-    int.TryParse(Console.ReadLine(), out choix);
+  // on lit le choix de l'utilisateur
+  // 	=> choix sera à 0 si l'entrée n'est pas un nombre 
+  int.TryParse(Console.ReadLine(), out choix);
 
-    // affichage d'une ligne vide 
-    Console.WriteLine();
+  // affichage d'une ligne vide 
+  Console.WriteLine();
 
-    return choix;
+  return choix;
+}
+
+void AfficherArticles(string[] noms, int[] prix)
+{
+    // i varie de 0 à 9
+    for (int i = 0; i < 10; i++)
+    {
+
+        // si, pour l'élément à l'indice i, le nom est assigné ou le prix est assigné...
+        if (noms[i] != null || prix[i] != 0)
+        {
+            // on affiche le nom et le prix
+            Console.WriteLine($"{i + 1}. {noms[i]} : {prix[i]} euros");
+        }
+        else
+        { // sinon...
+          // on affiche "Non défini"
+            Console.WriteLine($"{i + 1}. Non défini");
+        }
+    }
   }
 
-  static void AfficherArticles(string[] noms, int[] prix)
+  int DemandeIndex()
   {
-      // i varie de 0 à 9
-      for (int i = 0; i < 10; i++)
+      int indexArticle = -1;
+
+      do
       {
+          // affichage de la question
+          Console.Write("Quel numéro d'article voulez-vous modifier ? ");
 
-          // si, pour l'élément à l'indice i, le nom est assigné ou le prix est assigné...
-          if (noms[i] != null || prix[i] != 0)
+          // on lit indexArticle sur la console
+          int.TryParse(Console.ReadLine(), out indexArticle);
+
+          // si l'index est inférieur à 1 ou supérieur à 10
+          if (indexArticle < 1 || indexArticle > 10)
           {
-              // on affiche le nom et le prix
-              Console.WriteLine("{0}. {1} : {2} euros", i + 1, noms[i], prix[i]);
+              // on met indexArticle à -1
+              indexArticle = -1;
           }
-          else
-          { // sinon...
-            // on affiche "Non défini"
-              Console.WriteLine("{0}. Non défini", i + 1);
-          }
-      }
-    }
+      } while (indexArticle == -1);
+      // on boucle sur la demande de l'indice tant que le nombre n'est pas correct
+      
+      return indexArticle;
+  }
 
-    static int DemandeIndex()
-    {
-        int indexArticle = -1;
+  void ChangerNom(string[] noms, int indexArticle)
+  {
+      // on affiche la question du nom
+      Console.Write($"Quel est le nouveau nom de l'article {indexArticle} ? ");
 
-        do
-        {
-            // affichage de la question
-            Console.Write("Quel numéro d'article voulez-vous modifier ? ");
+      // on lit le nouveau nom
+      string nom = Console.ReadLine();
 
-            // on lit indexArticle sur la console
-            int.TryParse(Console.ReadLine(), out indexArticle);
+      // on l'assigne au bon indice dans la tableau noms
+      noms[indexArticle - 1] = nom;
 
-            // si l'index est inférieur à 1 ou supérieur à 10
-            if (indexArticle < 1 || indexArticle > 10)
-            {
-                // on met indexArticle à -1
-                indexArticle = -1;
-            }
-        } while (indexArticle == -1);
-        // on boucle sur la demande de l'indice tant que le nombre n'est pas correct
-        
-        return indexArticle;
-    }
+      // on affiche le retour utilisateur
+      Console.WriteLine("Nom modifié avec succès");
+  }
 
-    static void ChangerNom(string[] noms, int indexArticle)
-    {
-        // on affiche la question du nom
-        Console.Write("Quel est le nouveau nom de l'article {0} ? ", indexArticle);
+  void ChangerPrix(int[] prix, int indexArticle)
+  {
+      // on affiche la question du prix
+      Console.Write($"Quel est le nouveau prix de l'article {indexArticle} ? ");
 
-        // on lit le nouveau nom
-        string nom = Console.ReadLine();
+      // on lit le nouveau prix
+      int nouveauPrix = int.Parse(Console.ReadLine());
 
-        // on l'assigne au bon indice dans la tableau noms
-        noms[indexArticle - 1] = nom;
+      // on l'assigne au bon indice dans la tableau prix
+      prix[indexArticle - 1] = nouveauPrix;
 
-        // on affiche le retour utilisateur
-        Console.WriteLine("Nom modifié avec succès");
-    }
+      // on affiche le retour utilisateur
+      Console.WriteLine("Prix modifié avec succès");
+  }
 
-    static void ChangerPrix(int[] prix, int indexArticle)
-    {
-        // on affiche la question du prix
-        Console.Write("Quel est le nouveau prix de l'article {0} ? ", indexArticle);
+  void SupprimerArticle(string[] noms, int[] prix, int indexArticle)
+  {
+      // on efface le nom
+      noms[indexArticle - 1] = null;
 
-        // on lit le nouveau prix
-        int nouveauPrix = int.Parse(Console.ReadLine());
+      // on efface le prix
+      prix[indexArticle - 1] = 0;
 
-        // on l'assigne au bon indice dans la tableau prix
-        prix[indexArticle - 1] = nouveauPrix;
-
-        // on affiche le retour utilisateur
-        Console.WriteLine("Prix modifié avec succès");
-    }
-
-    static void SupprimerArticle(string[] noms, int[] prix, int indexArticle)
-    {
-        // on efface le nom
-        noms[indexArticle - 1] = null;
-
-        // on efface le prix
-        prix[indexArticle - 1] = 0;
-
-        // on affiche le retour utilisateur
-        Console.WriteLine("Article retiré avec succès");
-    }
-}
+      // on affiche le retour utilisateur
+      Console.WriteLine("Article retiré avec succès");
+  }
 ```
 
 </details>

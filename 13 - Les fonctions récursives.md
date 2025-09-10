@@ -1,4 +1,4 @@
-# Les fonctions récursives
+﻿# Les fonctions récursives
 
 Une fonction récursive est une fonction qui s'appelle elle-même. C'est une approche utile pour résoudre des problèmes qui peuvent être décomposés en sous-problèmes plus petits et similaires à l'original.
 
